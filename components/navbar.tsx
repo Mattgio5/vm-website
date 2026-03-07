@@ -167,14 +167,8 @@ export function Navbar() {
             />
           </Link>
 
-          {/* CTA buttons */}
-          <div className="flex items-center gap-2 md:gap-3">
-            <Link
-              href="#contact"
-              className="hidden rounded-full border border-vm-navy/20 bg-white px-5 py-2 text-sm font-medium text-vm-navy transition-all hover:border-vm-navy/40 hover:shadow-sm md:inline-flex"
-            >
-              Login
-            </Link>
+          {/* CTA button */}
+          <div className="flex items-center">
             <Link
               href="#quote"
               className="inline-flex items-center gap-1.5 rounded-full bg-vm-blue px-4 py-2 text-sm font-semibold text-vm-navy transition-all hover:bg-vm-blue-dark hover:shadow-md md:px-5"
