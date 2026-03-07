@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Menu, X, Phone } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 const navLinks = [
   { label: "Products", href: "#products" },
@@ -49,9 +50,14 @@ export function Navbar() {
 
           {/* Logo */}
           <Link href="/" className="absolute left-1/2 -translate-x-1/2">
-            <span className="font-serif text-2xl font-bold tracking-tight text-vm-navy md:text-3xl">
-              Varsity Mulch
-            </span>
+            <Image
+              src="/images/vm-logo.png"
+              alt="Varsity Mulching LLC"
+              width={120}
+              height={80}
+              className="h-12 w-auto md:h-14"
+              priority
+            />
           </Link>
 
           {/* CTA buttons */}
