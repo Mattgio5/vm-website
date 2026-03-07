@@ -1,7 +1,6 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ServiceDetail } from "@/components/services/service-detail"
-import { Sparkles } from "lucide-react"
 
 export const metadata = {
   title: "Bed Cleanup | Varsity Mulch",
@@ -16,7 +15,6 @@ export default function BedCleanupPage() {
       <ServiceDetail
         title="Bed Cleanup"
         tagline="Revitalize tired, neglected beds"
-        icon={Sparkles}
         image="/images/service-cleanup.jpg"
         description="Give your landscape beds a fresh start with comprehensive cleanup services that remove debris, dead material, and prepare for new growth."
         longDescription="Over time, landscape beds accumulate leaves, debris, dead plants, and decomposed mulch that make them look tired and unkempt. Our bed cleanup service is a complete renovation for your garden beds. We remove all debris and dead plant material, extract weeds and unwanted vegetation, clear out old mulch when needed, and prepare the soil for fresh plantings or a new layer of mulch. Whether your beds need a seasonal refresh or a complete overhaul, our cleanup service restores them to pristine condition."

@@ -1,4 +1,4 @@
-import { Star } from "lucide-react"
+import Link from "next/link"
 
 const testimonials = [
   {
@@ -6,21 +6,18 @@ const testimonials = [
     role: "Homeowner",
     quote:
       "Varsity Mulch made my landscaping project so easy. The mulch quality was amazing and it was delivered the next day!",
-    rating: 5,
   },
   {
     name: "Jake T.",
     role: "Landscape Contractor",
     quote:
       "I've been ordering bulk for my clients for 3 years. Consistent quality, fair pricing, and they always show up on time.",
-    rating: 5,
   },
   {
     name: "Linda R.",
     role: "Homeowner",
     quote:
       "Used the calculator to figure out exactly what I needed — no waste, no extra trips. Highly recommend Varsity Mulch!",
-    rating: 5,
   },
 ]
 
@@ -32,7 +29,7 @@ export function TestimonialsSection() {
           <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
             Testimonials
           </p>
-          <h2 className="font-serif text-3xl font-bold tracking-tight text-vm-navy md:text-4xl lg:text-5xl text-balance">
+          <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl lg:text-5xl text-balance">
             Loved by Homeowners & Pros
           </h2>
         </div>
@@ -43,14 +40,6 @@ export function TestimonialsSection() {
               key={t.name}
               className="rounded-2xl border border-border bg-card p-6 transition-all hover:shadow-lg md:p-8"
             >
-              <div className="mb-4 flex gap-0.5">
-                {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="h-4 w-4 fill-vm-yellow text-vm-yellow-dark"
-                  />
-                ))}
-              </div>
               <p className="text-base leading-relaxed text-vm-navy/80">
                 {`"${t.quote}"`}
               </p>
@@ -60,6 +49,16 @@ export function TestimonialsSection() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Link to gallery */}
+        <div className="mt-12 text-center">
+          <Link
+            href="/gallery"
+            className="inline-flex rounded-full border-2 border-vm-navy/20 bg-white px-7 py-3.5 text-base font-semibold text-vm-navy transition-all hover:border-vm-navy/40 hover:shadow-md"
+          >
+            Hear from More Happy Customers
+          </Link>
         </div>
       </div>
     </section>

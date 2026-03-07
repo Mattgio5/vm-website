@@ -1,24 +1,23 @@
 import Link from "next/link"
-import { Phone, Mail, MapPin } from "lucide-react"
+import Image from "next/image"
 
 const footerLinks = {
-  Products: [
-    { label: "Premium Mulch", href: "#products" },
-    { label: "Topsoil & Fill", href: "#products" },
-    { label: "Stone & Gravel", href: "#products" },
-    { label: "Compost & Blend", href: "#products" },
+  Services: [
+    { label: "Mulch Installation", href: "/services/mulch-installation" },
+    { label: "Landscape Edging", href: "/services/edges" },
+    { label: "Weed Control", href: "/services/weed-control" },
+    { label: "Bed Cleanup", href: "/services/bed-cleanup" },
   ],
   Company: [
-    { label: "About Us", href: "#about" },
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Delivery Area", href: "#" },
-    { label: "Contact", href: "#contact" },
+    { label: "About Us", href: "/about" },
+    { label: "Gallery", href: "/gallery" },
+    { label: "Careers", href: "/careers" },
+    { label: "Media", href: "/media" },
   ],
-  Resources: [
-    { label: "Mulch Calculator", href: "#calculator" },
-    { label: "FAQs", href: "#" },
-    { label: "Blog", href: "#" },
-    { label: "Bulk Pricing", href: "#" },
+  Contact: [
+    { label: "(555) 123-4567", href: "tel:+15551234567" },
+    { label: "info@varsitymulch.com", href: "mailto:info@varsitymulch.com" },
+    { label: "Serving the greater metro area", href: "#" },
   ],
 }
 
@@ -29,33 +28,19 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand column */}
           <div className="lg:col-span-2">
-            <span className="font-serif text-2xl font-bold text-white">
-              Varsity Mulch
-            </span>
+            <Link href="/" className="inline-block">
+              <Image
+                src="/images/vm-logo.png"
+                alt="Varsity Mulching LLC"
+                width={120}
+                height={80}
+                className="h-16 w-auto"
+              />
+            </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/50">
               Your trusted source for premium mulch, topsoil, stone, and
               landscaping supplies. Fast delivery, fair prices, and expert advice.
             </p>
-            <div className="mt-6 flex flex-col gap-3">
-              <a
-                href="tel:+15551234567"
-                className="flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-vm-blue"
-              >
-                <Phone className="h-4 w-4" />
-                (555) 123-4567
-              </a>
-              <a
-                href="mailto:info@varsitymulch.com"
-                className="flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-vm-blue"
-              >
-                <Mail className="h-4 w-4" />
-                info@varsitymulch.com
-              </a>
-              <span className="flex items-center gap-2 text-sm text-white/60">
-                <MapPin className="h-4 w-4 shrink-0" />
-                Serving the greater metro area
-              </span>
-            </div>
           </div>
 
           {/* Link columns */}

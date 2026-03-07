@@ -1,34 +1,31 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { Menu, X, Phone, ChevronDown, Leaf, Scissors, Bug, Sparkles, ArrowRight } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 
 const services = [
   {
     label: "Mulch Installation",
     href: "/services/mulch-installation",
     description: "Premium mulch delivered and professionally installed",
-    icon: Leaf,
   },
   {
     label: "Landscape Edging",
     href: "/services/edges",
     description: "Clean, crisp borders for your garden beds",
-    icon: Scissors,
   },
   {
     label: "Weed Control",
     href: "/services/weed-control",
     description: "Keep unwanted growth at bay year-round",
-    icon: Bug,
   },
   {
     label: "Bed Cleanup",
     href: "/services/bed-cleanup",
     description: "Seasonal refresh for pristine flower beds",
-    icon: Sparkles,
   },
 ]
 
@@ -43,6 +40,12 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const pathname = usePathname()
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/"
+    return pathname.startsWith(href)
+  }
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -82,7 +85,9 @@ export function Navbar() {
             <div ref={dropdownRef} className="relative">
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
-                className="flex items-center gap-1 text-sm font-medium text-vm-navy transition-colors hover:text-vm-blue-dark"
+                className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-vm-blue-dark ${
+                  isActive("/services") ? "text-vm-blue-dark bg-vm-blue/15 px-3 py-1 rounded-full" : "text-vm-navy"
+                }`}
               >
                 Services
                 <ChevronDown
@@ -94,14 +99,18 @@ export function Navbar() {
               {servicesOpen && (
                 <div className="absolute left-0 top-full mt-3 w-80 origin-top-left animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="rounded-xl border border-white/40 bg-white/95 p-4 shadow-xl backdrop-blur-xl">
-                    {/* Overview section */}
+                    {/* Overview section with View All at top */}
                     <div className="mb-3 border-b border-vm-navy/10 pb-3">
-                      <p className="text-xs font-semibold uppercase tracking-wider text-vm-blue-dark">
-                        Our Services
-                      </p>
-                      <p className="mt-1 text-sm text-vm-navy/70">
+                      <p className="text-sm text-vm-navy/70">
                         Professional landscaping solutions for beautiful, maintained outdoor spaces.
                       </p>
+                      <Link
+                        href="/services"
+                        onClick={() => setServicesOpen(false)}
+                        className="mt-2 inline-block text-sm font-semibold text-vm-blue-dark hover:underline"
+                      >
+                        See All Services
+                      </Link>
                     </div>
 
                     {/* Service links */}
@@ -111,33 +120,16 @@ export function Navbar() {
                           key={service.label}
                           href={service.href}
                           onClick={() => setServicesOpen(false)}
-                          className="group flex items-start gap-3 rounded-lg p-2.5 transition-colors hover:bg-vm-blue/10"
+                          className="group rounded-lg p-2.5 transition-colors hover:bg-vm-blue/10"
                         >
-                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-vm-blue/20 text-vm-navy transition-colors group-hover:bg-vm-blue/30">
-                            <service.icon className="h-4 w-4" />
-                          </div>
-                          <div className="flex-1">
-                            <span className="block text-sm font-medium text-vm-navy">
-                              {service.label}
-                            </span>
-                            <span className="text-xs text-vm-navy/60">
-                              {service.description}
-                            </span>
-                          </div>
+                          <span className="block text-sm font-medium text-vm-navy">
+                            {service.label}
+                          </span>
+                          <span className="text-xs text-vm-navy/60">
+                            {service.description}
+                          </span>
                         </Link>
                       ))}
-                    </div>
-
-                    {/* View All Services link */}
-                    <div className="mt-3 border-t border-vm-navy/10 pt-3">
-                      <Link
-                        href="/services"
-                        onClick={() => setServicesOpen(false)}
-                        className="flex items-center justify-between rounded-lg bg-vm-navy/5 px-3 py-2.5 text-sm font-medium text-vm-navy transition-colors hover:bg-vm-navy/10"
-                      >
-                        View All Services
-                        <ArrowRight className="h-4 w-4" />
-                      </Link>
                     </div>
                   </div>
                 </div>
@@ -148,23 +140,32 @@ export function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-vm-navy transition-colors hover:text-vm-blue-dark"
+                className={`text-sm font-medium transition-colors hover:text-vm-blue-dark ${
+                  isActive(link.href) ? "text-vm-blue-dark bg-vm-blue/15 px-3 py-1 rounded-full" : "text-vm-navy"
+                }`}
               >
                 {link.label}
               </Link>
             ))}
           </div>
 
-          {/* Logo */}
-          <Link href="/" className="absolute left-1/2 -translate-x-1/2">
+          {/* Logo - Home button */}
+          <Link 
+            href="/" 
+            className="group absolute left-1/2 -translate-x-1/2 flex flex-col items-center"
+            title="Go to Home"
+          >
             <Image
               src="/images/vm-logo.png"
-              alt="Varsity Mulching LLC"
+              alt="Varsity Mulching LLC - Click to go home"
               width={120}
               height={80}
-              className="h-12 w-auto md:h-14"
+              className="h-12 w-auto transition-transform group-hover:scale-105 md:h-14"
               priority
             />
+            <span className="mt-0.5 text-[10px] font-medium text-vm-navy/50 opacity-0 transition-opacity group-hover:opacity-100">
+              Home
+            </span>
           </Link>
 
           {/* CTA button */}
@@ -183,33 +184,30 @@ export function Navbar() {
           <div className="mt-3 flex flex-col gap-1 border-t border-vm-navy/10 pt-3 md:hidden">
             {/* Services Section */}
             <div className="mb-2">
-              <p className="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-vm-blue-dark">
-                Services
-              </p>
               <p className="px-3 pb-2 text-xs text-vm-navy/60">
                 Professional landscaping solutions
               </p>
+              <Link
+                href="/services"
+                onClick={() => setMobileOpen(false)}
+                className={`rounded-lg px-3 py-2.5 text-sm font-semibold transition-colors hover:bg-vm-blue/15 ${
+                  isActive("/services") ? "text-vm-blue-dark bg-vm-blue/15" : "text-vm-navy"
+                }`}
+              >
+                See All Services
+              </Link>
               {services.map((service) => (
                 <Link
                   key={service.label}
                   href={service.href}
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center gap-3 rounded-lg px-3 py-2.5 transition-colors hover:bg-vm-blue/15"
+                  className={`block rounded-lg px-3 py-2.5 transition-colors hover:bg-vm-blue/15 ${
+                    isActive(service.href) ? "text-vm-blue-dark bg-vm-blue/15" : ""
+                  }`}
                 >
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-vm-blue/20 text-vm-navy">
-                    <service.icon className="h-4 w-4" />
-                  </div>
                   <span className="text-sm font-medium text-vm-navy">{service.label}</span>
                 </Link>
               ))}
-              <Link
-                href="/services"
-                onClick={() => setMobileOpen(false)}
-                className="mx-3 mt-1 flex items-center justify-between rounded-lg bg-vm-navy/5 px-3 py-2 text-sm font-medium text-vm-navy"
-              >
-                View All Services
-                <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
 
             {/* Divider */}
@@ -221,7 +219,9 @@ export function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-sm font-medium text-vm-navy transition-colors hover:bg-vm-blue/15"
+                className={`rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-vm-blue/15 ${
+                  isActive(link.href) ? "text-vm-blue-dark bg-vm-blue/15" : "text-vm-navy"
+                }`}
               >
                 {link.label}
               </Link>
@@ -229,9 +229,8 @@ export function Navbar() {
             <Link
               href="tel:+15551234567"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-vm-navy transition-colors hover:bg-vm-blue/15"
+              className="rounded-lg px-3 py-2.5 text-sm font-medium text-vm-navy transition-colors hover:bg-vm-blue/15"
             >
-              <Phone className="h-4 w-4" />
               Call Us
             </Link>
           </div>

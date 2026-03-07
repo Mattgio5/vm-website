@@ -1,7 +1,6 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ServiceDetail } from "@/components/services/service-detail"
-import { Bug } from "lucide-react"
 
 export const metadata = {
   title: "Weed Control | Varsity Mulch",
@@ -16,7 +15,6 @@ export default function WeedControlPage() {
       <ServiceDetail
         title="Weed Control"
         tagline="Keep weeds at bay, the right way"
-        icon={Bug}
         image="/images/service-weed.jpg"
         description="Protect your landscape investment with comprehensive weed control that stops weeds before they start and eliminates existing ones."
         longDescription="Weeds are more than an eyesore—they compete with your plants for water, nutrients, and sunlight. Our weed control services take a multi-pronged approach to keeping your beds weed-free. We start by removing existing weeds, roots and all, then apply pre-emergent treatments that create a barrier to prevent new weeds from germinating. For long-term protection, we can install professional-grade landscape fabric beneath your mulch. The result? Cleaner beds, healthier plants, and less time spent pulling weeds."

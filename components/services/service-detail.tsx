@@ -1,14 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, ArrowRight, Phone, Check } from "lucide-react"
-import type { LucideIcon } from "lucide-react"
 
 interface ServiceDetailProps {
   title: string
   tagline: string
   description: string
   longDescription: string
-  icon: LucideIcon
   image: string
   features: string[]
   benefits: { title: string; description: string }[]
@@ -21,7 +18,6 @@ export function ServiceDetail({
   tagline,
   description,
   longDescription,
-  icon: Icon,
   image,
   features,
   benefits,
@@ -47,19 +43,15 @@ export function ServiceDetail({
           <div className="mx-auto w-full max-w-7xl">
             <Link
               href="/services"
-              className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-white/70 transition-colors hover:text-white"
+              className="mb-6 inline-flex text-sm font-medium text-white/70 transition-colors hover:text-white"
             >
-              <ArrowLeft className="h-4 w-4" />
               Back to All Services
             </Link>
             <div className="max-w-2xl">
-              <div className="mb-4 inline-flex rounded-xl bg-white/10 p-3 backdrop-blur-sm">
-                <Icon className="h-7 w-7 text-vm-blue" />
-              </div>
               <p className="text-sm font-semibold tracking-wider text-vm-blue uppercase">
                 {tagline}
               </p>
-              <h1 className="mt-2 font-serif text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl text-balance">
+              <h1 className="mt-2 text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl text-balance">
                 {title}
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-white/80 md:text-xl">
@@ -75,7 +67,7 @@ export function ServiceDetail({
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-3 lg:gap-16">
           {/* Left column - Description & Features */}
           <div className="lg:col-span-2">
-            <h2 className="font-serif text-2xl font-bold text-vm-navy md:text-3xl">
+            <h2 className="text-2xl font-bold text-vm-navy md:text-3xl">
               About This Service
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -89,11 +81,9 @@ export function ServiceDetail({
                 {features.map((feature) => (
                   <li
                     key={feature}
-                    className="flex items-start gap-3 rounded-xl border border-border bg-card p-4"
+                    className="flex items-center gap-3 rounded-xl border border-border bg-card p-4"
                   >
-                    <div className="rounded-full bg-vm-blue/20 p-1.5">
-                      <Check className="h-4 w-4 text-vm-navy" />
-                    </div>
+                    <span className="h-2 w-2 rounded-full bg-vm-blue" />
                     <span className="text-sm font-medium text-vm-navy">{feature}</span>
                   </li>
                 ))}
@@ -128,7 +118,7 @@ export function ServiceDetail({
           <div className="lg:sticky lg:top-32 lg:self-start">
             {/* CTA Card */}
             <div className="rounded-2xl border border-vm-blue/30 bg-vm-blue/10 p-6">
-              <h3 className="font-serif text-xl font-bold text-vm-navy">
+              <h3 className="text-xl font-bold text-vm-navy">
                 Get a Free Quote
               </h3>
               <p className="mt-2 text-sm text-muted-foreground">
@@ -137,16 +127,14 @@ export function ServiceDetail({
               <div className="mt-5 flex flex-col gap-3">
                 <Link
                   href="#quote"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
+                  className="inline-flex justify-center rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
                 >
                   Request Quote
-                  <ArrowRight className="h-4 w-4" />
                 </Link>
                 <a
                   href="tel:+15551234567"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-vm-navy px-6 py-3 text-sm font-semibold text-vm-navy transition-all hover:bg-vm-navy hover:text-white"
+                  className="inline-flex justify-center rounded-full border-2 border-vm-navy px-6 py-3 text-sm font-semibold text-vm-navy transition-all hover:bg-vm-navy hover:text-white"
                 >
-                  <Phone className="h-4 w-4" />
                   (555) 123-4567
                 </a>
               </div>

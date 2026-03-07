@@ -2,41 +2,19 @@
 
 import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 
-const slides = [
-  {
-    image: "/images/hero-mulch.jpg",
-    heading: "Premium Mulch,\nDelivered.",
-    subheading:
-      "The easiest way to get quality mulch, topsoil, and stone delivered straight to your yard.",
-    cta: "Get a Free Quote",
-    ctaHref: "#quote",
-  },
-  {
-    image: "/images/hero-delivery.jpg",
-    heading: "Fast Delivery,\nFair Prices.",
-    subheading:
-      "Same-week delivery on bulk orders. Serving homeowners, contractors, and landscapers alike.",
-    cta: "See Our Products",
-    ctaHref: "#products",
-  },
-  {
-    image: "/images/hero-yard.jpg",
-    heading: "Your Yard,\nElevated.",
-    subheading:
-      "From garden beds to driveways, we have the materials to transform your outdoor space.",
-    cta: "Calculate Your Needs",
-    ctaHref: "#calculator",
-  },
+const backgroundImages = [
+  "/images/hero-mulch.jpg",
+  "/images/hero-delivery.jpg",
+  "/images/hero-yard.jpg",
 ]
 
 export function HeroCarousel() {
   const [current, setCurrent] = useState(0)
 
   const next = useCallback(() => {
-    setCurrent((prev) => (prev + 1) % slides.length)
+    setCurrent((prev) => (prev + 1) % backgroundImages.length)
   }, [])
 
   useEffect(() => {
@@ -44,22 +22,20 @@ export function HeroCarousel() {
     return () => clearInterval(interval)
   }, [next])
 
-  const slide = slides[current]
-
   return (
     <section 
       className="relative w-full overflow-hidden"
       style={{ height: 'calc(100vh - 1px)', minHeight: '600px' }}
     >
       {/* Background images */}
-      {slides.map((s, i) => (
+      {backgroundImages.map((image, i) => (
         <div
           key={i}
           className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
           style={{ opacity: i === current ? 1 : 0 }}
         >
           <Image
-            src={s.image}
+            src={image}
             alt={`Varsity Mulch landscaping showcase ${i + 1}`}
             fill
             className="object-cover"
@@ -69,26 +45,20 @@ export function HeroCarousel() {
         </div>
       ))}
 
-      {/* Content card — glassmorphism like Yardzen */}
+      {/* Static content card */}
       <div className="relative z-10 flex h-full flex-col justify-center px-4 pt-28 pb-40 md:px-12 md:pt-32 md:pb-36 lg:px-20">
         <div className="w-full max-w-xl rounded-2xl border border-white/30 bg-white/65 p-8 shadow-2xl backdrop-blur-xl md:p-10">
-          <h1 className="font-serif text-4xl leading-tight font-bold tracking-tight text-vm-navy md:text-5xl lg:text-6xl">
-            {slide.heading.split("\n").map((line, i) => (
-              <span key={i}>
-                {line}
-                {i < slide.heading.split("\n").length - 1 && <br />}
-              </span>
-            ))}
+          <h1 className="text-4xl leading-tight font-bold tracking-tight text-vm-navy md:text-5xl lg:text-6xl">
+            Your Yard,<br />Your Way.
           </h1>
           <p className="mt-4 text-base leading-relaxed text-vm-navy/75 md:text-lg">
-            {slide.subheading}
+            From garden beds to driveways, we have the materials to transform your yard.
           </p>
           <Link
-            href={slide.ctaHref}
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg md:px-7 md:py-3.5 md:text-base"
+            href="/services"
+            className="mt-6 inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg md:px-7 md:py-3.5 md:text-base"
           >
-            {slide.cta}
-            <ArrowRight className="h-4 w-4" />
+            See Our Services
           </Link>
         </div>
       </div>
@@ -100,7 +70,7 @@ export function HeroCarousel() {
         
         {/* Carousel dots */}
         <div className="flex items-center gap-2">
-          {slides.map((_, i) => (
+          {backgroundImages.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
@@ -114,12 +84,12 @@ export function HeroCarousel() {
           ))}
         </div>
 
-        {/* Schedule a call — bottom right like Yardzen */}
+        {/* Happy customers CTA */}
         <Link
-          href="tel:+15551234567"
+          href="/gallery"
           className="hidden rounded-full border border-white/40 bg-white/70 px-5 py-2.5 text-sm font-semibold text-vm-navy shadow-lg backdrop-blur-md transition-all hover:bg-white/90 hover:shadow-xl md:inline-flex"
         >
-          Schedule a Free Call
+          Happy Customers
         </Link>
       </div>
     </section>

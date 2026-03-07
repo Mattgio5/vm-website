@@ -1,7 +1,6 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ServiceDetail } from "@/components/services/service-detail"
-import { Scissors } from "lucide-react"
 
 export const metadata = {
   title: "Landscape Edging | Varsity Mulch",
@@ -16,7 +15,6 @@ export default function EdgesPage() {
       <ServiceDetail
         title="Landscape Edging"
         tagline="Crisp, clean borders that last"
-        icon={Scissors}
         image="/images/service-edges.jpg"
         description="Define your landscape beds with precision-cut edges that create a polished, professional appearance and keep grass where it belongs."
         longDescription="Clean, well-defined edges are the hallmark of a professionally maintained landscape. Our edging services create crisp borders between your lawn and garden beds, giving your property a manicured look that impresses. Beyond aesthetics, proper edging serves a practical purpose: it creates a barrier that prevents grass runners from invading your mulched areas, reducing maintenance and keeping your beds looking neat. We offer both traditional spade-cut edges and permanent edging installation using quality metal or plastic materials."

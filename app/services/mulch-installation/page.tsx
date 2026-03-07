@@ -1,7 +1,6 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ServiceDetail } from "@/components/services/service-detail"
-import { Leaf } from "lucide-react"
 
 export const metadata = {
   title: "Mulch Installation | Varsity Mulch",
@@ -16,7 +15,6 @@ export default function MulchInstallationPage() {
       <ServiceDetail
         title="Mulch Installation"
         tagline="Premium mulch, professionally installed"
-        icon={Leaf}
         image="/images/service-mulch.jpg"
         description="Transform your landscape with a fresh layer of premium mulch. Our team handles everything from bed preparation to final installation."
         longDescription="A fresh layer of mulch does wonders for your landscape. It suppresses weeds, retains soil moisture, regulates soil temperature, and adds a polished look to your beds. Our professional mulch installation service takes the heavy lifting off your hands. We source high-quality mulch in a variety of types and colors, deliver it to your property, and install it with precision and care. Whether you need a small touch-up or a complete landscape refresh, we have the expertise and equipment to get the job done right."

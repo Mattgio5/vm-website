@@ -1,11 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Leaf, Scissors, Bug, Sparkles } from "lucide-react"
 
 const services = [
   {
     slug: "mulch-installation",
-    icon: Leaf,
     title: "Mulch Installation",
     tagline: "Premium mulch, professionally installed",
     description:
@@ -17,11 +15,9 @@ const services = [
       "Bulk and residential quantities",
     ],
     image: "/images/service-mulch.jpg",
-    color: "bg-vm-blue/15",
   },
   {
     slug: "edges",
-    icon: Scissors,
     title: "Landscape Edging",
     tagline: "Crisp, clean borders that last",
     description:
@@ -33,11 +29,9 @@ const services = [
       "Long-lasting results",
     ],
     image: "/images/service-edges.jpg",
-    color: "bg-vm-yellow/30",
   },
   {
     slug: "weed-control",
-    icon: Bug,
     title: "Weed Control",
     tagline: "Keep weeds at bay, the right way",
     description:
@@ -49,11 +43,9 @@ const services = [
       "Eco-friendly options available",
     ],
     image: "/images/service-weed.jpg",
-    color: "bg-vm-blue/15",
   },
   {
     slug: "bed-cleanup",
-    icon: Sparkles,
     title: "Bed Cleanup",
     tagline: "Revitalize tired, neglected beds",
     description:
@@ -65,7 +57,6 @@ const services = [
       "Soil preparation",
     ],
     image: "/images/service-cleanup.jpg",
-    color: "bg-vm-yellow/30",
   },
 ]
 
@@ -78,7 +69,7 @@ export function ServicesOverview() {
           <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
             What We Do
           </p>
-          <h2 className="font-serif text-3xl font-bold tracking-tight text-vm-navy md:text-4xl lg:text-5xl text-balance">
+          <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl lg:text-5xl text-balance">
             Our Services
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -109,11 +100,8 @@ export function ServicesOverview() {
 
               {/* Content */}
               <div>
-                <div className={`mb-4 inline-flex rounded-xl p-3 ${service.color}`}>
-                  <service.icon className="h-6 w-6 text-vm-navy" />
-                </div>
                 <p className="text-sm font-semibold text-vm-blue-dark">{service.tagline}</p>
-                <h3 className="mt-1 font-serif text-2xl font-bold text-vm-navy md:text-3xl">
+                <h3 className="mt-1 text-2xl font-bold text-vm-navy md:text-3xl">
                   {service.title}
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-muted-foreground">
@@ -136,10 +124,9 @@ export function ServicesOverview() {
                 {/* Learn More link */}
                 <Link
                   href={`/services/${service.slug}`}
-                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-md"
+                  className="mt-6 inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-md"
                 >
                   Learn More
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </Link>
               </div>
             </article>

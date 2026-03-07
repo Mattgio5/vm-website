@@ -22,7 +22,7 @@ export function ServicesHero() {
             <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue uppercase">
               Professional Services
             </p>
-            <h1 className="font-serif text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl text-balance">
+            <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl text-balance">
               Transform Your Landscape
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-white/80 md:text-xl">
