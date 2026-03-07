@@ -31,7 +31,7 @@ export function ServiceDetail({
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] w-full overflow-hidden pt-24">
+      <section className="relative h-[100svh] min-h-[600px] w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src={image}
@@ -43,7 +43,7 @@ export function ServiceDetail({
           <div className="absolute inset-0 bg-gradient-to-b from-vm-navy/70 via-vm-navy/50 to-vm-navy/80" />
         </div>
 
-        <div className="relative z-10 flex min-h-[50vh] items-center px-4 md:px-12 lg:px-20">
+        <div className="relative z-10 flex h-full items-center px-4 pt-24 md:px-12 lg:px-20">
           <div className="mx-auto w-full max-w-7xl">
             <Link
               href="/services"
