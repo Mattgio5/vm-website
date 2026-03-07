@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import type { ReactNode } from "react"
 
 interface ServiceDetailProps {
   title: string
@@ -11,6 +12,7 @@ interface ServiceDetailProps {
   benefits: { title: string; description: string }[]
   process: { step: number; title: string; description: string }[]
   relatedServices: { slug: string; title: string }[]
+  calculator?: ReactNode
 }
 
 export function ServiceDetail({
@@ -23,6 +25,7 @@ export function ServiceDetail({
   benefits,
   process,
   relatedServices,
+  calculator,
 }: ServiceDetailProps) {
   return (
     <>
@@ -116,6 +119,9 @@ export function ServiceDetail({
 
           {/* Right column - CTA & Benefits */}
           <div className="lg:sticky lg:top-32 lg:self-start">
+            {/* Calculator (if provided) */}
+            {calculator && <div className="mb-6">{calculator}</div>}
+
             {/* CTA Card */}
             <div className="rounded-2xl border border-vm-blue/30 bg-vm-blue/10 p-6">
               <h3 className="text-xl font-bold text-vm-navy">

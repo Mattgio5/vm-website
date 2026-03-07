@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ServiceDetail } from "@/components/services/service-detail"
-import { CalculatorSection } from "@/components/calculator-section"
+import { MulchCalculator } from "@/components/mulch-calculator"
 
 export const metadata = {
   title: "Mulch Installation | Varsity Mulch",
@@ -77,8 +77,8 @@ export default function MulchInstallationPage() {
           { slug: "weed-control", title: "Weed Control" },
           { slug: "bed-cleanup", title: "Bed Cleanup" },
         ]}
+        calculator={<MulchCalculator />}
       />
-      <CalculatorSection />
       <Footer />
     </main>
   )

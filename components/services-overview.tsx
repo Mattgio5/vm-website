@@ -48,7 +48,7 @@ export function ServicesOverview() {
             <Link
               key={service.title}
               href={service.href}
-              className="group rounded-2xl border border-border bg-card p-6 transition-all hover:border-vm-blue/40 hover:shadow-lg md:p-8"
+              className="group rounded-2xl border border-border bg-card p-6 transition-colors hover:border-vm-blue/40 md:p-8"
             >
               <h3 className="text-lg font-bold text-vm-navy group-hover:text-vm-blue-dark transition-colors">
                 {service.title}

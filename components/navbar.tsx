@@ -87,20 +87,6 @@ export function Navbar() {
               {servicesOpen && (
                 <div className="absolute left-0 top-full mt-3 w-80 origin-top-left animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="rounded-xl border border-white/40 bg-white/95 p-4 shadow-xl backdrop-blur-xl">
-                    {/* Overview section with View All at top */}
-                    <div className="mb-3 border-b border-vm-navy/10 pb-3">
-                      <p className="text-sm text-vm-navy/70">
-                        Professional landscaping solutions for beautiful, maintained outdoor spaces.
-                      </p>
-                      <Link
-                        href="/services"
-                        onClick={() => setServicesOpen(false)}
-                        className="mt-2 inline-block text-sm font-semibold text-vm-blue-dark hover:underline"
-                      >
-                        See All Services
-                      </Link>
-                    </div>
-
                     {/* Service links */}
                     <div className="flex flex-col gap-1">
                       {services.map((service) => (
@@ -118,6 +104,18 @@ export function Navbar() {
                           </span>
                         </Link>
                       ))}
+                    </div>
+
+                    {/* View All Services link at bottom */}
+                    <div className="mt-3 border-t border-vm-navy/10 pt-3">
+                      <Link
+                        href="/services"
+                        onClick={() => setServicesOpen(false)}
+                        className="flex items-center justify-between rounded-lg bg-muted/60 px-3 py-2.5 text-sm font-medium text-vm-navy transition-colors hover:bg-muted"
+                      >
+                        View All Services
+                        <span className="text-vm-navy/60">&rarr;</span>
+                      </Link>
                     </div>
                   </div>
                 </div>

@@ -97,7 +97,7 @@ export function ServicesOverview() {
           {services.map((service, index) => (
             <article
               key={service.slug}
-              className={`group grid items-center gap-8 rounded-3xl border border-border bg-card p-6 transition-all hover:border-vm-blue/30 hover:shadow-xl md:grid-cols-2 md:gap-12 md:p-8 lg:p-10 ${
+              className={`grid items-center gap-8 rounded-3xl border border-border bg-card p-6 md:grid-cols-2 md:gap-12 md:p-8 lg:p-10 ${
                 index % 2 === 1 ? "md:[&>div:first-child]:order-2" : ""
               }`}
             >
@@ -107,7 +107,7 @@ export function ServicesOverview() {
                   src={service.image}
                   alt={service.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-vm-navy/20 to-transparent" />
               </div>
@@ -152,7 +152,7 @@ export function ServicesOverview() {
           <h3 className="text-2xl font-bold tracking-tight text-vm-navy md:text-3xl">
             What We Do Not Offer
           </h3>
-          <div className="mt-6 grid gap-6 md:grid-cols-2">
+          <div className="mt-6 space-y-4">
             <p className="text-base leading-relaxed text-muted-foreground">
               At Varsity Mulching, we are focused on one thing: rejuvenating yards through expert mulching. This singular focus allows us to maintain the premium quality that our customers have come to love and expect.
             </p>

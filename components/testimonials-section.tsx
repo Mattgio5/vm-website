@@ -38,7 +38,7 @@ export function TestimonialsSection() {
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="rounded-2xl border border-border bg-card p-6 transition-all hover:shadow-lg md:p-8"
+              className="rounded-2xl border border-border bg-card p-6 md:p-8"
             >
               <p className="text-base leading-relaxed text-vm-navy/80">
                 {`"${t.quote}"`}
