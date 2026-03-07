@@ -3,7 +3,11 @@ import { Open_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' })
+const openSans = Open_Sans({ 
+  subsets: ['latin'], 
+  variable: '--font-open-sans',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'Varsity Mulch | Premium Mulch & Landscaping Supplies',
