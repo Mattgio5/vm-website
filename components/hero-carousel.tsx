@@ -23,7 +23,7 @@ export function HeroCarousel() {
   }, [next])
 
   return (
-    <section 
+    <section
       className="relative w-full overflow-hidden"
       style={{ height: 'calc(100vh - 1px)', minHeight: '600px' }}
     >
@@ -67,18 +67,17 @@ export function HeroCarousel() {
       <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-center px-4 pb-8 md:justify-between md:px-12 md:pb-10 lg:px-20">
         {/* Spacer for layout balance on desktop */}
         <div className="hidden md:block" />
-        
+
         {/* Carousel dots */}
         <div className="flex items-center gap-2">
           {backgroundImages.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`h-2.5 w-2.5 rounded-full transition-all ${
-                i === current
+              className={`h-2.5 w-2.5 rounded-full transition-all ${i === current
                   ? "scale-110 bg-vm-blue shadow-md"
                   : "bg-white/60 hover:bg-white/80"
-              }`}
+                }`}
               aria-label={`Go to slide ${i + 1}`}
             />
           ))}
@@ -89,7 +88,7 @@ export function HeroCarousel() {
           href="/gallery"
           className="hidden rounded-full border border-white/40 bg-white/70 px-5 py-2.5 text-sm font-semibold text-vm-navy shadow-lg backdrop-blur-md transition-all hover:bg-white/90 hover:shadow-xl md:inline-flex"
         >
-          Happy Customers
+          Hear From Previous Customers
         </Link>
       </div>
     </section>
