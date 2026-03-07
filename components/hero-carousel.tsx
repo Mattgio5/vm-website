@@ -67,7 +67,7 @@ export function HeroCarousel() {
       ))}
 
       {/* Content card — glassmorphism like Yardzen */}
-      <div className="relative z-10 flex h-full items-end px-4 pb-24 md:items-center md:px-12 md:pb-0 lg:px-20">
+      <div className="relative z-10 flex h-full items-center px-4 pt-20 pb-32 md:px-12 md:pt-24 md:pb-28 lg:px-20">
         <div className="w-full max-w-xl rounded-2xl border border-white/30 bg-white/65 p-8 shadow-2xl backdrop-blur-xl md:p-10">
           <h1 className="font-serif text-4xl leading-tight font-bold tracking-tight text-vm-navy md:text-5xl lg:text-6xl">
             {slide.heading.split("\n").map((line, i) => (
@@ -91,7 +91,7 @@ export function HeroCarousel() {
       </div>
 
       {/* Carousel dots */}
-      <div className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2">
+      <div className="absolute bottom-16 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 md:bottom-12">
         {slides.map((_, i) => (
           <button
             key={i}
@@ -109,7 +109,7 @@ export function HeroCarousel() {
       {/* Schedule a call — bottom right like Yardzen */}
       <Link
         href="tel:+15551234567"
-        className="absolute right-4 bottom-8 z-10 hidden rounded-full border border-white/40 bg-white/70 px-5 py-2.5 text-sm font-semibold text-vm-navy shadow-lg backdrop-blur-md transition-all hover:bg-white/90 hover:shadow-xl md:inline-flex"
+        className="absolute right-4 bottom-16 z-10 hidden rounded-full border border-white/40 bg-white/70 px-5 py-2.5 text-sm font-semibold text-vm-navy shadow-lg backdrop-blur-md transition-all hover:bg-white/90 hover:shadow-xl md:bottom-12 md:right-8 md:inline-flex"
       >
         Schedule a Free Call
       </Link>
