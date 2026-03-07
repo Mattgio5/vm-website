@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { Calculator, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 export function CalculatorSection() {
@@ -28,7 +27,7 @@ export function CalculatorSection() {
             <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
               Mulch Calculator
             </p>
-            <h2 className="font-serif text-3xl font-bold tracking-tight text-vm-navy md:text-4xl lg:text-5xl text-balance">
+            <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl lg:text-5xl text-balance">
               How Much Do You Need?
             </h2>
             <p className="mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -40,18 +39,17 @@ export function CalculatorSection() {
                 <p className="text-sm font-medium text-muted-foreground">
                   You need approximately
                 </p>
-                <p className="mt-1 font-serif text-4xl font-bold text-vm-navy">
+                <p className="mt-1 text-4xl font-bold text-vm-navy">
                   {result}{" "}
-                  <span className="text-lg font-sans font-medium text-muted-foreground">
+                  <span className="text-lg font-medium text-muted-foreground">
                     cubic yards
                   </span>
                 </p>
                 <Link
                   href="#quote"
-                  className="mt-4 inline-flex items-center gap-2 rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg"
+                  className="mt-4 inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg"
                 >
                   Get a Quote for This
-                  <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             )}
@@ -59,10 +57,7 @@ export function CalculatorSection() {
 
           {/* Right calculator */}
           <div className="rounded-2xl border border-border bg-white p-6 shadow-lg md:p-8">
-            <div className="mb-6 flex items-center gap-3">
-              <div className="rounded-xl bg-vm-blue/15 p-2.5 text-vm-navy">
-                <Calculator className="h-5 w-5" />
-              </div>
+            <div className="mb-6">
               <h3 className="text-lg font-bold text-vm-navy">Quick Calculator</h3>
             </div>
 

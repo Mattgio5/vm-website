@@ -16,8 +16,8 @@ export default function BedCleanupPage() {
         title="Bed Cleanup"
         tagline="Revitalize tired, neglected beds"
         image="/images/service-cleanup.jpg"
-        description="Give your landscape beds a fresh start with comprehensive cleanup services that remove debris, dead material, and prepare for new growth."
-        longDescription="Over time, landscape beds accumulate leaves, debris, dead plants, and decomposed mulch that make them look tired and unkempt. Our bed cleanup service is a complete renovation for your garden beds. We remove all debris and dead plant material, extract weeds and unwanted vegetation, clear out old mulch when needed, and prepare the soil for fresh plantings or a new layer of mulch. Whether your beds need a seasonal refresh or a complete overhaul, our cleanup service restores them to pristine condition."
+        description="Beds get cluttered with leaves, dead plants, and old mulch over time. We clear it all out so you can start fresh."
+        longDescription="Sometimes a yard just needs a reset. We come in and clear out everything that's built up—leaves, sticks, dead plants, weeds, decomposed mulch—all of it. Then we prep the soil so it's ready for whatever comes next, whether that's new plantings or a fresh layer of mulch. It's a clean slate for your beds without you having to haul a single bag to the curb."
         features={[
           "Debris removal",
           "Dead plant extraction",

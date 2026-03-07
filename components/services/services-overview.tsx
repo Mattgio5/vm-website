@@ -58,6 +58,20 @@ const services = [
     ],
     image: "/images/service-cleanup.jpg",
   },
+  {
+    slug: "supplements",
+    title: "Supplements",
+    tagline: "Extra touches for your yard",
+    description:
+      "Beyond our core services, we offer add-ons like bush removal, trimming, and planting, plus follow-up care including fall cleanups, bed maintenance, weed treatments, and aeration.",
+    features: [
+      "Bush removal & transplant",
+      "Bush trimming",
+      "Planting services",
+      "Seasonal maintenance",
+    ],
+    image: "/images/service-supplements.jpg",
+  },
 ]
 
 export function ServicesOverview() {
@@ -131,6 +145,21 @@ export function ServicesOverview() {
               </div>
             </article>
           ))}
+        </div>
+
+        {/* What We Do Not Offer Section */}
+        <div className="mt-20 rounded-2xl border border-border bg-card p-8 md:mt-28 md:p-12">
+          <h3 className="text-2xl font-bold tracking-tight text-vm-navy md:text-3xl">
+            What We Do Not Offer
+          </h3>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <p className="text-base leading-relaxed text-muted-foreground">
+              At Varsity Mulching, we are focused on one thing: rejuvenating yards through expert mulching. This singular focus allows us to maintain the premium quality that our customers have come to love and expect.
+            </p>
+            <p className="text-base leading-relaxed text-muted-foreground">
+              While we complement the work of general landscapers beautifully, please note that we DO NOT offer broad landscaping services. If a service is not listed within our specific packages or on the add-ons page, it falls outside our area of expertise. Rest assured, engaging our services doesn't mean parting ways with your trusted landscaper who has been maintaining your lawn all these years. We're here to add that extra touch of vitality and beauty to your yard.
+            </p>
+          </div>
         </div>
       </div>
     </section>

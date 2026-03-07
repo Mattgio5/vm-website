@@ -16,8 +16,8 @@ export default function EdgesPage() {
         title="Landscape Edging"
         tagline="Crisp, clean borders that last"
         image="/images/service-edges.jpg"
-        description="Define your landscape beds with precision-cut edges that create a polished, professional appearance and keep grass where it belongs."
-        longDescription="Clean, well-defined edges are the hallmark of a professionally maintained landscape. Our edging services create crisp borders between your lawn and garden beds, giving your property a manicured look that impresses. Beyond aesthetics, proper edging serves a practical purpose: it creates a barrier that prevents grass runners from invading your mulched areas, reducing maintenance and keeping your beds looking neat. We offer both traditional spade-cut edges and permanent edging installation using quality metal or plastic materials."
+        description="Nothing sharpens up a yard like clean edges. That crisp line between lawn and bed makes the whole property look intentional and well-kept."
+        longDescription="We cut precise borders that separate your grass from your mulch beds—no blurry boundaries, no grass creeping where it doesn't belong. Whether you want that classic spade-cut look or permanent edging installed, we get it done right. The result is a cleaner yard that stays cleaner longer, with less time spent trimming and maintaining those in-between zones."
         features={[
           "Precision spade-cut edges",
           "Metal edging installation",

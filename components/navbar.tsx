@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
@@ -26,6 +26,11 @@ const services = [
     label: "Bed Cleanup",
     href: "/services/bed-cleanup",
     description: "Seasonal refresh for pristine flower beds",
+  },
+  {
+    label: "Supplements",
+    href: "/services/supplements",
+    description: "Add-ons and follow-up services",
   },
 ]
 
@@ -62,31 +67,14 @@ export function Navbar() {
     <nav className="fixed top-4 left-4 right-4 z-50 mx-auto max-w-7xl">
       <div className="rounded-2xl border border-white/30 bg-white/70 px-4 py-3 shadow-lg backdrop-blur-xl md:px-6">
         <div className="flex items-center justify-between">
-          {/* Hamburger */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="rounded-lg p-2 text-vm-navy transition-colors hover:bg-vm-blue/20 md:hidden"
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-
           {/* Desktop links */}
           <div className="hidden items-center gap-6 md:flex">
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="rounded-lg p-2 text-vm-navy transition-colors hover:bg-vm-blue/20"
-              aria-label="Toggle menu"
-            >
-              <Menu className="h-5 w-5" />
-            </button>
-
             {/* Services Dropdown */}
             <div ref={dropdownRef} className="relative">
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
                 className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-vm-blue-dark ${
-                  isActive("/services") ? "text-vm-blue-dark bg-vm-blue/15 px-3 py-1 rounded-full" : "text-vm-navy"
+                  isActive("/services") ? "text-vm-blue-dark" : "text-vm-navy"
                 }`}
               >
                 Services
@@ -141,7 +129,7 @@ export function Navbar() {
                 key={link.label}
                 href={link.href}
                 className={`text-sm font-medium transition-colors hover:text-vm-blue-dark ${
-                  isActive(link.href) ? "text-vm-blue-dark bg-vm-blue/15 px-3 py-1 rounded-full" : "text-vm-navy"
+                  isActive(link.href) ? "text-vm-blue-dark" : "text-vm-navy"
                 }`}
               >
                 {link.label}
@@ -152,20 +140,16 @@ export function Navbar() {
           {/* Logo - Home button */}
           <Link 
             href="/" 
-            className="group absolute left-1/2 -translate-x-1/2 flex flex-col items-center"
-            title="Go to Home"
+            className="absolute left-1/2 -translate-x-1/2"
           >
             <Image
               src="/images/vm-logo.png"
-              alt="Varsity Mulching LLC - Click to go home"
+              alt="Varsity Mulching LLC"
               width={120}
               height={80}
-              className="h-12 w-auto transition-transform group-hover:scale-105 md:h-14"
+              className="h-12 w-auto transition-transform hover:scale-105 md:h-14"
               priority
             />
-            <span className="mt-0.5 text-[10px] font-medium text-vm-navy/50 opacity-0 transition-opacity group-hover:opacity-100">
-              Home
-            </span>
           </Link>
 
           {/* CTA button */}
@@ -190,8 +174,8 @@ export function Navbar() {
               <Link
                 href="/services"
                 onClick={() => setMobileOpen(false)}
-                className={`rounded-lg px-3 py-2.5 text-sm font-semibold transition-colors hover:bg-vm-blue/15 ${
-                  isActive("/services") ? "text-vm-blue-dark bg-vm-blue/15" : "text-vm-navy"
+                className={`block rounded-lg px-3 py-2.5 text-sm font-semibold transition-colors hover:bg-vm-blue/15 ${
+                  isActive("/services") ? "text-vm-blue-dark" : "text-vm-navy"
                 }`}
               >
                 See All Services
@@ -202,10 +186,10 @@ export function Navbar() {
                   href={service.href}
                   onClick={() => setMobileOpen(false)}
                   className={`block rounded-lg px-3 py-2.5 transition-colors hover:bg-vm-blue/15 ${
-                    isActive(service.href) ? "text-vm-blue-dark bg-vm-blue/15" : ""
+                    isActive(service.href) ? "text-vm-blue-dark" : "text-vm-navy"
                   }`}
                 >
-                  <span className="text-sm font-medium text-vm-navy">{service.label}</span>
+                  <span className="text-sm font-medium">{service.label}</span>
                 </Link>
               ))}
             </div>
@@ -220,7 +204,7 @@ export function Navbar() {
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
                 className={`rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-vm-blue/15 ${
-                  isActive(link.href) ? "text-vm-blue-dark bg-vm-blue/15" : "text-vm-navy"
+                  isActive(link.href) ? "text-vm-blue-dark" : "text-vm-navy"
                 }`}
               >
                 {link.label}

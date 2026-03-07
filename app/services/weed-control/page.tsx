@@ -16,8 +16,8 @@ export default function WeedControlPage() {
         title="Weed Control"
         tagline="Keep weeds at bay, the right way"
         image="/images/service-weed.jpg"
-        description="Protect your landscape investment with comprehensive weed control that stops weeds before they start and eliminates existing ones."
-        longDescription="Weeds are more than an eyesore—they compete with your plants for water, nutrients, and sunlight. Our weed control services take a multi-pronged approach to keeping your beds weed-free. We start by removing existing weeds, roots and all, then apply pre-emergent treatments that create a barrier to prevent new weeds from germinating. For long-term protection, we can install professional-grade landscape fabric beneath your mulch. The result? Cleaner beds, healthier plants, and less time spent pulling weeds."
+        description="Weeds steal water, nutrients, and attention from your plants. We stop them before they get the chance."
+        longDescription="Nobody wants to spend their weekends pulling weeds. We tackle them two ways: removing what's already there (roots and all) and putting down pre-emergent treatments so new ones don't pop up. For beds that need extra protection, we install landscape fabric that blocks weeds while letting water through. The goal is simple—keep your beds looking clean without constant upkeep."
         features={[
           "Pre-emergent application",
           "Manual weed removal",
