@@ -222,10 +222,10 @@ export default function AboutPage() {
             Service Area
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl text-balance">
-            Proudly Serving Pennsylvania
+            Proudly Serving Philadelphia
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
-            We operate throughout the greater Pennsylvania area, bringing professional mulching services to residential and commercial properties alike.
+            We operate throughout the great Philly area, bringing professional mulching services to residential and commercial properties alike.
           </p>
           <div className="mt-10">
             <a
