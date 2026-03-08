@@ -114,68 +114,79 @@ export default function MediaPage() {
         </div>
       </section>
 
-      {/* What We've Been Up To */}
+      {/* Latest Instagram Post */}
       <section className="bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
         <div className="mx-auto max-w-6xl">
-          <div className="mb-12 md:mb-16">
-            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
-              Latest Updates
-            </p>
-            <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl text-balance">
-              What We've Been Up To
-            </h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              The latest news, projects, and updates from the Varsity Mulching team.
-            </p>
-          </div>
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
+            {/* Left - Instagram Embed */}
+            <div>
+              <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
+                Fresh From Instagram
+              </p>
+              <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl text-balance">
+                Our Latest Post
+              </h2>
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
+                Check out what we've been working on. Follow{" "}
+                <Link 
+                  href="https://www.instagram.com/varsitymulching/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="font-semibold text-vm-blue-dark hover:underline"
+                >
+                  @varsitymulching
+                </Link>{" "}
+                for more updates.
+              </p>
 
-          {/* Most Recent Post - Featured */}
-          {companyPosts[0] && (
-            <div className="mb-8 rounded-2xl border border-border bg-card overflow-hidden md:flex">
-              <div className="relative aspect-video md:aspect-auto md:w-1/2">
-                <div 
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${companyPosts[0].image})` }}
+              {/* Instagram Embed Container */}
+              <div className="mt-8 rounded-2xl border border-border bg-card overflow-hidden">
+                <iframe
+                  src="https://www.instagram.com/varsitymulching/embed"
+                  className="w-full"
+                  style={{ minHeight: "500px", border: "none" }}
+                  scrolling="no"
+                  allowTransparency={true}
+                  title="Varsity Mulching Instagram Feed"
                 />
-              </div>
-              <div className="p-6 md:w-1/2 md:p-8 lg:p-10">
-                <p className="text-xs font-semibold text-vm-blue-dark uppercase tracking-wider">
-                  Latest Post
-                </p>
-                <h3 className="mt-2 text-2xl font-bold text-vm-navy md:text-3xl">
-                  {companyPosts[0].title}
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  {companyPosts[0].date}
-                </p>
-                <p className="mt-4 text-base leading-relaxed text-vm-navy/80">
-                  {companyPosts[0].excerpt}
-                </p>
               </div>
             </div>
-          )}
 
-          {/* Other Recent Posts */}
-          <div className="grid gap-6 md:grid-cols-2">
-            {companyPosts.slice(1).map((post) => (
-              <div key={post.id} className="rounded-2xl border border-border bg-card overflow-hidden">
-                <div 
-                  className="aspect-video bg-cover bg-center"
-                  style={{ backgroundImage: `url(${post.image})` }}
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-vm-navy">
-                    {post.title}
-                  </h3>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    {post.date}
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-vm-navy/80">
-                    {post.excerpt}
-                  </p>
-                </div>
+            {/* Right - What We've Been Up To */}
+            <div>
+              <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
+                Latest Updates
+              </p>
+              <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl text-balance">
+                What We've Been Up To
+              </h2>
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
+                News and highlights from the Varsity Mulching team.
+              </p>
+
+              {/* Company Posts */}
+              <div className="mt-8 space-y-4">
+                {companyPosts.map((post) => (
+                  <div key={post.id} className="rounded-2xl border border-border bg-card overflow-hidden">
+                    <div 
+                      className="aspect-video bg-cover bg-center"
+                      style={{ backgroundImage: `url(${post.image})` }}
+                    />
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-vm-navy">
+                        {post.title}
+                      </h3>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        {post.date}
+                      </p>
+                      <p className="mt-3 text-sm leading-relaxed text-vm-navy/80">
+                        {post.excerpt}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -283,28 +294,6 @@ export default function MediaPage() {
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Instagram CTA */}
-      <section className="bg-vm-blue px-4 py-16 md:px-12 md:py-20 lg:px-20">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-vm-navy md:text-3xl text-balance">
-            Follow Along on Instagram
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-vm-navy/70">
-            See our latest projects, behind-the-scenes content, and more on our Instagram page.
-          </p>
-          <div className="mt-8">
-            <Link
-              href="https://www.instagram.com/varsitymulching/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex rounded-full bg-vm-navy px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg"
-            >
-              @varsitymulching
-            </Link>
           </div>
         </div>
       </section>
