@@ -40,12 +40,14 @@ export default function AboutPage() {
       <section className="bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
         <div className="mx-auto max-w-4xl">
           <div className="grid gap-12 md:grid-cols-5 md:gap-16">
-            {/* Photo */}
+            {/* Photo - Sticky on scroll */}
             <div className="md:col-span-2">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-muted">
-                {/* IMAGE NEEDED: Professional but approachable photo of the founder/owner, ideally in casual business attire or Varsity Mulching branded clothing */}
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                  <span className="text-sm">Founder Photo</span>
+              <div className="md:sticky md:top-32">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-muted">
+                  {/* IMAGE NEEDED: Professional but approachable photo of the founder/owner, ideally in casual business attire or Varsity Mulching branded clothing */}
+                  <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
+                    <span className="text-sm">Founder Photo</span>
+                  </div>
                 </div>
               </div>
             </div>
