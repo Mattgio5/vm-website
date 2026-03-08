@@ -164,28 +164,45 @@ export default function MediaPage() {
                 News and highlights from the Varsity Mulching team.
               </p>
 
-              {/* Company Posts */}
-              <div className="mt-8 space-y-4">
-                {companyPosts.map((post) => (
-                  <div key={post.id} className="rounded-2xl border border-border bg-card overflow-hidden">
-                    <div 
-                      className="aspect-video bg-cover bg-center"
-                      style={{ backgroundImage: `url(${post.image})` }}
-                    />
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-vm-navy">
+              {/* Most Recent Post - Featured */}
+              {companyPosts[0] && (
+                <div className="mt-8 rounded-2xl border border-border bg-card overflow-hidden">
+                  <div 
+                    className="aspect-video bg-cover bg-center"
+                    style={{ backgroundImage: `url(${companyPosts[0].image})` }}
+                  />
+                  <div className="p-6">
+                    <p className="text-xs font-semibold text-vm-blue-dark uppercase tracking-wider">
+                      Latest
+                    </p>
+                    <h3 className="mt-1 text-xl font-bold text-vm-navy">
+                      {companyPosts[0].title}
+                    </h3>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {companyPosts[0].date}
+                    </p>
+                    <p className="mt-3 text-sm leading-relaxed text-vm-navy/80">
+                      {companyPosts[0].excerpt}
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* Older Posts - Compact List */}
+              {companyPosts.length > 1 && (
+                <div className="mt-4 space-y-3">
+                  {companyPosts.slice(1).map((post) => (
+                    <div key={post.id} className="rounded-xl border border-border bg-card p-4">
+                      <h4 className="text-base font-semibold text-vm-navy">
                         {post.title}
-                      </h3>
-                      <p className="mt-1 text-sm text-muted-foreground">
+                      </h4>
+                      <p className="mt-0.5 text-xs text-muted-foreground">
                         {post.date}
                       </p>
-                      <p className="mt-3 text-sm leading-relaxed text-vm-navy/80">
-                        {post.excerpt}
-                      </p>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
