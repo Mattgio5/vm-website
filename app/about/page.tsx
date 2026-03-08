@@ -71,7 +71,7 @@ export default function AboutPage() {
                   <div className="h-px flex-1 bg-border" />
                   <div className="text-right">
                     <p className="font-semibold text-vm-navy text-lg">
-                      — Owner Name
+                      — Matt Giordano
                     </p>
                     <p className="text-sm text-muted-foreground">
                       Founder, Varsity Mulching
