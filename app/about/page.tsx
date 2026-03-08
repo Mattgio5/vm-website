@@ -30,7 +30,7 @@ export default function AboutPage() {
               Local Students. Real Results.
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
-              We're a small Pennsylvania business built by college athletes who care about doing things right.
+              We're a small Philadelphia business employing hometown talent to keep your yard fresh each year.
             </p>
           </div>
         </div>
