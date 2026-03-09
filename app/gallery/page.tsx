@@ -7,7 +7,7 @@ export const metadata = {
   description: "Browse our portfolio of completed mulching, edging, and landscape bed projects across Pennsylvania.",
 }
 
-// Gallery projects sorted newest to oldest
+// Gallery projects sorted newest to oldest with testimonials embedded
 const projects = [
   {
     id: 1,
@@ -15,6 +15,10 @@ const projects = [
     service: "Mulch Installation",
     season: "Spring 26",
     image: "/placeholder.svg?height=400&width=600",
+    testimonial: {
+      name: "Sarah M.",
+      quote: "The team was professional, punctual, and left our yard looking better than we ever imagined.",
+    },
   },
   {
     id: 2,
@@ -22,6 +26,10 @@ const projects = [
     service: "Full Bed Renovation",
     season: "Spring 26",
     image: "/placeholder.svg?height=400&width=600",
+    testimonial: {
+      name: "Mike T.",
+      quote: "Great communication from start to finish. The mulch looks fantastic and the price was very fair.",
+    },
   },
   {
     id: 3,
@@ -29,6 +37,10 @@ const projects = [
     service: "Landscape Edging",
     season: "Spring 26",
     image: "/placeholder.svg?height=400&width=600",
+    testimonial: {
+      name: "Jennifer L.",
+      quote: "We've used Varsity Mulching for two seasons now. They're reliable and always do a thorough job.",
+    },
   },
   // CTA box will go here (index 3 in the grid = row 2, col 1)
   {
@@ -37,6 +49,10 @@ const projects = [
     service: "Mulch & Weed Control",
     season: "Fall 25",
     image: "/placeholder.svg?height=400&width=600",
+    testimonial: {
+      name: "David R.",
+      quote: "Finally found a company that actually shows up when they say they will. Highly recommend!",
+    },
   },
   {
     id: 5,
@@ -44,6 +60,10 @@ const projects = [
     service: "Bed Cleanup",
     season: "Fall 25",
     image: "/placeholder.svg?height=400&width=600",
+    testimonial: {
+      name: "Karen W.",
+      quote: "They cleaned up years of neglected beds in just one afternoon. Couldn't be happier with the results.",
+    },
   },
   {
     id: 6,
@@ -51,6 +71,10 @@ const projects = [
     service: "Mulch Installation",
     season: "Summer 25",
     image: "/placeholder.svg?height=400&width=600",
+    testimonial: {
+      name: "Tom B.",
+      quote: "Fair pricing, great work, and the crew was respectful of our property. Will definitely use again.",
+    },
   },
   {
     id: 7,
@@ -58,6 +82,10 @@ const projects = [
     service: "Full Yard Package",
     season: "Summer 25",
     image: "/placeholder.svg?height=400&width=600",
+    testimonial: {
+      name: "Lisa P.",
+      quote: "Our neighbors keep asking who did our yard. Best investment we've made in our home's curb appeal.",
+    },
   },
   {
     id: 8,
@@ -65,6 +93,10 @@ const projects = [
     service: "Landscape Edging",
     season: "Spring 25",
     image: "/placeholder.svg?height=400&width=600",
+    testimonial: {
+      name: "Chris M.",
+      quote: "The edging made such a difference. Clean lines and a polished look we couldn't achieve ourselves.",
+    },
   },
   {
     id: 9,
@@ -72,6 +104,10 @@ const projects = [
     service: "Mulch Installation",
     season: "Spring 25",
     image: "/placeholder.svg?height=400&width=600",
+    testimonial: {
+      name: "Amanda S.",
+      quote: "Quick, efficient, and left no mess behind. The yard looks amazing and the mulch is holding up great.",
+    },
   },
   {
     id: 10,
@@ -79,6 +115,10 @@ const projects = [
     service: "Bed Cleanup & Mulch",
     season: "Fall 24",
     image: "/placeholder.svg?height=400&width=600",
+    testimonial: {
+      name: "Robert H.",
+      quote: "They transformed our overgrown beds into something we're actually proud of. Worth every penny.",
+    },
   },
   {
     id: 11,
@@ -86,38 +126,10 @@ const projects = [
     service: "Weed Control",
     season: "Fall 24",
     image: "/placeholder.svg?height=400&width=600",
-  },
-]
-
-// Customer testimonials
-const testimonials = [
-  {
-    id: 1,
-    name: "Sarah M.",
-    location: "Chester County",
-    quote: "The team was professional, punctual, and left our yard looking better than we ever imagined. Highly recommend!",
-    image: "/placeholder.svg?height=100&width=100",
-  },
-  {
-    id: 2,
-    name: "Mike T.",
-    location: "Montgomery County",
-    quote: "Great communication from start to finish. The mulch looks fantastic and the price was very fair for the quality of work.",
-    image: "/placeholder.svg?height=100&width=100",
-  },
-  {
-    id: 3,
-    name: "Jennifer L.",
-    location: "Delaware County",
-    quote: "We've used Varsity Mulching for two seasons now. They're reliable, hardworking, and always do a thorough job.",
-    image: "/placeholder.svg?height=100&width=100",
-  },
-  {
-    id: 4,
-    name: "David R.",
-    location: "Chester County",
-    quote: "Finally found a company that actually shows up when they say they will. The edging work completely transformed our front yard.",
-    image: "/placeholder.svg?height=100&width=100",
+    testimonial: {
+      name: "Nancy K.",
+      quote: "No more weekends pulling weeds. The pre-emergent treatment has kept our beds clean all season.",
+    },
   },
 ]
 
@@ -158,7 +170,13 @@ export default function GalleryPage() {
                     <span className="text-sm">Project Photo</span>
                   </div>
                 </div>
-                <div className="mt-3">
+                {/* Testimonial */}
+                <div className="mt-3 rounded-lg bg-vm-blue/20 px-3 py-2">
+                  <p className="text-sm italic text-vm-navy/80">"{project.testimonial.quote}"</p>
+                  <p className="mt-1 text-xs font-medium text-vm-navy">— {project.testimonial.name}</p>
+                </div>
+                {/* Location & Service */}
+                <div className="mt-2">
                   <p className="text-base font-medium text-vm-navy">{project.location}</p>
                   <p className="mt-0.5 text-sm text-muted-foreground">
                     Service: <span className="underline underline-offset-2">{project.service}</span>
@@ -198,49 +216,18 @@ export default function GalleryPage() {
                     <span className="text-sm">Project Photo</span>
                   </div>
                 </div>
-                <div className="mt-3">
+                {/* Testimonial */}
+                <div className="mt-3 rounded-lg bg-vm-blue/20 px-3 py-2">
+                  <p className="text-sm italic text-vm-navy/80">"{project.testimonial.quote}"</p>
+                  <p className="mt-1 text-xs font-medium text-vm-navy">— {project.testimonial.name}</p>
+                </div>
+                {/* Location & Service */}
+                <div className="mt-2">
                   <p className="text-base font-medium text-vm-navy">{project.location}</p>
                   <p className="mt-0.5 text-sm text-muted-foreground">
                     Service: <span className="underline underline-offset-2">{project.service}</span>
                   </p>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Customer Testimonials */}
-      <section className="bg-card px-4 py-20 md:px-12 md:py-28 lg:px-20">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12 md:mb-16">
-            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
-              Customer Stories
-            </p>
-            <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl text-balance">
-              What Our Customers Say
-            </h2>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="rounded-2xl border border-border bg-background p-6 md:p-8">
-                <div className="flex items-start gap-4">
-                  {/* Photo */}
-                  <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-full bg-muted">
-                    {/* IMAGE NEEDED: Customer photo or placeholder avatar */}
-                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-xs">
-                      Photo
-                    </div>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-vm-navy">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.location}</p>
-                  </div>
-                </div>
-                <p className="mt-4 text-base leading-relaxed text-vm-navy/80">
-                  "{testimonial.quote}"
-                </p>
               </div>
             ))}
           </div>
