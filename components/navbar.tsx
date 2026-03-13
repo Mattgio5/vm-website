@@ -52,7 +52,6 @@ export function Navbar() {
     return pathname.startsWith(href)
   }
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -65,12 +64,14 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-4 left-4 right-4 z-50 mx-auto max-w-7xl">
-      {/* Varsity stripes - thin lines that follow navbar rounding */}
-      <div className="flex flex-col gap-[2px] mb-[2px]">
-        <div className="h-[3px] w-full rounded-t-2xl bg-vm-navy" />
-        <div className="h-[3px] w-full bg-vm-gold" />
-      </div>
-      <div className="rounded-b-2xl border border-white/30 bg-white/70 px-4 py-3 shadow-lg backdrop-blur-xl md:px-6">
+      <div className="relative rounded-2xl border border-white/30 bg-white/70 px-4 py-3 shadow-lg backdrop-blur-xl md:px-6">
+
+        {/* Varsity stripes overlaid at the very top, clipped to navbar's rounded corners */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 overflow-hidden rounded-t-2xl">
+          <div className="h-[3px] w-full bg-vm-navy" />
+          <div className="h-[3px] w-full bg-vm-gold" />
+        </div>
+
         <div className="flex items-center justify-between">
           {/* Desktop links */}
           <div className="hidden items-center gap-6 md:flex">
@@ -88,11 +89,9 @@ export function Navbar() {
                 />
               </button>
 
-              {/* Dropdown Panel */}
               {servicesOpen && (
                 <div className="absolute left-0 top-full mt-3 w-80 origin-top-left animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="rounded-xl border border-white/40 bg-white/95 p-4 shadow-xl backdrop-blur-xl">
-                    {/* View All Services link at top */}
                     <div className="mb-3 border-b border-vm-navy/10 pb-3">
                       <Link
                         href="/services"
@@ -103,8 +102,6 @@ export function Navbar() {
                         <span className="text-vm-navy/60">&rarr;</span>
                       </Link>
                     </div>
-
-                    {/* Service links */}
                     <div className="flex flex-col gap-1">
                       {services.map((service) => (
                         <Link
@@ -140,11 +137,8 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Logo - Home button */}
-          <Link 
-            href="/" 
-            className="absolute left-1/2 -translate-x-1/2"
-          >
+          {/* Logo */}
+          <Link href="/" className="absolute left-1/2 -translate-x-1/2">
             <Image
               src="/images/vm-logo.png"
               alt="Varsity Mulching LLC"
@@ -155,21 +149,29 @@ export function Navbar() {
             />
           </Link>
 
-          {/* CTA button */}
-          <div className="flex items-center">
+          {/* CTA + mobile hamburger */}
+          <div className="flex items-center gap-3">
             <Link
               href="#quote"
               className="inline-flex items-center gap-1.5 rounded-full bg-vm-blue px-4 py-2 text-sm font-semibold text-vm-navy transition-all hover:bg-vm-blue-dark hover:shadow-md md:px-5"
             >
               Get a Quote
             </Link>
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="flex flex-col gap-1.5 p-1 md:hidden"
+              aria-label="Toggle menu"
+            >
+              <span className={`block h-0.5 w-5 bg-vm-navy transition-all ${mobileOpen ? "translate-y-2 rotate-45" : ""}`} />
+              <span className={`block h-0.5 w-5 bg-vm-navy transition-all ${mobileOpen ? "opacity-0" : ""}`} />
+              <span className={`block h-0.5 w-5 bg-vm-navy transition-all ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+            </button>
           </div>
         </div>
 
         {/* Mobile dropdown */}
         {mobileOpen && (
           <div className="mt-3 flex flex-col gap-1 border-t border-vm-navy/10 pt-3 md:hidden">
-            {/* Services Section */}
             <div className="mb-2">
               <p className="px-3 pb-2 text-xs text-vm-navy/60">
                 Professional landscaping solutions
@@ -196,11 +198,7 @@ export function Navbar() {
                 </Link>
               ))}
             </div>
-
-            {/* Divider */}
             <div className="my-1 border-t border-vm-navy/10" />
-
-            {/* Other Links */}
             {navLinks.map((link) => (
               <Link
                 key={link.label}
