@@ -63,9 +63,66 @@ const followUpServices = [
   },
 ]
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Landscape Maintenance & Add-Ons",
+  "name": "Landscaping Add-Ons & Maintenance Services",
+  "description": "Bush removal, transplanting, trimming, planting, fall cleanups, bed maintenance, weed treatments, and aeration services.",
+  "url": "https://www.varsitymulching.com/services/supplements",
+  "provider": {
+    "@type": "LocalBusiness",
+    "@id": "https://www.varsitymulching.com/#business",
+    "name": "Varsity Mulching LLC",
+    "telephone": "+1-267-489-1567"
+  },
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 40.0,
+      "longitude": -75.6
+    },
+    "geoRadius": "48280"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "100",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "price": "100-500",
+      "priceCurrency": "USD"
+    }
+  },
+  "hoursAvailable": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "08:00",
+      "closes": "14:00"
+    }
+  ]
+}
+
 export default function SupplementsPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
       
       {/* Hero Section */}

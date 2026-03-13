@@ -10,6 +10,7 @@ import { Footer } from "@/components/footer"
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": "https://www.varsitymulching.com/#business",
   "name": "Varsity Mulching LLC",
   "url": "https://www.varsitymulching.com",
   "logo": "https://www.varsitymulching.com/images/vm-logo.png",

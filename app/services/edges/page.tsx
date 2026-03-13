@@ -8,9 +8,66 @@ export const metadata = {
     "Professional landscape edging in Chester County, Bucks County & Montgomery County, PA. Crisp, clean borders that define your beds and prevent grass invasion. Serving West Chester, Doylestown & Malvern.",
 }
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Landscape Edging",
+  "name": "Professional Landscape Edging",
+  "description": "Crisp, clean borders that define your beds and prevent grass invasion. Spade-cut edges, metal and plastic edging installation.",
+  "url": "https://www.varsitymulching.com/services/edges",
+  "provider": {
+    "@type": "LocalBusiness",
+    "@id": "https://www.varsitymulching.com/#business",
+    "name": "Varsity Mulching LLC",
+    "telephone": "+1-267-489-1567"
+  },
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 40.0,
+      "longitude": -75.6
+    },
+    "geoRadius": "48280"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "100",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "price": "200-800",
+      "priceCurrency": "USD"
+    }
+  },
+  "hoursAvailable": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "08:00",
+      "closes": "14:00"
+    }
+  ]
+}
+
 export default function EdgesPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
       <ServiceDetail
         title="Landscape Edging"
