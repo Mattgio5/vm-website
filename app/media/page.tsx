@@ -1,6 +1,3 @@
-"use client"
-
-import { useState } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import Link from "next/link"
@@ -30,59 +27,7 @@ const companyPosts = [
   },
 ]
 
-// Sample customer reviews - in production these would come from a database
-const initialReviews = [
-  {
-    id: 1,
-    name: "Jennifer S.",
-    county: "Montgomery County",
-    message: "The Varsity crew did an amazing job on our front beds. Professional, quick, and the mulch looks fantastic!",
-    date: "March 5, 2026",
-  },
-  {
-    id: 2,
-    name: "Robert M.",
-    county: "Chester County",
-    message: "These young guys really know what they're doing. Great attention to detail and they cleaned up perfectly after.",
-    date: "February 20, 2026",
-  },
-]
-
 export default function MediaPage() {
-  const [reviews, setReviews] = useState(initialReviews)
-  const [formData, setFormData] = useState({
-    name: "",
-    county: "",
-    message: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simulate submission - in production this would save to a database
-    setTimeout(() => {
-      const newReview = {
-        id: reviews.length + 1,
-        name: formData.name,
-        county: formData.county,
-        message: formData.message,
-        date: new Date().toLocaleDateString("en-US", {
-          month: "long",
-          day: "numeric",
-          year: "numeric",
-        }),
-      }
-      setReviews([newReview, ...reviews])
-      setFormData({ name: "", county: "", message: "" })
-      setIsSubmitting(false)
-      setSubmitted(true)
-      setTimeout(() => setSubmitted(false), 3000)
-    }, 500)
-  }
-
   return (
     <main>
       <Navbar />
@@ -212,114 +157,38 @@ export default function MediaPage() {
         </div>
       </section>
 
-      {/* Customer Reviews Section */}
+      {/* Google Reviews Section */}
       <section className="relative bg-muted/50 px-4 py-20 md:px-12 md:py-28 lg:px-20">
         {/* Varsity stripes - two thick parallel lines */}
         <div className="absolute top-0 left-0 right-0 flex flex-col">
           <div className="h-2.5 w-full bg-vm-gold" />
           <div className="h-2.5 w-full bg-vm-navy" />
         </div>
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* Left - Submit a Review */}
-            <div>
-              <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
-                Share Your Experience
-              </p>
-              <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl text-balance">
-                We Love Hearing From You
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-                We always want to know what our customers are up to and what they think. Share your experience with Varsity Mulching and let us know how we did!
-              </p>
-
-              {/* Review Form */}
-              <form onSubmit={handleSubmit} className="mt-8 space-y-5">
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-vm-navy mb-1.5">
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      required
-                      placeholder="John D."
-                      className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-vm-navy placeholder:text-muted-foreground focus:border-vm-blue focus:outline-none focus:ring-1 focus:ring-vm-blue"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="county" className="block text-sm font-medium text-vm-navy mb-1.5">
-                      County
-                    </label>
-                    <input
-                      type="text"
-                      id="county"
-                      value={formData.county}
-                      onChange={(e) => setFormData({ ...formData, county: e.target.value })}
-                      required
-                      placeholder="Montgomery County"
-                      className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-vm-navy placeholder:text-muted-foreground focus:border-vm-blue focus:outline-none focus:ring-1 focus:ring-vm-blue"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-vm-navy mb-1.5">
-                    Your Review
-                  </label>
-                  <textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    required
-                    rows={5}
-                    placeholder="Tell us about your experience with Varsity Mulching..."
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-vm-navy placeholder:text-muted-foreground focus:border-vm-blue focus:outline-none focus:ring-1 focus:ring-vm-blue resize-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="inline-flex rounded-full bg-vm-navy px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg disabled:opacity-50"
-                >
-                  {isSubmitting ? "Submitting..." : "Submit Review"}
-                </button>
-                {submitted && (
-                  <p className="text-sm font-medium text-green-600">
-                    Thank you for your review!
-                  </p>
-                )}
-              </form>
-            </div>
-
-            {/* Right - Recent Reviews */}
-            <div>
-              <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
-                Customer Stories
-              </p>
-              <h3 className="text-2xl font-bold tracking-tight text-vm-navy md:text-3xl">
-                What People Are Saying
-              </h3>
-              
-              <div className="mt-8 space-y-4">
-                {reviews.map((review) => (
-                  <div key={review.id} className="rounded-2xl border border-border bg-card p-6">
-                    <p className="text-base leading-relaxed text-vm-navy/80">
-                      "{review.message}"
-                    </p>
-                    <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
-                      <div>
-                        <p className="text-sm font-semibold text-vm-navy">{review.name}</p>
-                        <p className="text-xs text-muted-foreground">{review.county}</p>
-                      </div>
-                      <p className="text-xs text-muted-foreground">{review.date}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
+            Customer Reviews
+          </p>
+          <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl text-balance">
+            See What Our Customers Say
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+            Check out our reviews on Google to see what customers across the greater Philadelphia area are saying about Varsity Mulching.
+          </p>
+          <div className="mt-8">
+            <Link
+              href="https://www.google.com/search?sca_esv=559361602&hl=en&authuser=0&sxsrf=AB5stBhbtP7Zkf3zL35PjjYFgAcIgxYNug:1692801168575&q=Varsity+Mulching&stick=H4sIAAAAAAAAAONgU1I1qLCwTDZLNDc0SjNOTjJItjS0MqhIMjVMMja2tDAwTDJINDS0XMQqEJZYVJxZUqngW5qTnJGZlw4AQf0SMzwAAAA&mat=IgIIAQ&sa=X&ved=2ahUKEwjU2s_i__KAAxVJLUQIHallAgAQ-rELegQIJRAD&biw=1865&bih=961&dpr=1#lrd=0x89c6a712f3cb0c91:0xb51b339801b0a119,1,,,,"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 rounded-full bg-vm-navy px-8 py-4 text-base font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-vm-gold">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+              </svg>
+              Read Our Google Reviews
+            </Link>
           </div>
         </div>
       </section>
