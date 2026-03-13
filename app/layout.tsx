@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: './',
   },
+  verification: {
+    google: 'wWh3PMapCDTpBp5zFQcrL7wdiDPqY2Q4Ysqa2FApNos',
+  },
   title: 'Varsity Mulching | Professional Mulch & Landscaping in Chester County, Bucks County & Montgomery County, PA',
   description:
     'Professional mulch installation, landscape edging, weed control & bed cleanup serving Chester County, Bucks County & Montgomery County, PA. Locally owned — serving West Chester, Doylestown, Malvern, Exton & more.',
