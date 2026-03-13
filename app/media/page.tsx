@@ -93,7 +93,7 @@ export default function MediaPage() {
           <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue uppercase">
             Media & Blog
           </p>
-          <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl text-balance">
+          <h1 className="font-varsity text-4xl tracking-wide text-white md:text-5xl lg:text-6xl text-balance uppercase">
             Stories from the Field
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80">

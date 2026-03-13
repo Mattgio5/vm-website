@@ -32,7 +32,7 @@ export function CalculatorSection() {
             <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
               Mulch Calculator
             </p>
-            <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl lg:text-5xl text-balance">
+            <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl lg:text-5xl text-balance uppercase">
               How Much Do You Need?
             </h2>
             <p className="mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">

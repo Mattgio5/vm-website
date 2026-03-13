@@ -95,7 +95,7 @@ export default function SupplementsPage() {
             <p className="text-sm font-semibold tracking-wider text-vm-blue uppercase">
               Extra touches for your yard
             </p>
-            <h1 className="mt-2 text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl text-balance">
+            <h1 className="font-varsity mt-2 text-4xl tracking-wide text-white md:text-5xl lg:text-6xl text-balance uppercase">
               Supplements
             </h1>
             <p className="mt-4 max-w-lg text-lg leading-relaxed text-white/80">
@@ -117,7 +117,7 @@ export default function SupplementsPage() {
             <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
               Enhance Your Service
             </p>
-            <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl">
+            <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
               Add-ons
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -156,7 +156,7 @@ export default function SupplementsPage() {
             <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
               Keep It Looking Great
             </p>
-            <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl">
+            <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
               Follow-up Servicing
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -191,7 +191,7 @@ export default function SupplementsPage() {
           <div className="h-2.5 w-full bg-vm-navy" />
         </div>
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-vm-navy md:text-3xl">
+          <h2 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl uppercase">
             Ready to enhance your service?
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-base text-vm-navy/70">

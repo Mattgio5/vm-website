@@ -10,7 +10,7 @@ export function ServicesCta() {
         <div className="h-2.5 w-full bg-vm-navy" />
       </div>
       <div className="mx-auto max-w-4xl text-center">
-        <h2 className="font-serif text-3xl font-bold tracking-tight text-vm-navy md:text-4xl text-balance">
+        <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
           Ready to Transform Your Yard?
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
