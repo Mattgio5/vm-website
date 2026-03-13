@@ -10,6 +10,10 @@ const openSans = Open_Sans({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.varsitymulching.com'),
+  alternates: {
+    canonical: './',
+  },
   title: 'Varsity Mulching | Professional Mulch & Landscaping in Chester County, Bucks County & Montgomery County, PA',
   description:
     'Professional mulch installation, landscape edging, weed control & bed cleanup serving Chester County, Bucks County & Montgomery County, PA. Locally owned — serving West Chester, Doylestown, Malvern, Exton & more.',
