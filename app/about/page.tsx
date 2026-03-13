@@ -1,6 +1,5 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import Image from "next/image"
 
 export const metadata = {
   title: "About Us | Varsity Mulching",
@@ -23,14 +22,11 @@ export default function AboutPage() {
 
         <div className="relative z-10 flex h-full items-center px-4 pt-24 md:px-12 lg:px-20">
           <div className="mx-auto max-w-4xl text-center">
-            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold uppercase">
-              Our Story
-            </p>
             <h1 className="font-varsity text-4xl tracking-wide text-white md:text-5xl lg:text-6xl text-balance uppercase">
-              Local Students. Real Results.
+              Our Story
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
-              We're a small Philadelphia business employing hometown talent to keep your yard fresh each year.
+              We're a small business in the greater Philadelphia area employing hometown talent to keep your yard fresh each year.
             </p>
           </div>
         </div>
@@ -91,8 +87,193 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Why Local Matters */}
+      {/* The Varsity Crew - Moved above Neighbors Helping Neighbors */}
       <section className="relative bg-muted/50 px-4 py-20 md:px-12 md:py-28 lg:px-20">
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+        </div>
+        
+        <div className="mx-auto max-w-6xl">
+          <div className="text-center">
+            <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
+              The Varsity Crew
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              College athletes who bring the same discipline and teamwork from the field to your yard.
+            </p>
+          </div>
+
+          {/* Team Grid - 8 members */}
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Team Member 1 */}
+            <div className="group rounded-2xl border border-border bg-card p-5">
+              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
+                {/* IMAGE NEEDED: Headshot of team member 1, casual/friendly style */}
+                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
+                  <span className="text-xs">Photo</span>
+                </div>
+              </div>
+              <div className="mt-4 text-center">
+                <p className="font-semibold text-vm-navy">Team Member Name</p>
+                <p className="text-sm text-muted-foreground">Crew Lead</p>
+                <p className="mt-1 text-xs text-vm-blue-dark">Hometown, PA</p>
+                <p className="text-xs text-vm-blue-dark">School Name &apos;25</p>
+                <p className="mt-2 text-xs text-muted-foreground italic">
+                  "Love the cheesesteaks at Pat's"
+                </p>
+              </div>
+            </div>
+
+            {/* Team Member 2 */}
+            <div className="group rounded-2xl border border-border bg-card p-5">
+              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
+                {/* IMAGE NEEDED: Headshot of team member 2, casual/friendly style */}
+                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
+                  <span className="text-xs">Photo</span>
+                </div>
+              </div>
+              <div className="mt-4 text-center">
+                <p className="font-semibold text-vm-navy">Team Member Name</p>
+                <p className="text-sm text-muted-foreground">Crew Lead</p>
+                <p className="mt-1 text-xs text-vm-blue-dark">Hometown, PA</p>
+                <p className="text-xs text-vm-blue-dark">School Name &apos;26</p>
+                <p className="mt-2 text-xs text-muted-foreground italic">
+                  "Nothing beats Wawa runs"
+                </p>
+              </div>
+            </div>
+
+            {/* Team Member 3 */}
+            <div className="group rounded-2xl border border-border bg-card p-5">
+              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
+                {/* IMAGE NEEDED: Headshot of team member 3, casual/friendly style */}
+                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
+                  <span className="text-xs">Photo</span>
+                </div>
+              </div>
+              <div className="mt-4 text-center">
+                <p className="font-semibold text-vm-navy">Team Member Name</p>
+                <p className="text-sm text-muted-foreground">Field Technician</p>
+                <p className="mt-1 text-xs text-vm-blue-dark">Hometown, PA</p>
+                <p className="text-xs text-vm-blue-dark">School Name &apos;27</p>
+                <p className="mt-2 text-xs text-muted-foreground italic">
+                  "Eagles games with the family"
+                </p>
+              </div>
+            </div>
+
+            {/* Team Member 4 */}
+            <div className="group rounded-2xl border border-border bg-card p-5">
+              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
+                {/* IMAGE NEEDED: Headshot of team member 4, casual/friendly style */}
+                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
+                  <span className="text-xs">Photo</span>
+                </div>
+              </div>
+              <div className="mt-4 text-center">
+                <p className="font-semibold text-vm-navy">Team Member Name</p>
+                <p className="text-sm text-muted-foreground">Field Technician</p>
+                <p className="mt-1 text-xs text-vm-blue-dark">Hometown, PA</p>
+                <p className="text-xs text-vm-blue-dark">School Name &apos;27</p>
+                <p className="mt-2 text-xs text-muted-foreground italic">
+                  "The trails at Valley Forge"
+                </p>
+              </div>
+            </div>
+
+            {/* Team Member 5 */}
+            <div className="group rounded-2xl border border-border bg-card p-5">
+              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
+                {/* IMAGE NEEDED: Headshot of team member 5, casual/friendly style */}
+                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
+                  <span className="text-xs">Photo</span>
+                </div>
+              </div>
+              <div className="mt-4 text-center">
+                <p className="font-semibold text-vm-navy">Team Member Name</p>
+                <p className="text-sm text-muted-foreground">Field Technician</p>
+                <p className="mt-1 text-xs text-vm-blue-dark">Hometown, PA</p>
+                <p className="text-xs text-vm-blue-dark">School Name &apos;26</p>
+                <p className="mt-2 text-xs text-muted-foreground italic">
+                  "Summer nights on the shore"
+                </p>
+              </div>
+            </div>
+
+            {/* Team Member 6 */}
+            <div className="group rounded-2xl border border-border bg-card p-5">
+              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
+                {/* IMAGE NEEDED: Headshot of team member 6, casual/friendly style */}
+                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
+                  <span className="text-xs">Photo</span>
+                </div>
+              </div>
+              <div className="mt-4 text-center">
+                <p className="font-semibold text-vm-navy">Team Member Name</p>
+                <p className="text-sm text-muted-foreground">Field Technician</p>
+                <p className="mt-1 text-xs text-vm-blue-dark">Hometown, PA</p>
+                <p className="text-xs text-vm-blue-dark">School Name &apos;28</p>
+                <p className="mt-2 text-xs text-muted-foreground italic">
+                  "The Philly skyline at night"
+                </p>
+              </div>
+            </div>
+
+            {/* Team Member 7 */}
+            <div className="group rounded-2xl border border-border bg-card p-5">
+              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
+                {/* IMAGE NEEDED: Headshot of team member 7, casual/friendly style */}
+                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
+                  <span className="text-xs">Photo</span>
+                </div>
+              </div>
+              <div className="mt-4 text-center">
+                <p className="font-semibold text-vm-navy">Team Member Name</p>
+                <p className="text-sm text-muted-foreground">Field Technician</p>
+                <p className="mt-1 text-xs text-vm-blue-dark">Hometown, PA</p>
+                <p className="text-xs text-vm-blue-dark">School Name &apos;27</p>
+                <p className="mt-2 text-xs text-muted-foreground italic">
+                  "Reading Terminal Market"
+                </p>
+              </div>
+            </div>
+
+            {/* Team Member 8 */}
+            <div className="group rounded-2xl border border-border bg-card p-5">
+              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
+                {/* IMAGE NEEDED: Headshot of team member 8, casual/friendly style */}
+                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
+                  <span className="text-xs">Photo</span>
+                </div>
+              </div>
+              <div className="mt-4 text-center">
+                <p className="font-semibold text-vm-navy">Team Member Name</p>
+                <p className="text-sm text-muted-foreground">Field Technician</p>
+                <p className="mt-1 text-xs text-vm-blue-dark">Hometown, PA</p>
+                <p className="text-xs text-vm-blue-dark">School Name &apos;26</p>
+                <p className="mt-2 text-xs text-muted-foreground italic">
+                  "Tailgates at the Linc"
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Join the Team CTA */}
+          <div className="mt-12 text-center">
+            <p className="text-muted-foreground">
+              Interested in joining the crew?{" "}
+              <a href="/careers" className="font-semibold text-vm-blue-dark hover:underline">
+                Check out our open positions
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Local Matters */}
+      <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
         {/* Varsity stripes - two thick parallel lines */}
         <div className="absolute top-0 left-0 right-0 flex flex-col">
           <div className="h-2.5 w-full bg-vm-gold" />
@@ -121,144 +302,19 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-              <p className="font-varsity text-4xl text-vm-gold-dark">100%</p>
-              <p className="mt-2 text-lg font-semibold text-vm-navy">Local Crews</p>
+              <p className="font-varsity text-4xl text-vm-gold-dark">10+</p>
+              <p className="mt-2 text-lg font-semibold text-vm-navy">Crews Ready to Help</p>
               <p className="mt-2 text-sm text-muted-foreground">
-                Every person on our team lives in the community we serve.
+                With crews across the greater Philly area, we can be a help everywhere.
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-              <p className="font-varsity text-4xl text-vm-gold-dark">5+</p>
-              <p className="mt-2 text-lg font-semibold text-vm-navy">Years of Trust</p>
+              <p className="font-varsity text-4xl text-vm-gold-dark">2021</p>
+              <p className="mt-2 text-lg font-semibold text-vm-navy">Est. &amp; Growing</p>
               <p className="mt-2 text-sm text-muted-foreground">
-                From a few high schoolers to a full team, we've grown through word of mouth.
+                From a few high schoolers to a full team, we've grown through word of mouth ever since.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Meet the Team */}
-      <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
-        {/* Varsity stripes - two thick parallel lines */}
-        <div className="absolute top-0 left-0 right-0 flex flex-col">
-          <div className="h-2.5 w-full bg-vm-gold" />
-          <div className="h-2.5 w-full bg-vm-navy" />
-        </div>
-        
-        <div className="mx-auto max-w-6xl">
-          <div className="text-center">
-            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
-              The Varsity Crew
-            </p>
-            <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
-              Meet the Team
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              College athletes who bring the same discipline and teamwork from the field to your yard.
-            </p>
-          </div>
-
-          {/* Team Grid */}
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {/* Team Member 1 */}
-            <div className="group rounded-2xl border border-border bg-card p-5">
-              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
-                {/* IMAGE NEEDED: Headshot of team member 1, casual/friendly style */}
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                  <span className="text-xs">Photo</span>
-                </div>
-              </div>
-              <div className="mt-4 text-center">
-                <p className="font-semibold text-vm-navy">Team Member Name</p>
-                <p className="text-sm text-muted-foreground">Crew Lead</p>
-                <p className="mt-1 text-xs text-vm-blue-dark">School Name &apos;25</p>
-              </div>
-            </div>
-
-            {/* Team Member 2 */}
-            <div className="group rounded-2xl border border-border bg-card p-5">
-              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
-                {/* IMAGE NEEDED: Headshot of team member 2, casual/friendly style */}
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                  <span className="text-xs">Photo</span>
-                </div>
-              </div>
-              <div className="mt-4 text-center">
-                <p className="font-semibold text-vm-navy">Team Member Name</p>
-                <p className="text-sm text-muted-foreground">Crew Lead</p>
-                <p className="mt-1 text-xs text-vm-blue-dark">School Name &apos;26</p>
-              </div>
-            </div>
-
-            {/* Team Member 3 */}
-            <div className="group rounded-2xl border border-border bg-card p-5">
-              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
-                {/* IMAGE NEEDED: Headshot of team member 3, casual/friendly style */}
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                  <span className="text-xs">Photo</span>
-                </div>
-              </div>
-              <div className="mt-4 text-center">
-                <p className="font-semibold text-vm-navy">Team Member Name</p>
-                <p className="text-sm text-muted-foreground">Field Technician</p>
-                <p className="mt-1 text-xs text-vm-blue-dark">School Name &apos;27</p>
-              </div>
-            </div>
-
-            {/* Team Member 4 */}
-            <div className="group rounded-2xl border border-border bg-card p-5">
-              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
-                {/* IMAGE NEEDED: Headshot of team member 4, casual/friendly style */}
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                  <span className="text-xs">Photo</span>
-                </div>
-              </div>
-              <div className="mt-4 text-center">
-                <p className="font-semibold text-vm-navy">Team Member Name</p>
-                <p className="text-sm text-muted-foreground">Field Technician</p>
-                <p className="mt-1 text-xs text-vm-blue-dark">School Name &apos;27</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Join the Team CTA */}
-          <div className="mt-12 text-center">
-            <p className="text-muted-foreground">
-              Interested in joining the crew?{" "}
-              <a href="/careers" className="font-semibold text-vm-blue-dark hover:underline">
-                Check out our open positions
-              </a>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Area */}
-      <section className="relative bg-vm-navy px-4 py-20 md:px-12 md:py-28 lg:px-20">
-        {/* Varsity stripes - two thick parallel lines at top */}
-        <div className="absolute top-0 left-0 right-0 flex flex-col">
-          <div className="h-2.5 w-full bg-vm-navy" />
-          <div className="h-2.5 w-full bg-vm-gold" />
-        </div>
-        
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold uppercase">
-            Service Area
-          </p>
-          <h2 className="font-varsity text-3xl tracking-wide text-white md:text-4xl text-balance uppercase">
-            Proudly Serving Philadelphia
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
-            We operate throughout the great Philly area, bringing professional mulching services to residential and commercial properties alike.
-          </p>
-          <div className="mt-10">
-            <a
-              href="#quote"
-              className="inline-flex rounded-full bg-vm-blue px-7 py-3.5 text-base font-semibold text-vm-navy transition-all hover:bg-vm-blue-dark hover:shadow-lg"
-            >
-              Get a Free Quote
-            </a>
           </div>
         </div>
       </section>
