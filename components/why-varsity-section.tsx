@@ -258,11 +258,10 @@ export function WhyVarsitySection() {
                   <p className="text-xs text-muted-foreground mt-1">Team Photo</p>
                 </div>
               </div>
-              <div className="p-6 bg-white">
-                <p className="mb-2 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">Meet the Crew</p>
-                <p className="text-base leading-relaxed text-muted-foreground">
-                  Local college students with the equipment and systems to get it done right. No shortcuts, just solid work.
-                </p>
+              <div className="p-6 bg-white flex flex-col items-center justify-center flex-1">
+                <a href="/about" className="inline-block px-6 py-2 rounded-lg bg-vm-navy text-white font-semibold hover:bg-vm-navy/90 transition-colors">
+                  Meet the Crew
+                </a>
               </div>
             </div>
 
@@ -274,11 +273,8 @@ export function WhyVarsitySection() {
                   <p className="text-xs text-muted-foreground mt-1">Service Area Map</p>
                 </div>
               </div>
-              <div className="p-6 bg-white">
-                <p className="mb-2 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">Where We're From</p>
-                <p className="text-base leading-relaxed text-muted-foreground">
-                  We serve neighborhoods across the area. Close enough to know your yard, far enough to have perspective.
-                </p>
+              <div className="p-6 bg-white flex flex-col items-center justify-center flex-1">
+                <p className="text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">Where We're From</p>
               </div>
             </div>
           </div>
