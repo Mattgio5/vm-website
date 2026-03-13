@@ -85,13 +85,6 @@ const jsonLd = {
     },
     "geoRadius": "48280"
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "100",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
   "offers": {
     "@type": "Offer",
     "priceSpecification": {
