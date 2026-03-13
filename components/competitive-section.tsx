@@ -40,6 +40,11 @@ export function CompetitiveSection() {
               color: "#333333",
             }}
           >
+            <div style={{ background: "#336699", margin: "-24px -24px 16px -24px", padding: "10px 16px" }}>
+              <span style={{ color: "#ffffff", fontWeight: "bold", fontSize: "13px" }}>
+                localyardguys.com
+              </span>
+            </div>
             <p
               style={{
                 fontSize: "22px",
@@ -68,11 +73,11 @@ export function CompetitiveSection() {
             </table>
           </div>
 
-          {/* MIDDLE: Varsity Mulching — our own styling */}
-          <div className="relative flex flex-col rounded-2xl border-2 border-vm-navy bg-white overflow-hidden shadow-xl">
-            {/* Trophy banner */}
-            <div className="flex items-center justify-center gap-2 bg-vm-navy px-4 py-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-vm-gold shrink-0">
+          {/* MIDDLE: Varsity Mulching — our own styling, lighter palette */}
+          <div className="relative flex flex-col rounded-2xl border-2 border-vm-blue-dark bg-white overflow-hidden shadow-xl">
+            {/* Trophy banner — lighter blue instead of dark navy */}
+            <div className="flex items-center justify-center gap-2 bg-vm-blue px-4 py-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-vm-navy shrink-0">
                 <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
                 <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
                 <path d="M4 22h16" />
@@ -80,7 +85,7 @@ export function CompetitiveSection() {
                 <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
                 <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
               </svg>
-              <span className="font-varsity text-sm tracking-widest text-vm-gold uppercase">
+              <span className="font-varsity text-sm tracking-widest text-vm-navy uppercase">
                 The Sweet Spot
               </span>
             </div>
@@ -93,14 +98,14 @@ export function CompetitiveSection() {
                 Skilled enough to do anything — but chose to perfect mulching. Get top-tier quality at the going rate.
               </p>
 
-              <div className="mt-6 space-y-3 border-t border-vm-navy/15 pt-6">
+              <div className="mt-6 space-y-3 border-t border-vm-blue-dark/30 pt-6">
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground uppercase tracking-wider">Price</span>
                   <span className="font-varsity text-xl text-vm-navy tracking-widest">$$</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground uppercase tracking-wider">Quality</span>
-                  <span className="text-vm-gold text-xl tracking-wider">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                  <span className="text-vm-gold-dark text-xl tracking-wider">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
                 </div>
               </div>
             </div>

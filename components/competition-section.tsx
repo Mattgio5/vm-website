@@ -13,7 +13,7 @@ export function CompetitionSection() {
             The Market
           </p>
           <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl lg:text-5xl text-balance uppercase">
-            Who We're Up Against
+            Who We&apos;re Up Against
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
             We know where we fit. And so should you.
@@ -41,10 +41,7 @@ export function CompetitionSection() {
                 borderRadius: "2px 2px 0 0",
               }}
             >
-              <p style={{ color: "#fff", fontSize: "11px", margin: 0, letterSpacing: "1px", textTransform: "uppercase" }}>
-                Option A
-              </p>
-              <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: "bold", margin: "4px 0 0" }}>
+              <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: "bold", margin: 0 }}>
                 The Budget Crew
               </h3>
             </div>
@@ -88,63 +85,39 @@ export function CompetitionSection() {
             >
               <strong style={{ color: "#333" }}>Note:</strong> Results may vary. Check references.
             </div>
-
-            <div style={{ marginTop: "16px", textAlign: "center" }}>
-              <button
-                style={{
-                  background: "#336699",
-                  color: "#fff",
-                  border: "1px solid #225588",
-                  padding: "8px 20px",
-                  fontSize: "13px",
-                  borderRadius: "3px",
-                  cursor: "pointer",
-                  fontWeight: "bold",
-                }}
-              >
-                Get Quote &raquo;
-              </button>
-            </div>
           </div>
 
-          {/* ── MIDDLE: Varsity Mulching ── our brand ── */}
-          <div className="relative rounded-2xl bg-vm-navy px-8 py-10 text-white shadow-xl ring-4 ring-vm-gold flex flex-col">
+          {/* ── MIDDLE: Varsity Mulching ── our brand, lighter palette ── */}
+          <div className="relative rounded-2xl border-2 border-vm-blue-dark bg-white shadow-xl flex flex-col overflow-hidden">
             {/* Trophy badge */}
-            <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-full bg-vm-gold px-4 py-1.5 shadow-md">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 text-vm-navy" aria-hidden="true">
+            <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-full bg-vm-blue-dark px-4 py-1.5 shadow-md">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 text-white" aria-hidden="true">
                 <path fillRule="evenodd" d="M5.166 3h13.668A2.25 2.25 0 0121 5.25v.113c0 .812-.435 1.56-1.142 1.965l-1.22.698A2.25 2.25 0 0016.5 9.96v.563c0 .54.192 1.06.537 1.47l.857 1.015a4.5 4.5 0 01.985 2.83V18a2.25 2.25 0 01-2.25 2.25H7.371A2.25 2.25 0 015.121 18v-2.162a4.5 4.5 0 01.985-2.83l.857-1.015A2.25 2.25 0 007.5 10.523V9.96a2.25 2.25 0 00-2.138-2.244l-1.22-.697A2.25 2.25 0 013 5.363V5.25A2.25 2.25 0 015.166 3z" clipRule="evenodd" />
               </svg>
-              <span className="font-varsity text-xs tracking-widest text-vm-navy uppercase">The Sweet Spot</span>
+              <span className="font-varsity text-xs tracking-widest text-white uppercase">The Sweet Spot</span>
             </div>
 
-            <div className="mt-4 mb-6 text-center border-b border-white/20 pb-6">
-              <h3 className="font-varsity text-2xl tracking-wide text-vm-gold uppercase">
-                Varsity Mulching
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/80">
-                Skilled enough to do anything &mdash; but chose to perfect mulching. Get top-tier quality at the going rate.
-              </p>
-            </div>
-
-            <div className="flex justify-around mb-6">
-              <div className="text-center">
-                <p className="text-xs font-semibold tracking-widest text-white/50 uppercase mb-1">Price</p>
-                <p className="text-2xl font-bold text-vm-gold">$$</p>
+            <div className="mt-8 px-8 pb-8 pt-2 flex flex-col flex-1">
+              <div className="mb-6 text-center border-b border-vm-blue/40 pb-6">
+                <h3 className="font-varsity text-2xl tracking-wide text-vm-navy uppercase">
+                  Varsity Mulching
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Skilled enough to do anything &mdash; but chose to perfect mulching. Get top-tier quality at the going rate.
+                </p>
               </div>
-              <div className="h-full w-px bg-white/20" />
-              <div className="text-center">
-                <p className="text-xs font-semibold tracking-widest text-white/50 uppercase mb-1">Quality</p>
-                <p className="text-xl text-vm-gold">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-              </div>
-            </div>
 
-            <div className="mt-auto text-center">
-              <a
-                href="/contact"
-                className="inline-block rounded-full bg-vm-gold px-6 py-2.5 text-sm font-bold text-vm-navy tracking-wide hover:bg-vm-gold-dark transition-colors"
-              >
-                Get a Free Quote
-              </a>
+              <div className="flex justify-around">
+                <div className="text-center">
+                  <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase mb-1">Price</p>
+                  <p className="font-varsity text-2xl text-vm-navy">$$</p>
+                </div>
+                <div className="w-px bg-vm-blue/40" />
+                <div className="text-center">
+                  <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase mb-1">Quality</p>
+                  <p className="text-xl text-vm-gold-dark">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -207,7 +180,6 @@ export function CompetitionSection() {
                 background: "#ede9e0",
                 borderRadius: "12px",
                 padding: "16px 20px",
-                marginBottom: "24px",
                 display: "flex",
                 justifyContent: "space-around",
               }}
@@ -221,24 +193,6 @@ export function CompetitionSection() {
                 <p style={{ fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", color: "#a09888", margin: "0 0 6px" }}>Quality</p>
                 <p style={{ fontSize: "18px", color: "#2d4a2d", margin: 0 }}>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
               </div>
-            </div>
-
-            <div style={{ marginTop: "auto", textAlign: "center" }}>
-              <button
-                style={{
-                  background: "#2d4a2d",
-                  color: "#f5f2ec",
-                  border: "none",
-                  borderRadius: "99px",
-                  padding: "12px 28px",
-                  fontSize: "13px",
-                  letterSpacing: "1px",
-                  cursor: "pointer",
-                  width: "100%",
-                }}
-              >
-                Schedule a Consultation
-              </button>
             </div>
           </div>
 
