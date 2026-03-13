@@ -64,13 +64,13 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-4 left-4 right-4 z-50 mx-auto max-w-7xl">
-      <div className="relative rounded-2xl border border-white/30 bg-white/70 px-4 py-3 shadow-lg backdrop-blur-xl md:px-6">
-
-        {/* Varsity stripes overlaid at the very top, clipped to navbar's rounded corners */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 overflow-hidden rounded-t-2xl">
-          <div className="h-[3px] w-full bg-vm-navy" />
-          <div className="h-[3px] w-full bg-vm-gold" />
-        </div>
+      {/* Varsity stripes - full width edge-to-edge, clipped to navbar's top corners */}
+      <div className="pointer-events-none mb-0 flex flex-col rounded-t-2xl overflow-hidden">
+        <div className="h-[3px] w-full bg-vm-navy" />
+        <div className="h-[3px] w-full bg-vm-gold" />
+      </div>
+      
+      <div className="rounded-b-2xl border border-t-0 border-white/30 bg-white/70 px-4 py-3 shadow-lg backdrop-blur-xl md:px-6">
 
         <div className="flex items-center justify-between">
           {/* Desktop links */}
