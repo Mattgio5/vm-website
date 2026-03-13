@@ -65,7 +65,12 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-4 left-4 right-4 z-50 mx-auto max-w-7xl">
-      <div className="rounded-2xl border border-white/30 bg-white/70 px-4 py-3 shadow-lg backdrop-blur-xl md:px-6">
+      {/* Varsity stripes - thin lines that follow navbar rounding */}
+      <div className="flex flex-col gap-[2px] mb-[2px]">
+        <div className="h-[3px] w-full rounded-t-2xl bg-vm-navy" />
+        <div className="h-[3px] w-full bg-vm-gold" />
+      </div>
+      <div className="rounded-b-2xl border border-white/30 bg-white/70 px-4 py-3 shadow-lg backdrop-blur-xl md:px-6">
         <div className="flex items-center justify-between">
           {/* Desktop links */}
           <div className="hidden items-center gap-6 md:flex">

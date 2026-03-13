@@ -15,12 +15,6 @@ export default function AboutPage() {
 
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[400px] w-full overflow-hidden">
-        {/* Varsity stripes - two thick parallel lines at top */}
-        <div className="absolute top-0 left-0 right-0 z-20 flex flex-col">
-          <div className="h-2 w-full bg-vm-navy" />
-          <div className="h-2 w-full bg-vm-gold" />
-        </div>
-        
         <div className="absolute inset-0 z-0">
           {/* IMAGE NEEDED: Hero image showing the Varsity Mulching team working together on a job site, preferably showing college-aged workers in action */}
           <div className="h-full w-full bg-vm-navy/20" />
@@ -43,7 +37,12 @@ export default function AboutPage() {
       </section>
 
       {/* Founder's Message */}
-      <section className="bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+      <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-navy" />
+          <div className="h-2.5 w-full bg-vm-gold" />
+        </div>
         <div className="mx-auto max-w-4xl">
           <div className="grid gap-12 md:grid-cols-5 md:gap-16">
             {/* Photo - Sticky on scroll */}
@@ -96,8 +95,8 @@ export default function AboutPage() {
       <section className="relative bg-muted/50 px-4 py-20 md:px-12 md:py-28 lg:px-20">
         {/* Varsity stripes - two thick parallel lines */}
         <div className="absolute top-0 left-0 right-0 flex flex-col">
-          <div className="h-2 w-full bg-vm-navy" />
-          <div className="h-2 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+          <div className="h-2.5 w-full bg-vm-gold" />
         </div>
         
         <div className="mx-auto max-w-5xl">
@@ -143,8 +142,8 @@ export default function AboutPage() {
       <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
         {/* Varsity stripes - two thick parallel lines */}
         <div className="absolute top-0 left-0 right-0 flex flex-col">
-          <div className="h-2 w-full bg-vm-navy" />
-          <div className="h-2 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+          <div className="h-2.5 w-full bg-vm-gold" />
         </div>
         
         <div className="mx-auto max-w-6xl">
@@ -239,8 +238,8 @@ export default function AboutPage() {
       <section className="relative bg-vm-navy px-4 py-20 md:px-12 md:py-28 lg:px-20">
         {/* Varsity stripes - two thick parallel lines at top */}
         <div className="absolute top-0 left-0 right-0 flex flex-col">
-          <div className="h-2 w-full bg-vm-navy" />
-          <div className="h-2 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+          <div className="h-2.5 w-full bg-vm-gold" />
         </div>
         
         <div className="mx-auto max-w-4xl text-center">

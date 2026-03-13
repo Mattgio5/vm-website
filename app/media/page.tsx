@@ -87,8 +87,8 @@ export default function MediaPage() {
     <main>
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="bg-vm-navy px-4 pt-32 pb-20 md:px-12 md:pt-40 md:pb-28 lg:px-20">
+      {/* Hero Section - no top stripes, handled by navbar */}
+      <section className="relative bg-vm-navy px-4 pt-32 pb-20 md:px-12 md:pt-40 md:pb-28 lg:px-20">
         <div className="mx-auto max-w-4xl text-center">
           <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue uppercase">
             Media & Blog
@@ -115,7 +115,12 @@ export default function MediaPage() {
       </section>
 
       {/* Latest Instagram Post */}
-      <section className="bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+      <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-navy" />
+          <div className="h-2.5 w-full bg-vm-gold" />
+        </div>
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
             {/* Left - Instagram Embed */}
@@ -209,7 +214,12 @@ export default function MediaPage() {
       </section>
 
       {/* Customer Reviews Section */}
-      <section className="bg-muted/50 px-4 py-20 md:px-12 md:py-28 lg:px-20">
+      <section className="relative bg-muted/50 px-4 py-20 md:px-12 md:py-28 lg:px-20">
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-navy" />
+          <div className="h-2.5 w-full bg-vm-gold" />
+        </div>
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             {/* Left - Submit a Review */}

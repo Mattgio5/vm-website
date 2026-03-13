@@ -56,12 +56,6 @@ export default function CareersPage() {
 
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center px-4 py-20 md:py-28">
-        {/* Varsity stripes - two thick parallel lines at top */}
-        <div className="absolute top-0 left-0 right-0 z-20 flex flex-col">
-          <div className="h-2 w-full bg-vm-navy" />
-          <div className="h-2 w-full bg-vm-gold" />
-        </div>
-        
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center"
@@ -94,8 +88,8 @@ export default function CareersPage() {
       <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
         {/* Varsity stripes - two thick parallel lines */}
         <div className="absolute top-0 left-0 right-0 flex flex-col">
-          <div className="h-2 w-full bg-vm-navy" />
-          <div className="h-2 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+          <div className="h-2.5 w-full bg-vm-gold" />
         </div>
         
         <div className="mx-auto max-w-6xl">
@@ -155,8 +149,8 @@ export default function CareersPage() {
       <section className="relative bg-vm-blue/30 px-4 py-20 md:px-12 md:py-28 lg:px-20">
         {/* Varsity stripes - two thick parallel lines at top */}
         <div className="absolute top-0 left-0 right-0 flex flex-col">
-          <div className="h-2 w-full bg-vm-navy" />
-          <div className="h-2 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+          <div className="h-2.5 w-full bg-vm-gold" />
         </div>
         
         <div className="mx-auto max-w-6xl">
@@ -209,8 +203,8 @@ export default function CareersPage() {
       <section id="open-positions" className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
         {/* Varsity stripes - two thick parallel lines */}
         <div className="absolute top-0 left-0 right-0 flex flex-col">
-          <div className="h-2 w-full bg-vm-navy" />
-          <div className="h-2 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+          <div className="h-2.5 w-full bg-vm-gold" />
         </div>
         
         <div className="mx-auto max-w-3xl text-center">

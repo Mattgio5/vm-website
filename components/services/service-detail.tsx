@@ -66,7 +66,12 @@ export function ServiceDetail({
       </section>
 
       {/* Main Content */}
-      <section className="bg-background px-4 py-16 md:px-12 md:py-24 lg:px-20">
+      <section className="relative bg-background px-4 py-16 md:px-12 md:py-24 lg:px-20">
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-navy" />
+          <div className="h-2.5 w-full bg-vm-gold" />
+        </div>
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-3 lg:gap-16">
           {/* Left column - Description & Features */}
           <div className="lg:col-span-2">
