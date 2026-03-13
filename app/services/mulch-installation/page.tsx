@@ -9,9 +9,66 @@ export const metadata = {
     "Professional mulch installation in Chester County, Bucks County & Montgomery County, PA. Premium hardwood, cedar & colored mulch delivered and installed. Serving West Chester, Doylestown, Malvern & Exton.",
 }
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Mulch Installation",
+  "name": "Professional Mulch Installation",
+  "description": "Premium mulch delivered and professionally installed for garden beds. Hardwood, cedar, and colored mulch options available.",
+  "url": "https://www.varsitymulching.com/services/mulch-installation",
+  "provider": {
+    "@type": "LocalBusiness",
+    "@id": "https://www.varsitymulching.com/#business",
+    "name": "Varsity Mulching LLC",
+    "telephone": "+1-267-489-1567"
+  },
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 40.0,
+      "longitude": -75.6
+    },
+    "geoRadius": "48280"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "100",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "price": "350-1500",
+      "priceCurrency": "USD"
+    }
+  },
+  "hoursAvailable": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "08:00",
+      "closes": "14:00"
+    }
+  ]
+}
+
 export default function MulchInstallationPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
       <ServiceDetail
         title="Mulch Installation"
