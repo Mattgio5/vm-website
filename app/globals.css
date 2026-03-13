@@ -1,6 +1,6 @@
+@import url('https://fonts.cdnfonts.com/css/superstar-m54');
 @import 'tailwindcss';
 @import 'tw-animate-css';
-@import url('https://fonts.cdnfonts.com/css/superstar-m54');
 
 @custom-variant dark (&:is(.dark *));
 
