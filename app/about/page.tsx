@@ -310,7 +310,7 @@ export default function AboutPage() {
             </div>
             <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
               <p className="font-varsity text-4xl text-vm-gold-dark">2021</p>
-              <p className="mt-2 text-lg font-semibold text-vm-navy">Est. &amp; Growing</p>
+              <p className="mt-2 text-lg font-semibold text-vm-navy">Est. & Growing</p>
               <p className="mt-2 text-sm text-muted-foreground">
                 From a few high schoolers to a full team, we've grown through word of mouth ever since.
               </p>

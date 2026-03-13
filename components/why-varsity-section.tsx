@@ -77,7 +77,7 @@ export function WhyVarsitySection() {
                   marginBottom: "12px",
                 }}
               >
-                Fairly priced&hellip; but you can tell.
+                Fairly priced... but you can tell.
               </p>
 
               <table style={{ width: "100%", fontSize: "13px", borderCollapse: "collapse" }}>
@@ -111,7 +111,7 @@ export function WhyVarsitySection() {
                       Varsity Mulching
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      Skilled enough to do anything &mdash; but chose to perfect mulching. Get top-tier quality at the going rate.
+                      Skilled enough to do anything — but chose to perfect mulching. Get top-tier quality at the going rate.
                     </p>
                     <p className="mt-3 text-sm font-semibold text-vm-navy uppercase tracking-wide">
                       Your go-to for mulching. It&apos;s what we do.
@@ -192,7 +192,7 @@ export function WhyVarsitySection() {
                   margin: "0 0 24px",
                 }}
               >
-                Full-service landscapers who can mulch &mdash; but charge a premium because every hour on mulch is an hour off a bigger job.
+                Full-service landscapers who can mulch — but charge a premium because every hour on mulch is an hour off a bigger job.
               </p>
 
               <div
@@ -241,7 +241,7 @@ export function WhyVarsitySection() {
           {/* Founder quote block */}
           <div className="border-l-4 border-vm-gold pl-6 md:pl-8 py-4">
             <blockquote className="text-base md:text-lg leading-relaxed text-muted-foreground italic">
-              &ldquo;My first job was my next-door neighbor&apos;s yard — just me, a wheelbarrow, and a lot of mulch. The operation has grown since then, but the mentality hasn&apos;t. We&apos;re still the kids next door. We just got a lot better at it.&rdquo;
+              "My first job was my next-door neighbor's yard — just me, a wheelbarrow, and a lot of mulch. The operation has grown since then, but the mentality hasn't. We're still the kids next door. We just got a lot better at it."
             </blockquote>
             <p className="mt-4 font-semibold text-vm-navy">
               — Matt, Founder, Varsity Mulching

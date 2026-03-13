@@ -56,7 +56,7 @@ export function CompetitiveSection() {
               The Budget Crew
             </p>
             <p style={{ fontSize: "13px", color: "#666666", marginBottom: "16px", lineHeight: "1.5" }}>
-              Fairly priced&hellip; but you can tell.
+              Fairly priced... but you can tell.
             </p>
 
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "13px" }}>
