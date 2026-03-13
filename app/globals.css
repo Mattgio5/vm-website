@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import url('https://db.onlinewebfonts.com/c/6dfdb377d2f6f52274a971120bcfb94d?family=Freshman');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -54,7 +55,7 @@
   --font-sans: 'Open Sans', 'Geist', 'Geist Fallback';
   --font-serif: 'Open Sans', 'Geist', 'Geist Fallback';
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
-  --font-varsity: 'Oswald', 'Impact', 'Haettenschweiler', sans-serif;
+  --font-varsity: 'Freshman', 'Impact', 'Haettenschweiler', sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -101,12 +102,33 @@
   --color-vm-navy-light: var(--vm-navy-light);
 }
 
-/* Varsity athletic font class */
+/* Varsity athletic font class - Freshman collegiate block letters */
 .font-varsity {
-  font-family: var(--font-varsity), 'Oswald', 'Impact', 'Haettenschweiler', sans-serif;
-  font-weight: 600;
+  font-family: 'Freshman', 'Impact', 'Haettenschweiler', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.02em;
+}
+
+/* Varsity stripes - two thick parallel horizontal lines */
+.varsity-stripes {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.varsity-stripes::before,
+.varsity-stripes::after {
+  content: '';
+  height: 6px;
+  width: 100%;
+}
+
+.varsity-stripes::before {
+  background-color: var(--vm-navy);
+}
+
+.varsity-stripes::after {
+  background-color: var(--vm-gold);
 }
 
 @layer base {

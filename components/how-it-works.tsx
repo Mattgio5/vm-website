@@ -22,13 +22,10 @@ const steps = [
 export function HowItWorks() {
   return (
     <section id="how-it-works" className="relative bg-vm-navy px-4 py-20 md:px-12 md:py-28 lg:px-20">
-      {/* Varsity stripes at top */}
-      <div className="absolute top-0 left-0 right-0 flex h-3">
-        <div className="flex-1 bg-vm-gold" />
-        <div className="flex-1 bg-vm-navy" />
-        <div className="flex-1 bg-vm-gold" />
-        <div className="flex-1 bg-vm-navy" />
-        <div className="flex-1 bg-vm-gold" />
+      {/* Varsity stripes - two thick parallel lines at top */}
+      <div className="absolute top-0 left-0 right-0 flex flex-col">
+        <div className="h-2 w-full bg-vm-gold" />
+        <div className="h-2 w-full bg-vm-navy" />
       </div>
       
       <div className="mx-auto max-w-7xl">

@@ -45,8 +45,11 @@ export function HeroCarousel() {
         </div>
       ))}
 
-      {/* Varsity stripe accent at top */}
-      <div className="absolute top-0 left-0 right-0 z-20 h-2 bg-gradient-to-r from-vm-navy via-vm-gold to-vm-navy" />
+      {/* Varsity stripes - two thick parallel lines at top */}
+      <div className="absolute top-0 left-0 right-0 z-20 flex flex-col">
+        <div className="h-2 w-full bg-vm-navy" />
+        <div className="h-2 w-full bg-vm-gold" />
+      </div>
 
       {/* Static content card */}
       <div className="relative z-10 flex h-full flex-col justify-center px-4 pt-28 pb-40 md:px-12 md:pt-32 md:pb-36 lg:px-20">

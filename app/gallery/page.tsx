@@ -140,8 +140,11 @@ export default function GalleryPage() {
 
       {/* Hero */}
       <section className="relative bg-vm-blue px-4 pt-32 pb-16 md:px-12 md:pt-40 md:pb-20 lg:px-20">
-        {/* Varsity stripe at top */}
-        <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-vm-navy via-vm-gold to-vm-navy" />
+        {/* Varsity stripes - two thick parallel lines at top */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2 w-full bg-vm-navy" />
+          <div className="h-2 w-full bg-vm-gold" />
+        </div>
         
         <div className="mx-auto max-w-6xl">
           <h1 className="font-varsity text-4xl tracking-wide text-vm-navy md:text-5xl lg:text-6xl text-balance uppercase">
@@ -155,8 +158,11 @@ export default function GalleryPage() {
 
       {/* Gallery Grid */}
       <section className="relative bg-background px-4 py-16 md:px-12 md:py-24 lg:px-20">
-        {/* Varsity stripe */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-vm-gold to-transparent" />
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2 w-full bg-vm-navy" />
+          <div className="h-2 w-full bg-vm-gold" />
+        </div>
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {/* First 3 projects (Row 1) */}

@@ -6,13 +6,10 @@ export function CtaSection() {
       id="quote"
       className="relative overflow-hidden bg-vm-blue px-4 py-20 md:px-12 md:py-28 lg:px-20"
     >
-      {/* Varsity stripes at top */}
-      <div className="absolute top-0 left-0 right-0 flex h-2">
-        <div className="w-8 bg-vm-navy" />
-        <div className="w-4 bg-vm-gold" />
-        <div className="flex-1 bg-vm-navy" />
-        <div className="w-4 bg-vm-gold" />
-        <div className="w-8 bg-vm-navy" />
+      {/* Varsity stripes - two thick parallel lines at top */}
+      <div className="absolute top-0 left-0 right-0 flex flex-col">
+        <div className="h-2 w-full bg-vm-navy" />
+        <div className="h-2 w-full bg-vm-gold" />
       </div>
       
       <div className="relative mx-auto max-w-4xl text-center">

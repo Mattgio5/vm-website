@@ -56,8 +56,11 @@ export default function CareersPage() {
 
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center px-4 py-20 md:py-28">
-        {/* Varsity stripe at top */}
-        <div className="absolute top-0 left-0 right-0 z-20 h-2 bg-gradient-to-r from-vm-navy via-vm-gold to-vm-navy" />
+        {/* Varsity stripes - two thick parallel lines at top */}
+        <div className="absolute top-0 left-0 right-0 z-20 flex flex-col">
+          <div className="h-2 w-full bg-vm-navy" />
+          <div className="h-2 w-full bg-vm-gold" />
+        </div>
         
         {/* Background Image */}
         <div 
@@ -89,8 +92,11 @@ export default function CareersPage() {
 
       {/* Culture & Values Section */}
       <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
-        {/* Varsity stripe */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-vm-gold to-transparent" />
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2 w-full bg-vm-navy" />
+          <div className="h-2 w-full bg-vm-gold" />
+        </div>
         
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
@@ -147,13 +153,10 @@ export default function CareersPage() {
 
       {/* Team Reviews Section */}
       <section className="relative bg-vm-blue/30 px-4 py-20 md:px-12 md:py-28 lg:px-20">
-        {/* Varsity stripes at top */}
-        <div className="absolute top-0 left-0 right-0 flex h-2">
-          <div className="w-8 bg-vm-navy" />
-          <div className="w-4 bg-vm-gold" />
-          <div className="flex-1 bg-vm-navy" />
-          <div className="w-4 bg-vm-gold" />
-          <div className="w-8 bg-vm-navy" />
+        {/* Varsity stripes - two thick parallel lines at top */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2 w-full bg-vm-navy" />
+          <div className="h-2 w-full bg-vm-gold" />
         </div>
         
         <div className="mx-auto max-w-6xl">
@@ -204,8 +207,11 @@ export default function CareersPage() {
 
       {/* Open Positions CTA */}
       <section id="open-positions" className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
-        {/* Varsity stripe */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-vm-navy via-vm-gold to-vm-navy" />
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2 w-full bg-vm-navy" />
+          <div className="h-2 w-full bg-vm-gold" />
+        </div>
         
         <div className="mx-auto max-w-3xl text-center">
           <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">

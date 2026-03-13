@@ -15,8 +15,11 @@ export default function AboutPage() {
 
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[400px] w-full overflow-hidden">
-        {/* Varsity stripe at top */}
-        <div className="absolute top-0 left-0 right-0 z-20 h-2 bg-gradient-to-r from-vm-navy via-vm-gold to-vm-navy" />
+        {/* Varsity stripes - two thick parallel lines at top */}
+        <div className="absolute top-0 left-0 right-0 z-20 flex flex-col">
+          <div className="h-2 w-full bg-vm-navy" />
+          <div className="h-2 w-full bg-vm-gold" />
+        </div>
         
         <div className="absolute inset-0 z-0">
           {/* IMAGE NEEDED: Hero image showing the Varsity Mulching team working together on a job site, preferably showing college-aged workers in action */}
@@ -91,8 +94,11 @@ export default function AboutPage() {
 
       {/* Why Local Matters */}
       <section className="relative bg-muted/50 px-4 py-20 md:px-12 md:py-28 lg:px-20">
-        {/* Varsity stripe */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-vm-gold to-transparent" />
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2 w-full bg-vm-navy" />
+          <div className="h-2 w-full bg-vm-gold" />
+        </div>
         
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
@@ -135,8 +141,11 @@ export default function AboutPage() {
 
       {/* Meet the Team */}
       <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
-        {/* Varsity stripe */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-vm-navy via-vm-gold to-vm-navy" />
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2 w-full bg-vm-navy" />
+          <div className="h-2 w-full bg-vm-gold" />
+        </div>
         
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
@@ -228,13 +237,10 @@ export default function AboutPage() {
 
       {/* Service Area */}
       <section className="relative bg-vm-navy px-4 py-20 md:px-12 md:py-28 lg:px-20">
-        {/* Varsity stripes at top */}
-        <div className="absolute top-0 left-0 right-0 flex h-3">
-          <div className="flex-1 bg-vm-gold" />
-          <div className="flex-1 bg-vm-navy" />
-          <div className="flex-1 bg-vm-gold" />
-          <div className="flex-1 bg-vm-navy" />
-          <div className="flex-1 bg-vm-gold" />
+        {/* Varsity stripes - two thick parallel lines at top */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2 w-full bg-vm-navy" />
+          <div className="h-2 w-full bg-vm-gold" />
         </div>
         
         <div className="mx-auto max-w-4xl text-center">

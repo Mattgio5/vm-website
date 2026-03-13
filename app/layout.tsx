@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Open_Sans, Oswald } from 'next/font/google'
+import { Open_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -7,14 +7,6 @@ const openSans = Open_Sans({
   subsets: ['latin'], 
   variable: '--font-open-sans',
   display: 'swap',
-})
-
-// Varsity/Athletic style font for headlines
-const oswald = Oswald({
-  subsets: ['latin'],
-  variable: '--font-varsity',
-  display: 'swap',
-  weight: ['500', '600', '700'],
 })
 
 export const metadata: Metadata = {
@@ -50,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${openSans.variable} ${oswald.variable}`}>
+    <html lang="en" className={openSans.variable}>
       <body className="font-sans antialiased">
         {children}
         <Analytics />

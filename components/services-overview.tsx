@@ -30,8 +30,11 @@ const services = [
 export function ServicesOverview() {
   return (
     <section id="services" className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
-      {/* Varsity stripe accent */}
-      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-vm-gold to-transparent" />
+      {/* Varsity stripes - two thick parallel lines */}
+      <div className="absolute top-0 left-0 right-0 flex flex-col">
+        <div className="h-2 w-full bg-vm-navy" />
+        <div className="h-2 w-full bg-vm-gold" />
+      </div>
       
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 max-w-2xl md:mb-16">

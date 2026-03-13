@@ -3,8 +3,11 @@ import Image from "next/image"
 export function ServicesHero() {
   return (
     <section className="relative h-[100svh] min-h-[600px] w-full overflow-hidden">
-      {/* Varsity stripe at top */}
-      <div className="absolute top-0 left-0 right-0 z-20 h-2 bg-gradient-to-r from-vm-navy via-vm-gold to-vm-navy" />
+      {/* Varsity stripes - two thick parallel lines at top */}
+      <div className="absolute top-0 left-0 right-0 z-20 flex flex-col">
+        <div className="h-2 w-full bg-vm-navy" />
+        <div className="h-2 w-full bg-vm-gold" />
+      </div>
       
       {/* Background image */}
       <div className="absolute inset-0 z-0">
