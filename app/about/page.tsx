@@ -40,8 +40,8 @@ export default function AboutPage() {
       <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
         {/* Varsity stripes - two thick parallel lines */}
         <div className="absolute top-0 left-0 right-0 flex flex-col">
-          <div className="h-2.5 w-full bg-vm-navy" />
           <div className="h-2.5 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
         </div>
         <div className="mx-auto max-w-4xl">
           <div className="grid gap-12 md:grid-cols-5 md:gap-16">
@@ -95,8 +95,8 @@ export default function AboutPage() {
       <section className="relative bg-muted/50 px-4 py-20 md:px-12 md:py-28 lg:px-20">
         {/* Varsity stripes - two thick parallel lines */}
         <div className="absolute top-0 left-0 right-0 flex flex-col">
-          <div className="h-2.5 w-full bg-vm-navy" />
           <div className="h-2.5 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
         </div>
         
         <div className="mx-auto max-w-5xl">
@@ -142,8 +142,8 @@ export default function AboutPage() {
       <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
         {/* Varsity stripes - two thick parallel lines */}
         <div className="absolute top-0 left-0 right-0 flex flex-col">
-          <div className="h-2.5 w-full bg-vm-navy" />
           <div className="h-2.5 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
         </div>
         
         <div className="mx-auto max-w-6xl">

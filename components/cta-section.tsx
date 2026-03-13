@@ -8,8 +8,8 @@ export function CtaSection() {
     >
       {/* Varsity stripes - two thick parallel lines at top */}
       <div className="absolute top-0 left-0 right-0 flex flex-col">
-        <div className="h-2.5 w-full bg-vm-navy" />
         <div className="h-2.5 w-full bg-vm-gold" />
+        <div className="h-2.5 w-full bg-vm-navy" />
       </div>
       
       <div className="relative mx-auto max-w-4xl text-center">

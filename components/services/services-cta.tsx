@@ -6,8 +6,8 @@ export function ServicesCta() {
     <section className="relative bg-vm-blue/10 px-4 py-20 md:px-12 md:py-24 lg:px-20">
       {/* Varsity stripes - two thick parallel lines */}
       <div className="absolute top-0 left-0 right-0 flex flex-col">
-        <div className="h-2.5 w-full bg-vm-navy" />
         <div className="h-2.5 w-full bg-vm-gold" />
+        <div className="h-2.5 w-full bg-vm-navy" />
       </div>
       <div className="mx-auto max-w-4xl text-center">
         <h2 className="font-serif text-3xl font-bold tracking-tight text-vm-navy md:text-4xl text-balance">
