@@ -40,21 +40,6 @@ export function CompetitiveSection() {
               color: "#333333",
             }}
           >
-            <div
-              style={{
-                background: "#336699",
-                color: "#ffffff",
-                padding: "8px 12px",
-                marginBottom: "16px",
-                fontSize: "14px",
-                fontWeight: "bold",
-                textTransform: "uppercase",
-                letterSpacing: "1px",
-                borderRadius: "2px",
-              }}
-            >
-              The Budget Crew
-            </div>
             <p
               style={{
                 fontSize: "22px",
@@ -63,13 +48,13 @@ export function CompetitiveSection() {
                 marginBottom: "8px",
               }}
             >
-              Local Lawn &amp; More
+              The Budget Crew
             </p>
             <p style={{ fontSize: "13px", color: "#666666", marginBottom: "16px", lineHeight: "1.5" }}>
               Fairly priced&hellip; but you can tell.
             </p>
 
-            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "13px", marginBottom: "16px" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "13px" }}>
               <tbody>
                 <tr>
                   <td style={{ padding: "6px 0", borderBottom: "1px solid #dddddd", color: "#555" }}>Price</td>
@@ -81,35 +66,13 @@ export function CompetitiveSection() {
                 </tr>
               </tbody>
             </table>
-
-            <a
-              href="#"
-              style={{
-                display: "inline-block",
-                background: "#336699",
-                color: "#ffffff",
-                padding: "8px 16px",
-                fontSize: "12px",
-                fontWeight: "bold",
-                textDecoration: "none",
-                borderRadius: "2px",
-                textTransform: "uppercase",
-              }}
-            >
-              Request a Quote
-            </a>
           </div>
 
           {/* MIDDLE: Varsity Mulching — our own styling */}
-          <div className="relative flex flex-col rounded-2xl border-2 border-vm-navy bg-vm-navy overflow-hidden shadow-xl">
-            {/* Gold top accent */}
-            <div className="flex flex-col">
-              <div className="h-1.5 w-full bg-vm-gold" />
-            </div>
-
+          <div className="relative flex flex-col rounded-2xl border-2 border-vm-navy bg-white overflow-hidden shadow-xl">
             {/* Trophy banner */}
-            <div className="flex items-center justify-center gap-2 bg-vm-gold px-4 py-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-vm-navy shrink-0">
+            <div className="flex items-center justify-center gap-2 bg-vm-navy px-4 py-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-vm-gold shrink-0">
                 <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
                 <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
                 <path d="M4 22h16" />
@@ -117,36 +80,29 @@ export function CompetitiveSection() {
                 <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
                 <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
               </svg>
-              <span className="font-varsity text-sm tracking-widest text-vm-navy uppercase">
+              <span className="font-varsity text-sm tracking-widest text-vm-gold uppercase">
                 The Sweet Spot
               </span>
             </div>
 
             <div className="flex flex-col flex-1 p-6 md:p-8">
-              <h3 className="font-varsity text-2xl tracking-wide text-white uppercase">
+              <h3 className="font-varsity text-2xl tracking-wide text-vm-navy uppercase">
                 Varsity Mulching
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-vm-blue/90">
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 Skilled enough to do anything — but chose to perfect mulching. Get top-tier quality at the going rate.
               </p>
 
-              <div className="mt-6 space-y-3 border-t border-white/20 pt-6">
+              <div className="mt-6 space-y-3 border-t border-vm-navy/15 pt-6">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-white/60 uppercase tracking-wider">Price</span>
-                  <span className="font-varsity text-xl text-vm-gold tracking-widest">$$</span>
+                  <span className="text-sm text-muted-foreground uppercase tracking-wider">Price</span>
+                  <span className="font-varsity text-xl text-vm-navy tracking-widest">$$</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-white/60 uppercase tracking-wider">Quality</span>
+                  <span className="text-sm text-muted-foreground uppercase tracking-wider">Quality</span>
                   <span className="text-vm-gold text-xl tracking-wider">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
                 </div>
               </div>
-
-              <a
-                href="/quote"
-                className="mt-8 block rounded-full bg-vm-gold px-6 py-3 text-center font-varsity text-sm tracking-widest text-vm-navy uppercase hover:bg-vm-gold-dark transition-colors"
-              >
-                Get a Free Quote
-              </a>
             </div>
           </div>
 
@@ -200,24 +156,7 @@ export function CompetitiveSection() {
                 </div>
               </div>
 
-              <a
-                href="#"
-                style={{
-                  display: "block",
-                  border: "1px solid #6b7c5c",
-                  color: "#6b7c5c",
-                  padding: "12px 20px",
-                  fontSize: "11px",
-                  letterSpacing: "3px",
-                  textTransform: "uppercase",
-                  textDecoration: "none",
-                  textAlign: "center",
-                  borderRadius: "4px",
-                  fontFamily: "Arial, sans-serif",
-                }}
-              >
-                Schedule a Consultation
-              </a>
+
             </div>
           </div>
 
