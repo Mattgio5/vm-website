@@ -266,15 +266,15 @@ export function WhyVarsitySection() {
             </div>
 
             {/* Card 2: Where We're From */}
-            <div className="rounded-2xl overflow-hidden border-2 border-vm-blue/40 shadow-lg">
-              <div className="aspect-video bg-white flex items-center justify-center p-4">
+            <div className="rounded-2xl overflow-hidden border-2 border-vm-blue/40 shadow-lg bg-white">
+              <div className="p-2">
                 <img 
                   src="/images/service-area-map.png" 
                   alt="Service area map showing Bucks, Montgomery, Chester, Delaware, and Philadelphia counties"
-                  className="max-h-full max-w-full object-contain"
+                  className="w-full h-auto object-cover"
                 />
               </div>
-              <div className="p-6 bg-white flex flex-col items-center justify-center flex-1">
+              <div className="px-6 pb-4 flex flex-col items-center justify-center">
                 <p className="text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">Where We're From</p>
               </div>
             </div>
