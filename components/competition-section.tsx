@@ -13,7 +13,7 @@ export function CompetitionSection() {
             The Market
           </p>
           <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl lg:text-5xl text-balance uppercase">
-            Who We&apos;re Up Against
+            Who We're Up Against
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
             We know where we fit. And so should you.
