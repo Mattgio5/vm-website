@@ -3,8 +3,8 @@ import { Footer } from "@/components/footer"
 import Link from "next/link"
 
 export const metadata = {
-  title: "Gallery | Varsity Mulch",
-  description: "Browse our portfolio of completed mulching, edging, and landscape bed projects across Pennsylvania.",
+  title: "Project Gallery | Mulch & Landscaping in Chester County, Bucks County & Montgomery County, PA",
+  description: "Browse completed mulching, edging & landscape bed projects in West Chester, Doylestown, Malvern, Exton, Downingtown & more across Chester County, Bucks County & Montgomery County, PA.",
 }
 
 // Gallery projects sorted newest to oldest with testimonials embedded

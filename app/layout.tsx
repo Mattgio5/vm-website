@@ -10,9 +10,9 @@ const openSans = Open_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Varsity Mulch | Premium Mulch & Landscaping Supplies',
+  title: 'Varsity Mulching | Professional Mulch & Landscaping in Chester County, Bucks County & Montgomery County, PA',
   description:
-    'Your trusted source for premium mulch, topsoil, stone, and landscaping supplies. Fast delivery and expert advice for homeowners and professionals.',
+    'Professional mulch installation, landscape edging, weed control & bed cleanup serving Chester County, Bucks County & Montgomery County, PA. Locally owned — serving West Chester, Doylestown, Malvern, Exton & more.',
   icons: {
     icon: [
       {

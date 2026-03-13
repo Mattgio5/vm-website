@@ -4,9 +4,9 @@ import Image from "next/image"
 import Link from "next/link"
 
 export const metadata = {
-  title: "Supplements | Varsity Mulch",
+  title: "Landscaping Add-Ons & Maintenance in Chester County & Bucks County, PA | Varsity Mulching",
   description:
-    "Add-on services and follow-up care for your landscape. Bush removal, trimming, planting, fall cleanups, and ongoing maintenance.",
+    "Bush removal, trimming, planting, fall cleanups & ongoing landscape maintenance in Chester County, Bucks County & Montgomery County, PA. Serving West Chester, Doylestown, Malvern & Exton.",
 }
 
 const addOns = [

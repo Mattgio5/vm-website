@@ -29,15 +29,40 @@ const jsonLd = {
     "latitude": 40.3101,
     "longitude": -75.1290
   },
-  "areaServed": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": 39.9727,
-      "longitude": -75.7471
+  "areaServed": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "Chester County, PA"
     },
-    "geoRadius": "48280"
-  },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Bucks County, PA"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Montgomery County, PA"
+    },
+    {
+      "@type": "City",
+      "name": "West Chester, PA"
+    },
+    {
+      "@type": "City",
+      "name": "Doylestown, PA"
+    },
+    {
+      "@type": "City",
+      "name": "Malvern, PA"
+    },
+    {
+      "@type": "City",
+      "name": "Exton, PA"
+    },
+    {
+      "@type": "City",
+      "name": "Downingtown, PA"
+    }
+  ],
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",

@@ -3,9 +3,9 @@ import { Footer } from "@/components/footer"
 import Image from "next/image"
 
 export const metadata = {
-  title: "About Us | Varsity Mulching",
+  title: "About Varsity Mulching | Locally Owned in Doylestown, PA",
   description:
-    "Learn about Varsity Mulching - a local Pennsylvania business run by college student athletes, delivering premium mulching services with attention to detail.",
+    "Varsity Mulching is a locally owned landscaping business run by college student athletes, serving Chester County, Bucks County & Montgomery County, PA with premium mulching services.",
 }
 
 export default function AboutPage() {

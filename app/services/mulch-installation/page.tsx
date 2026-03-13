@@ -4,9 +4,9 @@ import { ServiceDetail } from "@/components/services/service-detail"
 import { MulchCalculator } from "@/components/mulch-calculator"
 
 export const metadata = {
-  title: "Mulch Installation | Varsity Mulch",
+  title: "Mulch Installation in Chester County & Bucks County, PA | Varsity Mulching",
   description:
-    "Professional mulch installation services. Premium hardwood, cedar, and colored mulch varieties professionally installed by our expert team.",
+    "Professional mulch installation in Chester County, Bucks County & Montgomery County, PA. Premium hardwood, cedar & colored mulch delivered and installed. Serving West Chester, Doylestown, Malvern & Exton.",
 }
 
 export default function MulchInstallationPage() {
