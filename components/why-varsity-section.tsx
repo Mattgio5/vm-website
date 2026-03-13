@@ -91,8 +91,8 @@ export function WhyVarsitySection() {
               </table>
             </div>
 
-            {/* ── MIDDLE: Varsity Mulching ── 110% size, emphasize value ── */}
-            <div className="lg:scale-110 lg:origin-bottom">
+            {/* ── MIDDLE: Varsity Mulching ── our brand styling ── */}
+            <div>
               <div className="relative rounded-2xl border-2 border-vm-blue-dark bg-white shadow-xl flex flex-col overflow-hidden pt-10">
                 {/* Trophy badge at top */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-full bg-vm-blue-dark px-4 py-2 shadow-md">
