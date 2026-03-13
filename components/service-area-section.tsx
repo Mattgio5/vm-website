@@ -22,14 +22,6 @@ export function ServiceAreaSection() {
             <p className="mt-4 text-base leading-relaxed text-white/70 md:text-lg">
               We operate throughout the greater Philly area, bringing professional mulching services to residential and commercial properties alike.
             </p>
-            <div className="mt-8">
-              <a
-                href="#quote"
-                className="inline-flex rounded-full bg-vm-blue px-7 py-3.5 text-base font-semibold text-vm-navy transition-all hover:bg-vm-blue-dark hover:shadow-lg"
-              >
-                Get a Free Quote
-              </a>
-            </div>
           </div>
 
           {/* Map Image */}
