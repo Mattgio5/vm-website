@@ -30,7 +30,7 @@ export function CtaSection() {
             Get Your Free Quote
           </Link>
           <Link
-            href="tel:+15551234567"
+            href="tel:+12674891567"
             className="inline-flex rounded-full border-2 border-vm-navy/20 bg-white/50 px-7 py-3.5 text-base font-semibold text-vm-navy backdrop-blur-sm transition-all hover:bg-white/80 hover:shadow-md"
           >
             Call Us Now

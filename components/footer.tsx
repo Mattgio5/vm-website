@@ -15,9 +15,9 @@ const footerLinks = {
     { label: "Media", href: "/media" },
   ],
   Contact: [
-    { label: "(555) 123-4567", href: "tel:+15551234567" },
+    { label: "(267) 489-1567", href: "tel:+12674891567" },
     { label: "info@varsitymulch.com", href: "mailto:info@varsitymulch.com" },
-    { label: "Serving the greater metro area", href: "#" },
+    { label: "Serving Chester County & the Greater Philadelphia Area", href: "#" },
   ],
 }
 
