@@ -10,12 +10,12 @@ const openSans = Open_Sans({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.varsitymulching.com'),
+  metadataBase: new URL('https://v0-varsity-mulch.vercel.app'),
   alternates: {
     canonical: './',
   },
   verification: {
-    google: 'wWh3PMapCDTpBp5zFQcrL7wdiDPqY2Q4Ysqa2FApNos',
+    google: '_g3QByJq47ZO1tjuIuGxcJ5LOleNLGOOVoJEiqu1470',
   },
   title: 'Varsity Mulching | Professional Mulch & Landscaping in Chester County, Bucks County & Montgomery County, PA',
   description:
