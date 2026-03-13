@@ -6,8 +6,14 @@ export function CtaSection() {
       id="quote"
       className="relative overflow-hidden bg-vm-blue px-4 py-20 md:px-12 md:py-28 lg:px-20"
     >
+      {/* Varsity stripes - two thick parallel lines at top */}
+      <div className="absolute top-0 left-0 right-0 flex flex-col">
+        <div className="h-2.5 w-full bg-vm-gold" />
+        <div className="h-2.5 w-full bg-vm-navy" />
+      </div>
+      
       <div className="relative mx-auto max-w-4xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl lg:text-5xl text-balance">
+        <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl lg:text-5xl text-balance uppercase">
           Ready to Transform Your Yard?
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-vm-navy/70 md:text-lg">
@@ -24,7 +30,7 @@ export function CtaSection() {
             Get Your Free Quote
           </Link>
           <Link
-            href="tel:+15551234567"
+            href="tel:+12674891567"
             className="inline-flex rounded-full border-2 border-vm-navy/20 bg-white/50 px-7 py-3.5 text-base font-semibold text-vm-navy backdrop-blur-sm transition-all hover:bg-white/80 hover:shadow-md"
           >
             Call Us Now

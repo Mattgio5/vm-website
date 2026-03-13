@@ -67,7 +67,7 @@ export default function CareersPage() {
 
         {/* Content */}
         <div className="relative z-10 mx-auto max-w-3xl text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl text-balance">
+          <h1 className="font-varsity text-4xl tracking-wide text-white md:text-5xl lg:text-6xl text-balance uppercase">
             Varsity Mulching Careers
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">
@@ -85,7 +85,13 @@ export default function CareersPage() {
       </section>
 
       {/* Culture & Values Section */}
-      <section className="bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+      <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+        </div>
+        
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             {/* Left - Team Photos Grid */}
@@ -115,7 +121,7 @@ export default function CareersPage() {
 
             {/* Right - Core Values */}
             <div>
-              <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl text-balance">
+              <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
                 Our Culture is Shaped by Our 4 Core Values
               </h2>
 
@@ -140,18 +146,24 @@ export default function CareersPage() {
       </section>
 
       {/* Team Reviews Section */}
-      <section className="bg-vm-blue/30 px-4 py-20 md:px-12 md:py-28 lg:px-20">
+      <section className="relative bg-vm-blue/30 px-4 py-20 md:px-12 md:py-28 lg:px-20">
+        {/* Varsity stripes - two thick parallel lines at top */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-navy" />
+          <div className="h-2.5 w-full bg-vm-gold" />
+        </div>
+        
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-16 items-start">
             {/* Left - Heading */}
             <div>
               {/* Star Rating Badge */}
-              <div className="inline-flex items-center gap-2 rounded-full bg-vm-blue px-4 py-2">
+              <div className="inline-flex items-center gap-2 rounded-full bg-vm-gold/30 px-4 py-2">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
                     <svg
                       key={i}
-                      className="h-4 w-4 text-amber-500"
+                      className="h-4 w-4 text-vm-gold"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -162,7 +174,7 @@ export default function CareersPage() {
                 <span className="text-sm font-medium text-vm-navy">(Team Reviews)</span>
               </div>
 
-              <h2 className="mt-6 text-3xl font-bold tracking-tight text-vm-navy md:text-4xl text-balance">
+              <h2 className="mt-6 font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
                 What Varsity Teammates Are Saying
               </h2>
             </div>
@@ -188,12 +200,18 @@ export default function CareersPage() {
       </section>
 
       {/* Open Positions CTA */}
-      <section id="open-positions" className="bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+      <section id="open-positions" className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+        </div>
+        
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
+          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
             Now Hiring
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl text-balance">
+          <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
             Ready to Join the Team?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">

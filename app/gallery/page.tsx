@@ -3,8 +3,8 @@ import { Footer } from "@/components/footer"
 import Link from "next/link"
 
 export const metadata = {
-  title: "Gallery | Varsity Mulch",
-  description: "Browse our portfolio of completed mulching, edging, and landscape bed projects across Pennsylvania.",
+  title: "Project Gallery | Mulch & Landscaping in Chester County, Bucks County & Montgomery County, PA",
+  description: "Browse completed mulching, edging & landscape bed projects in West Chester, Doylestown, Malvern, Exton, Downingtown & more across Chester County, Bucks County & Montgomery County, PA.",
 }
 
 // Gallery projects sorted newest to oldest with testimonials embedded
@@ -139,9 +139,9 @@ export default function GalleryPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-vm-blue px-4 pt-32 pb-16 md:px-12 md:pt-40 md:pb-20 lg:px-20">
+      <section className="relative bg-vm-blue px-4 pt-32 pb-16 md:px-12 md:pt-40 md:pb-20 lg:px-20">
         <div className="mx-auto max-w-6xl">
-          <h1 className="text-4xl font-bold tracking-tight text-vm-navy md:text-5xl lg:text-6xl text-balance">
+          <h1 className="font-varsity text-4xl tracking-wide text-vm-navy md:text-5xl lg:text-6xl text-balance uppercase">
             Our Work
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-vm-navy/70 md:text-lg">
@@ -151,7 +151,12 @@ export default function GalleryPage() {
       </section>
 
       {/* Gallery Grid */}
-      <section className="bg-background px-4 py-16 md:px-12 md:py-24 lg:px-20">
+      <section className="relative bg-background px-4 py-16 md:px-12 md:py-24 lg:px-20">
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+        </div>
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {/* First 3 projects (Row 1) */}
@@ -186,9 +191,9 @@ export default function GalleryPage() {
             ))}
 
             {/* CTA Box (Row 2, Column 1) */}
-            <div className="flex items-center justify-center rounded-xl bg-vm-blue/40 p-8">
+            <div className="flex items-center justify-center rounded-xl bg-vm-blue/40 p-8 border-2 border-vm-gold/30">
               <div className="text-center">
-                <h3 className="text-2xl font-bold tracking-tight text-vm-navy md:text-3xl text-balance leading-tight">
+                <h3 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl text-balance leading-tight uppercase">
                   Ready to<br />transform<br />your yard?
                 </h3>
                 <Link

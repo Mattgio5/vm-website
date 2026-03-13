@@ -15,15 +15,20 @@ const footerLinks = {
     { label: "Media", href: "/media" },
   ],
   Contact: [
-    { label: "(555) 123-4567", href: "tel:+15551234567" },
+    { label: "(267) 489-1567", href: "tel:+12674891567" },
     { label: "info@varsitymulch.com", href: "mailto:info@varsitymulch.com" },
-    { label: "Serving the greater metro area", href: "#" },
+    { label: "Serving Chester County & the Greater Philadelphia Area", href: "#" },
   ],
 }
 
 export function Footer() {
   return (
-    <footer id="about" className="bg-vm-navy px-4 py-16 md:px-12 md:py-20 lg:px-20">
+    <footer id="about" className="relative bg-vm-navy px-4 py-16 md:px-12 md:py-20 lg:px-20">
+      {/* Varsity stripes - two thick parallel lines at top */}
+      <div className="absolute top-0 left-0 right-0 flex flex-col">
+        <div className="h-2.5 w-full bg-vm-gold" />
+        <div className="h-2.5 w-full bg-vm-navy" />
+      </div>
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand column */}

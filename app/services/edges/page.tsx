@@ -3,9 +3,9 @@ import { Footer } from "@/components/footer"
 import { ServiceDetail } from "@/components/services/service-detail"
 
 export const metadata = {
-  title: "Landscape Edging | Varsity Mulch",
+  title: "Landscape Edging in Chester County & Bucks County, PA | Varsity Mulching",
   description:
-    "Professional landscape edging services. Crisp, clean borders that define your beds and prevent grass invasion.",
+    "Professional landscape edging in Chester County, Bucks County & Montgomery County, PA. Crisp, clean borders that define your beds and prevent grass invasion. Serving West Chester, Doylestown & Malvern.",
 }
 
 export default function EdgesPage() {

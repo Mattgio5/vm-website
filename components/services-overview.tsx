@@ -29,13 +29,19 @@ const services = [
 
 export function ServicesOverview() {
   return (
-    <section id="services" className="bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+    <section id="services" className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+      {/* Varsity stripes - two thick parallel lines */}
+      <div className="absolute top-0 left-0 right-0 flex flex-col">
+        <div className="h-2.5 w-full bg-vm-gold" />
+        <div className="h-2.5 w-full bg-vm-navy" />
+      </div>
+      
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 max-w-2xl md:mb-16">
-          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
+          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
             What We Do
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl lg:text-5xl text-balance">
+          <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl lg:text-5xl text-balance uppercase">
             Our Core Services
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">

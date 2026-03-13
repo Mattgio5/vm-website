@@ -3,9 +3,9 @@ import { Footer } from "@/components/footer"
 import Image from "next/image"
 
 export const metadata = {
-  title: "About Us | Varsity Mulching",
+  title: "About Varsity Mulching | Locally Owned in Doylestown, PA",
   description:
-    "Learn about Varsity Mulching - a local Pennsylvania business run by college student athletes, delivering premium mulching services with attention to detail.",
+    "Varsity Mulching is a locally owned landscaping business run by college student athletes, serving Chester County, Bucks County & Montgomery County, PA with premium mulching services.",
 }
 
 export default function AboutPage() {
@@ -23,10 +23,10 @@ export default function AboutPage() {
 
         <div className="relative z-10 flex h-full items-center px-4 pt-24 md:px-12 lg:px-20">
           <div className="mx-auto max-w-4xl text-center">
-            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue uppercase">
+            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold uppercase">
               Our Story
             </p>
-            <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl text-balance">
+            <h1 className="font-varsity text-4xl tracking-wide text-white md:text-5xl lg:text-6xl text-balance uppercase">
               Local Students. Real Results.
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
@@ -37,7 +37,12 @@ export default function AboutPage() {
       </section>
 
       {/* Founder's Message */}
-      <section className="bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+      <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+        </div>
         <div className="mx-auto max-w-4xl">
           <div className="grid gap-12 md:grid-cols-5 md:gap-16">
             {/* Photo - Sticky on scroll */}
@@ -87,13 +92,19 @@ export default function AboutPage() {
       </section>
 
       {/* Why Local Matters */}
-      <section className="bg-muted/50 px-4 py-20 md:px-12 md:py-28 lg:px-20">
+      <section className="relative bg-muted/50 px-4 py-20 md:px-12 md:py-28 lg:px-20">
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+        </div>
+        
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
-            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
+            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
               Why Choose Us
             </p>
-            <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl text-balance">
+            <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
               Neighbors Helping Neighbors
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -103,21 +114,21 @@ export default function AboutPage() {
 
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-              <p className="text-4xl font-bold text-vm-blue">3</p>
+              <p className="font-varsity text-4xl text-vm-gold-dark">3</p>
               <p className="mt-2 text-lg font-semibold text-vm-navy">Partner Colleges</p>
               <p className="mt-2 text-sm text-muted-foreground">
                 We recruit hardworking student athletes from three local Pennsylvania colleges.
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-              <p className="text-4xl font-bold text-vm-blue">100%</p>
+              <p className="font-varsity text-4xl text-vm-gold-dark">100%</p>
               <p className="mt-2 text-lg font-semibold text-vm-navy">Local Crews</p>
               <p className="mt-2 text-sm text-muted-foreground">
                 Every person on our team lives in the community we serve.
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-              <p className="text-4xl font-bold text-vm-blue">5+</p>
+              <p className="font-varsity text-4xl text-vm-gold-dark">5+</p>
               <p className="mt-2 text-lg font-semibold text-vm-navy">Years of Trust</p>
               <p className="mt-2 text-sm text-muted-foreground">
                 From a few high schoolers to a full team, we've grown through word of mouth.
@@ -128,13 +139,19 @@ export default function AboutPage() {
       </section>
 
       {/* Meet the Team */}
-      <section className="bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+      <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+        </div>
+        
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
-            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
+            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
               The Varsity Crew
             </p>
-            <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl text-balance">
+            <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
               Meet the Team
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -218,12 +235,18 @@ export default function AboutPage() {
       </section>
 
       {/* Service Area */}
-      <section className="bg-vm-navy px-4 py-20 md:px-12 md:py-28 lg:px-20">
+      <section className="relative bg-vm-navy px-4 py-20 md:px-12 md:py-28 lg:px-20">
+        {/* Varsity stripes - two thick parallel lines at top */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-navy" />
+          <div className="h-2.5 w-full bg-vm-gold" />
+        </div>
+        
         <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue uppercase">
+          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold uppercase">
             Service Area
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl text-balance">
+          <h2 className="font-varsity text-3xl tracking-wide text-white md:text-4xl text-balance uppercase">
             Proudly Serving Philadelphia
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">

@@ -19,10 +19,10 @@ export function ServicesHero() {
       <div className="relative z-10 flex h-full items-center px-4 pt-24 md:px-12 lg:px-20">
         <div className="mx-auto w-full max-w-7xl">
           <div className="max-w-2xl">
-            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue uppercase">
+            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold uppercase">
               Professional Services
             </p>
-            <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl text-balance">
+            <h1 className="font-varsity text-4xl tracking-wide text-white md:text-5xl lg:text-6xl text-balance uppercase">
               Transform Your Landscape
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-white/80 md:text-xl">

@@ -19,7 +19,12 @@ export function CalculatorSection() {
   }
 
   return (
-    <section id="calculator" className="bg-muted px-4 py-20 md:px-12 md:py-28 lg:px-20">
+    <section id="calculator" className="relative bg-muted px-4 py-20 md:px-12 md:py-28 lg:px-20">
+      {/* Varsity stripes - two thick parallel lines at top */}
+      <div className="absolute top-0 left-0 right-0 flex flex-col">
+        <div className="h-2.5 w-full bg-vm-gold" />
+        <div className="h-2.5 w-full bg-vm-navy" />
+      </div>
       <div className="mx-auto max-w-7xl">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* Left copy */}
@@ -27,7 +32,7 @@ export function CalculatorSection() {
             <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
               Mulch Calculator
             </p>
-            <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl lg:text-5xl text-balance">
+            <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl lg:text-5xl text-balance uppercase">
               How Much Do You Need?
             </h2>
             <p className="mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">

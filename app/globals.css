@@ -44,6 +44,8 @@
   --vm-blue-dark: #5ba3d9;
   --vm-yellow: #FFFF8F;
   --vm-yellow-dark: #e6e660;
+  --vm-gold: #ffd700;
+  --vm-gold-dark: #e6c200;
   --vm-navy: #0b1d3a;
   --vm-navy-light: #1a3155;
 }
@@ -52,6 +54,7 @@
   --font-sans: 'Open Sans', 'Geist', 'Geist Fallback';
   --font-serif: 'Open Sans', 'Geist', 'Geist Fallback';
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-varsity: 'Superstar M54', 'Impact', 'Haettenschweiler', serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -92,8 +95,39 @@
   --color-vm-blue-dark: var(--vm-blue-dark);
   --color-vm-yellow: var(--vm-yellow);
   --color-vm-yellow-dark: var(--vm-yellow-dark);
+  --color-vm-gold: var(--vm-gold);
+  --color-vm-gold-dark: var(--vm-gold-dark);
   --color-vm-navy: var(--vm-navy);
   --color-vm-navy-light: var(--vm-navy-light);
+}
+
+/* Varsity athletic font class - Superstar M54 collegiate serif */
+.font-varsity {
+  font-family: 'Superstar M54', 'Impact', 'Haettenschweiler', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Varsity stripes - two thick parallel horizontal lines */
+.varsity-stripes {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.varsity-stripes::before,
+.varsity-stripes::after {
+  content: '';
+  height: 6px;
+  width: 100%;
+}
+
+.varsity-stripes::before {
+  background-color: var(--vm-navy);
+}
+
+.varsity-stripes::after {
+  background-color: var(--vm-gold);
 }
 
 @layer base {

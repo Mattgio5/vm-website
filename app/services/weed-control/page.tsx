@@ -3,9 +3,9 @@ import { Footer } from "@/components/footer"
 import { ServiceDetail } from "@/components/services/service-detail"
 
 export const metadata = {
-  title: "Weed Control | Varsity Mulch",
+  title: "Weed Control in Chester County & Bucks County, PA | Varsity Mulching",
   description:
-    "Professional weed control services for landscape beds. Pre-emergent treatments, manual removal, and landscape fabric installation.",
+    "Professional weed control for landscape beds in Chester County, Bucks County & Montgomery County, PA. Pre-emergent treatments, manual removal & landscape fabric. Serving West Chester, Doylestown & Malvern.",
 }
 
 export default function WeedControlPage() {

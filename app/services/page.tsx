@@ -5,9 +5,9 @@ import { ServicesOverview } from "@/components/services/services-overview"
 import { ServicesCta } from "@/components/services/services-cta"
 
 export const metadata = {
-  title: "Our Services | Varsity Mulch",
+  title: "Landscaping Services in Chester County & Bucks County, PA | Varsity Mulching",
   description:
-    "Professional landscaping services including mulch installation, edging, weed control, and bed cleanup. Transform your yard with Varsity Mulch.",
+    "Professional mulch installation, landscape edging, weed control & bed cleanup in Chester County, Bucks County & Montgomery County, PA. Serving West Chester, Doylestown, Malvern, Exton & Downingtown.",
 }
 
 export default function ServicesPage() {

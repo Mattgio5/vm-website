@@ -23,13 +23,19 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+    <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+      {/* Varsity stripes - two thick parallel lines */}
+      <div className="absolute top-0 left-0 right-0 flex flex-col">
+        <div className="h-2.5 w-full bg-vm-gold" />
+        <div className="h-2.5 w-full bg-vm-navy" />
+      </div>
+      
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center md:mb-16">
-          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
+          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
             Testimonials
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl lg:text-5xl text-balance">
+          <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl lg:text-5xl text-balance uppercase">
             Loved by Homeowners & Pros
           </h2>
         </div>

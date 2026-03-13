@@ -3,9 +3,9 @@ import { Footer } from "@/components/footer"
 import { ServiceDetail } from "@/components/services/service-detail"
 
 export const metadata = {
-  title: "Bed Cleanup | Varsity Mulch",
+  title: "Bed Cleanup in Chester County & Bucks County, PA | Varsity Mulching",
   description:
-    "Professional landscape bed cleanup services. Remove debris, dead plants, and old mulch to revitalize your garden beds.",
+    "Professional landscape bed cleanup in Chester County, Bucks County & Montgomery County, PA. Remove debris, dead plants & old mulch to revitalize your garden beds. Serving West Chester, Doylestown & Malvern.",
 }
 
 export default function BedCleanupPage() {

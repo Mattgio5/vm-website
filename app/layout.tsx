@@ -10,9 +10,16 @@ const openSans = Open_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Varsity Mulch | Premium Mulch & Landscaping Supplies',
+  metadataBase: new URL('https://v0-varsity-mulch.vercel.app'),
+  alternates: {
+    canonical: './',
+  },
+  verification: {
+    google: '_g3QByJq47ZO1tjuIuGxcJ5LOleNLGOOVoJEiqu1470',
+  },
+  title: 'Varsity Mulching | Professional Mulch & Landscaping in Chester County, Bucks County & Montgomery County, PA',
   description:
-    'Your trusted source for premium mulch, topsoil, stone, and landscaping supplies. Fast delivery and expert advice for homeowners and professionals.',
+    'Professional mulch installation, landscape edging, weed control & bed cleanup serving Chester County, Bucks County & Montgomery County, PA. Locally owned — serving West Chester, Doylestown, Malvern, Exton & more.',
   icons: {
     icon: [
       {
@@ -43,6 +50,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={openSans.variable}>
+      <head>
+        <link
+          href="https://fonts.cdnfonts.com/css/superstar-m54"
+          rel="stylesheet"
+        />
+      </head>
       <body className="font-sans antialiased">
         {children}
         <Analytics />

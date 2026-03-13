@@ -4,9 +4,9 @@ import Image from "next/image"
 import Link from "next/link"
 
 export const metadata = {
-  title: "Supplements | Varsity Mulch",
+  title: "Landscaping Add-Ons & Maintenance in Chester County & Bucks County, PA | Varsity Mulching",
   description:
-    "Add-on services and follow-up care for your landscape. Bush removal, trimming, planting, fall cleanups, and ongoing maintenance.",
+    "Bush removal, trimming, planting, fall cleanups & ongoing landscape maintenance in Chester County, Bucks County & Montgomery County, PA. Serving West Chester, Doylestown, Malvern & Exton.",
 }
 
 const addOns = [
@@ -95,7 +95,7 @@ export default function SupplementsPage() {
             <p className="text-sm font-semibold tracking-wider text-vm-blue uppercase">
               Extra touches for your yard
             </p>
-            <h1 className="mt-2 text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl text-balance">
+            <h1 className="font-varsity mt-2 text-4xl tracking-wide text-white md:text-5xl lg:text-6xl text-balance uppercase">
               Supplements
             </h1>
             <p className="mt-4 max-w-lg text-lg leading-relaxed text-white/80">
@@ -106,13 +106,18 @@ export default function SupplementsPage() {
       </section>
 
       {/* Add-ons Section */}
-      <section className="bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+      <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+        </div>
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 md:mb-16">
             <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
               Enhance Your Service
             </p>
-            <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl">
+            <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
               Add-ons
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -140,13 +145,18 @@ export default function SupplementsPage() {
       </section>
 
       {/* Follow-up Services Section */}
-      <section className="bg-muted px-4 py-20 md:px-12 md:py-28 lg:px-20">
+      <section className="relative bg-muted px-4 py-20 md:px-12 md:py-28 lg:px-20">
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+        </div>
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 md:mb-16">
             <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
               Keep It Looking Great
             </p>
-            <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl">
+            <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
               Follow-up Servicing
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -174,9 +184,14 @@ export default function SupplementsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-vm-blue px-4 py-16 md:px-12 md:py-20 lg:px-20">
+      <section className="relative bg-vm-blue px-4 py-16 md:px-12 md:py-20 lg:px-20">
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+        </div>
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-vm-navy md:text-3xl">
+          <h2 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl uppercase">
             Ready to enhance your service?
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-base text-vm-navy/70">

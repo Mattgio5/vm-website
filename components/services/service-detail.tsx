@@ -54,7 +54,7 @@ export function ServiceDetail({
               <p className="text-sm font-semibold tracking-wider text-vm-blue uppercase">
                 {tagline}
               </p>
-              <h1 className="mt-2 text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl text-balance">
+              <h1 className="font-varsity mt-2 text-4xl tracking-wide text-white md:text-5xl lg:text-6xl text-balance uppercase">
                 {title}
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-white/80 md:text-xl">
@@ -66,11 +66,16 @@ export function ServiceDetail({
       </section>
 
       {/* Main Content */}
-      <section className="bg-background px-4 py-16 md:px-12 md:py-24 lg:px-20">
+      <section className="relative bg-background px-4 py-16 md:px-12 md:py-24 lg:px-20">
+        {/* Varsity stripes - two thick parallel lines */}
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+        </div>
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-3 lg:gap-16">
           {/* Left column - Description & Features */}
           <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold text-vm-navy md:text-3xl">
+            <h2 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl uppercase">
               About This Service
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -79,7 +84,7 @@ export function ServiceDetail({
 
             {/* Features */}
             <div className="mt-10">
-              <h3 className="text-lg font-bold text-vm-navy">What&apos;s Included</h3>
+              <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">What&apos;s Included</h3>
               <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                 {features.map((feature) => (
                   <li
@@ -95,7 +100,7 @@ export function ServiceDetail({
 
             {/* Process */}
             <div className="mt-12">
-              <h3 className="text-lg font-bold text-vm-navy">Our Process</h3>
+              <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Our Process</h3>
               <div className="mt-6 grid gap-4">
                 {process.map((step) => (
                   <div
@@ -124,7 +129,7 @@ export function ServiceDetail({
 
             {/* CTA Card */}
             <div className="rounded-2xl border border-vm-blue/30 bg-vm-blue/10 p-6">
-              <h3 className="text-xl font-bold text-vm-navy">
+              <h3 className="font-varsity text-xl tracking-wide text-vm-navy uppercase">
                 Get a Free Quote
               </h3>
               <p className="mt-2 text-sm text-muted-foreground">
@@ -138,17 +143,17 @@ export function ServiceDetail({
                   Request Quote
                 </Link>
                 <a
-                  href="tel:+15551234567"
+                  href="tel:+12674891567"
                   className="inline-flex justify-center rounded-full border-2 border-vm-navy px-6 py-3 text-sm font-semibold text-vm-navy transition-all hover:bg-vm-navy hover:text-white"
                 >
-                  (555) 123-4567
+                  (267) 489-1567
                 </a>
               </div>
             </div>
 
             {/* Benefits */}
             <div className="mt-8">
-              <h3 className="text-lg font-bold text-vm-navy">Why Choose Us</h3>
+              <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Why Choose Us</h3>
               <div className="mt-4 space-y-4">
                 {benefits.map((benefit) => (
                   <div key={benefit.title}>
@@ -163,7 +168,7 @@ export function ServiceDetail({
 
             {/* Related Services */}
             <div className="mt-8">
-              <h3 className="text-lg font-bold text-vm-navy">Related Services</h3>
+              <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Related Services</h3>
               <div className="mt-4 flex flex-wrap gap-2">
                 {relatedServices.map((service) => (
                   <Link
