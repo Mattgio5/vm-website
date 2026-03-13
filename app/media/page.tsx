@@ -2,6 +2,12 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import Link from "next/link"
 
+export const metadata = {
+  title: "Varsity Mulch Blog & News | Landscaping Tips | West Chester PA",
+  description:
+    "Updates, tips & behind-the-scenes from Varsity Mulching. Follow our crew as we transform yards across Chester County, Bucks County & Montgomery County, PA.",
+}
+
 // Sample company posts - in production these would come from a database/CMS
 const companyPosts = [
   {
