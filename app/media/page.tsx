@@ -166,13 +166,13 @@ export default function MediaPage() {
         </div>
         <div className="mx-auto max-w-3xl text-center">
           <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
-            Customer Reviews
+            Share Your Experience
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl text-balance">
-            See What Our Customers Say
+            Leave Us a Review
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Check out our reviews on Google to see what customers across the greater Philadelphia area are saying about Varsity Mulching.
+            Had a great experience with Varsity Mulching? We'd love to hear about it! Your feedback helps us grow and helps other homeowners find quality mulching services.
           </p>
           <div className="mt-8">
             <Link
@@ -187,7 +187,7 @@ export default function MediaPage() {
                 <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
                 <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
               </svg>
-              Read Our Google Reviews
+              Write a Google Review
             </Link>
           </div>
         </div>
