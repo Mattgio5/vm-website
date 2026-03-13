@@ -110,7 +110,7 @@ export function CompetitionSection() {
               <div className="flex justify-around">
                 <div className="text-center">
                   <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase mb-2">Price</p>
-                  <p className="font-varsity text-3xl text-vm-navy leading-none">$$</p>
+                  <p className="text-3xl text-vm-navy leading-none font-bold">$$</p>
                 </div>
                 <div className="w-px bg-vm-blue/40" />
                 <div className="text-center">
