@@ -152,6 +152,14 @@ export function Navbar() {
           {/* CTA + mobile hamburger */}
           <div className="flex items-center gap-3">
             <Link
+              href="/faq"
+              className={`hidden text-sm font-medium transition-colors hover:text-vm-blue-dark md:inline-flex ${
+                isActive("/faq") ? "text-vm-blue-dark" : "text-vm-navy"
+              }`}
+            >
+              FAQ
+            </Link>
+            <Link
               href="#quote"
               className="inline-flex items-center gap-1.5 rounded-full bg-vm-blue px-4 py-2 text-sm font-semibold text-vm-navy transition-all hover:bg-vm-blue-dark hover:shadow-md md:px-5"
             >
@@ -211,6 +219,15 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              href="/faq"
+              onClick={() => setMobileOpen(false)}
+              className={`rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-vm-blue/15 ${
+                isActive("/faq") ? "text-vm-blue-dark" : "text-vm-navy"
+              }`}
+            >
+              FAQ
+            </Link>
             <Link
               href="tel:+15551234567"
               onClick={() => setMobileOpen(false)}
