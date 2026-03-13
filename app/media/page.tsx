@@ -151,7 +151,6 @@ export default function MediaPage() {
                   className="w-full"
                   style={{ minHeight: "500px", border: "none" }}
                   scrolling="no"
-                  allowTransparency={true}
                   title="Varsity Mulching Instagram Feed"
                 />
               </div>
