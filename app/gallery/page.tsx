@@ -64,11 +64,6 @@ const projects = [
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5802.JPG-Bmc9KL0puTqPsATM2hlwAHIWAfQNxf.jpeg",
     description: "Long narrow bed along a patio edge with young trees and freshly applied black mulch.",
   },
-  {
-    id: 12,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5794%20%281%29.JPG-CyDYebfrPzdMo5QnL40dUzcwvb0fzD.jpeg",
-    description: "Front entrance bed with curved edging, boxwood shrubs, and rich dark mulch.",
-  },
 ]
 
 export default function GalleryPage() {
