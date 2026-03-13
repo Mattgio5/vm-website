@@ -78,7 +78,7 @@ export default function GalleryPage() {
             Our Work
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-vm-navy/70 md:text-lg">
-            Take a look at some of the yards we've helped transform across Pennsylvania. Real projects, real results.
+            Take a look at some of the yards we've helped transform across the greater Philadelphia area.
           </p>
         </div>
       </section>
