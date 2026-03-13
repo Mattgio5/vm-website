@@ -6,8 +6,17 @@ export function CtaSection() {
       id="quote"
       className="relative overflow-hidden bg-vm-blue px-4 py-20 md:px-12 md:py-28 lg:px-20"
     >
+      {/* Varsity stripes at top */}
+      <div className="absolute top-0 left-0 right-0 flex h-2">
+        <div className="w-8 bg-vm-navy" />
+        <div className="w-4 bg-vm-gold" />
+        <div className="flex-1 bg-vm-navy" />
+        <div className="w-4 bg-vm-gold" />
+        <div className="w-8 bg-vm-navy" />
+      </div>
+      
       <div className="relative mx-auto max-w-4xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl lg:text-5xl text-balance">
+        <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl lg:text-5xl text-balance uppercase">
           Ready to Transform Your Yard?
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-vm-navy/70 md:text-lg">

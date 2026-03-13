@@ -76,14 +76,17 @@ const services = [
 
 export function ServicesOverview() {
   return (
-    <section id="services" className="bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+    <section id="services" className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+      {/* Varsity stripe */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-vm-gold to-transparent" />
+      
       <div className="mx-auto max-w-7xl">
         {/* Section header */}
         <div className="mb-16 max-w-2xl md:mb-20">
-          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
+          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
             What We Do
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl lg:text-5xl text-balance">
+          <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl lg:text-5xl text-balance uppercase">
             Our Services
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -148,8 +151,8 @@ export function ServicesOverview() {
         </div>
 
         {/* What We Do Not Offer Section */}
-        <div className="mt-20 rounded-2xl border border-border bg-card p-8 md:mt-28 md:p-12">
-          <h3 className="text-2xl font-bold tracking-tight text-vm-navy md:text-3xl">
+        <div className="mt-20 rounded-2xl border border-border bg-card p-8 md:mt-28 md:p-12 border-t-4 border-t-vm-gold">
+          <h3 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl uppercase">
             What We Do Not Offer
           </h3>
           <div className="mt-6 space-y-4">

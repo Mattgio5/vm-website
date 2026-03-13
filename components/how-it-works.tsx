@@ -21,13 +21,22 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="bg-vm-navy px-4 py-20 md:px-12 md:py-28 lg:px-20">
+    <section id="how-it-works" className="relative bg-vm-navy px-4 py-20 md:px-12 md:py-28 lg:px-20">
+      {/* Varsity stripes at top */}
+      <div className="absolute top-0 left-0 right-0 flex h-3">
+        <div className="flex-1 bg-vm-gold" />
+        <div className="flex-1 bg-vm-navy" />
+        <div className="flex-1 bg-vm-gold" />
+        <div className="flex-1 bg-vm-navy" />
+        <div className="flex-1 bg-vm-gold" />
+      </div>
+      
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 max-w-2xl md:mb-16">
-          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue uppercase">
+          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold uppercase">
             How It Works
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl text-balance">
+          <h2 className="font-varsity text-3xl tracking-wide text-white md:text-4xl lg:text-5xl text-balance uppercase">
             Simple as 1-2-3
           </h2>
           <p className="mt-4 text-base leading-relaxed text-white/60 md:text-lg">
@@ -39,7 +48,7 @@ export function HowItWorks() {
         <div className="grid gap-8 md:grid-cols-3">
           {steps.map((step) => (
             <div key={step.number} className="group relative">
-              <span className="mb-4 block text-5xl font-bold text-vm-blue/25">
+              <span className="mb-4 block font-varsity text-5xl text-vm-gold/30">
                 {step.number}
               </span>
               <h3 className="text-xl font-bold text-white">{step.title}</h3>

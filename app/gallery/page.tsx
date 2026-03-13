@@ -139,9 +139,12 @@ export default function GalleryPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-vm-blue px-4 pt-32 pb-16 md:px-12 md:pt-40 md:pb-20 lg:px-20">
+      <section className="relative bg-vm-blue px-4 pt-32 pb-16 md:px-12 md:pt-40 md:pb-20 lg:px-20">
+        {/* Varsity stripe at top */}
+        <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-vm-navy via-vm-gold to-vm-navy" />
+        
         <div className="mx-auto max-w-6xl">
-          <h1 className="text-4xl font-bold tracking-tight text-vm-navy md:text-5xl lg:text-6xl text-balance">
+          <h1 className="font-varsity text-4xl tracking-wide text-vm-navy md:text-5xl lg:text-6xl text-balance uppercase">
             Our Work
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-vm-navy/70 md:text-lg">
@@ -151,7 +154,9 @@ export default function GalleryPage() {
       </section>
 
       {/* Gallery Grid */}
-      <section className="bg-background px-4 py-16 md:px-12 md:py-24 lg:px-20">
+      <section className="relative bg-background px-4 py-16 md:px-12 md:py-24 lg:px-20">
+        {/* Varsity stripe */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-vm-gold to-transparent" />
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {/* First 3 projects (Row 1) */}
@@ -186,9 +191,9 @@ export default function GalleryPage() {
             ))}
 
             {/* CTA Box (Row 2, Column 1) */}
-            <div className="flex items-center justify-center rounded-xl bg-vm-blue/40 p-8">
+            <div className="flex items-center justify-center rounded-xl bg-vm-blue/40 p-8 border-2 border-vm-gold/30">
               <div className="text-center">
-                <h3 className="text-2xl font-bold tracking-tight text-vm-navy md:text-3xl text-balance leading-tight">
+                <h3 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl text-balance leading-tight uppercase">
                   Ready to<br />transform<br />your yard?
                 </h3>
                 <Link

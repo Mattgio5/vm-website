@@ -23,7 +23,15 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer id="about" className="bg-vm-navy px-4 py-16 md:px-12 md:py-20 lg:px-20">
+    <footer id="about" className="relative bg-vm-navy px-4 py-16 md:px-12 md:py-20 lg:px-20">
+      {/* Varsity stripes at top */}
+      <div className="absolute top-0 left-0 right-0 flex h-2">
+        <div className="flex-1 bg-vm-gold" />
+        <div className="flex-1 bg-vm-navy" />
+        <div className="flex-1 bg-vm-gold" />
+        <div className="flex-1 bg-vm-navy" />
+        <div className="flex-1 bg-vm-gold" />
+      </div>
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand column */}
