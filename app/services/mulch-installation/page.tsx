@@ -26,8 +26,8 @@ const jsonLd = {
     "@type": "GeoCircle",
     "geoMidpoint": {
       "@type": "GeoCoordinates",
-      "latitude": 40.0,
-      "longitude": -75.6
+      "latitude": 40.3101,
+      "longitude": -75.1290
     },
     "geoRadius": "48280"
   },

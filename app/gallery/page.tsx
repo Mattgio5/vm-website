@@ -112,9 +112,9 @@ export default function GalleryPage() {
             {/* CTA Box (Row 2, Column 1) */}
             <div className="flex items-center justify-center rounded-xl bg-vm-blue/40 p-8 border-2 border-vm-gold/30">
               <div className="text-center">
-                <h3 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl text-balance leading-tight uppercase">
+                <h2 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl text-balance leading-tight uppercase">
                   Ready to<br />transform<br />your yard?
-                </h3>
+                </h2>
                 <Link
                   href="/services"
                   className="mt-6 inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg"
