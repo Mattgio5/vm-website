@@ -43,6 +43,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={openSans.variable}>
+      <head>
+        <link
+          href="https://fonts.cdnfonts.com/css/superstar-m54"
+          rel="stylesheet"
+        />
+      </head>
       <body className="font-sans antialiased">
         {children}
         <Analytics />
