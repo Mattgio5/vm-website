@@ -257,7 +257,7 @@ export function WhyVarsitySection() {
               <div className="p-6 bg-white">
                 <p className="mb-2 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">Meet the Crew</p>
                 <p className="text-base leading-relaxed text-muted-foreground">
-                  &ldquo;The best lawn care recommendation comes over the fence.&rdquo;
+                  Local college students with the equipment and systems to get it done right. No shortcuts, just solid work.
                 </p>
               </div>
             </div>
@@ -271,9 +271,9 @@ export function WhyVarsitySection() {
                 </div>
               </div>
               <div className="p-6 bg-white">
-                <p className="mb-2 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">Where We&apos;re From</p>
+                <p className="mb-2 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">Where We're From</p>
                 <p className="text-base leading-relaxed text-muted-foreground">
-                  &ldquo;Real lawn care, from people in your neighborhood.&rdquo;
+                  We serve neighborhoods across the area. Close enough to know your yard, far enough to have perspective.
                 </p>
               </div>
             </div>
