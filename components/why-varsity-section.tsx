@@ -38,7 +38,7 @@ export function WhyVarsitySection() {
           </div>
 
           {/* Comparison cards grid */}
-          <div className="grid gap-6 lg:grid-cols-3 lg:gap-8 items-end">
+          <div className="grid gap-6 lg:grid-cols-3 lg:gap-8 auto-rows-fr">
 
             {/* ── LEFT: The Budget Crew ── old-school 2010s HTML feel ── */}
             <div
@@ -49,6 +49,9 @@ export function WhyVarsitySection() {
                 padding: "24px",
                 fontFamily: "Arial, Helvetica, sans-serif",
                 boxShadow: "3px 3px 0 #999",
+                display: "flex",
+                flexDirection: "column",
+                height: "100%",
               }}
             >
               <div
@@ -92,8 +95,8 @@ export function WhyVarsitySection() {
             </div>
 
             {/* ── MIDDLE: Varsity Mulching ── our brand styling ── */}
-            <div>
-              <div className="relative rounded-2xl border-2 border-vm-blue-dark bg-white shadow-xl flex flex-col overflow-hidden pt-10">
+            <div className="h-full">
+              <div className="relative rounded-2xl border-2 border-vm-blue-dark bg-white shadow-xl flex flex-col overflow-hidden pt-10 h-full">
                 {/* Trophy badge at top */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-full bg-vm-blue-dark px-4 py-2 shadow-md">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 text-white" aria-hidden="true">
@@ -148,6 +151,7 @@ export function WhyVarsitySection() {
                 boxShadow: "0 8px 32px rgba(0,0,0,0.08)",
                 display: "flex",
                 flexDirection: "column",
+                height: "100%",
               }}
             >
               <div
