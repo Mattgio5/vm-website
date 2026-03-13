@@ -7,129 +7,62 @@ export const metadata = {
   description: "Browse completed mulching, edging & landscape bed projects in West Chester, Doylestown, Malvern, Exton, Downingtown & more across Chester County, Bucks County & Montgomery County, PA.",
 }
 
-// Gallery projects sorted newest to oldest with testimonials embedded
+// Gallery projects with real images and simple descriptions
 const projects = [
   {
     id: 1,
-    location: "West Chester, PA",
-    service: "Mulch Installation",
-    season: "Spring 26",
-    image: "/placeholder.svg?height=400&width=600",
-    testimonial: {
-      name: "Sarah M.",
-      quote: "The team was professional, punctual, and left our yard looking better than we ever imagined.",
-    },
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5794.JPG-3A8GQnvzZGQ109AidmaQvjWAfgISbp.jpeg",
+    description: "Curved front yard bed with fresh black mulch and bright green boxwood shrubs along a stone walkway.",
   },
   {
     id: 2,
-    location: "Malvern, PA", 
-    service: "Full Bed Renovation",
-    season: "Spring 26",
-    image: "/placeholder.svg?height=400&width=600",
-    testimonial: {
-      name: "Mike T.",
-      quote: "Great communication from start to finish. The mulch looks fantastic and the price was very fair.",
-    },
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5776.JPG-NeKgQFVVRGji0At2YpqxRBrMshPu2R.jpeg",
+    description: "Backyard landscape bed around a gazebo and brick patio with various shrubs and fresh mulch.",
   },
   {
     id: 3,
-    location: "Exton, PA",
-    service: "Landscape Edging",
-    season: "Spring 26",
-    image: "/placeholder.svg?height=400&width=600",
-    testimonial: {
-      name: "Jennifer L.",
-      quote: "We've used Varsity Mulching for two seasons now. They're reliable and always do a thorough job.",
-    },
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5778.JPG-4dWlSVtNMq8xp4rSPtuTKZQKpjcQ9D.jpeg",
+    description: "Large island bed with mature shrubs, stone border accent, and freshly applied black mulch.",
   },
-  // CTA box will go here (index 3 in the grid = row 2, col 1)
   {
     id: 4,
-    location: "Downingtown, PA",
-    service: "Mulch & Weed Control",
-    season: "Fall 25",
-    image: "/placeholder.svg?height=400&width=600",
-    testimonial: {
-      name: "David R.",
-      quote: "Finally found a company that actually shows up when they say they will. Highly recommend!",
-    },
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5780.JPG-LVE3o1tU14VkzjQAZEDoyeQ59knvjV.jpeg",
+    description: "Foundation bed along a brick porch with crisp edges and low shrubs freshly mulched.",
   },
   {
     id: 5,
-    location: "Phoenixville, PA",
-    service: "Bed Cleanup",
-    season: "Fall 25",
-    image: "/placeholder.svg?height=400&width=600",
-    testimonial: {
-      name: "Karen W.",
-      quote: "They cleaned up years of neglected beds in just one afternoon. Couldn't be happier with the results.",
-    },
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5782.JPG-nP6Lsc5mrDehuaWJ6pKemXAV8c7sIl.jpeg",
+    description: "Clean circular tree ring with black mulch around a single tree in an open suburban lawn.",
   },
   {
     id: 6,
-    location: "Collegeville, PA",
-    service: "Mulch Installation",
-    season: "Summer 25",
-    image: "/placeholder.svg?height=400&width=600",
-    testimonial: {
-      name: "Tom B.",
-      quote: "Fair pricing, great work, and the crew was respectful of our property. Will definitely use again.",
-    },
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5786.JPG-VxeAMGroOCtKGxzfgOVnabZSt8odNI.jpeg",
+    description: "Front yard bed near the driveway with a young tree, shrubs, and fresh black mulch.",
   },
   {
     id: 7,
-    location: "King of Prussia, PA",
-    service: "Full Yard Package",
-    season: "Summer 25",
-    image: "/placeholder.svg?height=400&width=600",
-    testimonial: {
-      name: "Lisa P.",
-      quote: "Our neighbors keep asking who did our yard. Best investment we've made in our home's curb appeal.",
-    },
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5790.JPG-XSeiXznDzWw7ZqNA7dLCIqEJQ1SdBv.jpeg",
+    description: "Shaded garden bed under a large pine tree with hostas and freshly spread mulch.",
   },
   {
     id: 8,
-    location: "Wayne, PA",
-    service: "Landscape Edging",
-    season: "Spring 25",
-    image: "/placeholder.svg?height=400&width=600",
-    testimonial: {
-      name: "Chris M.",
-      quote: "The edging made such a difference. Clean lines and a polished look we couldn't achieve ourselves.",
-    },
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5792.JPG-yb8RfbGAnMyMR6H6SSGhxlDFpVkCuM.jpeg",
+    description: "Side yard mulch bed along a black iron fence with ornamental grasses and hostas.",
   },
   {
     id: 9,
-    location: "Paoli, PA",
-    service: "Mulch Installation",
-    season: "Spring 25",
-    image: "/placeholder.svg?height=400&width=600",
-    testimonial: {
-      name: "Amanda S.",
-      quote: "Quick, efficient, and left no mess behind. The yard looks amazing and the mulch is holding up great.",
-    },
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5796.JPG-KzSND0J9yzDg9G3OwyDIGehhvbLhEs.jpeg",
+    description: "Large tree ring with fresh dark mulch around a mature ivy-covered tree in the front yard.",
   },
   {
     id: 10,
-    location: "Devon, PA",
-    service: "Bed Cleanup & Mulch",
-    season: "Fall 24",
-    image: "/placeholder.svg?height=400&width=600",
-    testimonial: {
-      name: "Robert H.",
-      quote: "They transformed our overgrown beds into something we're actually proud of. Worth every penny.",
-    },
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5800.JPG-vmGUBL0BE8sp7xTgcsPMLuxVLsRVOq.jpeg",
+    description: "Curved landscape bed around a tree with birdbath, fresh mulch, flowers, and shrubs.",
   },
   {
     id: 11,
-    location: "Berwyn, PA",
-    service: "Weed Control",
-    season: "Fall 24",
-    image: "/placeholder.svg?height=400&width=600",
-    testimonial: {
-      name: "Nancy K.",
-      quote: "No more weekends pulling weeds. The pre-emergent treatment has kept our beds clean all season.",
-    },
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5802.JPG-Bmc9KL0puTqPsATM2hlwAHIWAfQNxf.jpeg",
+    description: "Long narrow bed along a patio edge with young trees and freshly applied black mulch.",
   },
 ]
 
@@ -145,7 +78,7 @@ export default function GalleryPage() {
             Our Work
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-vm-navy/70 md:text-lg">
-            Take a look at some of the yards we've helped transform across Pennsylvania. Real projects, real results.
+            Take a look at some of the yards we've helped transform across the greater Philadelphia area.
           </p>
         </div>
       </section>
@@ -163,29 +96,15 @@ export default function GalleryPage() {
             {projects.slice(0, 3).map((project) => (
               <div key={project.id} className="group">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-muted">
-                  {/* Season Badge */}
-                  <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 rounded-full bg-vm-blue px-3 py-1.5">
-                    <svg className="h-3.5 w-3.5 text-vm-navy" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                    <span className="text-xs font-semibold text-vm-navy">{project.season}</span>
-                  </div>
-                  {/* IMAGE NEEDED: Project photo */}
-                  <div className="absolute inset-0 flex items-center justify-center text-muted-foreground bg-muted">
-                    <span className="text-sm">Project Photo</span>
-                  </div>
+                  <img
+                    src={project.image}
+                    alt={project.description}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
-                {/* Testimonial */}
-                <div className="mt-3 rounded-lg bg-vm-blue/20 px-3 py-2">
-                  <p className="text-sm italic text-vm-navy/80">"{project.testimonial.quote}"</p>
-                  <p className="mt-1 text-xs font-medium text-vm-navy">— {project.testimonial.name}</p>
-                </div>
-                {/* Location & Service */}
-                <div className="mt-2">
-                  <p className="text-base font-medium text-vm-navy">{project.location}</p>
-                  <p className="mt-0.5 text-sm text-muted-foreground">
-                    Service: <span className="underline underline-offset-2">{project.service}</span>
-                  </p>
+                {/* Description */}
+                <div className="mt-3">
+                  <p className="text-sm leading-relaxed text-muted-foreground">{project.description}</p>
                 </div>
               </div>
             ))}
@@ -209,29 +128,15 @@ export default function GalleryPage() {
             {projects.slice(3).map((project) => (
               <div key={project.id} className="group">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-muted">
-                  {/* Season Badge */}
-                  <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 rounded-full bg-vm-blue px-3 py-1.5">
-                    <svg className="h-3.5 w-3.5 text-vm-navy" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                    <span className="text-xs font-semibold text-vm-navy">{project.season}</span>
-                  </div>
-                  {/* IMAGE NEEDED: Project photo */}
-                  <div className="absolute inset-0 flex items-center justify-center text-muted-foreground bg-muted">
-                    <span className="text-sm">Project Photo</span>
-                  </div>
+                  <img
+                    src={project.image}
+                    alt={project.description}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
-                {/* Testimonial */}
-                <div className="mt-3 rounded-lg bg-vm-blue/20 px-3 py-2">
-                  <p className="text-sm italic text-vm-navy/80">"{project.testimonial.quote}"</p>
-                  <p className="mt-1 text-xs font-medium text-vm-navy">— {project.testimonial.name}</p>
-                </div>
-                {/* Location & Service */}
-                <div className="mt-2">
-                  <p className="text-base font-medium text-vm-navy">{project.location}</p>
-                  <p className="mt-0.5 text-sm text-muted-foreground">
-                    Service: <span className="underline underline-offset-2">{project.service}</span>
-                  </p>
+                {/* Description */}
+                <div className="mt-3">
+                  <p className="text-sm leading-relaxed text-muted-foreground">{project.description}</p>
                 </div>
               </div>
             ))}
