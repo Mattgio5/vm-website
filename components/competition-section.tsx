@@ -88,16 +88,16 @@ export function CompetitionSection() {
           </div>
 
           {/* ── MIDDLE: Varsity Mulching ── our brand, lighter palette ── */}
-          <div className="relative rounded-2xl border-2 border-vm-blue-dark bg-white shadow-xl flex flex-col overflow-hidden">
-            {/* Trophy badge */}
-            <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-full bg-vm-blue-dark px-4 py-1.5 shadow-md">
+          <div className="relative rounded-2xl border-2 border-vm-blue-dark bg-white shadow-xl flex flex-col overflow-hidden pt-10">
+            {/* Trophy badge at top */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-full bg-vm-blue-dark px-4 py-2 shadow-md">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 text-white" aria-hidden="true">
                 <path fillRule="evenodd" d="M5.166 3h13.668A2.25 2.25 0 0121 5.25v.113c0 .812-.435 1.56-1.142 1.965l-1.22.698A2.25 2.25 0 0016.5 9.96v.563c0 .54.192 1.06.537 1.47l.857 1.015a4.5 4.5 0 01.985 2.83V18a2.25 2.25 0 01-2.25 2.25H7.371A2.25 2.25 0 015.121 18v-2.162a4.5 4.5 0 01.985-2.83l.857-1.015A2.25 2.25 0 007.5 10.523V9.96a2.25 2.25 0 00-2.138-2.244l-1.22-.697A2.25 2.25 0 013 5.363V5.25A2.25 2.25 0 015.166 3z" clipRule="evenodd" />
               </svg>
-              <span className="font-varsity text-xs tracking-widest text-white uppercase">The Sweet Spot</span>
+              <span className="font-varsity text-xs tracking-widest text-white uppercase whitespace-nowrap">The Sweet Spot</span>
             </div>
 
-            <div className="mt-8 px-8 pb-8 pt-2 flex flex-col flex-1">
+            <div className="px-8 pb-8 flex flex-col flex-1">
               <div className="mb-6 text-center border-b border-vm-blue/40 pb-6">
                 <h3 className="font-varsity text-2xl tracking-wide text-vm-navy uppercase">
                   Varsity Mulching
@@ -109,13 +109,13 @@ export function CompetitionSection() {
 
               <div className="flex justify-around">
                 <div className="text-center">
-                  <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase mb-1">Price</p>
-                  <p className="font-varsity text-2xl text-vm-navy">$$</p>
+                  <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase mb-2">Price</p>
+                  <p className="font-varsity text-3xl text-vm-navy leading-none">$$</p>
                 </div>
                 <div className="w-px bg-vm-blue/40" />
                 <div className="text-center">
-                  <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase mb-1">Quality</p>
-                  <p className="text-xl text-vm-gold-dark">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                  <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase mb-2">Quality</p>
+                  <p className="text-2xl text-vm-gold-dark leading-none">★★★★★</p>
                 </div>
               </div>
             </div>
