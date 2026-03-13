@@ -109,6 +109,7 @@ function FAQAccordion({ item }: { item: FAQItem }) {
     <div className="border-b border-vm-navy/10 last:border-b-0">
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
         className="flex w-full items-center justify-between py-5 text-left transition-colors hover:text-vm-blue-dark"
       >
         <span className="pr-4 text-base font-medium text-vm-navy md:text-lg">

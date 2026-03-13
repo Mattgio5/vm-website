@@ -1,6 +1,14 @@
 import Image from "next/image"
 import Link from "next/link"
 import type { ReactNode } from "react"
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 
 interface ServiceDetailProps {
   title: string
@@ -44,12 +52,25 @@ export function ServiceDetail({
 
         <div className="relative z-10 flex h-full items-center px-4 pt-24 md:px-12 lg:px-20">
           <div className="mx-auto w-full max-w-7xl">
-            <Link
-              href="/services"
-              className="mb-6 inline-flex text-sm font-medium text-white/70 transition-colors hover:text-white"
-            >
-              Back to All Services
-            </Link>
+            <Breadcrumb className="mb-6">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild className="text-white/70 hover:text-white">
+                    <Link href="/">Home</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="text-white/50" />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild className="text-white/70 hover:text-white">
+                    <Link href="/services">Services</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="text-white/50" />
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="text-white">{title}</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
             <div className="max-w-2xl">
               <p className="text-sm font-semibold tracking-wider text-vm-blue uppercase">
                 {tagline}
