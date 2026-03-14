@@ -1,8 +1,14 @@
 import { Navbar } from "@/components/navbar"
 import { HeroCarousel } from "@/components/hero-carousel"
+
+export const metadata = {
+  title: "Varsity Mulching | Mulch Installation & Landscaping in Chester County, PA",
+  description:
+    "Professional mulch installation, edging, weed control & bed cleanup in Chester County, Bucks County & Montgomery County, PA. College athletes delivering premium results. Free quotes — call (267) 489-1567.",
+}
 import { ServicesOverview } from "@/components/services-overview"
+import { ServiceAreaSection } from "@/components/service-area-section"
 import { WhyVarsitySection } from "@/components/why-varsity-section"
-import { HowItWorks } from "@/components/how-it-works"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { CtaSection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
@@ -134,8 +140,8 @@ export default function Home() {
       <Navbar />
       <HeroCarousel />
       <ServicesOverview />
+      <ServiceAreaSection />
       <WhyVarsitySection />
-      <HowItWorks />
       <TestimonialsSection />
       <CtaSection />
       <Footer />

@@ -20,6 +20,21 @@ export const metadata: Metadata = {
   title: 'Varsity Mulching | Professional Mulch & Landscaping in Chester County, Bucks County & Montgomery County, PA',
   description:
     'Professional mulch installation, landscape edging, weed control & bed cleanup serving Chester County, Bucks County & Montgomery County, PA. Locally owned — serving West Chester, Doylestown, Malvern, Exton & more.',
+  openGraph: {
+    type: 'website',
+    siteName: 'Varsity Mulching',
+    images: [
+      {
+        url: '/images/vm-logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Varsity Mulching — Professional Mulch & Landscaping',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
   icons: {
     icon: [
       {
@@ -51,6 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={openSans.variable}>
       <head>
+        <link rel="preconnect" href="https://fonts.cdnfonts.com" crossOrigin="anonymous" />
         <link
           href="https://fonts.cdnfonts.com/css/superstar-m54"
           rel="stylesheet"

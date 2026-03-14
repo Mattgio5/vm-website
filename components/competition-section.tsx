@@ -56,7 +56,7 @@ export function CompetitionSection() {
                 marginBottom: "12px",
               }}
             >
-              Fairly priced&hellip; but you can tell.
+              Fairly priced... but you can tell.
             </p>
 
             <table style={{ width: "100%", fontSize: "13px", borderCollapse: "collapse" }}>
@@ -103,7 +103,7 @@ export function CompetitionSection() {
                   Varsity Mulching
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Skilled enough to do anything &mdash; but chose to perfect mulching. Get top-tier quality at the going rate.
+                  Skilled enough to do anything — but chose to perfect mulching. Get top-tier quality at the going rate.
                 </p>
               </div>
 
@@ -172,7 +172,7 @@ export function CompetitionSection() {
                 margin: "0 0 24px",
               }}
             >
-              Full-service landscapers who can mulch &mdash; but charge a premium because every hour on mulch is an hour off a bigger job.
+              Full-service landscapers who can mulch — but charge a premium because every hour on mulch is an hour off a bigger job.
             </p>
 
             <div

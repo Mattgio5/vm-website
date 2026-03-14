@@ -25,17 +25,10 @@ const jsonLd = {
     "@type": "GeoCircle",
     "geoMidpoint": {
       "@type": "GeoCoordinates",
-      "latitude": 40.0,
-      "longitude": -75.6
+      "latitude": 40.3101,
+      "longitude": -75.1290
     },
     "geoRadius": "48280"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "100",
-    "bestRating": "5",
-    "worstRating": "1"
   },
   "offers": {
     "@type": "Offer",
@@ -61,12 +54,26 @@ const jsonLd = {
   ]
 }
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.varsitymulching.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.varsitymulching.com/services" },
+    { "@type": "ListItem", "position": 3, "name": "Bed Cleanup", "item": "https://www.varsitymulching.com/services/bed-cleanup" }
+  ]
+}
+
 export default function BedCleanupPage() {
   return (
     <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Navbar />
       <ServiceDetail

@@ -2,6 +2,14 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
 import Link from "next/link"
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 
 export const metadata = {
   title: "Landscaping Add-Ons & Maintenance in Chester County & Bucks County, PA | Varsity Mulching",
@@ -80,17 +88,10 @@ const jsonLd = {
     "@type": "GeoCircle",
     "geoMidpoint": {
       "@type": "GeoCoordinates",
-      "latitude": 40.0,
-      "longitude": -75.6
+      "latitude": 40.3101,
+      "longitude": -75.1290
     },
     "geoRadius": "48280"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "100",
-    "bestRating": "5",
-    "worstRating": "1"
   },
   "offers": {
     "@type": "Offer",
@@ -116,12 +117,26 @@ const jsonLd = {
   ]
 }
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.varsitymulching.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.varsitymulching.com/services" },
+    { "@type": "ListItem", "position": 3, "name": "Supplements", "item": "https://www.varsitymulching.com/services/supplements" }
+  ]
+}
+
 export default function SupplementsPage() {
   return (
     <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Navbar />
       
@@ -143,12 +158,25 @@ export default function SupplementsPage() {
 
         <div className="relative z-10 flex h-full items-center px-4 pt-24 md:px-12 lg:px-20">
           <div className="max-w-2xl">
-            <Link
-              href="/services"
-              className="mb-6 inline-flex text-sm font-medium text-white/70 transition-colors hover:text-white"
-            >
-              Back to All Services
-            </Link>
+            <Breadcrumb className="mb-6">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild className="text-white/70 hover:text-white">
+                    <Link href="/">Home</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="text-white/50" />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild className="text-white/70 hover:text-white">
+                    <Link href="/services">Services</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="text-white/50" />
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="text-white">Supplements</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
             <p className="text-sm font-semibold tracking-wider text-vm-blue uppercase">
               Extra touches for your yard
             </p>
