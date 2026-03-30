@@ -92,6 +92,19 @@ export function WhyVarsitySection() {
                   </tr>
                 </tbody>
               </table>
+              <div
+                style={{
+                  marginTop: "16px",
+                  padding: "10px",
+                  background: "#fffbe6",
+                  border: "1px solid #e0c040",
+                  borderRadius: "2px",
+                  fontSize: "12px",
+                  color: "#666",
+                }}
+              >
+                <strong style={{ color: "#333" }}>How to spot them:</strong> &ldquo;lawn care&rdquo; in the name, 4 reviews at 3.8 stars
+              </div>
             </div>
 
             {/* ── MIDDLE: Varsity Mulching ── our brand styling ── */}
@@ -140,7 +153,7 @@ export function WhyVarsitySection() {
               </div>
             </div>
 
-            {/* ── RIGHT: The Overqualified Crew ── Yardzen premium feel ── */}
+            {/* ── RIGHT: The Full-Service Firm ── Yardzen premium feel ── */}
             <div
               style={{
                 background: "#f5f2ec",
@@ -157,7 +170,7 @@ export function WhyVarsitySection() {
               <div
                 style={{
                   display: "inline-block",
-                  background: "#2d4a2d",
+                  background: "#8b2a2a",
                   color: "#f5f2ec",
                   fontSize: "10px",
                   letterSpacing: "3px",
@@ -168,7 +181,7 @@ export function WhyVarsitySection() {
                   alignSelf: "flex-start",
                 }}
               >
-                Premium Tier
+                Overpriced
               </div>
 
               <h3
@@ -181,7 +194,7 @@ export function WhyVarsitySection() {
                   lineHeight: "1.3",
                 }}
               >
-                The Overqualified Crew
+                The Full-Service Firm
               </h3>
 
               <p
@@ -192,7 +205,7 @@ export function WhyVarsitySection() {
                   margin: "0 0 24px",
                 }}
               >
-                Full-service landscapers who can mulch — but charge a premium because every hour on mulch is an hour off a bigger job.
+                A large, full-service landscaping company where mulch is not their bread and butter. They do landscape design, masonry, and more — so you&apos;re paying for their expertise in all those categories. With Varsity, you&apos;re only paying for expertise in mulch. The result: both overpriced AND the mulch quality won&apos;t match a specialist.
               </p>
 
               <div
@@ -211,8 +224,23 @@ export function WhyVarsitySection() {
                 <div style={{ width: "1px", background: "#d4cfc5" }} />
                 <div style={{ textAlign: "center" }}>
                   <p style={{ fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", color: "#a09888", margin: "0 0 6px" }}>Quality</p>
-                  <p style={{ fontSize: "18px", color: "#2d4a2d", margin: 0 }}>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                  <p style={{ fontSize: "18px", color: "#2d4a2d", margin: 0 }}>&#9733;&#9733;&#9733;&#9733;&#9734;</p>
                 </div>
+              </div>
+
+              <div
+                style={{
+                  marginTop: "16px",
+                  padding: "10px 14px",
+                  background: "#fdf0f0",
+                  border: "1px solid #d4a0a0",
+                  borderRadius: "8px",
+                  fontSize: "12px",
+                  color: "#7a5555",
+                  fontFamily: "Arial, sans-serif",
+                }}
+              >
+                <strong style={{ color: "#5a2020" }}>How to spot them:</strong> &ldquo;contractors&rdquo; in the name, 250+ reviews at 4.3 stars, huge service list
               </div>
             </div>
 
@@ -220,35 +248,6 @@ export function WhyVarsitySection() {
         </div>
       </div>
 
-      {/* ═══════════════════════════════════════════ */}
-      {/* SUBSECTION 2: The Kid Next Door          */}
-      {/* ═══════════════════════════════════════════ */}
-      <div className="relative px-4 py-20 md:px-12 md:py-28 lg:px-20">
-        <div className="mx-auto max-w-7xl">
-          {/* Section label and headline */}
-          <div className="mb-12 md:mb-16">
-            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
-              The Kid Next Door
-            </p>
-            <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl lg:text-5xl text-balance uppercase">
-              Good Lawns Start with Good Neighbors
-            </h2>
-            <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg max-w-3xl">
-              Everyone&apos;s hired the neighbor&apos;s kid to spread some mulch. Varsity is that kid — just with better equipment and a system that actually works. Our crews are college kids from the area. You&apos;ve probably seen them around. They&apos;re local, they show up, and they do the job right.
-            </p>
-          </div>
-
-          {/* Founder quote block */}
-          <div className="border-l-4 border-vm-gold pl-6 md:pl-8 py-4">
-            <blockquote className="text-base md:text-lg leading-relaxed text-muted-foreground italic">
-              "My first job was my next-door neighbor's yard — just me, a wheelbarrow, and a lot of mulch. The operation has grown since then, but the mentality hasn't. We're still the kids next door. We just got a lot better at it."
-            </blockquote>
-            <p className="mt-4 font-semibold text-vm-navy">
-              — Matt, Founder, Varsity Mulching
-            </p>
-          </div>
-        </div>
-      </div>
     </section>
   )
 }

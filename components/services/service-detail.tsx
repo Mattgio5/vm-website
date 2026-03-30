@@ -17,6 +17,7 @@ interface ServiceDetailProps {
   longDescription: string
   image: string
   features: string[]
+  featuresNote?: string
   benefits: { title: string; description: string }[]
   process: { step: number; title: string; description: string }[]
   relatedServices: { slug: string; title: string }[]
@@ -30,6 +31,7 @@ export function ServiceDetail({
   longDescription,
   image,
   features,
+  featuresNote,
   benefits,
   process,
   relatedServices,
@@ -103,6 +105,15 @@ export function ServiceDetail({
               {longDescription}
             </p>
 
+            <div className="mt-6">
+              <Link
+                href="#quote"
+                className="inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
+              >
+                Request a Quote
+              </Link>
+            </div>
+
             {/* Features */}
             <div className="mt-10">
               <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">What&apos;s Included</h3>
@@ -117,6 +128,19 @@ export function ServiceDetail({
                   </li>
                 ))}
               </ul>
+              {featuresNote && (
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground italic border-l-4 border-vm-blue/40 pl-4">
+                  {featuresNote}
+                </p>
+              )}
+              <div className="mt-6">
+                <Link
+                  href="#quote"
+                  className="inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
+                >
+                  Request a Quote
+                </Link>
+              </div>
             </div>
 
             {/* Process */}
@@ -139,6 +163,14 @@ export function ServiceDetail({
                     </div>
                   </div>
                 ))}
+              </div>
+              <div className="mt-6">
+                <Link
+                  href="#quote"
+                  className="inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
+                >
+                  Request a Quote
+                </Link>
               </div>
             </div>
           </div>

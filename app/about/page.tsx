@@ -26,13 +26,21 @@ export default function AboutPage() {
               Our Story
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
-              We're a small business in the greater Philadelphia area employing hometown talent to keep your yard fresh each year.
+              We&apos;re a small business in the greater Philadelphia area employing hometown talent to keep your yard fresh each year.
             </p>
+            <div className="mt-8">
+              <a
+                href="#quote"
+                className="inline-flex rounded-full bg-vm-gold px-7 py-3.5 text-base font-semibold text-vm-navy transition-all hover:bg-vm-gold/90 hover:shadow-lg"
+              >
+                Get a Free Quote
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Founder's Message */}
+      {/* The Varsity Mulching Story */}
       <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
         {/* Varsity stripes - two thick parallel lines */}
         <div className="absolute top-0 left-0 right-0 flex flex-col">
@@ -40,7 +48,20 @@ export default function AboutPage() {
           <div className="h-2.5 w-full bg-vm-navy" />
         </div>
         <div className="mx-auto max-w-4xl">
-          <div className="grid gap-12 md:grid-cols-5 md:gap-16">
+          <p className="mb-2 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
+            The Kid Next Door
+          </p>
+          <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
+            The Varsity Mulching Story
+          </h2>
+          <p className="mt-1 text-lg font-semibold text-vm-blue-dark">
+            Expert Quality. Youthful Spirit
+          </p>
+          <p className="mt-3 text-sm font-semibold tracking-wide text-muted-foreground">
+            The Kid Next Door: Good Landscapes Start With Good Neighbors.
+          </p>
+
+          <div className="mt-10 grid gap-12 md:grid-cols-5 md:gap-16">
             {/* Photo - Sticky on scroll */}
             <div className="md:col-span-2">
               <div className="md:sticky md:top-32">
@@ -57,16 +78,16 @@ export default function AboutPage() {
             <div className="md:col-span-3">
               <blockquote className="relative">
                 <p className="text-lg leading-relaxed text-vm-navy/80 md:text-xl md:leading-relaxed">
-                  I started Varsity Mulching with a few of my hockey teammates in high school. We chose the name Varsity because that's what we were at the time. As the business grew, Varsity came to mean something more. It became a standard for attention to detail, clear communication, and customer service that people could rely on.
+                  My story is simple: I started Varsity Mulching with a few of my hockey teammates in high school. We chose the name Varsity because that&apos;s what we were at the time. As the business grew, Varsity came to mean something more. It became a standard for attention to detail, clear communication, and customer service that people could rely on.
                 </p>
                 <p className="mt-6 text-lg leading-relaxed text-vm-navy/80 md:text-xl md:leading-relaxed">
-                  As we scaled, I wanted to protect that standard. That's why we partnered with three local colleges to bring student athletes from the fields to our clients' mulch beds. We pair them with experienced crew leads who know the work and set expectations on every job.
+                  As we scaled, I wanted to protect that standard. That&apos;s why we partnered with three local colleges to bring student athletes from the fields to our clients&apos; mulch beds. We pair them with highly experienced crew leads who know the work and set expectations on every job. The result is a dependable, professional experience that delivers consistent results without losing what made Varsity special in the first place.
                 </p>
                 <p className="mt-6 text-lg leading-relaxed text-vm-navy/80 md:text-xl md:leading-relaxed">
-                  The result is a dependable, professional experience that delivers consistent results without losing what made Varsity special in the first place.
+                  Everyone&apos;s hired the neighbor&apos;s kid to spread some mulch. Varsity is that kid — just with better equipment and a system that works every time. Our crews are college kids from the area. You&apos;ve probably seen them around. They&apos;re local, they show up, and they do the job right.
                 </p>
                 <p className="mt-6 text-lg leading-relaxed text-vm-navy/80 md:text-xl md:leading-relaxed">
-                  Thank you for being a part of our story!
+                  Thank you for being part of our story.
                 </p>
 
                 {/* Signature */}
@@ -87,21 +108,24 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* The Varsity Crew - Moved above Neighbors Helping Neighbors */}
+      {/* Meet the Team */}
       <section className="relative bg-muted/50 px-4 py-20 md:px-12 md:py-28 lg:px-20">
         {/* Varsity stripes - two thick parallel lines */}
         <div className="absolute top-0 left-0 right-0 flex flex-col">
           <div className="h-2.5 w-full bg-vm-gold" />
           <div className="h-2.5 w-full bg-vm-navy" />
         </div>
-        
+
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
+            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
+              The Power Pair
+            </p>
             <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
-              The Varsity Crew
+              Meet the Team: The Power Behind the Polish
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              College athletes who bring the same discipline and teamwork from the field to your yard.
+            <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              At Varsity Mulching, we believe that a great landscape is built on two things: expert strategy and unmatched hustle. Our unique &ldquo;Power Pair&rdquo; staffing model ensures that every job is overseen by a seasoned professional and executed with the energy of a division-level athlete. When you see a Varsity crew pull into your driveway, here is the team you&apos;re meeting:
             </p>
           </div>
 
@@ -260,12 +284,18 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Join the Team CTA */}
-          <div className="mt-12 text-center">
+          {/* CTAs */}
+          <div className="mt-12 flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-center">
+            <a
+              href="#quote"
+              className="inline-flex rounded-full bg-vm-navy px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg"
+            >
+              Request a Quote
+            </a>
             <p className="text-muted-foreground">
               Interested in joining the crew?{" "}
               <a href="/careers" className="font-semibold text-vm-blue-dark hover:underline">
-                Check out our open positions
+                Check out open positions
               </a>
             </p>
           </div>

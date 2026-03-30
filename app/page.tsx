@@ -7,6 +7,7 @@ export const metadata = {
     "Professional mulch installation, edging, weed control & bed cleanup in Chester County, Bucks County & Montgomery County, PA. College athletes delivering premium results. Free quotes — call (267) 489-1567.",
 }
 import { ServicesOverview } from "@/components/services-overview"
+import { WinningRosterSection } from "@/components/winning-roster-section"
 import { ServiceAreaSection } from "@/components/service-area-section"
 import { WhyVarsitySection } from "@/components/why-varsity-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
@@ -140,6 +141,7 @@ export default function Home() {
       <Navbar />
       <HeroCarousel />
       <ServicesOverview />
+      <WinningRosterSection />
       <ServiceAreaSection />
       <WhyVarsitySection />
       <TestimonialsSection />

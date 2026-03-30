@@ -20,54 +20,48 @@ export const metadata = {
 const addOns = [
   {
     number: "01",
-    title: "Bush Removal",
+    title: "Bush & Shrub Transplants",
     description:
-      "We remove small bushes from your bed. We dispose of all debris.",
+      "Sometimes a plant is perfectly healthy but simply in the wrong spot. Whether a shrub has outgrown its current space or you're redesigning your bed layout, our team performs careful transplants to ensure your greenery survives the move. We focus on preserving the integrity of the root system and preparing the new \"home\" with the right soil conditions to minimize transplant shock and encourage immediate settling.",
   },
   {
     number: "02",
-    title: "Bush Transplant",
+    title: "Professional Bush Trimming",
     description:
-      "We carefully remove a bush from an unwanted location. Then, we replant it in a different spot in the bed.",
+      "Regular trimming is about more than just aesthetics—it's about the longevity of your plants. Our crew uses precision techniques to remove dead wood, thinning out overgrowth to improve airflow and sunlight penetration. From formal hedging to natural shaping, we ensure your bushes look manicured while promoting the healthy new growth that makes your spring landscape truly \"pop.\"",
   },
   {
     number: "03",
-    title: "Bush Trimming",
+    title: "Flower & Bush Planting",
     description:
-      "We take the bulk off your bushes to bring out the sharpness of the mulch. However, we do not trim them to complex shapes.",
-  },
-  {
-    number: "04",
-    title: "Planting",
-    description:
-      "If you provide your desired flowers/bush, we will plant them for you. We meticulously spread the mulch around new plants to make sure they grow healthy.",
+      "Ready to add a splash of color or a new layer of privacy? We take the guesswork out of planting. Our team handles the digging, soil amendment, and positioning to ensure your new flowers and shrubs are installed at the correct depth for long-term success. Once your new additions are in the ground, we surround them with our signature triple-ground mulch to lock in moisture and protect those brand-new roots.",
   },
 ]
 
-const followUpServices = [
+const maintenanceServices = [
   {
     number: "01",
     title: "Fall Cleanups",
     description:
-      "We remove leaves, sticks, and seasonal debris from mulch beds and lawns to keep them clean and protected through the offseason.",
+      "As the growing season winds down, your garden beds can quickly become buried under heavy layers of fallen leaves and organic debris. If left over the winter, this \"matting\" can trap excessive moisture, leading to mold, root rot, and turf damage. Our Fall Cleanup service involves a thorough clearing of all beds, the removal of spent annuals, and the final pruning of perennials. We haul away the debris so your property is tucked in for the winter, leaving a clean, intentional look that prevents pests from nesting near your home.",
   },
   {
     number: "02",
-    title: "Bed Maintenance",
+    title: "Bed Maintenance & Touch-Ups",
     description:
-      "Ongoing upkeep of mulch beds, including light weeding, mulch touch-ups, and trimming to maintain a polished look.",
+      "In the months following your initial mulch installation, wind, rain, and foot traffic can shift your mulch and soften those crisp edges. Our maintenance visits focus on the details that keep your curb appeal sharp. We \"fluff\" the existing mulch to restore its vibrant color, redefine your spade edges to stop grass creep, and clear out any stray debris. It's the perfect way to ensure your home looks professionally managed all year long, not just in the weeks after a big project.",
   },
   {
     number: "03",
-    title: "Weed Treatments",
+    title: "Scheduled Weed Treatments",
     description:
-      "Targeted chemical weed control to suppress regrowth and keep mulch beds clean between full services.",
+      "The most effective way to manage weeds is to never let them get comfortable. Our ongoing weed treatment service provides a consistent layer of protection that builds on our initial installation. We perform regular walkthroughs to identify and treat any \"breakout\" weeds using targeted, systemic sprays. By catching these invaders early, we prevent them from dropping seeds or establishing deep root systems, keeping your triple-ground mulch looking like a clean, dark blanket for your plants.",
   },
   {
     number: "04",
-    title: "Aeration",
+    title: "Core Aeration",
     description:
-      "Core aeration to relieve soil compaction and improve water, air, and nutrient absorption for healthier lawns.",
+      "Over time, soil becomes compacted by mowing, foot traffic, and heavy rain, which \"chokes\" your grass by preventing oxygen, water, and nutrients from reaching the roots. Our aeration service uses professional equipment to remove small plugs of soil and thatch from your lawn. This process breaks up compaction and opens up \"highways\" directly to the root zone. The result is a deeper, stronger root system, better drought resistance, and a thicker, greener lawn that naturally crowds out weeds.",
   },
 ]
 
@@ -178,10 +172,10 @@ export default function SupplementsPage() {
               </BreadcrumbList>
             </Breadcrumb>
             <p className="text-sm font-semibold tracking-wider text-vm-blue uppercase">
-              Extra touches for your yard
+              Beyond the core
             </p>
             <h1 className="font-varsity mt-2 text-4xl tracking-wide text-white md:text-5xl lg:text-6xl text-balance uppercase">
-              Supplements
+              Varsity Mulching&apos;s Add-On Services
             </h1>
             <p className="mt-4 max-w-lg text-lg leading-relaxed text-white/80">
               Beyond our core services, we offer add-ons and follow-up care to keep your landscape looking its best year-round.
@@ -203,7 +197,7 @@ export default function SupplementsPage() {
               Enhance Your Service
             </p>
             <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
-              Add-ons
+              Add-On Services
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
               Pair these services with your mulch installation for a complete transformation.
@@ -229,7 +223,7 @@ export default function SupplementsPage() {
         </div>
       </section>
 
-      {/* Follow-up Services Section */}
+      {/* Maintenance and Service Visits Section */}
       <section className="relative bg-muted px-4 py-20 md:px-12 md:py-28 lg:px-20">
         {/* Varsity stripes - two thick parallel lines */}
         <div className="absolute top-0 left-0 right-0 flex flex-col">
@@ -242,15 +236,15 @@ export default function SupplementsPage() {
               Keep It Looking Great
             </p>
             <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
-              Follow-up Servicing
+              Maintenance and Service Visits
             </h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Maintain your investment with our seasonal and ongoing care options.
+            <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              The secret to a pristine landscape isn&apos;t just a great initial installation—it&apos;s the consistent, professional care that follows. At Varsity Mulching, our maintenance and service visits are designed to preserve the &ldquo;day-one&rdquo; beauty of your property throughout the entire growing season. From refreshing your bed lines and managing seasonal weed pressure to providing a mid-season &ldquo;touch-up&rdquo; that restores that rich, dark color to your mulch, these visits ensure your investment remains protected. We handle the ongoing details of yard health and aesthetics so that your curb appeal stays sharp, your plants stay vibrant, and you never have to lift a finger to keep your home looking its absolute best.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            {followUpServices.map((item) => (
+            {maintenanceServices.map((item) => (
               <div
                 key={item.number}
                 className="rounded-2xl border border-border bg-card p-6 transition-all hover:border-vm-blue/30 hover:shadow-lg md:p-8"
