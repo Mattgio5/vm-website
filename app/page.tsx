@@ -140,6 +140,19 @@ export default function Home() {
       />
       <Navbar />
       <HeroCarousel />
+      <section className="w-full">
+        <video
+          className="w-full h-auto max-h-[80vh] object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-label="Varsity Mulching crew at work"
+        >
+          <source src="/videos/hero-video.mp4" type="video/mp4" />
+        </video>
+      </section>
       <ServicesOverview />
       <WinningRosterSection />
       <ServiceAreaSection />
