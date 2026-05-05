@@ -10,9 +10,9 @@ const openSans = Open_Sans({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://v0-varsity-mulch.vercel.app'),
+  metadataBase: new URL('https://varsitymulching.com'),
   alternates: {
-    canonical: './',
+    canonical: '/',
   },
   verification: {
     google: '_g3QByJq47ZO1tjuIuGxcJ5LOleNLGOOVoJEiqu1470',

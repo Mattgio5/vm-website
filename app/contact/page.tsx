@@ -50,14 +50,8 @@ export default function ContactPage() {
             <p className="mb-2 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
               Request a Quote
             </p>
-            <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
-              Tell Us About Your Yard
-            </h2>
-            <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-              The more you share, the more accurate your estimate. We&apos;ll get back to you within one business day.
-            </p>
 
-            <div className="mt-8">
+            <div className="mt-6">
               <ContactForm />
             </div>
           </div>
@@ -68,12 +62,6 @@ export default function ContactPage() {
               <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
                 <p className="text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
                   Get In Touch
-                </p>
-                <h3 className="font-varsity mt-2 text-2xl tracking-wide text-vm-navy uppercase">
-                  Talk to a Human
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  Prefer to call or email? We&apos;re happy to chat about your project before you fill out a thing.
                 </p>
 
                 <div className="mt-6 space-y-5">

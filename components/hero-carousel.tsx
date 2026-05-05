@@ -1,49 +1,25 @@
-"use client"
-
-import { useState, useEffect, useCallback } from "react"
-import Image from "next/image"
 import Link from "next/link"
 
-const backgroundImages = [
-  "/images/hero-mulch.jpg",
-  "/images/hero-delivery.jpg",
-  "/images/hero-yard.jpg",
-]
-
 export function HeroCarousel() {
-  const [current, setCurrent] = useState(0)
-
-  const next = useCallback(() => {
-    setCurrent((prev) => (prev + 1) % backgroundImages.length)
-  }, [])
-
-  useEffect(() => {
-    const interval = setInterval(next, 6000)
-    return () => clearInterval(interval)
-  }, [next])
-
   return (
     <section
       className="relative w-full overflow-hidden"
       style={{ height: 'calc(100vh - 1px)', minHeight: '600px' }}
     >
-      {/* Background images */}
-      {backgroundImages.map((image, i) => (
-        <div
-          key={i}
-          className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
-          style={{ opacity: i === current ? 1 : 0 }}
-        >
-          <Image
-            src={image}
-            alt={`Varsity Mulch landscaping showcase ${i + 1}`}
-            fill
-            className="object-cover"
-            priority={i === 0}
-          />
-          <div className="absolute inset-0 bg-vm-navy/25" />
-        </div>
-      ))}
+      {/* Background video */}
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster="/images/hero-mulch.jpg"
+        aria-label="Varsity Mulching crew at work"
+      >
+        <source src="/videos/hero-video.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-vm-navy/25" />
 
       {/* Static content card */}
       <div className="relative z-10 flex h-full flex-col justify-center px-4 pt-28 pb-40 md:px-12 md:pt-32 md:pb-36 lg:px-20">
@@ -63,27 +39,8 @@ export function HeroCarousel() {
         </div>
       </div>
 
-      {/* Bottom bar with dots and CTA */}
-      <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-center px-4 pb-8 md:justify-between md:px-12 md:pb-10 lg:px-20">
-        {/* Spacer for layout balance on desktop */}
-        <div className="hidden md:block" />
-
-        {/* Carousel dots */}
-        <div className="flex items-center gap-2">
-          {backgroundImages.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              className={`h-2.5 w-2.5 rounded-full transition-all ${i === current
-                  ? "scale-110 bg-vm-blue shadow-md"
-                  : "bg-white/60 hover:bg-white/80"
-                }`}
-              aria-label={`Go to slide ${i + 1}`}
-            />
-          ))}
-        </div>
-
-        {/* Happy customers CTA */}
+      {/* Happy customers CTA */}
+      <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-end px-4 pb-8 md:px-12 md:pb-10 lg:px-20">
         <Link
           href="/gallery"
           className="hidden rounded-full border border-white/40 bg-white/70 px-5 py-2.5 text-sm font-semibold text-vm-navy shadow-lg backdrop-blur-md transition-all hover:bg-white/90 hover:shadow-xl md:inline-flex"

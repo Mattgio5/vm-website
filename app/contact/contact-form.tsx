@@ -70,7 +70,7 @@ export function ContactForm() {
       </div>
 
       {/* Address */}
-      <Field id="address" label="Property Address" required hint="Where the work would happen">
+      <Field id="address" label="Property Address" required>
         <Input id="address" name="address" required autoComplete="street-address" placeholder="123 Main St" />
       </Field>
 
@@ -122,7 +122,7 @@ export function ContactForm() {
       </Field>
 
       {/* Message */}
-      <Field id="message" label="Anything Else?" hint="Photos, gate codes, problem areas &mdash; the more we know, the better the quote.">
+      <Field id="message" label="Anything Else?">
         <Textarea
           id="message"
           name="message"
