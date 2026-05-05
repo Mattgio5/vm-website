@@ -160,7 +160,7 @@ export function Navbar() {
               FAQ
             </Link>
             <Link
-              href="#quote"
+              href="/contact"
               className="inline-flex items-center gap-1.5 rounded-full bg-vm-blue px-4 py-2 text-sm font-semibold text-vm-navy transition-all hover:bg-vm-blue-dark hover:shadow-md md:px-5"
             >
               Get a Quote

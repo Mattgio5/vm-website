@@ -30,7 +30,7 @@ export default function AboutPage() {
             </p>
             <div className="mt-8">
               <a
-                href="#quote"
+                href="/contact"
                 className="inline-flex rounded-full bg-vm-gold px-7 py-3.5 text-base font-semibold text-vm-navy transition-all hover:bg-vm-gold/90 hover:shadow-lg"
               >
                 Get a Free Quote
@@ -287,7 +287,7 @@ export default function AboutPage() {
           {/* CTAs */}
           <div className="mt-12 flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-center">
             <a
-              href="#quote"
+              href="/contact"
               className="inline-flex rounded-full bg-vm-navy px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg"
             >
               Request a Quote

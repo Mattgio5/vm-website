@@ -107,7 +107,7 @@ export function ServiceDetail({
 
             <div className="mt-6">
               <Link
-                href="#quote"
+                href="/contact"
                 className="inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
               >
                 Request a Quote
@@ -135,7 +135,7 @@ export function ServiceDetail({
               )}
               <div className="mt-6">
                 <Link
-                  href="#quote"
+                  href="/contact"
                   className="inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
                 >
                   Request a Quote
@@ -166,7 +166,7 @@ export function ServiceDetail({
               </div>
               <div className="mt-6">
                 <Link
-                  href="#quote"
+                  href="/contact"
                   className="inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
                 >
                   Request a Quote
@@ -190,7 +190,7 @@ export function ServiceDetail({
               </p>
               <div className="mt-5 flex flex-col gap-3">
                 <Link
-                  href="#quote"
+                  href="/contact"
                   className="inline-flex justify-center rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
                 >
                   Request Quote
