@@ -68,9 +68,25 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.cdnfonts.com" crossOrigin="anonymous" />
         <link
+          rel="preload"
+          as="style"
           href="https://fonts.cdnfonts.com/css/superstar-m54"
-          rel="stylesheet"
         />
+        <link
+          id="superstar-font"
+          rel="stylesheet"
+          href="https://fonts.cdnfonts.com/css/superstar-m54"
+          media="print"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){var l=document.getElementById('superstar-font');if(!l)return;var swap=function(){l.media='all'};if(l.sheet){swap()}else{l.addEventListener('load',swap)}})();",
+          }}
+        />
+        <noscript>
+          <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/superstar-m54" />
+        </noscript>
       </head>
       <body className="font-sans antialiased">
         {children}
