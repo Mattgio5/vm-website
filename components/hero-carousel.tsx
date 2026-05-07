@@ -1,24 +1,48 @@
+"use client"
+
 import Link from "next/link"
+import Image from "next/image"
+import { useEffect, useState } from "react"
 
 export function HeroCarousel() {
+  const [showVideo, setShowVideo] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)")
+    const update = () => setShowVideo(mq.matches)
+    update()
+    mq.addEventListener("change", update)
+    return () => mq.removeEventListener("change", update)
+  }, [])
+
   return (
     <section
       className="relative w-full overflow-hidden"
       style={{ height: 'calc(100vh - 1px)', minHeight: '600px' }}
     >
-      {/* Background video */}
-      <video
-        className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        poster="/images/hero-mulch.jpg"
-        aria-label="Varsity Mulching crew at work"
-      >
-        <source src="/videos/hero-video.mp4" type="video/mp4" />
-      </video>
+      {/* Background: static poster on mobile, video on desktop */}
+      <Image
+        src="/images/hero-mulch.jpg"
+        alt="Varsity Mulching crew at work"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
+      {showVideo && (
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/images/hero-mulch.jpg"
+          aria-label="Varsity Mulching crew at work"
+        >
+          <source src="/videos/hero-video.mp4" type="video/mp4" />
+        </video>
+      )}
       <div className="absolute inset-0 bg-vm-navy/25" />
 
       {/* Static content card */}

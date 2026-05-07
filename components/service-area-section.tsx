@@ -27,9 +27,12 @@ export function ServiceAreaSection() {
           {/* Map Image */}
           <div className="flex justify-center">
             <div className="relative w-full max-w-md rounded-2xl overflow-hidden shadow-xl">
-              <img 
-                src="/images/service-area-map.png" 
+              <Image
+                src="/images/service-area-map.png"
                 alt="Service area map showing Chester, Delaware, Montgomery, Bucks, Philadelphia, Burlington, and Camden counties"
+                width={696}
+                height={612}
+                sizes="(min-width: 768px) 28rem, 100vw"
                 className="w-full h-auto"
               />
             </div>

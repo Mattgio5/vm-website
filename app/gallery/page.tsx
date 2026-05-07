@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import Link from "next/link"
+import Image from "next/image"
 
 export const metadata = {
   title: "Project Gallery | Mulch & Landscaping in Chester County, Bucks County & Montgomery County, PA",
@@ -93,13 +94,16 @@ export default function GalleryPage() {
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {/* First 3 projects (Row 1) */}
-            {projects.slice(0, 3).map((project) => (
+            {projects.slice(0, 3).map((project, idx) => (
               <div key={project.id} className="group">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-muted">
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.description}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    priority={idx === 0}
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
                 {/* Description */}
@@ -128,10 +132,12 @@ export default function GalleryPage() {
             {projects.slice(3).map((project) => (
               <div key={project.id} className="group">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-muted">
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.description}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
                 {/* Description */}
