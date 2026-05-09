@@ -22,7 +22,7 @@ export function HeroCarousel() {
     >
       {/* Background: static poster on mobile, video on desktop */}
       <Image
-        src="/images/hero-mulch.jpg"
+        src="/videos/hero-poster.jpg"
         alt="Varsity Mulching crew at work"
         fill
         priority
@@ -37,9 +37,10 @@ export function HeroCarousel() {
           loop
           playsInline
           preload="metadata"
-          poster="/images/hero-mulch.jpg"
+          poster="/videos/hero-poster.jpg"
           aria-label="Varsity Mulching crew at work"
         >
+          <source src="/videos/hero-video.webm" type="video/webm" />
           <source src="/videos/hero-video.mp4" type="video/mp4" />
         </video>
       )}

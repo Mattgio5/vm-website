@@ -1,7 +1,25 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { BeforeAfterSlider } from "@/components/before-after-slider"
 import Link from "next/link"
 import Image from "next/image"
+
+// TODO: Replace these placeholder paths with real before/after pairs from Matt.
+// Drop the photos in /public/images/before-after/ and update the src paths.
+const beforeAfterPairs = [
+  {
+    id: "ba-1",
+    beforeSrc: "/images/before-after/job1-before.jpg",
+    afterSrc: "/images/before-after/job1-after.jpg",
+    caption: "Front yard bed refresh — overgrown to crisp edges and fresh black mulch.",
+  },
+  {
+    id: "ba-2",
+    beforeSrc: "/images/before-after/job2-before.jpg",
+    afterSrc: "/images/before-after/job2-after.jpg",
+    caption: "Tree ring cleanup with weed pull, edge cut, and full mulch install.",
+  },
+]
 
 export const metadata = {
   title: "Project Gallery | Mulch & Landscaping in Chester County, Bucks County & Montgomery County, PA",
@@ -84,13 +102,43 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Gallery Grid */}
-      <section className="relative bg-background px-4 py-16 md:px-12 md:py-24 lg:px-20">
+      {/* Before / After */}
+      <section className="relative bg-background px-4 py-16 md:px-12 md:py-20 lg:px-20">
         {/* Varsity stripes - two thick parallel lines */}
         <div className="absolute top-0 left-0 right-0 flex flex-col">
           <div className="h-2.5 w-full bg-vm-gold" />
           <div className="h-2.5 w-full bg-vm-navy" />
         </div>
+        <div className="mx-auto max-w-6xl">
+          <div className="text-center">
+            <p className="mb-2 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
+              See the Difference
+            </p>
+            <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
+              Before &amp; After
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              Drag the slider to see how a Varsity crew transforms a yard in a single visit.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-8 md:grid-cols-2">
+            {beforeAfterPairs.map((pair) => (
+              <div key={pair.id}>
+                <BeforeAfterSlider
+                  beforeSrc={pair.beforeSrc}
+                  afterSrc={pair.afterSrc}
+                  beforeAlt={`${pair.caption} (before)`}
+                  afterAlt={`${pair.caption} (after)`}
+                />
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{pair.caption}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Grid */}
+      <section className="relative bg-muted/40 px-4 py-16 md:px-12 md:py-24 lg:px-20">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {/* First 3 projects (Row 1) */}
