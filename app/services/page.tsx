@@ -3,6 +3,7 @@ import { Footer } from "@/components/footer"
 import { ServicesHero } from "@/components/services/services-hero"
 import { ServicesOverview } from "@/components/services/services-overview"
 import { ServicesCta } from "@/components/services/services-cta"
+import { DayInTheLife } from "@/components/services/day-in-the-life"
 
 export const metadata = {
   title: "Landscaping Services in Chester County & Bucks County, PA | Varsity Mulching",
@@ -15,6 +16,7 @@ export default function ServicesPage() {
     <main>
       <Navbar />
       <ServicesHero />
+      <DayInTheLife />
       <ServicesOverview />
       <ServicesCta />
       <Footer />

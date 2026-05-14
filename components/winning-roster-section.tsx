@@ -24,23 +24,43 @@ export function WinningRosterSection() {
 
         <div className="grid gap-6 md:grid-cols-2">
           {/* The Hustle */}
-          <div className="rounded-2xl border border-white/20 bg-white/10 p-6 md:p-8">
-            <p className="text-sm font-semibold tracking-widest text-vm-gold uppercase mb-3">
-              The Hustle
-            </p>
-            <p className="text-base leading-relaxed text-white/85">
-              We partner with local colleges to hire student athletes. These are disciplined, hardworking individuals who bring the same winning energy to your flower beds as they do to the field.
-            </p>
+          <div className="overflow-hidden rounded-2xl border border-white/20 bg-white/10">
+            <div className="relative aspect-[16/9] w-full overflow-hidden bg-vm-navy/40">
+              <img
+                src="/images/team/hustle.webp"
+                alt="Varsity Mulching crew at work"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+            <div className="p-6 md:p-8">
+              <p className="text-sm font-semibold tracking-widest text-vm-gold uppercase mb-3">
+                The Hustle
+              </p>
+              <p className="text-base leading-relaxed text-white/85">
+                We partner with local colleges to hire student athletes. These are disciplined, hardworking individuals who bring the same winning energy to your flower beds as they do to the field.
+              </p>
+            </div>
           </div>
 
           {/* The Strategy */}
-          <div className="rounded-2xl border border-white/20 bg-white/10 p-6 md:p-8">
-            <p className="text-sm font-semibold tracking-widest text-vm-gold uppercase mb-3">
-              The Strategy
-            </p>
-            <p className="text-base leading-relaxed text-white/85">
-              Every team is anchored by a Highly Experienced Team Lead. These veterans provide the unrivaled landscaping knowledge and technical oversight to ensure every edge is crisp and every plant is handled with care.
-            </p>
+          <div className="overflow-hidden rounded-2xl border border-white/20 bg-white/10">
+            <div className="relative aspect-[16/9] w-full overflow-hidden bg-vm-navy/40">
+              <img
+                src="/images/team/strategy.webp"
+                alt="Varsity Mulching team lead reviewing the job"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+            <div className="p-6 md:p-8">
+              <p className="text-sm font-semibold tracking-widest text-vm-gold uppercase mb-3">
+                The Strategy
+              </p>
+              <p className="text-base leading-relaxed text-white/85">
+                Every team is anchored by a Highly Experienced Team Lead. These veterans provide the unrivaled landscaping knowledge and technical oversight to ensure every edge is crisp and every plant is handled with care.
+              </p>
+            </div>
           </div>
         </div>
 

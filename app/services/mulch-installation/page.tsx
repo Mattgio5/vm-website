@@ -80,61 +80,39 @@ export default function MulchInstallationPage() {
       <ServiceDetail
         title="Mulch Installation"
         tagline="Premium mulch, professionally installed"
-        image="/images/service-mulch.jpg"
+        image="/images/service-mulch.webp"
         description="Fresh mulch does more than look good. It locks in moisture, keeps weeds down, and protects your plants through the seasons."
-        longDescription="We bring everything you need right to your driveway: premium mulch, the crew to spread it, and the know-how to do it right. Our team preps your beds, clears out the old stuff when needed, and lays down a clean, even layer that makes your whole yard pop. Hardwood, cedar, dyed—whatever fits your style. No mess left behind, no heavy bags to haul yourself. Just a finished product you can be proud of."
+        longDescription="We bring everything you need right to your driveway: premium mulch, the crew to spread it, and the know-how to do it right. Our team preps your beds, clears out the old stuff when needed, and lays down a clean, even layer that makes your whole yard pop. No mess left behind, no heavy bags to haul yourself. Just a finished product you can be proud of."
+        featuresHeading="Options"
         features={[
-          "Triple Ground Black Mulch",
-          "Triple Ground Brown Mulch",
-          "Triple Ground Undyed Mulch",
-          "Old mulch removal",
-          "Bed edging & shaping",
-          "Weed barrier installation",
-          "Proper depth application",
-          "Clean-up included",
+          "Triple-ground dyed black",
+          "Triple-ground dyed brown",
+          "Triple-ground undyed",
+          "Leaf mulch",
+          "Nutra mulch",
+          "Playground mulch",
+          "And more",
         ]}
-        featuresNote="Our black and brown mulches are colored with the highest quality, vegetable oil based dyes."
         benefits={[
           {
-            title: "Quality Materials",
+            title: "Clean Material",
             description:
-              "We source only premium mulch from trusted suppliers, ensuring rich color and long-lasting performance.",
+              "A lot of commercial mulch is ground-up construction waste, which means screws, plastic, and contaminants can end up in your beds. We use only natural raw material, sourced fresh and free of debris.",
           },
           {
-            title: "Expert Installation",
+            title: "Filtered Water in the Grind",
             description:
-              "Our trained crews know the right depth and techniques for optimal results that last.",
+              "The water used to grind mulch becomes part of it. We use filtered water, so what arrives at your house is mulch and nothing else, with no introduced weed seeds, fungal spores, or contaminants.",
           },
           {
-            title: "Hassle-Free Service",
+            title: "Naturally Dyed for Real Protection",
             description:
-              "We handle delivery, installation, and cleanup. You just enjoy your beautiful yard.",
-          },
-        ]}
-        process={[
-          {
-            step: 1,
-            title: "Consultation & Quote",
-            description:
-              "We assess your property, discuss your preferences, and provide a detailed estimate.",
+              "Our color comes from a vegetable oil and charcoal-based dye. The charcoal works as a natural weed suppressant, adding a layer of protection on top of our pre-emergent.",
           },
           {
-            step: 2,
-            title: "Bed Preparation",
+            title: "An Install That Shows",
             description:
-              "We clean out debris, remove weeds, and edge the beds for a clean, defined look.",
-          },
-          {
-            step: 3,
-            title: "Mulch Installation",
-            description:
-              "Fresh mulch is applied at the proper depth, spread evenly, and carefully shaped around plants.",
-          },
-          {
-            step: 4,
-            title: "Final Cleanup",
-            description:
-              "We clean up any excess material and leave your property looking immaculate.",
+              "Premium mulch deserves a premium install. Our crews spread carefully around every plant, shrub, and bed edge, with consistent depth and crisp lines that keep your beds sharp and your plants healthy.",
           },
         ]}
         relatedServices={[
@@ -152,87 +130,45 @@ export default function MulchInstallationPage() {
         </div>
         <div className="mx-auto max-w-4xl">
           <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
-            Why Triple Ground
+            Why Triple-Ground
           </p>
           <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
-            Not All Mulching is Equal — the power of triple ground
+            Not All Mulch Is Equal: The Power of Triple-Ground
           </h2>
           <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
             <p>
               When it comes to mulch, we know you have options. And most homeowners don&apos;t realize how different they actually are. At Varsity Mulching, we only use high-quality, triple-ground mulch. It&apos;s processed more finely than typical big box mulch, which means better coverage, better consistency, and a cleaner look that holds up over time.
             </p>
             <p>
-              But the real difference shows up beneath the surface. Because the material is more finely ground, it breaks down more evenly and actually improves your soil throughout the season, instead of just sitting on top of it.
+              But the real difference shows up beneath the surface. Because the material is more finely ground, it breaks down more evenly and actually improves your soil throughout the season instead of just sitting on top of it.
             </p>
           </div>
           <ul className="mt-8 space-y-5">
             <li className="flex gap-4">
               <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
               <div>
-                <span className="font-semibold text-vm-navy">Natural Decomposition: </span>
-                <span className="text-muted-foreground">Over the course of the season, the bottom layer of your mulch slowly decomposes, turning into rich, dark compost.</span>
+                <span className="font-semibold text-vm-navy">Natural decomposition. </span>
+                <span className="text-muted-foreground">Over the course of the season, the bottom layer of your mulch slowly breaks down, turning into rich, dark compost.</span>
               </div>
             </li>
             <li className="flex gap-4">
               <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
               <div>
-                <span className="font-semibold text-vm-navy">Plant-Safe Color: </span>
-                <span className="text-muted-foreground">Our mulch is dyed using vegetable-based colorants—not harsh chemicals—so as it breaks down, it continues feeding your soil instead of contaminating it.</span>
+                <span className="font-semibold text-vm-navy">Plant-safe color. </span>
+                <span className="text-muted-foreground">Our mulch is dyed with vegetable-based colorants, not harsh chemicals, so as it breaks down it continues feeding your soil instead of contaminating it.</span>
               </div>
             </li>
             <li className="flex gap-4">
               <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
               <div>
-                <span className="font-semibold text-vm-navy">Temperature &amp; Moisture Control: </span>
+                <span className="font-semibold text-vm-navy">Temperature and moisture control. </span>
                 <span className="text-muted-foreground">Dyed mulch helps regulate soil temperature and retain moisture, protecting roots from extreme heat and reducing stress on your plants.</span>
               </div>
             </li>
           </ul>
           <p className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
-            You&apos;ll notice the difference year after year: no large bark chunks, no patchy fading, and no mulch that dries out and blows away. In short: it looks better, lasts longer, and actually improves your landscape over time.
+            You&apos;ll notice the difference year after year: no large bark chunks, no patchy fading, no mulch that dries out and blows away. It looks better, lasts longer, and actually improves your landscape over time.
           </p>
-        </div>
-      </section>
-
-      {/* SEO Section: Precision Promise */}
-      <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
-        <div className="absolute top-0 left-0 right-0 flex flex-col">
-          <div className="h-2.5 w-full bg-vm-gold" />
-          <div className="h-2.5 w-full bg-vm-navy" />
-        </div>
-        <div className="mx-auto max-w-4xl">
-          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
-            Our Standard
-          </p>
-          <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
-            The Varsity Mulching Precision Promise
-          </h2>
-          <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-            At Varsity Mulching, we believe the difference between a &ldquo;good&rdquo; yard and a &ldquo;great&rdquo; one lies in the details. Our installation process is built on a foundation of professional precision, ensuring that your property is treated with the highest level of care. We don&apos;t just spread mulch; we meticulously install it. Our team is trained to handle your landscape as if it were our own, focusing on the small touches that create a high-end, manicured finish.
-          </p>
-          <ul className="mt-8 space-y-5">
-            <li className="flex gap-4">
-              <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
-              <div>
-                <span className="font-semibold text-vm-navy">Careful Hand-Tucking: </span>
-                <span className="text-muted-foreground">We take the time to hand-install mulch around your delicate flowers, ornamental grasses, and established shrubs. We ensure every plant has the space it needs to breathe, avoiding the &ldquo;mulch volcanoes&rdquo; that can trap moisture against bark and harm your trees.</span>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
-              <div>
-                <span className="font-semibold text-vm-navy">The Perfect Edge: </span>
-                <span className="text-muted-foreground">A great mulch job is defined by its borders. Our crew ensures the mulch sits cleanly under the edge of your beds, creating sharp, defined lines that make your lawn and walkways pop.</span>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
-              <div>
-                <span className="font-semibold text-vm-navy">Consistent Depth for Long-Term Health: </span>
-                <span className="text-muted-foreground">We apply our triple-ground mulch at a consistent, ideal thickness. This ensures maximum weed suppression and moisture retention without smothering your soil&apos;s natural ecosystem.</span>
-              </div>
-            </li>
-          </ul>
         </div>
       </section>
 

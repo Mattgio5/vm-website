@@ -78,61 +78,58 @@ export default function WeedControlPage() {
       <Navbar />
       <ServiceDetail
         title="Weed Control"
-        tagline="Keep weeds at bay, the right way"
+        tagline="A discipline, not a one-time service"
         image="/images/service-weed.jpg"
-        description="Weeds steal water, nutrients, and attention from your plants. We stop them before they get the chance."
-        longDescription="Nobody wants to spend their weekends pulling weeds. We tackle them two ways: removing what's already there (roots and all) and putting down pre-emergent treatments so new ones don't pop up. For beds that need extra protection, we install landscape fabric that blocks weeds while letting water through. The goal is simple—keep your beds looking clean without constant upkeep."
+        description="Weeds are the fastest way for a fresh-looking yard to start looking neglected."
+        longDescription="Our crew handles every part of the job: treat the existing weeds with professional-grade herbicide, return a week later to pull them clean, and lay down pre-emergent or landscape fabric to block the next wave. Done right, on a schedule that actually keeps your beds clean."
+        featuresHeading="Options"
         features={[
           "Pre-emergent application",
+          "Post-emergent weed killer treatments",
           "Manual weed removal",
-          "Root extraction",
           "Landscape fabric",
-          "Spot treatments",
-          "Eco-friendly options",
-          "Seasonal programs",
-          "Bed restoration",
-        ]}
-        benefits={[
-          {
-            title: "Preventive Approach",
-            description:
-              "Pre-emergent treatments stop weeds before they sprout, saving time and preserving bed appearance.",
-          },
-          {
-            title: "Healthier Plants",
-            description:
-              "Without weeds stealing resources, your ornamental plants thrive and look their best.",
-          },
-          {
-            title: "Time Savings",
-            description:
-              "Effective weed control means you spend less time maintaining and more time enjoying your yard.",
-          },
         ]}
         process={[
           {
             step: 1,
-            title: "Weed Assessment",
+            title: "Weed Killer Treatment",
             description:
-              "We identify existing weeds and assess the conditions that may be encouraging growth.",
+              "One week before removal. We apply professional-grade herbicide to all visible weeds in your beds. By the time we return for removal, the weeds are dead at the root.",
           },
           {
             step: 2,
-            title: "Removal & Treatment",
+            title: "Manual Removal",
             description:
-              "Existing weeds are carefully removed, and appropriate treatments are applied.",
+              "We pull every treated weed cleanly from the beds, root residue included.",
           },
           {
             step: 3,
             title: "Prevention Layer",
             description:
-              "Pre-emergent products or landscape fabric are installed to prevent future weed growth.",
+              "We apply pre-emergent across the bed, or install landscape fabric for clients who want maximum coverage, before mulching.",
           },
           {
             step: 4,
-            title: "Follow-Up Plan",
+            title: "Ongoing Maintenance",
             description:
-              "We provide recommendations and optional maintenance programs to keep weeds under control.",
+              "Bi-weekly or monthly visits keep new weeds in check with targeted herbicide application followed by manual removal.",
+          },
+        ]}
+        benefits={[
+          {
+            title: "Roots That Actually Die",
+            description:
+              "Weed killer only works when it enters through the green part of the plant. From there, it travels down and kills the root. We treat each weed while it's still standing, let the herbicide do its work, and pull what's left — root and all.",
+          },
+          {
+            title: "The Right Wait Time",
+            description:
+              "Herbicide takes three to seven days to travel from the leaves down to the root. We schedule removal a full week after treatment, every time, so the plant is fully neutralized when we touch it.",
+          },
+          {
+            title: "Pre-Emergent at the Right Moment",
+            description:
+              "Pre-emergent blocks new seeds from germinating, but it doesn't kill anything already up. We lay it down right after the existing weeds are pulled, so the bed is clean and the shield is in place at the same time.",
           },
         ]}
         relatedServices={[
@@ -141,7 +138,7 @@ export default function WeedControlPage() {
           { slug: "edges", title: "Landscape Edging" },
         ]}
       />
-      {/* SEO Section: Two-Step Approach */}
+      {/* SEO Section: Full Court Press */}
       <section className="relative bg-muted px-4 py-20 md:px-12 md:py-28 lg:px-20">
         <div className="absolute top-0 left-0 right-0 flex flex-col">
           <div className="h-2.5 w-full bg-vm-gold" />
@@ -152,61 +149,27 @@ export default function WeedControlPage() {
             Our Method
           </p>
           <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
-            Varsity Mulching&apos;s Two Step Approach to Weed Control
+            Putting on the Full Court Press with Weed Control
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-            A beautiful, mulch-filled garden bed is only as good as the weed prevention beneath it. At Varsity Mulching, we don&apos;t just cover up your problems—we use a two-stage approach to ensure your landscape stays clean and your maintenance remains minimal. Understanding the difference between pre-emergent and targeted spray is the key to a weed-free season.
+            Nothing ruins the look of fresh edging and new mulch like a weed pushing through two weeks later. To keep beds clean all season, you have to play both offense and defense. The offense is where most crews drop the ball.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+            Varsity Mulching uses a two-part system that attacks weeds at every stage of their life cycle:
           </p>
 
           <h3 className="font-varsity mt-12 text-2xl tracking-wide text-vm-navy uppercase">
-            Pre-Emergent (The Shield Against New Growth)
+            Offense: Kill the Root First
           </h3>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Think of pre-emergent weed control as a preventive &ldquo;barrier&rdquo; for your soil. Its primary job is to stop weed seeds from ever becoming seedlings. When we apply a pre-emergent treatment to your beds, it creates a layer in the top inch of the soil. When a weed seed begins to germinate and tries to send out its first tiny root, it effectively &ldquo;shuts down&rdquo; the weed before you ever see a green leaf.
-          </p>
-          <p className="mt-4 text-sm leading-relaxed text-muted-foreground italic border-l-4 border-vm-blue/40 pl-4">
-            Important Note: Pre-emergent is purely preventive. It has no effect on weeds that already have established root systems. That is why timing and the second step of our process are so critical.
+            This is the step most landscapers skip, and it&apos;s the single biggest reason weeds come back. Weed killer only works when it enters through the green part of a plant. From there, it travels down and kills the root. If you pull a weed before treating it, the root residue stays in the soil and regrows into the same weed a few weeks later. We apply a professional-grade herbicide about a week before removal, so by the time we pull, we&apos;re pulling something that&apos;s already dead, root and all. Pre-emergent alone won&apos;t fix this: it stops new seeds from sprouting, but it doesn&apos;t touch existing roots.
           </p>
 
           <h3 className="font-varsity mt-12 text-2xl tracking-wide text-vm-navy uppercase">
-            Targeted Weed Control Spray (The Weapon Against Existing Weeds)
+            Defense: Block the Next Wave
           </h3>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-            For any weeds that have already broken through the surface or have deep, existing roots, Varsity Mulching uses a professional-grade targeted spray. Unlike a barrier, this treatment is systemic.
-          </p>
-          <ul className="mt-6 space-y-5">
-            <li className="flex gap-4">
-              <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
-              <div>
-                <span className="font-semibold text-vm-navy">Absorption: </span>
-                <span className="text-muted-foreground">Our team carefully applies the spray directly to the leaves and stems of active weeds.</span>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
-              <div>
-                <span className="font-semibold text-vm-navy">The Process: </span>
-                <span className="text-muted-foreground">The plant absorbs the solution, carrying it from the leaves all the way down to the very tip of the root.</span>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
-              <div>
-                <span className="font-semibold text-vm-navy">The Waiting Period: </span>
-                <span className="text-muted-foreground">This method requires a bit of patience. The spray needs time to take full effect, effectively &ldquo;drying out&rdquo; the weed from the inside out.</span>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
-              <div>
-                <span className="font-semibold text-vm-navy">The Result: </span>
-                <span className="text-muted-foreground">Once the weed has turned brown and brittle, it can be easily removed without leaving behind live root fragments that could cause a regrowth.</span>
-              </div>
-            </li>
-          </ul>
-
-          <p className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
-            If you only use a spray, new seeds will germinate a week later. If you only use a pre-emergent, your existing weeds will continue to thrive. By combining both methods, Varsity Mulching clears the &ldquo;canvas&rdquo; of your current weeds while simultaneously &ldquo;locking the door&rdquo; against future growth. When followed by our premium triple-ground mulch installation, you are left with a landscape that isn&apos;t just beautiful—it&apos;s built to stay that way.
+            Once existing weeds are eliminated, we lay a professional-grade pre-emergent before mulching. Think of it as an invisible shield over your beds. It stops new weed seeds from ever germinating, so seeds blown in by wind or dropped by birds never break the surface. For clients who want extra coverage, we also install landscape fabric as a physical barrier underneath the mulch.
           </p>
         </div>
       </section>

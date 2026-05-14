@@ -51,21 +51,29 @@ export default function MediaPage() {
             See what we've been up to and hear from our happy customers across Pennsylvania.
           </p>
           
-          {/* Instagram Link */}
-          <div className="mt-8">
+          {/* Social Links */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="https://www.instagram.com/varsitymulching/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20"
             >
-              Follow us on Instagram @varsitymulching
+              Instagram @varsitymulching
+            </Link>
+            <Link
+              href="https://www.facebook.com/people/Varsity-Mulching/61550553115186/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20"
+            >
+              Facebook /VarsityMulching
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Latest Instagram Post */}
+      {/* Social Feeds */}
       <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
         {/* Varsity stripes - two thick parallel lines */}
         <div className="absolute top-0 left-0 right-0 flex flex-col">
@@ -83,10 +91,10 @@ export default function MediaPage() {
                 Our Latest Post
               </h2>
               <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-                Check out what we've been working on. Follow{" "}
-                <Link 
-                  href="https://www.instagram.com/varsitymulching/" 
-                  target="_blank" 
+                Follow{" "}
+                <Link
+                  href="https://www.instagram.com/varsitymulching/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="font-semibold text-vm-blue-dark hover:underline"
                 >
@@ -107,7 +115,52 @@ export default function MediaPage() {
               </div>
             </div>
 
-            {/* Right - What We've Been Up To */}
+            {/* Middle - Facebook Embed */}
+            <div>
+              <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
+                Fresh From Facebook
+              </p>
+              <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl text-balance">
+                Our Latest Post
+              </h2>
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
+                Like us on{" "}
+                <Link
+                  href="https://www.facebook.com/people/Varsity-Mulching/61550553115186/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-vm-blue-dark hover:underline"
+                >
+                  Facebook
+                </Link>{" "}
+                to keep up with the team.
+              </p>
+
+              {/* Facebook Page Plugin Embed */}
+              <div className="mt-8 rounded-2xl border border-border bg-card overflow-hidden">
+                <iframe
+                  src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpeople%2FVarsity-Mulching%2F61550553115186%2F&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+                  className="w-full"
+                  style={{ minHeight: "500px", border: "none", overflow: "hidden" }}
+                  scrolling="no"
+                  allow="encrypted-media"
+                  title="Varsity Mulching Facebook Feed"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Latest Updates from the Team */}
+      <section className="relative bg-muted/30 px-4 py-20 md:px-12 md:py-28 lg:px-20">
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+        </div>
+        <div className="mx-auto max-w-3xl">
+          <div>
+            {/* What We've Been Up To */}
             <div>
               <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
                 Latest Updates

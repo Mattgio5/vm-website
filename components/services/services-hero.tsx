@@ -6,7 +6,7 @@ export function ServicesHero() {
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero-mulch.jpg"
+          src="/images/services-hero.webp"
           alt="Professional landscaping services"
           fill
           className="object-cover"

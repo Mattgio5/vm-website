@@ -25,6 +25,12 @@ const services = [
       "Seasonal refresh and maintenance to keep your flower beds pristine and healthy.",
     href: "/services/bed-cleanup",
   },
+  {
+    title: "Fall Cleanup",
+    description:
+      "Whole-property leaf, stick and debris removal with full haul-away to set your yard up for winter.",
+    href: "/services/fall-cleanup",
+  },
 ]
 
 export function ServicesOverview() {
@@ -49,7 +55,7 @@ export function ServicesOverview() {
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {services.map((service) => (
             <Link
               key={service.title}
@@ -67,6 +73,15 @@ export function ServicesOverview() {
               </span>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-10 flex justify-center md:mt-12">
+          <Link
+            href="/services"
+            className="inline-flex rounded-full bg-vm-navy px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg"
+          >
+            View All Services
+          </Link>
         </div>
       </div>
     </section>

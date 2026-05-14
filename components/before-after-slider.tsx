@@ -75,6 +75,13 @@ export function BeforeAfterSlider({
         className="absolute inset-0 h-full w-full object-cover"
         draggable={false}
       />
+      {/* "After" label — sits on the right, hidden when slider covers it */}
+      {position < 80 && (
+        <span className="pointer-events-none absolute right-2 top-2 rounded-full bg-vm-gold px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-vm-navy shadow md:right-3 md:top-3 md:px-3 md:py-1 md:text-xs">
+          After
+        </span>
+      )}
+
       {/* Before image (clipped from the left) */}
       <div
         className="absolute inset-0 h-full overflow-hidden"
@@ -87,15 +94,13 @@ export function BeforeAfterSlider({
           style={{ width: `${(100 / Math.max(position, 0.0001)) * 100}%`, maxWidth: "none" }}
           draggable={false}
         />
+        {/* "Before" label — clipped along with the before image */}
+        {position > 20 && (
+          <span className="pointer-events-none absolute left-2 top-2 rounded-full bg-vm-navy/85 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white shadow md:left-3 md:top-3 md:px-3 md:py-1 md:text-xs">
+            Before
+          </span>
+        )}
       </div>
-
-      {/* Labels */}
-      <span className="absolute left-3 top-3 rounded-full bg-vm-navy/85 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
-        Before
-      </span>
-      <span className="absolute right-3 top-3 rounded-full bg-vm-gold px-3 py-1 text-xs font-semibold uppercase tracking-wide text-vm-navy">
-        After
-      </span>
 
       {/* Handle */}
       <div

@@ -78,61 +78,34 @@ export default function BedCleanupPage() {
       <Navbar />
       <ServiceDetail
         title="Bed Cleanup"
-        tagline="Revitalize tired, neglected beds"
-        image="/images/service-cleanup.jpg"
-        description="Beds get cluttered with leaves, dead plants, and old mulch over time. We clear it all out so you can start fresh."
-        longDescription="Sometimes a yard just needs a reset. We come in and clear out everything that's built up—leaves, sticks, dead plants, weeds, decomposed mulch—all of it. Then we prep the soil so it's ready for whatever comes next, whether that's new plantings or a fresh layer of mulch. It's a clean slate for your beds without you having to haul a single bag to the curb."
+        tagline="A clean slate for your beds"
+        image="/images/service-cleanup.webp"
+        description="Sometimes a yard just needs a reset."
+        longDescription="We come in and clear out everything that's built up: leaves, sticks, dead plants, weeds, decomposed mulch, all of it. Then we prep the soil so it's ready for whatever comes next, whether that's new plantings or a fresh layer of mulch. It's a clean slate for your beds without you having to haul a single bag to the curb."
+        featuresNote="Each cleanup is customized to your property. Depending on what your beds need, any of the following can be included, scoped during your quote."
         features={[
           "Debris removal",
-          "Dead plant extraction",
+          "Leaf removal",
+          "Dead growth removal",
           "Old mulch removal",
-          "Weed elimination",
-          "Leaf clearing",
-          "Soil preparation",
-          "Edge restoration",
-          "Haul-away included",
+          "Weed removal",
+          "Haul-away",
         ]}
         benefits={[
           {
-            title: "Complete Refresh",
+            title: "Down to the Soil, Not Just the Surface",
             description:
-              "Start with a clean slate—no debris, no dead plants, no old mulch getting in the way.",
+              "A real cleanup gets your beds back to bare soil so what comes next has a clean foundation. The matted, decomposed layer underneath builds up all season and needs to come out, not just get covered over. We work all the way down.",
           },
           {
-            title: "Better Plant Health",
+            title: "Plants Respected",
             description:
-              "Removing decomposed material and improving soil conditions helps your plants flourish.",
+              "A good cleanup means knowing what to remove and what to leave alone. Live perennials, dormant ornamentals, and emerging shoots get carefully worked around. We treat the live parts of your bed like the asset they are.",
           },
           {
-            title: "Curb Appeal",
+            title: "Hauled Off, Not Piled Up",
             description:
-              "Clean, well-maintained beds dramatically improve your property's overall appearance.",
-          },
-        ]}
-        process={[
-          {
-            step: 1,
-            title: "Initial Assessment",
-            description:
-              "We evaluate the current state of your beds and identify what needs to be removed or addressed.",
-          },
-          {
-            step: 2,
-            title: "Debris Removal",
-            description:
-              "Leaves, branches, dead plants, and accumulated debris are cleared from all beds.",
-          },
-          {
-            step: 3,
-            title: "Deep Cleaning",
-            description:
-              "Old mulch is removed if needed, weeds are extracted, and edges are redefined.",
-          },
-          {
-            step: 4,
-            title: "Preparation",
-            description:
-              "Beds are prepped and ready for fresh mulch, new plantings, or other improvements.",
+              "Debris bagged at the curb or stacked in a corner of your yard is still your problem. We load every bit of it into our trucks and haul it off-site the same day. You come home to a clean property, not a project waiting on trash day.",
           },
         ]}
         relatedServices={[
@@ -152,10 +125,10 @@ export default function BedCleanupPage() {
             Start Fresh
           </p>
           <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
-            Professional Flower &amp; Garden Bed Clean Up
+            Why an Early-Season Bed Cleanup Pays Off All Year
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Winters can be rough on your property, especially here in Pennsylvania. An early season flower and garden bed clean-up will set your beds to thrive in spring and summer. Here&apos;s how:
+            Winters can be rough on your property, especially here in Pennsylvania. An early-season flower and garden bed cleanup will set your beds up to thrive in spring and summer. Here&apos;s how:
           </p>
           <ul className="mt-6 space-y-6">
             <li className="flex gap-4">
@@ -188,7 +161,7 @@ export default function BedCleanupPage() {
             </li>
           </ul>
           <p className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Leave the heavy lifting to the boys at Varsity Mulching. Our crew arrives with the right tools to handle the heavy raking and the meticulous detail work in a fraction of the time. We don&apos;t just move the mess—we haul it away, leaving your property spotless and your landscape perfectly primed for its spring transformation.
+            Leave the heavy lifting to the crew at Varsity Mulching. We arrive with the right tools to handle the heavy raking and the meticulous detail work in a fraction of the time. We don&apos;t just move the mess. We haul it away, leaving your property spotless and your landscape perfectly primed for its spring transformation.
           </p>
         </div>
       </section>

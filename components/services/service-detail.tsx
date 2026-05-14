@@ -16,10 +16,11 @@ interface ServiceDetailProps {
   description: string
   longDescription: string
   image: string
-  features: string[]
+  features?: string[]
+  featuresHeading?: string
   featuresNote?: string
   benefits: { title: string; description: string }[]
-  process: { step: number; title: string; description: string }[]
+  process?: { step: number; title: string; description: string }[]
   relatedServices: { slug: string; title: string }[]
   calculator?: ReactNode
 }
@@ -30,10 +31,11 @@ export function ServiceDetail({
   description,
   longDescription,
   image,
-  features,
+  features = [],
+  featuresHeading = "What's Included",
   featuresNote,
   benefits,
-  process,
+  process = [],
   relatedServices,
   calculator,
 }: ServiceDetailProps) {
@@ -115,64 +117,68 @@ export function ServiceDetail({
             </div>
 
             {/* Features */}
-            <div className="mt-10">
-              <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">What&apos;s Included</h3>
-              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-                {features.map((feature) => (
-                  <li
-                    key={feature}
-                    className="flex items-center gap-3 rounded-xl border border-border bg-card p-4"
+            {features.length > 0 && (
+              <div className="mt-10">
+                <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">{featuresHeading}</h3>
+                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex items-center gap-3 rounded-xl border border-border bg-card p-4"
+                    >
+                      <span className="h-2 w-2 rounded-full bg-vm-blue" />
+                      <span className="text-sm font-medium text-vm-navy">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                {featuresNote && (
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground italic border-l-4 border-vm-blue/40 pl-4">
+                    {featuresNote}
+                  </p>
+                )}
+                <div className="mt-6">
+                  <Link
+                    href="/contact"
+                    className="inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
                   >
-                    <span className="h-2 w-2 rounded-full bg-vm-blue" />
-                    <span className="text-sm font-medium text-vm-navy">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              {featuresNote && (
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground italic border-l-4 border-vm-blue/40 pl-4">
-                  {featuresNote}
-                </p>
-              )}
-              <div className="mt-6">
-                <Link
-                  href="/contact"
-                  className="inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
-                >
-                  Request a Quote
-                </Link>
+                    Request a Quote
+                  </Link>
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Process */}
-            <div className="mt-12">
-              <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Our Process</h3>
-              <div className="mt-6 grid gap-4">
-                {process.map((step) => (
-                  <div
-                    key={step.step}
-                    className="flex gap-4 rounded-xl border border-border bg-card p-5"
+            {process.length > 0 && (
+              <div className="mt-12">
+                <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Our Process</h3>
+                <div className="mt-6 grid gap-4">
+                  {process.map((step) => (
+                    <div
+                      key={step.step}
+                      className="flex gap-4 rounded-xl border border-border bg-card p-5"
+                    >
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-vm-navy text-sm font-bold text-white">
+                        {step.step}
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-vm-navy">{step.title}</h4>
+                        <p className="mt-1 text-sm text-muted-foreground">
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6">
+                  <Link
+                    href="/contact"
+                    className="inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
                   >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-vm-navy text-sm font-bold text-white">
-                      {step.step}
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-vm-navy">{step.title}</h4>
-                      <p className="mt-1 text-sm text-muted-foreground">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                    Request a Quote
+                  </Link>
+                </div>
               </div>
-              <div className="mt-6">
-                <Link
-                  href="/contact"
-                  className="inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
-                >
-                  Request a Quote
-                </Link>
-              </div>
-            </div>
+            )}
           </div>
 
           {/* Right column - CTA & Benefits */}
@@ -206,7 +212,7 @@ export function ServiceDetail({
 
             {/* Benefits */}
             <div className="mt-8">
-              <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Why Choose Us</h3>
+              <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Why Varsity</h3>
               <div className="mt-4 space-y-4">
                 {benefits.map((benefit) => (
                   <div key={benefit.title}>

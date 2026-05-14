@@ -9,7 +9,6 @@ export const metadata = {
 import { ServicesOverview } from "@/components/services-overview"
 import { WinningRosterSection } from "@/components/winning-roster-section"
 import { ServiceAreaSection } from "@/components/service-area-section"
-import { WhyVarsitySection } from "@/components/why-varsity-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { CtaSection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
@@ -90,7 +89,7 @@ const jsonLd = {
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5",
-    "reviewCount": "100",
+    "reviewCount": "166",
     "bestRating": "5",
     "worstRating": "1"
   },
@@ -143,7 +142,6 @@ export default function Home() {
       <ServicesOverview />
       <WinningRosterSection />
       <ServiceAreaSection />
-      <WhyVarsitySection />
       <TestimonialsSection />
       <CtaSection />
       <Footer />
