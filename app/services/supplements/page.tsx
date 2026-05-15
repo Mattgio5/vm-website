@@ -271,9 +271,34 @@ export default function SupplementsPage() {
                 </Link>
               </div>
             </div>
+
+            {/* Why Varsity — in main column so the sidebar stays compact */}
+            <div className="mt-12">
+              <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Why Varsity</h3>
+              <div className="mt-4 grid gap-5 sm:grid-cols-2">
+                <div className="rounded-xl border border-border bg-card p-5">
+                  <h4 className="font-semibold text-vm-navy">One Crew, Every Visit</h4>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                    The same trained team that installs your mulch comes back for trims, transplants, and touch-ups — so the standard never drops between visits.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-border bg-card p-5">
+                  <h4 className="font-semibold text-vm-navy">Schedule-Driven Maintenance</h4>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                    Maintenance visits happen on a calendar, not on a whim. You get consistent, proactive care that catches issues before they snowball.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-border bg-card p-5">
+                  <h4 className="font-semibold text-vm-navy">Whole-Property Thinking</h4>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                    Bushes, beds, mulch, and lawn aren&apos;t separate problems. We look at how every piece works together so the property reads as one polished landscape.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Right column - sticky CTA + Why Varsity + Related Services */}
+          {/* Right column - compact sticky sidebar */}
           <div className="lg:sticky lg:top-32 lg:self-start">
             {/* CTA Card */}
             <div className="rounded-2xl border border-vm-blue/30 bg-vm-blue/10 p-6">
@@ -296,31 +321,6 @@ export default function SupplementsPage() {
                 >
                   (267) 489-1567
                 </a>
-              </div>
-            </div>
-
-            {/* Why Varsity */}
-            <div className="mt-8">
-              <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Why Varsity</h3>
-              <div className="mt-4 space-y-4">
-                <div>
-                  <h4 className="font-semibold text-vm-navy">One Crew, Every Visit</h4>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    The same trained team that installs your mulch comes back for trims, transplants, and touch-ups — so the standard never drops between visits.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-vm-navy">Schedule-Driven Maintenance</h4>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    Maintenance visits happen on a calendar, not on a whim. You get consistent, proactive care that catches issues before they snowball.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-vm-navy">Whole-Property Thinking</h4>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    Bushes, beds, mulch, and lawn aren&apos;t separate problems. We look at how every piece works together so the property reads as one polished landscape.
-                  </p>
-                </div>
               </div>
             </div>
 

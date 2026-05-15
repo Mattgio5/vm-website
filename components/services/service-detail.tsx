@@ -98,7 +98,7 @@ export function ServiceDetail({
           <div className="h-2.5 w-full bg-vm-navy" />
         </div>
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-3 lg:gap-16">
-          {/* Left column - Description & Features */}
+          {/* Left column - main service content */}
           <div className="lg:col-span-2">
             <h2 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl uppercase">
               About This Service
@@ -115,6 +115,9 @@ export function ServiceDetail({
                 Request a Quote
               </Link>
             </div>
+
+            {/* Calculator (if provided) — lives in the main flow so the sidebar stays compact */}
+            {calculator && <div className="mt-10">{calculator}</div>}
 
             {/* Features */}
             {features.length > 0 && (
@@ -179,13 +182,28 @@ export function ServiceDetail({
                 </div>
               </div>
             )}
+
+            {/* Why Varsity — in main column so the sticky sidebar stays shorter than this column */}
+            <div className="mt-12">
+              <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Why Varsity</h3>
+              <div className="mt-4 grid gap-5 sm:grid-cols-2">
+                {benefits.map((benefit) => (
+                  <div
+                    key={benefit.title}
+                    className="rounded-xl border border-border bg-card p-5"
+                  >
+                    <h4 className="font-semibold text-vm-navy">{benefit.title}</h4>
+                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                      {benefit.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
-          {/* Right column - CTA & Benefits */}
+          {/* Right column - compact sticky sidebar */}
           <div className="lg:sticky lg:top-32 lg:self-start">
-            {/* Calculator (if provided) */}
-            {calculator && <div className="mb-6">{calculator}</div>}
-
             {/* CTA Card */}
             <div className="rounded-2xl border border-vm-blue/30 bg-vm-blue/10 p-6">
               <h3 className="font-varsity text-xl tracking-wide text-vm-navy uppercase">
@@ -207,21 +225,6 @@ export function ServiceDetail({
                 >
                   (267) 489-1567
                 </a>
-              </div>
-            </div>
-
-            {/* Benefits */}
-            <div className="mt-8">
-              <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Why Varsity</h3>
-              <div className="mt-4 space-y-4">
-                {benefits.map((benefit) => (
-                  <div key={benefit.title}>
-                    <h4 className="font-semibold text-vm-navy">{benefit.title}</h4>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      {benefit.description}
-                    </p>
-                  </div>
-                ))}
               </div>
             </div>
 
