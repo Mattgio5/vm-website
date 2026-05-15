@@ -39,25 +39,41 @@ export default function MediaPage() {
       <Navbar />
 
       {/* Hero Section - no top stripes, handled by navbar */}
-      <section className="relative bg-vm-navy px-4 pt-32 pb-20 md:px-12 md:pt-40 md:pb-28 lg:px-20">
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue uppercase">
-            Media & Blog
+      <section className="bg-noise relative overflow-hidden bg-vm-navy px-4 pt-32 pb-20 md:px-12 md:pt-40 md:pb-28 lg:px-20">
+        <div className="relative z-10 mx-auto max-w-4xl text-center">
+          <p
+            className="vm-reveal text-sm font-semibold tracking-widest text-vm-gold uppercase"
+            style={{ animationDelay: "0ms" }}
+          >
+            Media &amp; Blog
           </p>
-          <h1 className="font-varsity text-4xl tracking-wide text-white md:text-5xl lg:text-6xl text-balance uppercase">
+          <h1
+            className="vm-reveal font-varsity mt-3 text-4xl tracking-wide text-white md:text-5xl lg:text-6xl text-balance uppercase"
+            style={{ animationDelay: "80ms" }}
+          >
             Stories from the Field
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
-            See what we've been up to and hear from our happy customers across Pennsylvania.
+          <div
+            className="vm-reveal mx-auto mt-5 h-[2px] w-20 bg-vm-gold"
+            style={{ animationDelay: "160ms" }}
+          />
+          <p
+            className="vm-reveal mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/80"
+            style={{ animationDelay: "240ms" }}
+          >
+            See what we&apos;ve been up to and hear from our happy customers across Pennsylvania.
           </p>
-          
+
           {/* Social Links */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <div
+            className="vm-reveal mt-8 flex flex-wrap items-center justify-center gap-3"
+            style={{ animationDelay: "320ms" }}
+          >
             <Link
               href="https://www.instagram.com/varsitymulching/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20"
+              className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-vm-gold/60 hover:bg-vm-gold/10"
             >
               Instagram @varsitymulching
             </Link>
@@ -65,7 +81,7 @@ export default function MediaPage() {
               href="https://www.facebook.com/people/Varsity-Mulching/61550553115186/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20"
+              className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-vm-gold/60 hover:bg-vm-gold/10"
             >
               Facebook /VarsityMulching
             </Link>
@@ -84,13 +100,14 @@ export default function MediaPage() {
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
             {/* Left - Instagram Embed */}
             <div>
-              <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
+              <div className="h-1 w-12 bg-vm-gold" />
+              <p className="mt-4 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
                 Fresh From Instagram
               </p>
-              <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl text-balance">
+              <h2 className="font-varsity mt-2 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
                 Our Latest Post
               </h2>
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
                 Follow{" "}
                 <Link
                   href="https://www.instagram.com/varsitymulching/"
@@ -104,7 +121,8 @@ export default function MediaPage() {
               </p>
 
               {/* Instagram Embed Container */}
-              <div className="mt-8 rounded-2xl border border-border bg-card overflow-hidden">
+              <div className="relative mt-8 overflow-hidden rounded-2xl border border-border bg-card shadow-sm ring-1 ring-vm-navy/5">
+                <div className="absolute inset-x-0 top-0 z-10 h-1 bg-vm-gold" />
                 <iframe
                   src="https://www.instagram.com/varsitymulching/embed"
                   className="w-full"
@@ -117,13 +135,14 @@ export default function MediaPage() {
 
             {/* Middle - Facebook Embed */}
             <div>
-              <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
+              <div className="h-1 w-12 bg-vm-gold" />
+              <p className="mt-4 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
                 Fresh From Facebook
               </p>
-              <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl text-balance">
+              <h2 className="font-varsity mt-2 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
                 Our Latest Post
               </h2>
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
                 Like us on{" "}
                 <Link
                   href="https://www.facebook.com/people/Varsity-Mulching/61550553115186/"
@@ -137,7 +156,8 @@ export default function MediaPage() {
               </p>
 
               {/* Facebook Page Plugin Embed */}
-              <div className="mt-8 rounded-2xl border border-border bg-card overflow-hidden">
+              <div className="relative mt-8 overflow-hidden rounded-2xl border border-border bg-card shadow-sm ring-1 ring-vm-navy/5">
+                <div className="absolute inset-x-0 top-0 z-10 h-1 bg-vm-gold" />
                 <iframe
                   src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpeople%2FVarsity-Mulching%2F61550553115186%2F&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
                   className="w-full"
@@ -163,34 +183,36 @@ export default function MediaPage() {
           <div>
             {/* What We've Been Up To */}
             <div>
-              <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
+              <div className="h-1 w-12 bg-vm-gold" />
+              <p className="mt-4 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
                 Latest Updates
               </p>
-              <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl text-balance">
-                What We've Been Up To
+              <h2 className="font-varsity mt-2 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
+                What We&apos;ve Been Up To
               </h2>
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
                 News and highlights from the Varsity Mulching team.
               </p>
 
               {/* Most Recent Post - Featured */}
               {companyPosts[0] && (
-                <div className="mt-8 rounded-2xl border border-border bg-card overflow-hidden">
-                  <div 
+                <div className="relative mt-8 overflow-hidden rounded-2xl border border-border bg-card shadow-sm ring-1 ring-vm-navy/5">
+                  <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-vm-gold" />
+                  <div
                     className="aspect-video bg-cover bg-center"
                     style={{ backgroundImage: `url(${companyPosts[0].image})` }}
                   />
                   <div className="p-6">
-                    <p className="text-xs font-semibold text-vm-blue-dark uppercase tracking-wider">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-vm-gold-dark">
                       Latest
                     </p>
-                    <h3 className="mt-1 text-xl font-bold text-vm-navy">
+                    <h3 className="mt-2 text-xl font-bold text-vm-navy md:text-2xl">
                       {companyPosts[0].title}
                     </h3>
-                    <p className="mt-1 text-sm text-muted-foreground">
+                    <p className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
                       {companyPosts[0].date}
                     </p>
-                    <p className="mt-3 text-sm leading-relaxed text-vm-navy/80">
+                    <p className="mt-4 text-sm leading-relaxed text-vm-navy/80 md:text-base">
                       {companyPosts[0].excerpt}
                     </p>
                   </div>
@@ -201,13 +223,18 @@ export default function MediaPage() {
               {companyPosts.length > 1 && (
                 <div className="mt-4 space-y-3">
                   {companyPosts.slice(1).map((post) => (
-                    <div key={post.id} className="rounded-xl border border-border bg-card p-4">
-                      <h4 className="text-base font-semibold text-vm-navy">
-                        {post.title}
-                      </h4>
-                      <p className="mt-0.5 text-xs text-muted-foreground">
-                        {post.date}
-                      </p>
+                    <div
+                      key={post.id}
+                      className="flex gap-4 rounded-xl border border-l-4 border-border border-l-vm-gold bg-card p-4 pl-5"
+                    >
+                      <div className="flex-1">
+                        <h4 className="text-base font-semibold text-vm-navy">
+                          {post.title}
+                        </h4>
+                        <p className="mt-0.5 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                          {post.date}
+                        </p>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -225,16 +252,17 @@ export default function MediaPage() {
           <div className="h-2.5 w-full bg-vm-navy" />
         </div>
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
+          <div className="mx-auto h-1 w-12 bg-vm-gold" />
+          <p className="mt-4 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
             Share Your Experience
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-vm-navy md:text-4xl text-balance">
+          <h2 className="font-varsity mt-2 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
             Leave Us a Review
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Had a great experience with Varsity Mulching? We'd love to hear about it! Your feedback helps us grow and helps other homeowners find quality mulching services.
+          <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
+            Had a great experience with Varsity Mulching? We&apos;d love to hear about it! Your feedback helps us grow and helps other homeowners find quality mulching services.
           </p>
-          <div className="mt-8">
+          <div className="mt-9">
             <Link
               href="https://www.google.com/search?sca_esv=559361602&hl=en&authuser=0&sxsrf=AB5stBhbtP7Zkf3zL35PjjYFgAcIgxYNug:1692801168575&q=Varsity+Mulching&stick=H4sIAAAAAAAAAONgU1I1qLCwTDZLNDc0SjNOTjJItjS0MqhIMjVMMja2tDAwTDJINDS0XMQqEJZYVJxZUqngW5qTnJGZlw4AQf0SMzwAAAA&mat=IgIIAQ&sa=X&ved=2ahUKEwjU2s_i__KAAxVJLUQIHallAgAQ-rELegQIJRAD&biw=1865&bih=961&dpr=1#lrd=0x89c6a712f3cb0c91:0xb51b339801b0a119,1,,,,"
               target="_blank"
