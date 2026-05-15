@@ -50,7 +50,7 @@ export function ServiceDetail({
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[100svh] min-h-[600px] w-full overflow-hidden">
+      <section className="bg-noise relative h-[100svh] min-h-[600px] w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src={image}
@@ -59,12 +59,12 @@ export function ServiceDetail({
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-vm-navy/70 via-vm-navy/50 to-vm-navy/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-vm-navy/75 via-vm-navy/55 to-vm-navy/85" />
         </div>
 
         <div className="relative z-10 flex h-full items-center px-4 pt-24 md:px-12 lg:px-20">
           <div className="mx-auto w-full max-w-7xl">
-            <Breadcrumb className="mb-6">
+            <Breadcrumb className="vm-reveal mb-6" style={{ animationDelay: "0ms" }}>
               <BreadcrumbList>
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild className="text-white/70 hover:text-white">
@@ -84,13 +84,27 @@ export function ServiceDetail({
               </BreadcrumbList>
             </Breadcrumb>
             <div className="max-w-2xl">
-              <p className="text-sm font-semibold tracking-wider text-vm-blue uppercase">
+              <p
+                className="vm-reveal inline-flex items-center gap-2 rounded-full border border-vm-gold/50 bg-vm-navy/40 px-3 py-1 text-xs font-semibold tracking-[0.2em] text-vm-gold uppercase backdrop-blur-sm md:text-sm"
+                style={{ animationDelay: "80ms" }}
+              >
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-vm-gold" />
                 {tagline}
               </p>
-              <h1 className="font-varsity mt-2 text-4xl tracking-wide text-white md:text-5xl lg:text-6xl text-balance uppercase">
+              <h1
+                className="vm-reveal font-varsity mt-4 text-4xl tracking-wide text-white md:text-5xl lg:text-6xl text-balance uppercase"
+                style={{ animationDelay: "160ms" }}
+              >
                 {title}
               </h1>
-              <p className="mt-5 text-lg leading-relaxed text-white/80 md:text-xl">
+              <div
+                className="vm-reveal mt-5 h-[2px] w-20 bg-vm-gold"
+                style={{ animationDelay: "240ms" }}
+              />
+              <p
+                className="vm-reveal mt-5 text-lg leading-relaxed text-white/80 md:text-xl"
+                style={{ animationDelay: "320ms" }}
+              >
                 {description}
               </p>
             </div>
@@ -111,7 +125,8 @@ export function ServiceDetail({
             {/* About — only render when there's a long description to show */}
             {longDescription && (
               <>
-                <h2 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl uppercase">
+                <div className="h-1 w-12 bg-vm-gold" />
+                <h2 className="font-varsity mt-4 text-2xl tracking-wide text-vm-navy md:text-3xl uppercase">
                   {aboutHeading}
                 </h2>
                 <div className="mt-4 space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -135,21 +150,31 @@ export function ServiceDetail({
 
             {/* Features (default position: left column) */}
             {features.length > 0 && !featuresInSidebar && (
-              <div className={longDescription ? "mt-10" : ""}>
-                <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">{featuresHeading}</h3>
-                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className={longDescription ? "mt-12" : ""}>
+                <div className="h-1 w-12 bg-vm-gold" />
+                <h3 className="font-varsity mt-4 text-xl tracking-wide text-vm-navy uppercase md:text-2xl">{featuresHeading}</h3>
+                <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                   {features.map((feature) => (
                     <li
                       key={feature}
                       className="flex items-center gap-3 rounded-xl border border-border bg-card p-4"
                     >
-                      <span className="h-2 w-2 rounded-full bg-vm-blue" />
+                      <svg
+                        viewBox="0 0 20 20"
+                        aria-hidden="true"
+                        className="h-4 w-4 shrink-0 text-vm-gold-dark"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M7.629 14.071L3.85 10.293l1.414-1.414 2.364 2.364 6.293-6.293 1.414 1.414z"
+                        />
+                      </svg>
                       <span className="text-sm font-medium text-vm-navy">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 {featuresNote && (
-                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground italic border-l-4 border-vm-blue/40 pl-4">
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground italic border-l-4 border-vm-gold/50 pl-4">
                     {featuresNote}
                   </p>
                 )}
@@ -167,19 +192,23 @@ export function ServiceDetail({
             {/* Process */}
             {process.length > 0 && (
               <div className={longDescription || (features.length > 0 && !featuresInSidebar) ? "mt-12" : ""}>
-                <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Our Process</h3>
+                <div className="h-1 w-12 bg-vm-gold" />
+                <h3 className="font-varsity mt-4 text-xl tracking-wide text-vm-navy uppercase md:text-2xl">Our Process</h3>
                 <div className="mt-6 grid gap-4">
                   {process.map((step) => (
                     <div
                       key={step.step}
-                      className="flex gap-4 rounded-xl border border-border bg-card p-5"
+                      className="grid grid-cols-[auto_1fr] gap-5 rounded-xl border border-border bg-card p-5 md:gap-6 md:p-6"
                     >
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-vm-navy text-sm font-bold text-white">
-                        {step.step}
+                      <div className="flex flex-col items-center">
+                        <span className="font-varsity text-4xl leading-none tracking-wide text-vm-navy md:text-5xl">
+                          {String(step.step).padStart(2, "0")}
+                        </span>
+                        <span className="mt-1 h-[2px] w-6 bg-vm-gold" />
                       </div>
-                      <div>
-                        <h4 className="font-semibold text-vm-navy">{step.title}</h4>
-                        <p className="mt-1 text-sm text-muted-foreground">
+                      <div className="pt-1">
+                        <h4 className="text-base font-bold text-vm-navy md:text-lg">{step.title}</h4>
+                        <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground md:text-base">
                           {step.description}
                         </p>
                       </div>
@@ -200,7 +229,8 @@ export function ServiceDetail({
             {/* Why Varsity — bullet format with optional intro/outro paragraphs */}
             {(benefits.length > 0 || benefitsIntro || benefitsOutro) && (
               <div className="mt-12">
-                <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Why Varsity</h3>
+                <div className="h-1 w-12 bg-vm-gold" />
+                <h3 className="font-varsity mt-4 text-xl tracking-wide text-vm-navy uppercase md:text-2xl">Why Varsity</h3>
                 {benefitsIntro && (
                   <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
                     {benefitsIntro}
@@ -210,7 +240,10 @@ export function ServiceDetail({
                   <ul className="mt-6 space-y-5">
                     {benefits.map((benefit) => (
                       <li key={benefit.title} className="flex gap-4">
-                        <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
+                        <span
+                          aria-hidden="true"
+                          className="mt-[10px] block h-[2px] w-5 shrink-0 bg-vm-gold md:mt-[12px] md:w-6"
+                        />
                         <div>
                           <span className="font-semibold text-vm-navy">{benefit.title} </span>
                           <span className="text-base leading-relaxed text-muted-foreground md:text-lg">{benefit.description}</span>
@@ -233,47 +266,54 @@ export function ServiceDetail({
 
           {/* Right column - compact sticky sidebar */}
           <div className="lg:sticky lg:top-32 lg:self-start">
-            {/* CTA Card */}
-            <div className="rounded-2xl border border-vm-blue/30 bg-vm-blue/10 p-6">
-              <h3 className="font-varsity text-xl tracking-wide text-vm-navy uppercase">
-                Get a Free Quote
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Ready to get started? Contact us for a free, no-obligation estimate.
-              </p>
-              <div className="mt-5 flex flex-col gap-3">
-                <Link
-                  href="/contact"
-                  className="inline-flex justify-center rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
-                >
-                  Request Quote
-                </Link>
-                <a
-                  href="tel:+12674891567"
-                  className="inline-flex justify-center rounded-full border-2 border-vm-navy px-6 py-3 text-sm font-semibold text-vm-navy transition-all hover:bg-vm-navy hover:text-white"
-                >
-                  (267) 489-1567
-                </a>
+            {/* CTA Card — stadium-ticket style: navy fill, gold top accent */}
+            <div className="relative overflow-hidden rounded-2xl bg-vm-navy text-white shadow-xl">
+              {/* Gold top accent */}
+              <div className="h-1.5 w-full bg-vm-gold" />
+              <div className="p-6">
+                <h3 className="font-varsity text-xl tracking-wide uppercase md:text-2xl">
+                  Get a Free Quote
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/75">
+                  Ready to get started? Contact us for a free, no-obligation estimate.
+                </p>
+                <div className="mt-5 flex flex-col gap-3">
+                  <Link
+                    href="/contact"
+                    className="inline-flex justify-center rounded-full bg-vm-gold px-6 py-3 text-sm font-bold uppercase tracking-wide text-vm-navy transition-all hover:bg-vm-gold-dark hover:shadow-lg"
+                  >
+                    Request Quote
+                  </Link>
+                  <a
+                    href="tel:+12674891567"
+                    className="inline-flex justify-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-all hover:border-white hover:bg-white/10"
+                  >
+                    (267) 489-1567
+                  </a>
+                </div>
               </div>
             </div>
 
             {/* Features in sidebar (when featuresInSidebar is true) */}
             {features.length > 0 && featuresInSidebar && (
               <div className="mt-8">
-                <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">{featuresHeading}</h3>
+                <div className="h-1 w-10 bg-vm-gold" />
+                <h3 className="font-varsity mt-3 text-lg tracking-wide text-vm-navy uppercase">{featuresHeading}</h3>
                 <ul className="mt-4 space-y-2">
                   {features.map((feature) => (
                     <li
                       key={feature}
                       className="flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3"
                     >
-                      <span className="h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
+                      <svg viewBox="0 0 20 20" aria-hidden="true" className="h-4 w-4 shrink-0 text-vm-gold-dark">
+                        <path fill="currentColor" d="M7.629 14.071L3.85 10.293l1.414-1.414 2.364 2.364 6.293-6.293 1.414 1.414z" />
+                      </svg>
                       <span className="text-sm font-medium text-vm-navy">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 {featuresNote && (
-                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground italic border-l-4 border-vm-blue/40 pl-4">
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground italic border-l-4 border-vm-gold/50 pl-4">
                     {featuresNote}
                   </p>
                 )}
@@ -282,13 +322,14 @@ export function ServiceDetail({
 
             {/* Related Services */}
             <div className="mt-8">
-              <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Related Services</h3>
+              <div className="h-1 w-10 bg-vm-gold" />
+              <h3 className="font-varsity mt-3 text-lg tracking-wide text-vm-navy uppercase">Related Services</h3>
               <div className="mt-4 flex flex-wrap gap-2">
                 {relatedServices.map((service) => (
                   <Link
                     key={service.slug}
                     href={`/services/${service.slug}`}
-                    className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-vm-navy transition-all hover:border-vm-blue/40 hover:bg-vm-blue/10"
+                    className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-vm-navy transition-colors hover:border-vm-gold/60 hover:bg-vm-gold/10"
                   >
                     {service.title}
                   </Link>
