@@ -101,6 +101,18 @@
   --color-vm-navy-light: var(--vm-navy-light);
 }
 
+/* Superstar M54 (loaded from cdnfonts) is missing punctuation glyphs — for
+   those code points only, use a local Impact-class font so punctuation
+   actually renders instead of showing a blank .notdef glyph. */
+@font-face {
+  font-family: 'Superstar M54';
+  src: local('Impact'), local('Haettenschweiler'), local('Oswald'),
+       local('Arial Black'), local('Arial Narrow Bold'), local('Arial');
+  unicode-range: U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E,
+                 U+00A0-00BF, U+2010-2027, U+2030-203A;
+  font-display: swap;
+}
+
 /* Varsity athletic font class - Superstar M54 collegiate serif */
 .font-varsity {
   font-family: 'Superstar M54', 'Impact', 'Haettenschweiler', serif;
