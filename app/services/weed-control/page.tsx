@@ -77,59 +77,41 @@ export default function WeedControlPage() {
       />
       <Navbar />
       <ServiceDetail
-        title="Weed Control in Doylestown, PA"
+        title="Professional Weed Control in Doylestown"
         tagline="A discipline, not a one-time service"
         image="/images/service-weed.jpg"
-        description="Weeds are the fastest way for a fresh-looking yard to start looking neglected."
-        longDescription="Our crew handles every part of the job: treat the existing weeds with professional-grade herbicide, return a week later to pull them clean, and lay down pre-emergent or landscape fabric to block the next wave. Done right, on a schedule that actually keeps your beds clean."
-        featuresHeading="Options"
+        description="Killing weeds at the root and stopping new ones from breaking the surface, so your landscape stays beautiful and your weekends stay free."
+        featuresHeading="What's Included"
+        featuresInSidebar
         features={[
           "Pre-emergent application",
-          "Post-emergent weed killer treatments",
           "Manual weed removal",
           "Landscape fabric",
+          "Weed killer treatments",
         ]}
         process={[
           {
             step: 1,
             title: "Weed Killer Treatment",
             description:
-              "One week before removal. We apply professional-grade herbicide to all visible weeds in your beds. By the time we return for removal, the weeds are dead at the root.",
+              "One week before removal — the essential step most people miss. Weed killer needs to enter through the green part of the weed so the plant is dead before it's pulled, which ensures the root residue doesn't regrow.",
           },
           {
             step: 2,
-            title: "Manual Removal",
-            description:
-              "We pull every treated weed cleanly from the beds, root residue included.",
+            title: "Removal",
+            description: "We pull every treated weed cleanly from the beds.",
           },
           {
             step: 3,
             title: "Prevention Layer",
             description:
-              "We apply pre-emergent across the bed, or install landscape fabric for clients who want maximum coverage, before mulching.",
+              "Pre-emergent or landscape fabric, depending on which one the client wants.",
           },
           {
             step: 4,
-            title: "Ongoing Maintenance",
+            title: "Maintenance",
             description:
-              "Bi-weekly or monthly visits keep new weeds in check with targeted herbicide application followed by manual removal.",
-          },
-        ]}
-        benefits={[
-          {
-            title: "Roots That Actually Die",
-            description:
-              "Weed killer only works when it enters through the green part of the plant. From there, it travels down and kills the root. We treat each weed while it's still standing, let the herbicide do its work, and pull what's left — root and all.",
-          },
-          {
-            title: "The Right Wait Time",
-            description:
-              "Herbicide takes three to seven days to travel from the leaves down to the root. We schedule removal a full week after treatment, every time, so the plant is fully neutralized when we touch it.",
-          },
-          {
-            title: "Pre-Emergent at the Right Moment",
-            description:
-              "Pre-emergent blocks new seeds from germinating, but it doesn't kill anything already up. We lay it down right after the existing weeds are pulled, so the bed is clean and the shield is in place at the same time.",
+              "Bi-weekly or monthly weed killer applications followed by manual removal of any new weeds.",
           },
         ]}
         relatedServices={[

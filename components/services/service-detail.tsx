@@ -14,13 +14,14 @@ interface ServiceDetailProps {
   title: string
   tagline: string
   description: string
-  longDescription: string
+  longDescription?: string
   image: string
   aboutHeading?: string
   features?: string[]
   featuresHeading?: string
   featuresNote?: string
-  benefits: { title: string; description: string }[]
+  featuresInSidebar?: boolean
+  benefits?: { title: string; description: string }[]
   process?: { step: number; title: string; description: string }[]
   relatedServices: { slug: string; title: string }[]
   calculator?: ReactNode
@@ -36,7 +37,8 @@ export function ServiceDetail({
   features = [],
   featuresHeading = "What's Included",
   featuresNote,
-  benefits,
+  featuresInSidebar = false,
+  benefits = [],
   process = [],
   relatedServices,
   calculator,
@@ -102,28 +104,30 @@ export function ServiceDetail({
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-3 lg:gap-16">
           {/* Left column - main service content */}
           <div className="lg:col-span-2">
-            <h2 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl uppercase">
-              {aboutHeading}
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-              {longDescription}
-            </p>
+            {/* About — only render when there's a long description to show */}
+            {longDescription && (
+              <>
+                <h2 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl uppercase">
+                  {aboutHeading}
+                </h2>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+                  {longDescription}
+                </p>
 
-            <div className="mt-6">
-              <Link
-                href="/contact"
-                className="inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
-              >
-                Request a Quote
-              </Link>
-            </div>
+                <div className="mt-6">
+                  <Link
+                    href="/contact"
+                    className="inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
+                  >
+                    Request a Quote
+                  </Link>
+                </div>
+              </>
+            )}
 
-            {/* Calculator (if provided) — lives in the main flow so the sidebar stays compact */}
-            {calculator && <div className="mt-10">{calculator}</div>}
-
-            {/* Features */}
-            {features.length > 0 && (
-              <div className="mt-10">
+            {/* Features (default position: left column) */}
+            {features.length > 0 && !featuresInSidebar && (
+              <div className={longDescription ? "mt-10" : ""}>
                 <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">{featuresHeading}</h3>
                 <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                   {features.map((feature) => (
@@ -154,7 +158,7 @@ export function ServiceDetail({
 
             {/* Process */}
             {process.length > 0 && (
-              <div className="mt-12">
+              <div className={longDescription || (features.length > 0 && !featuresInSidebar) ? "mt-12" : ""}>
                 <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Our Process</h3>
                 <div className="mt-6 grid gap-4">
                   {process.map((step) => (
@@ -185,23 +189,28 @@ export function ServiceDetail({
               </div>
             )}
 
-            {/* Why Varsity — in main column so the sticky sidebar stays shorter than this column */}
-            <div className="mt-12">
-              <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Why Varsity</h3>
-              <div className="mt-4 grid gap-5 sm:grid-cols-2">
-                {benefits.map((benefit) => (
-                  <div
-                    key={benefit.title}
-                    className="rounded-xl border border-border bg-card p-5"
-                  >
-                    <h4 className="font-semibold text-vm-navy">{benefit.title}</h4>
-                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                      {benefit.description}
-                    </p>
-                  </div>
-                ))}
+            {/* Why Varsity — only render when benefits are provided */}
+            {benefits.length > 0 && (
+              <div className="mt-12">
+                <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Why Varsity</h3>
+                <div className="mt-4 grid gap-5 sm:grid-cols-2">
+                  {benefits.map((benefit) => (
+                    <div
+                      key={benefit.title}
+                      className="rounded-xl border border-border bg-card p-5"
+                    >
+                      <h4 className="font-semibold text-vm-navy">{benefit.title}</h4>
+                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                        {benefit.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
+
+            {/* Calculator (if provided) — renders at the bottom of the main column */}
+            {calculator && <div className="mt-12">{calculator}</div>}
           </div>
 
           {/* Right column - compact sticky sidebar */}
@@ -229,6 +238,29 @@ export function ServiceDetail({
                 </a>
               </div>
             </div>
+
+            {/* Features in sidebar (when featuresInSidebar is true) */}
+            {features.length > 0 && featuresInSidebar && (
+              <div className="mt-8">
+                <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">{featuresHeading}</h3>
+                <ul className="mt-4 space-y-2">
+                  {features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3"
+                    >
+                      <span className="h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
+                      <span className="text-sm font-medium text-vm-navy">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                {featuresNote && (
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground italic border-l-4 border-vm-blue/40 pl-4">
+                    {featuresNote}
+                  </p>
+                )}
+              </div>
+            )}
 
             {/* Related Services */}
             <div className="mt-8">
