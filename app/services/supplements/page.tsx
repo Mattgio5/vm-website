@@ -184,80 +184,176 @@ export default function SupplementsPage() {
         </div>
       </section>
 
-      {/* Add-ons Section */}
-      <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+      {/* Main Content — two-column with sticky sidebar to match other service pages */}
+      <section className="relative bg-background px-4 py-16 md:px-12 md:py-24 lg:px-20">
         {/* Varsity stripes - two thick parallel lines */}
         <div className="absolute top-0 left-0 right-0 flex flex-col">
           <div className="h-2.5 w-full bg-vm-gold" />
           <div className="h-2.5 w-full bg-vm-navy" />
         </div>
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-12 md:mb-16">
-            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
-              Enhance Your Service
-            </p>
-            <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
-              Add-On Services
-            </h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Pair these services with your mulch installation for a complete transformation.
-            </p>
-          </div>
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-3 lg:gap-16">
+          {/* Left column - Add-Ons and Maintenance sections */}
+          <div className="lg:col-span-2">
+            {/* Add-Ons */}
+            <div>
+              <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
+                Enhance Your Service
+              </p>
+              <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
+                Add-On Services
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+                Pair these services with your mulch installation for a complete transformation.
+              </p>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            {addOns.map((item) => (
-              <div
-                key={item.number}
-                className="rounded-2xl border border-border bg-card p-6 transition-all hover:border-vm-blue/30 hover:shadow-lg md:p-8"
-              >
-                <span className="text-4xl font-bold text-vm-blue/30">
-                  {item.number}
-                </span>
-                <h3 className="mt-2 text-xl font-bold text-vm-navy">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {item.description}
-                </p>
+              <div className="mt-6">
+                <Link
+                  href="/contact"
+                  className="inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
+                >
+                  Request a Quote
+                </Link>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Maintenance and Service Visits Section */}
-      <section className="relative bg-muted px-4 py-20 md:px-12 md:py-28 lg:px-20">
-        {/* Varsity stripes - two thick parallel lines */}
-        <div className="absolute top-0 left-0 right-0 flex flex-col">
-          <div className="h-2.5 w-full bg-vm-gold" />
-          <div className="h-2.5 w-full bg-vm-navy" />
-        </div>
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-12 md:mb-16">
-            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
-              Keep It Looking Great
-            </p>
-            <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
-              Maintenance and Service Visits
-            </h2>
-            <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              The secret to a pristine landscape isn&apos;t just a great initial installation—it&apos;s the consistent, professional care that follows. At Varsity Mulching, our maintenance and service visits are designed to preserve the &ldquo;day-one&rdquo; beauty of your property throughout the entire growing season. From refreshing your bed lines and managing seasonal weed pressure to providing a mid-season &ldquo;touch-up&rdquo; that restores that rich, dark color to your mulch, these visits ensure your investment remains protected. We handle the ongoing details of yard health and aesthetics so that your curb appeal stays sharp, your plants stay vibrant, and you never have to lift a finger to keep your home looking its absolute best.
-            </p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {maintenanceServices.map((item) => (
-              <div
-                key={item.number}
-                className="rounded-2xl border border-border bg-card p-6 transition-all hover:border-vm-blue/30 hover:shadow-lg md:p-8"
-              >
-                <span className="text-4xl font-bold text-vm-blue/30">
-                  {item.number}
-                </span>
-                <h3 className="mt-2 text-xl font-bold text-vm-navy">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {item.description}
-                </p>
+              <div className="mt-8 grid gap-6 sm:grid-cols-2">
+                {addOns.map((item) => (
+                  <div
+                    key={item.number}
+                    className="rounded-2xl border border-border bg-card p-6 transition-all hover:border-vm-blue/30 hover:shadow-lg"
+                  >
+                    <span className="text-4xl font-bold text-vm-blue/30">
+                      {item.number}
+                    </span>
+                    <h3 className="mt-2 text-xl font-bold text-vm-navy">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Maintenance */}
+            <div className="mt-16">
+              <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
+                Keep It Looking Great
+              </p>
+              <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
+                Maintenance and Service Visits
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+                The secret to a pristine landscape isn&apos;t just a great initial installation—it&apos;s the consistent, professional care that follows. Our maintenance and service visits are designed to preserve the &ldquo;day-one&rdquo; beauty of your property throughout the entire growing season. From refreshing your bed lines and managing seasonal weed pressure to providing a mid-season &ldquo;touch-up&rdquo; that restores that rich, dark color to your mulch, these visits ensure your investment remains protected.
+              </p>
+
+              <div className="mt-8 grid gap-6 sm:grid-cols-2">
+                {maintenanceServices.map((item) => (
+                  <div
+                    key={item.number}
+                    className="rounded-2xl border border-border bg-card p-6 transition-all hover:border-vm-blue/30 hover:shadow-lg"
+                  >
+                    <span className="text-4xl font-bold text-vm-blue/30">
+                      {item.number}
+                    </span>
+                    <h3 className="mt-2 text-xl font-bold text-vm-navy">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8">
+                <Link
+                  href="/contact"
+                  className="inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
+                >
+                  Request a Quote
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Right column - sticky CTA + Why Varsity + Related Services */}
+          <div className="lg:sticky lg:top-32 lg:self-start">
+            {/* CTA Card */}
+            <div className="rounded-2xl border border-vm-blue/30 bg-vm-blue/10 p-6">
+              <h3 className="font-varsity text-xl tracking-wide text-vm-navy uppercase">
+                Get a Free Quote
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Add any of these to your quote, or ask us about an ongoing maintenance plan.
+              </p>
+              <div className="mt-5 flex flex-col gap-3">
+                <Link
+                  href="/contact"
+                  className="inline-flex justify-center rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
+                >
+                  Request Quote
+                </Link>
+                <a
+                  href="tel:+12674891567"
+                  className="inline-flex justify-center rounded-full border-2 border-vm-navy px-6 py-3 text-sm font-semibold text-vm-navy transition-all hover:bg-vm-navy hover:text-white"
+                >
+                  (267) 489-1567
+                </a>
+              </div>
+            </div>
+
+            {/* Why Varsity */}
+            <div className="mt-8">
+              <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Why Varsity</h3>
+              <div className="mt-4 space-y-4">
+                <div>
+                  <h4 className="font-semibold text-vm-navy">One Crew, Every Visit</h4>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    The same trained team that installs your mulch comes back for trims, transplants, and touch-ups — so the standard never drops between visits.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-vm-navy">Schedule-Driven Maintenance</h4>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Maintenance visits happen on a calendar, not on a whim. You get consistent, proactive care that catches issues before they snowball.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-vm-navy">Whole-Property Thinking</h4>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Bushes, beds, mulch, and lawn aren&apos;t separate problems. We look at how every piece works together so the property reads as one polished landscape.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Related Services */}
+            <div className="mt-8">
+              <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Related Services</h3>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <Link
+                  href="/services/mulch-installation"
+                  className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-vm-navy transition-all hover:border-vm-blue/40 hover:bg-vm-blue/10"
+                >
+                  Mulch Installation
+                </Link>
+                <Link
+                  href="/services/edges"
+                  className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-vm-navy transition-all hover:border-vm-blue/40 hover:bg-vm-blue/10"
+                >
+                  Landscape Edging
+                </Link>
+                <Link
+                  href="/services/weed-control"
+                  className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-vm-navy transition-all hover:border-vm-blue/40 hover:bg-vm-blue/10"
+                >
+                  Weed Control
+                </Link>
+                <Link
+                  href="/services/bed-cleanup"
+                  className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-vm-navy transition-all hover:border-vm-blue/40 hover:bg-vm-blue/10"
+                >
+                  Bed Cleanup
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
