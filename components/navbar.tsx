@@ -28,6 +28,11 @@ const services = [
     description: "Seasonal refresh for pristine flower beds",
   },
   {
+    label: "Fall Cleanup",
+    href: "/services/fall-cleanup",
+    description: "Whole-property leaf removal and haul-away",
+  },
+  {
     label: "Supplements",
     href: "/services/supplements",
     description: "Add-ons and follow-up services",
