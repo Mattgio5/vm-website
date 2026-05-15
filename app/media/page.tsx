@@ -143,6 +143,7 @@ export default function MediaPage() {
                   className="w-full"
                   style={{ minHeight: "500px", border: "none", overflow: "hidden" }}
                   scrolling="no"
+                  loading="lazy"
                   allow="encrypted-media"
                   title="Varsity Mulching Facebook Feed"
                 />

@@ -15,7 +15,7 @@ export function DayInTheLife() {
               className="absolute inset-0 h-full w-full object-cover"
               controls
               playsInline
-              preload="metadata"
+              preload="none"
               poster="/videos/day-in-the-life-poster.jpg"
               aria-label="A day in the life of a Varsity Mulching crew"
             >
