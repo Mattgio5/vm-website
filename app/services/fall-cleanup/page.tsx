@@ -83,7 +83,7 @@ export default function FallCleanupPage() {
         relatedServices={[
           { slug: "bed-cleanup", title: "Bed Cleanup" },
           { slug: "mulch-installation", title: "Mulch Installation" },
-          { slug: "edges", title: "Flower Bed Edging" },
+          { slug: "supplements", title: "Supplements" },
         ]}
       />
       {/* SEO Section: Why a Thorough Fall Cleanup Sets Up Next Spring */}

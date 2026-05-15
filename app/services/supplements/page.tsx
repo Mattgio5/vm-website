@@ -288,22 +288,16 @@ export default function SupplementsPage() {
                   Mulch Installation
                 </Link>
                 <Link
-                  href="/services/edges"
-                  className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-vm-navy transition-all hover:border-vm-blue/40 hover:bg-vm-blue/10"
-                >
-                  Flower Bed Edging
-                </Link>
-                <Link
                   href="/services/weed-control"
                   className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-vm-navy transition-all hover:border-vm-blue/40 hover:bg-vm-blue/10"
                 >
                   Weed Control
                 </Link>
                 <Link
-                  href="/services/bed-cleanup"
+                  href="/services/fall-cleanup"
                   className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-vm-navy transition-all hover:border-vm-blue/40 hover:bg-vm-blue/10"
                 >
-                  Bed Cleanup
+                  Fall Cleanup
                 </Link>
               </div>
             </div>

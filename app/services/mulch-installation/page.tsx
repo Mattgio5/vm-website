@@ -1,7 +1,6 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ServiceDetail } from "@/components/services/service-detail"
-import { MulchCalculator } from "@/components/mulch-calculator"
 
 export const metadata = {
   title: "Mulch Installation in Chester County & Bucks County, PA | Varsity Mulching",
@@ -117,10 +116,9 @@ export default function MulchInstallationPage() {
         ]}
         relatedServices={[
           { slug: "edges", title: "Flower Bed Edging" },
-          { slug: "weed-control", title: "Weed Control" },
           { slug: "bed-cleanup", title: "Bed Cleanup" },
+          { slug: "weed-control", title: "Weed Control" },
         ]}
-        calculator={<MulchCalculator />}
       />
       {/* SEO Section: Triple Ground */}
       <section className="relative bg-muted px-4 py-20 md:px-12 md:py-28 lg:px-20">

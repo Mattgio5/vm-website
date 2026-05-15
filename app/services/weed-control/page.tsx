@@ -137,7 +137,7 @@ export default function WeedControlPage() {
         relatedServices={[
           { slug: "mulch-installation", title: "Mulch Installation" },
           { slug: "bed-cleanup", title: "Bed Cleanup" },
-          { slug: "edges", title: "Flower Bed Edging" },
+          { slug: "supplements", title: "Supplements" },
         ]}
       />
       {/* SEO Section: Full Court Press */}
