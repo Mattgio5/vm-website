@@ -8,6 +8,12 @@ export const metadata = {
     "Updates, tips & behind-the-scenes from Varsity Mulching. Follow our crew as we transform yards across Chester County, Bucks County & Montgomery County, PA.",
 }
 
+// Once the Facebook account is converted to a Business Page, swap this for the
+// new Page URL (e.g. "https://www.facebook.com/varsitymulching"). The embed
+// iframe below only works for Business Pages, not personal /people/ profiles.
+const FACEBOOK_URL = "https://www.facebook.com/people/Varsity-Mulching/61550553115186/"
+const FACEBOOK_EMBED_SRC = `https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(FACEBOOK_URL)}&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true`
+
 // Sample company posts - in production these would come from a database/CMS
 const companyPosts = [
   {
@@ -78,7 +84,7 @@ export default function MediaPage() {
               Instagram @varsitymulching
             </Link>
             <Link
-              href="https://www.facebook.com/people/Varsity-Mulching/61550553115186/"
+              href={FACEBOOK_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-vm-gold/60 hover:bg-vm-gold/10"
@@ -141,7 +147,7 @@ export default function MediaPage() {
               <div className="relative mt-8 overflow-hidden rounded-2xl border border-border bg-card shadow-sm ring-1 ring-vm-navy/5">
                 <div className="absolute inset-x-0 top-0 z-10 h-1 bg-vm-gold" />
                 <iframe
-                  src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpeople%2FVarsity-Mulching%2F61550553115186%2F&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+                  src={FACEBOOK_EMBED_SRC}
                   className="w-full"
                   style={{ minHeight: "500px", border: "none", overflow: "hidden" }}
                   scrolling="no"
