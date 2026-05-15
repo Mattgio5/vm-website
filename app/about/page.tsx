@@ -11,7 +11,7 @@ export const metadata = {
 const team = [
   { name: "Jacob", role: "General Manager", hometown: "Doylestown, PA", photo: "/images/team/jacob.jpg" },
   { name: "Chase", role: "Lead Estimator", hometown: "Lansdale, PA", photo: "/images/team/chase.jpg" },
-  { name: "Tyler", role: "Crew Lead", hometown: "Doylestown, PA", photo: null },
+  { name: "Tyler", role: "Crew Lead", hometown: "Doylestown, PA", photo: "/images/team/tyler.jpg" },
   { name: "Klay", role: "Crew Lead", hometown: "Furlong, PA", photo: "/images/team/klay.jpg" },
   { name: "Niko", role: "Crew Lead", hometown: "Doylestown, PA", photo: "/images/team/niko.jpg" },
   { name: "Connor", role: "Crew Lead", hometown: "Doylestown, PA", photo: "/images/team/connor.jpg" },
