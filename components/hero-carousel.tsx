@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 
@@ -74,20 +73,6 @@ export function HeroCarousel() {
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/90 drop-shadow md:text-base lg:text-lg">
             Fresh mulch, expertly installed. Because JV-level landscaping isn&apos;t going to cut it.
           </p>
-          <div className="mt-5 flex flex-wrap gap-3">
-            <Link
-              href="/services"
-              className="inline-flex rounded-full bg-vm-gold px-6 py-3 text-sm font-bold uppercase tracking-wide text-vm-navy transition-all hover:bg-vm-gold-dark hover:shadow-lg"
-            >
-              See Our Services
-            </Link>
-            <Link
-              href="/gallery"
-              className="inline-flex rounded-full border border-white/40 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-all hover:bg-white/20"
-            >
-              Hear From Customers
-            </Link>
-          </div>
         </div>
 
         {/* Right: quick quote + reviews */}
@@ -281,24 +266,24 @@ function GoogleReviewsCard() {
       href={GOOGLE_REVIEWS_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex items-center justify-between gap-3 overflow-hidden rounded-2xl border border-vm-gold/30 bg-gradient-to-br from-vm-navy via-vm-navy-light to-vm-navy px-4 py-3 shadow-2xl transition-all hover:border-vm-gold/60"
+      className="group flex items-center justify-between gap-4 overflow-hidden rounded-2xl border border-vm-gold/30 bg-gradient-to-br from-vm-navy via-vm-navy-light to-vm-navy px-5 py-4 shadow-2xl transition-all hover:border-vm-gold/60"
     >
       <div className="flex items-center gap-3">
-        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white shadow">
-          <GoogleG className="h-4 w-4" />
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white shadow">
+          <GoogleG className="h-5 w-5" />
         </div>
         <div className="min-w-0">
           <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-vm-gold">
             Google Reviews
           </p>
-          <p className="truncate text-sm font-semibold text-white">
-            <span className="font-varsity text-base tracking-wide text-vm-gold">5.0</span>
-            <span className="mx-1.5 text-white/40">·</span>
-            166+ 5-Star Reviews
+          <p className="flex items-baseline gap-2 text-sm font-semibold text-white">
+            <span className="text-2xl font-extrabold leading-none text-vm-gold">5.0</span>
+            <span className="text-white/40">·</span>
+            <span>166+ 5-Star Reviews</span>
           </p>
         </div>
       </div>
-      <span className="hidden shrink-0 rounded-full border border-vm-gold/40 bg-vm-gold/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-vm-gold transition-colors group-hover:bg-vm-gold group-hover:text-vm-navy sm:inline-flex">
+      <span className="hidden shrink-0 rounded-full border border-vm-gold/40 bg-vm-gold/10 px-3.5 py-2 text-[10px] font-bold uppercase tracking-[0.15em] text-vm-gold transition-colors group-hover:bg-vm-gold group-hover:text-vm-navy sm:inline-flex">
         Read →
       </span>
     </a>
