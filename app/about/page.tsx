@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 
@@ -6,6 +7,15 @@ export const metadata = {
   description:
     "Varsity Mulching is a locally owned landscaping business run by college student athletes, serving Chester County, Bucks County & Montgomery County, PA with premium mulching services.",
 }
+
+const team = [
+  { name: "Jacob", role: "General Manager", hometown: "Doylestown, PA", photo: "/images/team/jacob.jpg" },
+  { name: "Chase", role: "Lead Estimator", hometown: "Lansdale, PA", photo: "/images/team/chase.jpg" },
+  { name: "Tyler", role: "Crew Lead", hometown: "Doylestown, PA", photo: null },
+  { name: "Klay", role: "Crew Lead", hometown: "Furlong, PA", photo: "/images/team/klay.jpg" },
+  { name: "Niko", role: "Crew Lead", hometown: "Doylestown, PA", photo: "/images/team/niko.jpg" },
+  { name: "Connor", role: "Crew Lead", hometown: "Doylestown, PA", photo: "/images/team/connor.jpg" },
+]
 
 export default function AboutPage() {
   return (
@@ -90,10 +100,14 @@ export default function AboutPage() {
                 <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-border bg-muted shadow-lg">
                   {/* Gold accent stripe */}
                   <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-vm-gold" />
-                  {/* IMAGE NEEDED: Professional but approachable photo of the founder/owner, ideally in casual business attire or Varsity Mulching branded clothing */}
-                  <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                    <span className="text-sm">Founder Photo</span>
-                  </div>
+                  <Image
+                    src="/images/team/matt.jpg"
+                    alt="Matt Giordano, founder of Varsity Mulching"
+                    fill
+                    sizes="(min-width: 768px) 40vw, 100vw"
+                    className="object-cover object-top"
+                    priority
+                  />
                 </div>
               </div>
             </div>
@@ -161,159 +175,37 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Team Grid - 8 members */}
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {/* Team Member 1 */}
-            <div className="relative overflow-hidden rounded-2xl border border-border bg-card px-5 pt-6 pb-5 before:absolute before:left-0 before:right-0 before:top-0 before:h-1 before:bg-vm-gold before:content-['']">
-              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
-                {/* IMAGE NEEDED: Headshot of team member 1, casual/friendly style */}
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                  <span className="text-xs">Photo</span>
+          {/* Team Grid */}
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {team.map((member) => (
+              <div
+                key={member.name}
+                className="relative overflow-hidden rounded-2xl border border-border bg-card px-5 pt-6 pb-5 before:absolute before:left-0 before:right-0 before:top-0 before:h-1 before:bg-vm-gold before:content-['']"
+              >
+                <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
+                  {member.photo ? (
+                    <Image
+                      src={member.photo}
+                      alt={`${member.name}, ${member.role} at Varsity Mulching`}
+                      fill
+                      sizes="(min-width: 1024px) 28vw, (min-width: 640px) 45vw, 90vw"
+                      className="object-cover object-top"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center bg-muted">
+                      <span className="font-varsity text-5xl tracking-wide text-vm-navy/40 uppercase">
+                        {member.name[0]}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <div className="mt-4 text-center">
+                  <p className="font-semibold text-vm-navy">{member.name}</p>
+                  <p className="text-sm text-muted-foreground">{member.role}</p>
+                  <p className="mt-1 text-xs text-vm-blue-dark">{member.hometown}</p>
                 </div>
               </div>
-              <div className="mt-4 text-center">
-                <p className="font-semibold text-vm-navy">Team Member Name</p>
-                <p className="text-sm text-muted-foreground">Crew Lead</p>
-                <p className="mt-1 text-xs text-vm-blue-dark">Hometown, PA</p>
-                <p className="text-xs text-vm-blue-dark">School Name &apos;25</p>
-                <p className="mt-2 text-xs text-muted-foreground italic">
-                  "Love the cheesesteaks at Pat's"
-                </p>
-              </div>
-            </div>
-
-            {/* Team Member 2 */}
-            <div className="relative overflow-hidden rounded-2xl border border-border bg-card px-5 pt-6 pb-5 before:absolute before:left-0 before:right-0 before:top-0 before:h-1 before:bg-vm-gold before:content-['']">
-              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
-                {/* IMAGE NEEDED: Headshot of team member 2, casual/friendly style */}
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                  <span className="text-xs">Photo</span>
-                </div>
-              </div>
-              <div className="mt-4 text-center">
-                <p className="font-semibold text-vm-navy">Team Member Name</p>
-                <p className="text-sm text-muted-foreground">Crew Lead</p>
-                <p className="mt-1 text-xs text-vm-blue-dark">Hometown, PA</p>
-                <p className="text-xs text-vm-blue-dark">School Name &apos;26</p>
-                <p className="mt-2 text-xs text-muted-foreground italic">
-                  "Nothing beats Wawa runs"
-                </p>
-              </div>
-            </div>
-
-            {/* Team Member 3 */}
-            <div className="relative overflow-hidden rounded-2xl border border-border bg-card px-5 pt-6 pb-5 before:absolute before:left-0 before:right-0 before:top-0 before:h-1 before:bg-vm-gold before:content-['']">
-              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
-                {/* IMAGE NEEDED: Headshot of team member 3, casual/friendly style */}
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                  <span className="text-xs">Photo</span>
-                </div>
-              </div>
-              <div className="mt-4 text-center">
-                <p className="font-semibold text-vm-navy">Team Member Name</p>
-                <p className="text-sm text-muted-foreground">Field Technician</p>
-                <p className="mt-1 text-xs text-vm-blue-dark">Hometown, PA</p>
-                <p className="text-xs text-vm-blue-dark">School Name &apos;27</p>
-                <p className="mt-2 text-xs text-muted-foreground italic">
-                  "Eagles games with the family"
-                </p>
-              </div>
-            </div>
-
-            {/* Team Member 4 */}
-            <div className="relative overflow-hidden rounded-2xl border border-border bg-card px-5 pt-6 pb-5 before:absolute before:left-0 before:right-0 before:top-0 before:h-1 before:bg-vm-gold before:content-['']">
-              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
-                {/* IMAGE NEEDED: Headshot of team member 4, casual/friendly style */}
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                  <span className="text-xs">Photo</span>
-                </div>
-              </div>
-              <div className="mt-4 text-center">
-                <p className="font-semibold text-vm-navy">Team Member Name</p>
-                <p className="text-sm text-muted-foreground">Field Technician</p>
-                <p className="mt-1 text-xs text-vm-blue-dark">Hometown, PA</p>
-                <p className="text-xs text-vm-blue-dark">School Name &apos;27</p>
-                <p className="mt-2 text-xs text-muted-foreground italic">
-                  "The trails at Valley Forge"
-                </p>
-              </div>
-            </div>
-
-            {/* Team Member 5 */}
-            <div className="relative overflow-hidden rounded-2xl border border-border bg-card px-5 pt-6 pb-5 before:absolute before:left-0 before:right-0 before:top-0 before:h-1 before:bg-vm-gold before:content-['']">
-              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
-                {/* IMAGE NEEDED: Headshot of team member 5, casual/friendly style */}
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                  <span className="text-xs">Photo</span>
-                </div>
-              </div>
-              <div className="mt-4 text-center">
-                <p className="font-semibold text-vm-navy">Team Member Name</p>
-                <p className="text-sm text-muted-foreground">Field Technician</p>
-                <p className="mt-1 text-xs text-vm-blue-dark">Hometown, PA</p>
-                <p className="text-xs text-vm-blue-dark">School Name &apos;26</p>
-                <p className="mt-2 text-xs text-muted-foreground italic">
-                  "Summer nights on the shore"
-                </p>
-              </div>
-            </div>
-
-            {/* Team Member 6 */}
-            <div className="relative overflow-hidden rounded-2xl border border-border bg-card px-5 pt-6 pb-5 before:absolute before:left-0 before:right-0 before:top-0 before:h-1 before:bg-vm-gold before:content-['']">
-              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
-                {/* IMAGE NEEDED: Headshot of team member 6, casual/friendly style */}
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                  <span className="text-xs">Photo</span>
-                </div>
-              </div>
-              <div className="mt-4 text-center">
-                <p className="font-semibold text-vm-navy">Team Member Name</p>
-                <p className="text-sm text-muted-foreground">Field Technician</p>
-                <p className="mt-1 text-xs text-vm-blue-dark">Hometown, PA</p>
-                <p className="text-xs text-vm-blue-dark">School Name &apos;28</p>
-                <p className="mt-2 text-xs text-muted-foreground italic">
-                  "The Philly skyline at night"
-                </p>
-              </div>
-            </div>
-
-            {/* Team Member 7 */}
-            <div className="relative overflow-hidden rounded-2xl border border-border bg-card px-5 pt-6 pb-5 before:absolute before:left-0 before:right-0 before:top-0 before:h-1 before:bg-vm-gold before:content-['']">
-              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
-                {/* IMAGE NEEDED: Headshot of team member 7, casual/friendly style */}
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                  <span className="text-xs">Photo</span>
-                </div>
-              </div>
-              <div className="mt-4 text-center">
-                <p className="font-semibold text-vm-navy">Team Member Name</p>
-                <p className="text-sm text-muted-foreground">Field Technician</p>
-                <p className="mt-1 text-xs text-vm-blue-dark">Hometown, PA</p>
-                <p className="text-xs text-vm-blue-dark">School Name &apos;27</p>
-                <p className="mt-2 text-xs text-muted-foreground italic">
-                  "Reading Terminal Market"
-                </p>
-              </div>
-            </div>
-
-            {/* Team Member 8 */}
-            <div className="relative overflow-hidden rounded-2xl border border-border bg-card px-5 pt-6 pb-5 before:absolute before:left-0 before:right-0 before:top-0 before:h-1 before:bg-vm-gold before:content-['']">
-              <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
-                {/* IMAGE NEEDED: Headshot of team member 8, casual/friendly style */}
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                  <span className="text-xs">Photo</span>
-                </div>
-              </div>
-              <div className="mt-4 text-center">
-                <p className="font-semibold text-vm-navy">Team Member Name</p>
-                <p className="text-sm text-muted-foreground">Field Technician</p>
-                <p className="mt-1 text-xs text-vm-blue-dark">Hometown, PA</p>
-                <p className="text-xs text-vm-blue-dark">School Name &apos;26</p>
-                <p className="mt-2 text-xs text-muted-foreground italic">
-                  "Tailgates at the Linc"
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
 
           {/* CTAs */}
