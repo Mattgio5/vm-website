@@ -75,7 +75,7 @@ export default function FallCleanupPage() {
               "Every bag, every load, off-site the same day. We dispose of all collected debris properly, so your property goes into winter clean: no piles, no bags, nothing left to deal with on your own.",
           },
           {
-            title: "Ready for Winter, Not Just Tidy for Now",
+            title: "A Property Ready for Winter, Not Just Tidy for Now",
             description:
               "Cleanup isn't about how your yard looks before the snow flies — it's about how it makes it through. We touch up mulch where it's thinned over the season, clear debris from around your perennials and shrubs, and leave your property set up to come out of winter clean instead of needing weeks of recovery in March.",
           },

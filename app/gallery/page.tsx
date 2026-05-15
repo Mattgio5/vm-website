@@ -95,7 +95,7 @@ export default function GalleryPage() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {/* First 3 projects (Row 1) */}
             {projects.slice(0, 3).map((project, idx) => (
-              <div key={project.id} className="group">
+              <div key={project.id}>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-muted">
                   <Image
                     src={project.image}
@@ -103,7 +103,7 @@ export default function GalleryPage() {
                     fill
                     sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                     priority={idx === 0}
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover"
                   />
                 </div>
                 {/* Description */}
@@ -130,14 +130,14 @@ export default function GalleryPage() {
 
             {/* Remaining projects (Row 2 col 2-3, then Row 3+) */}
             {projects.slice(3).map((project) => (
-              <div key={project.id} className="group">
+              <div key={project.id}>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-muted">
                   <Image
                     src={project.image}
                     alt={project.description}
                     fill
                     sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover"
                   />
                 </div>
                 {/* Description */}

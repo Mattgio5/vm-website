@@ -202,7 +202,7 @@ export default function SupplementsPage() {
                 {addOns.map((item) => (
                   <div
                     key={item.number}
-                    className="rounded-2xl border border-border bg-card p-6 transition-all hover:border-vm-blue/30 hover:shadow-lg md:p-8"
+                    className="rounded-2xl border border-border bg-card p-6 md:p-8"
                   >
                     <span className="text-4xl font-bold text-vm-blue/30">
                       {item.number}
