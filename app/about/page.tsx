@@ -89,7 +89,7 @@ export default function AboutPage() {
             <div className="md:col-span-3">
               <blockquote className="relative">
                 <p className="text-lg leading-relaxed text-vm-navy/80 md:text-xl md:leading-relaxed">
-                  My story is simple: I started Varsity Mulching with a few of my hockey teammates in high school. We chose the name Varsity because that&apos;s what we were at the time. As the business grew, Varsity came to mean something more. It became a standard for attention to detail, clear communication, and customer service that people could rely on.
+                  I started Varsity Mulching with a few of my hockey teammates in high school. We chose the name Varsity because that&apos;s what we were at the time. As the business grew, Varsity came to mean something more. It became a standard for attention to detail, clear communication, and customer service that people could rely on.
                 </p>
                 <p className="mt-6 text-lg leading-relaxed text-vm-navy/80 md:text-xl md:leading-relaxed">
                   As we scaled, I wanted to protect that standard. That&apos;s why we partnered with three local colleges to bring student athletes from the fields to our clients&apos; mulch beds. We pair them with highly experienced crew leads who know the work and set expectations on every job. The result is a dependable, professional experience that delivers consistent results without losing what made Varsity special in the first place.
