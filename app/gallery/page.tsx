@@ -75,11 +75,21 @@ export default function GalleryPage() {
       {/* Hero */}
       <section className="relative bg-vm-blue px-4 pt-32 pb-16 md:px-12 md:pt-40 md:pb-20 lg:px-20">
         <div className="mx-auto max-w-6xl">
-          <h1 className="font-varsity text-4xl tracking-wide text-vm-navy md:text-5xl lg:text-6xl text-balance uppercase">
+          <h1
+            className="vm-reveal font-varsity text-4xl tracking-wide text-vm-navy md:text-5xl lg:text-6xl text-balance uppercase"
+            style={{ animationDelay: "60ms" }}
+          >
             Our Work
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-vm-navy/70 md:text-lg">
-            Take a look at some of the yards we've helped transform across the greater Philadelphia area.
+          <div
+            className="vm-reveal mt-5 h-[2px] w-20 bg-vm-gold"
+            style={{ animationDelay: "160ms" }}
+          />
+          <p
+            className="vm-reveal mt-5 max-w-2xl text-base leading-relaxed text-vm-navy/70 md:text-lg"
+            style={{ animationDelay: "240ms" }}
+          >
+            Take a look at some of the yards we&apos;ve helped transform across the greater Philadelphia area.
           </p>
         </div>
       </section>
@@ -92,11 +102,11 @@ export default function GalleryPage() {
           <div className="h-2.5 w-full bg-vm-navy" />
         </div>
         <div className="mx-auto max-w-6xl">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
             {/* First 3 projects (Row 1) */}
             {projects.slice(0, 3).map((project, idx) => (
-              <div key={project.id}>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-muted">
+              <figure key={project.id} className="flex flex-col">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-muted shadow-sm ring-1 ring-vm-navy/5">
                   <Image
                     src={project.image}
                     alt={project.description}
@@ -106,19 +116,22 @@ export default function GalleryPage() {
                     className="object-cover"
                   />
                 </div>
-                {/* Description */}
-                <div className="mt-3">
+                {/* Caption — yearbook-style with gold tick */}
+                <figcaption className="mt-4 flex gap-3">
+                  <span aria-hidden="true" className="mt-[10px] h-[2px] w-4 shrink-0 bg-vm-gold" />
                   <p className="text-sm leading-relaxed text-muted-foreground">{project.description}</p>
-                </div>
-              </div>
+                </figcaption>
+              </figure>
             ))}
 
             {/* CTA Box (Row 2, Column 1) */}
-            <div className="flex items-center justify-center rounded-xl bg-vm-blue/40 p-8 border-2 border-vm-gold/30">
+            <div className="relative flex items-center justify-center overflow-hidden rounded-xl bg-vm-blue/40 p-8 ring-1 ring-vm-navy/5 shadow-sm">
+              <div className="absolute inset-x-0 top-0 h-1.5 bg-vm-gold" />
               <div className="text-center">
                 <h2 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl text-balance leading-tight uppercase">
                   Ready to<br />transform<br />your yard?
                 </h2>
+                <span aria-hidden="true" className="mx-auto mt-4 block h-[2px] w-10 bg-vm-gold" />
                 <Link
                   href="/services"
                   className="mt-6 inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg"
@@ -130,8 +143,8 @@ export default function GalleryPage() {
 
             {/* Remaining projects (Row 2 col 2-3, then Row 3+) */}
             {projects.slice(3).map((project) => (
-              <div key={project.id}>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-muted">
+              <figure key={project.id} className="flex flex-col">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-muted shadow-sm ring-1 ring-vm-navy/5">
                   <Image
                     src={project.image}
                     alt={project.description}
@@ -140,11 +153,12 @@ export default function GalleryPage() {
                     className="object-cover"
                   />
                 </div>
-                {/* Description */}
-                <div className="mt-3">
+                {/* Caption — yearbook-style with gold tick */}
+                <figcaption className="mt-4 flex gap-3">
+                  <span aria-hidden="true" className="mt-[10px] h-[2px] w-4 shrink-0 bg-vm-gold" />
                   <p className="text-sm leading-relaxed text-muted-foreground">{project.description}</p>
-                </div>
-              </div>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>
