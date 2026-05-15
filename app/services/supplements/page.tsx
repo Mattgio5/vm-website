@@ -110,7 +110,7 @@ export default function SupplementsPage() {
       {/* Hero Section */}
       <section
         className="relative w-full overflow-hidden"
-        style={{ height: "calc(50vh)", minHeight: "400px" }}
+        style={{ height: "calc(65vh)", minHeight: "520px" }}
       >
         <div className="absolute inset-0 z-0">
           <Image
@@ -123,7 +123,7 @@ export default function SupplementsPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-vm-navy/70 via-vm-navy/50 to-vm-navy/80" />
         </div>
 
-        <div className="relative z-10 flex h-full items-center px-4 pt-24 md:px-12 lg:px-20">
+        <div className="relative z-10 flex h-full items-center px-4 pt-24 pb-16 md:px-12 lg:px-20">
           <div className="max-w-2xl">
             <Breadcrumb className="mb-6">
               <BreadcrumbList>
@@ -168,27 +168,8 @@ export default function SupplementsPage() {
           {/* Left column - Add-Ons section */}
           <div className="lg:col-span-2">
             <div>
-              <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
-                Enhance Your Service
-              </p>
-              <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
-                Varsity Mulching&apos;s Add-on Services
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-                Beyond our core services, we offer add-ons and follow-up care to keep your landscape looking its best year-round.
-              </p>
-
-              <div className="mt-6">
-                <Link
-                  href="/contact"
-                  className="inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
-                >
-                  Request a Quote
-                </Link>
-              </div>
-
               {/* Copy block: deeper intro before the numbered list */}
-              <div className="mt-10">
+              <div>
                 <h3 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl uppercase">
                   Landscaping Add-Ons to Take Your Property to the Next Level
                 </h3>
