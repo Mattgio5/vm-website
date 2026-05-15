@@ -20,48 +20,21 @@ export const metadata = {
 const addOns = [
   {
     number: "01",
-    title: "Bush & Shrub Transplants",
+    title: "Maintenance Appointments",
     description:
-      "Sometimes a plant is perfectly healthy but simply in the wrong spot. Whether a shrub has outgrown its current space or you're redesigning your bed layout, our team performs careful transplants to ensure your greenery survives the move. We focus on preserving the integrity of the root system and preparing the new \"home\" with the right soil conditions to minimize transplant shock and encourage immediate settling.",
+      "Wind, rain, foot traffic, and the growing season don't take time off. A few months after installation, mulch shifts, edges soften, bushes get shaggy, and stray weeds start to show. Our maintenance appointments handle all of it in a single visit. We fluff existing mulch to restore that rich, dark color, redefine your spade edges to stop grass creep, trim back overgrown bushes and shrubs, and remove any weeds that have made it through. It's the difference between a yard that looks freshly installed for a month and a yard that looks freshly installed all season.",
   },
   {
     number: "02",
-    title: "Professional Bush Trimming",
-    description:
-      "Regular trimming is about more than just aesthetics—it's about the longevity of your plants. Our crew uses precision techniques to remove dead wood, thinning out overgrowth to improve airflow and sunlight penetration. From formal hedging to natural shaping, we ensure your bushes look manicured while promoting the healthy new growth that makes your spring landscape truly \"pop.\"",
-  },
-  {
-    number: "03",
-    title: "Flower & Bush Planting",
-    description:
-      "Ready to add a splash of color or a new layer of privacy? We take the guesswork out of planting. Our team handles the digging, soil amendment, and positioning to ensure your new flowers and shrubs are installed at the correct depth for long-term success. Once your new additions are in the ground, we surround them with our signature triple-ground mulch to lock in moisture and protect those brand-new roots.",
-  },
-]
-
-const maintenanceServices = [
-  {
-    number: "01",
-    title: "Fall Cleanups",
-    description:
-      "As the growing season winds down, your garden beds can quickly become buried under heavy layers of fallen leaves and organic debris. If left over the winter, this \"matting\" can trap excessive moisture, leading to mold, root rot, and turf damage. Our Fall Cleanup service involves a thorough clearing of all beds, the removal of spent annuals, and the final pruning of perennials. We haul away the debris so your property is tucked in for the winter, leaving a clean, intentional look that prevents pests from nesting near your home.",
-  },
-  {
-    number: "02",
-    title: "Bed Maintenance & Touch-Ups",
-    description:
-      "In the months following your initial mulch installation, wind, rain, and foot traffic can shift your mulch and soften those crisp edges. Our maintenance visits focus on the details that keep your curb appeal sharp. We \"fluff\" the existing mulch to restore its vibrant color, redefine your spade edges to stop grass creep, and clear out any stray debris. It's the perfect way to ensure your home looks professionally managed all year long, not just in the weeks after a big project.",
-  },
-  {
-    number: "03",
     title: "Scheduled Weed Treatments",
     description:
-      "The most effective way to manage weeds is to never let them get comfortable. Our ongoing weed treatment service provides a consistent layer of protection that builds on our initial installation. We perform regular walkthroughs to identify and treat any \"breakout\" weeds using targeted, systemic sprays. By catching these invaders early, we prevent them from dropping seeds or establishing deep root systems, keeping your triple-ground mulch looking like a clean, dark blanket for your plants.",
+      "Weed treatments aren't a standalone appointment — they're the prep work that makes every maintenance visit count. About a week before each maintenance appointment, we come out and apply a professional-grade herbicide to any visible weeds in your beds. Because weed killer needs to enter through the green part of a plant to travel down and kill the root, this timing is critical. By the time we arrive for the maintenance visit, those weeds are dead at the root and pull cleanly with nothing left behind to regrow. During that same maintenance appointment, we lay a fresh pre-emergent layer to block new seeds from germinating until the next cycle. Offense one week, defense the next. That's how we keep beds clean all season.",
   },
   {
-    number: "04",
+    number: "03",
     title: "Core Aeration",
     description:
-      "Over time, soil becomes compacted by mowing, foot traffic, and heavy rain, which \"chokes\" your grass by preventing oxygen, water, and nutrients from reaching the roots. Our aeration service uses professional equipment to remove small plugs of soil and thatch from your lawn. This process breaks up compaction and opens up \"highways\" directly to the root zone. The result is a deeper, stronger root system, better drought resistance, and a thicker, greener lawn that naturally crowds out weeds.",
+      "Over time, soil becomes compacted by mowing, foot traffic, and heavy rain, which “chokes” your grass by preventing oxygen, water, and nutrients from reaching the roots. Our aeration service uses professional equipment to remove small plugs of soil and thatch from your lawn. This process breaks up compaction and opens up “highways” directly to the root zone. The result is a deeper, stronger root system, better drought resistance, and a thicker, greener lawn that naturally crowds out weeds.",
   },
 ]
 
@@ -192,18 +165,17 @@ export default function SupplementsPage() {
           <div className="h-2.5 w-full bg-vm-navy" />
         </div>
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-3 lg:gap-16">
-          {/* Left column - Add-Ons and Maintenance sections */}
+          {/* Left column - Add-Ons section */}
           <div className="lg:col-span-2">
-            {/* Add-Ons */}
             <div>
               <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
                 Enhance Your Service
               </p>
               <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
-                Add-On Services
+                Varsity Mulching&apos;s Add-on Services
               </h2>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-                Pair these services with your mulch installation for a complete transformation.
+                Beyond our core services, we offer add-ons and follow-up care to keep your landscape looking its best year-round.
               </p>
 
               <div className="mt-6">
@@ -215,47 +187,28 @@ export default function SupplementsPage() {
                 </Link>
               </div>
 
-              <div className="mt-8 grid gap-6 sm:grid-cols-2">
+              {/* Copy block: deeper intro before the numbered list */}
+              <div className="mt-10">
+                <h3 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl uppercase">
+                  Landscaping Add-Ons to Take Your Property to the Next Level
+                </h3>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+                  While our premium mulching and precision edging provide the foundation for a stunning landscape, the true &ldquo;estate-quality&rdquo; look is often found in the details. Varsity Mulching offers a suite of specialized add-on services designed to protect your investment and take the heavy lifting off your shoulders.
+                </p>
+              </div>
+
+              {/* Numbered cards — one per row so the long copy reads cleanly */}
+              <div className="mt-8 grid gap-6">
                 {addOns.map((item) => (
                   <div
                     key={item.number}
-                    className="rounded-2xl border border-border bg-card p-6 transition-all hover:border-vm-blue/30 hover:shadow-lg"
+                    className="rounded-2xl border border-border bg-card p-6 transition-all hover:border-vm-blue/30 hover:shadow-lg md:p-8"
                   >
                     <span className="text-4xl font-bold text-vm-blue/30">
                       {item.number}
                     </span>
-                    <h3 className="mt-2 text-xl font-bold text-vm-navy">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Maintenance */}
-            <div className="mt-16">
-              <p className="mb-3 text-sm font-semibold tracking-widest text-vm-blue-dark uppercase">
-                Keep It Looking Great
-              </p>
-              <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
-                Maintenance and Service Visits
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-                The secret to a pristine landscape isn&apos;t just a great initial installation—it&apos;s the consistent, professional care that follows. Our maintenance and service visits are designed to preserve the &ldquo;day-one&rdquo; beauty of your property throughout the entire growing season. From refreshing your bed lines and managing seasonal weed pressure to providing a mid-season &ldquo;touch-up&rdquo; that restores that rich, dark color to your mulch, these visits ensure your investment remains protected.
-              </p>
-
-              <div className="mt-8 grid gap-6 sm:grid-cols-2">
-                {maintenanceServices.map((item) => (
-                  <div
-                    key={item.number}
-                    className="rounded-2xl border border-border bg-card p-6 transition-all hover:border-vm-blue/30 hover:shadow-lg"
-                  >
-                    <span className="text-4xl font-bold text-vm-blue/30">
-                      {item.number}
-                    </span>
-                    <h3 className="mt-2 text-xl font-bold text-vm-navy">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    <h3 className="mt-2 text-xl font-bold text-vm-navy md:text-2xl">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
                       {item.description}
                     </p>
                   </div>
