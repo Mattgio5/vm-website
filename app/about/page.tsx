@@ -202,19 +202,14 @@ export default function AboutPage() {
             ))}
           </div>
 
-          {/* CTAs */}
-          <div className="mt-12 flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-center">
-            <a
-              href="/contact"
-              className="inline-flex rounded-full bg-vm-navy px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg"
-            >
-              Request a Quote
-            </a>
+          {/* CTA */}
+          <div className="mt-12 text-center">
             <p className="text-muted-foreground">
               Interested in joining the crew?{" "}
               <a href="/careers" className="font-semibold text-vm-blue-dark hover:underline">
-                Check out open positions
+                Check out our careers page
               </a>
+              .
             </p>
           </div>
         </div>

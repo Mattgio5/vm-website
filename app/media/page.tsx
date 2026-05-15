@@ -107,18 +107,12 @@ export default function MediaPage() {
             {/* Left - Instagram Embed */}
             <div>
               <div className="h-1 w-12 bg-vm-gold" />
-              <p className="mt-4 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
-                On Instagram
-              </p>
-              <h2 className="font-varsity mt-2 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
+              <h2 className="font-varsity mt-4 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
                 Follow @varsitymulching
               </h2>
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                Project shots, before-and-afters, and a peek at the crew between jobs.
-              </p>
 
               {/* Instagram Embed Container */}
-              <div className="relative mt-8 overflow-hidden rounded-2xl border border-border bg-card shadow-sm ring-1 ring-vm-navy/5">
+              <div className="relative mt-6 overflow-hidden rounded-2xl border border-border bg-card shadow-sm ring-1 ring-vm-navy/5">
                 <div className="absolute inset-x-0 top-0 z-10 h-1 bg-vm-gold" />
                 <iframe
                   src="https://www.instagram.com/varsitymulching/embed"
@@ -133,18 +127,12 @@ export default function MediaPage() {
             {/* Middle - Facebook Embed */}
             <div>
               <div className="h-1 w-12 bg-vm-gold" />
-              <p className="mt-4 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
-                On Facebook
-              </p>
-              <h2 className="font-varsity mt-2 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
-                Like Our Page
+              <h2 className="font-varsity mt-4 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
+                Like Us on Facebook
               </h2>
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                Project updates, customer stories, and what the team has been up to.
-              </p>
 
               {/* Facebook Page Plugin Embed */}
-              <div className="relative mt-8 overflow-hidden rounded-2xl border border-border bg-card shadow-sm ring-1 ring-vm-navy/5">
+              <div className="relative mt-6 overflow-hidden rounded-2xl border border-border bg-card shadow-sm ring-1 ring-vm-navy/5">
                 <div className="absolute inset-x-0 top-0 z-10 h-1 bg-vm-gold" />
                 <iframe
                   src={FACEBOOK_EMBED_SRC}
