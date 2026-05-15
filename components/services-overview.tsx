@@ -2,34 +2,34 @@ import Link from "next/link"
 
 const services = [
   {
-    title: "Mulch Installation",
+    title: "Premium Mulch Installation",
     description:
-      "Premium mulch delivered and professionally installed for beautiful, long-lasting garden beds.",
+      "High-quality coverage to protect soil and pop your colors.",
     href: "/services/mulch-installation",
   },
   {
-    title: "Landscape Edging",
+    title: "Precise Landscape Edging",
     description:
-      "Clean, crisp borders that define your garden beds and create a polished, professional look.",
+      "Deep, clean borders that define your beds and walkways.",
     href: "/services/edges",
   },
   {
-    title: "Weed Control",
+    title: "Expert Weed Control",
     description:
-      "Keep unwanted growth at bay with our effective, year-round weed prevention solutions.",
+      "Chemical removal and proactive treatments to keep the intruders at bay.",
     href: "/services/weed-control",
   },
   {
     title: "Bed Cleanup",
     description:
-      "Seasonal refresh and maintenance to keep your flower beds pristine and healthy.",
+      "Total debris removal to give you a fresh canvas for mulch.",
     href: "/services/bed-cleanup",
   },
   {
-    title: "Fall Cleanup",
+    title: "Brush Removal & Trimming",
     description:
-      "Whole-property leaf, stick and debris removal with full haul-away to set your yard up for winter.",
-    href: "/services/fall-cleanup",
+      "Sculpting your greenery and clearing the clutter.",
+    href: "/services/supplements",
   },
 ]
 
@@ -51,7 +51,7 @@ export function ServicesOverview() {
             Our Core Services
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Professional landscaping solutions to transform and maintain your outdoor spaces.
+            From a full spring cleanup to a simple mulch and edge touch-up, we bring the Varsity standard to every job.
           </p>
         </div>
 
