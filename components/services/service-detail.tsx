@@ -110,9 +110,13 @@ export function ServiceDetail({
                 <h2 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl uppercase">
                   {aboutHeading}
                 </h2>
-                <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-                  {longDescription}
-                </p>
+                <div className="mt-4 space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+                  {longDescription
+                    .split(/\n\s*\n/)
+                    .map((para, i) => (
+                      <p key={i}>{para}</p>
+                    ))}
+                </div>
 
                 <div className="mt-6">
                   <Link
