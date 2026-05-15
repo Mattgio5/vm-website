@@ -55,28 +55,38 @@ export default function CareersPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center px-4 py-20 md:py-28">
+      <section className="bg-noise relative min-h-[70vh] flex items-center justify-center overflow-hidden px-4 py-20 md:py-28">
         {/* Background Image */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/placeholder.svg?height=800&width=1600')" }}
         >
           {/* IMAGE NEEDED: Team working together on a job site, friendly atmosphere, maybe loading mulch or finishing a yard */}
-          <div className="absolute inset-0 bg-vm-navy/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-vm-navy/65 via-vm-navy/55 to-vm-navy/75" />
         </div>
 
         {/* Content */}
         <div className="relative z-10 mx-auto max-w-3xl text-center">
-          <h1 className="font-varsity text-4xl tracking-wide text-white md:text-5xl lg:text-6xl text-balance uppercase">
+          <h1
+            className="vm-reveal font-varsity text-4xl tracking-wide text-white md:text-5xl lg:text-6xl text-balance uppercase"
+            style={{ animationDelay: "60ms" }}
+          >
             Varsity Mulching Careers
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">
+          <div
+            className="vm-reveal mx-auto mt-5 h-[2px] w-20 bg-vm-gold"
+            style={{ animationDelay: "160ms" }}
+          />
+          <p
+            className="vm-reveal mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl"
+            style={{ animationDelay: "240ms" }}
+          >
             We believe great work starts with great people. Our promise: give hardworking college students the chance to earn good money, build real skills, and be part of a crew that takes pride in every yard we touch.
           </p>
-          <div className="mt-10">
+          <div className="vm-reveal mt-10" style={{ animationDelay: "320ms" }}>
             <Link
               href="#open-positions"
-              className="inline-flex rounded-full bg-vm-blue px-8 py-4 text-base font-semibold text-vm-navy transition-all hover:bg-vm-blue/90 hover:shadow-lg"
+              className="inline-flex rounded-full bg-vm-blue px-8 py-4 text-base font-semibold text-vm-navy transition-all hover:bg-vm-blue-dark hover:shadow-lg"
             >
               Join The Team
             </Link>
@@ -97,31 +107,23 @@ export default function CareersPage() {
             {/* Left - Team Photos Grid */}
             <div className="grid grid-cols-2 gap-4">
               {/* IMAGE NEEDED: 4 photos of team members - working, having fun, on job sites, etc. */}
-              <div className="aspect-[4/5] overflow-hidden rounded-xl bg-muted">
-                <div className="flex h-full items-center justify-center text-muted-foreground text-sm">
-                  Team Photo 1
+              {[1, 2, 3, 4].map((n) => (
+                <div
+                  key={n}
+                  className="relative aspect-[4/5] overflow-hidden rounded-xl border border-border bg-muted shadow-sm ring-1 ring-vm-navy/5"
+                >
+                  <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-vm-gold" />
+                  <div className="flex h-full items-center justify-center text-muted-foreground text-sm">
+                    Team Photo {n}
+                  </div>
                 </div>
-              </div>
-              <div className="aspect-[4/5] overflow-hidden rounded-xl bg-muted">
-                <div className="flex h-full items-center justify-center text-muted-foreground text-sm">
-                  Team Photo 2
-                </div>
-              </div>
-              <div className="aspect-[4/5] overflow-hidden rounded-xl bg-muted">
-                <div className="flex h-full items-center justify-center text-muted-foreground text-sm">
-                  Team Photo 3
-                </div>
-              </div>
-              <div className="aspect-[4/5] overflow-hidden rounded-xl bg-muted">
-                <div className="flex h-full items-center justify-center text-muted-foreground text-sm">
-                  Team Photo 4
-                </div>
-              </div>
+              ))}
             </div>
 
             {/* Right - Core Values */}
             <div>
-              <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
+              <div className="h-1 w-12 bg-vm-gold" />
+              <h2 className="font-varsity mt-4 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
                 Our Culture is Shaped by Our 4 Core Values
               </h2>
 
@@ -129,12 +131,12 @@ export default function CareersPage() {
                 {coreValues.map((value) => (
                   <div
                     key={value.title}
-                    className="rounded-xl border border-border bg-card p-5"
+                    className="rounded-xl border border-border border-l-4 border-l-vm-gold bg-card p-5 pl-6"
                   >
-                    <h3 className="text-lg font-semibold text-vm-navy">
+                    <h3 className="font-varsity text-xl tracking-wide text-vm-navy uppercase">
                       {value.title}
                     </h3>
-                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                       {value.description}
                     </p>
                   </div>
@@ -158,25 +160,27 @@ export default function CareersPage() {
             {/* Left - Heading */}
             <div>
               {/* Star Rating Badge */}
-              <div className="inline-flex items-center gap-2 rounded-full bg-vm-gold/30 px-4 py-2">
-                <div className="flex">
+              <div className="inline-flex items-center gap-2.5 rounded-full border border-vm-gold/50 bg-vm-gold/20 px-4 py-2 shadow-sm">
+                <div className="flex gap-0.5">
                   {[...Array(5)].map((_, i) => (
                     <svg
                       key={i}
                       className="h-4 w-4 text-vm-gold"
                       fill="currentColor"
                       viewBox="0 0 20 20"
+                      aria-hidden="true"
                     >
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
                 </div>
-                <span className="text-sm font-medium text-vm-navy">(Team Reviews)</span>
+                <span className="text-sm font-semibold text-vm-navy">(Team Reviews)</span>
               </div>
 
               <h2 className="mt-6 font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
                 What Varsity Teammates Are Saying
               </h2>
+              <div className="mt-5 h-[2px] w-16 bg-vm-gold" />
             </div>
 
             {/* Right - Review Cards */}
@@ -184,12 +188,19 @@ export default function CareersPage() {
               {teamReviews.map((review, index) => (
                 <div
                   key={index}
-                  className="rounded-xl bg-card/80 p-6"
+                  className="relative overflow-hidden rounded-xl bg-card/90 p-6 pt-7 shadow-sm ring-1 ring-vm-navy/5"
                 >
-                  <p className="text-base font-semibold text-vm-navy">
+                  <div className="absolute inset-x-0 top-0 h-1 bg-vm-gold" />
+                  <span
+                    aria-hidden="true"
+                    className="font-varsity pointer-events-none absolute right-4 top-3 select-none text-3xl leading-none text-vm-gold/40"
+                  >
+                    &ldquo;
+                  </span>
+                  <p className="text-[10px] font-bold tracking-[0.2em] text-vm-gold-dark uppercase">
                     {review.title}
                   </p>
-                  <p className="mt-4 text-sm leading-relaxed text-vm-navy/80">
+                  <p className="mt-3 text-sm leading-relaxed text-vm-navy/85 italic">
                     {review.quote}
                   </p>
                 </div>
@@ -208,16 +219,17 @@ export default function CareersPage() {
         </div>
         
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
+          <div className="mx-auto h-1 w-12 bg-vm-gold" />
+          <p className="mt-4 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
             Now Hiring
           </p>
-          <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
+          <h2 className="font-varsity mt-2 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
             Ready to Join the Team?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-            We're always looking for motivated college students who want to work hard, earn well, and be part of something they can be proud of. No experience needed—just a good attitude and willingness to learn.
+          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            We&apos;re always looking for motivated college students who want to work hard, earn well, and be part of something they can be proud of. No experience needed&mdash;just a good attitude and willingness to learn.
           </p>
-          <div className="mt-8">
+          <div className="mt-9">
             <Link
               href="/contact"
               className="inline-flex rounded-full bg-vm-navy px-8 py-4 text-base font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg"
