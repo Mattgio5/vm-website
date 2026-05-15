@@ -77,7 +77,7 @@ export default function BedCleanupPage() {
       />
       <Navbar />
       <ServiceDetail
-        title="Flower & Garden Bed Cleanup by Varsity Mulching"
+        title="Flower & Garden Bed Cleanup in Doylestown, PA"
         tagline="A clean slate for your beds"
         image="/images/service-cleanup.webp"
         description="A great landscape starts with a clean slate, and our cleanup services are designed to strip away the winter debris and reveal the true potential of your garden beds."
