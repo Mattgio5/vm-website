@@ -68,7 +68,7 @@ export function HeroCarousel() {
           <h1 className="mt-3 font-varsity text-5xl uppercase leading-[0.95] tracking-wide drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl">
             Promote Your Yard
             <br />
-            <span className="text-vm-gold">to Varsity</span>
+            <span className="text-vm-gold">to Varsity.</span>
           </h1>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/90 drop-shadow md:text-base lg:text-lg">
             Fresh mulch, expertly installed. Because JV-level landscaping isn&apos;t going to cut it.

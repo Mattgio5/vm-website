@@ -27,7 +27,7 @@ export default function ContactPage() {
               Schedule a Free Quote
             </p>
             <h1 className="font-varsity text-4xl tracking-wide text-white md:text-5xl lg:text-6xl text-balance uppercase">
-              Let&apos;s Get Your Yard On the Schedule
+              Let&apos;s Get Your Yard On the Schedule.
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
               Fill out the form below and a representative will reach out to you. No-obligation quotes, fast responses, and friendly local service.

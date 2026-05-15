@@ -1,11 +1,18 @@
 import type { Metadata, Viewport } from 'next'
-import { Open_Sans } from 'next/font/google'
+import { Open_Sans, Bowlby_One_SC } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const openSans = Open_Sans({ 
-  subsets: ['latin'], 
+const openSans = Open_Sans({
+  subsets: ['latin'],
   variable: '--font-open-sans',
+  display: 'swap',
+})
+
+const bowlbyOneSc = Bowlby_One_SC({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-varsity-display',
   display: 'swap',
 })
 
@@ -64,30 +71,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={openSans.variable}>
-      <head>
-        <link rel="preconnect" href="https://fonts.cdnfonts.com" crossOrigin="anonymous" />
-        <link
-          rel="preload"
-          as="style"
-          href="https://fonts.cdnfonts.com/css/superstar-m54"
-        />
-        <link
-          id="superstar-font"
-          rel="stylesheet"
-          href="https://fonts.cdnfonts.com/css/superstar-m54"
-          media="print"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              "(function(){var l=document.getElementById('superstar-font');if(!l)return;var swap=function(){l.media='all'};if(l.sheet){swap()}else{l.addEventListener('load',swap)}})();",
-          }}
-        />
-        <noscript>
-          <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/superstar-m54" />
-        </noscript>
-      </head>
+    <html lang="en" className={`${openSans.variable} ${bowlbyOneSc.variable}`}>
       <body className="font-sans antialiased">
         {children}
         <Analytics />
