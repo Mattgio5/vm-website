@@ -80,11 +80,8 @@ export default function BedCleanupPage() {
         title="Flower & Garden Bed Cleanup in Doylestown, PA"
         tagline="A clean slate for your beds"
         image="/images/service-cleanup.webp"
-        description="A great landscape starts with a clean slate, and our cleanup services are designed to strip away the winter debris and reveal the true potential of your garden beds."
-        aboutHeading="Professional Flower Bed Cleanup"
-        longDescription={`Before the first bag of mulch is spread, the real transformation begins with a clean canvas. After a long Pennsylvania winter, your garden beds are often hidden under a layer of fallen leaves, matted sticks, and last season's debris. This buildup doesn't just clutter your curb appeal — it can trap moisture, invite pests, and smother the early spring growth trying to break through the soil.
-
-At Varsity Mulching, our flower bed cleanup service is designed to strip away the “winter weight” and reveal the true potential of your landscape. We handle the heavy raking, the tedious debris removal, and the detailed pruning required to get your flower beds ready for the spring and summer.`}
+        description="Sometimes a yard just needs a reset."
+        longDescription="We come in and clear out everything that's built up: leaves, sticks, dead plants, weeds, decomposed mulch, all of it. Then we prep the soil so it's ready for whatever comes next, whether that's new plantings or a fresh layer of mulch. It's a clean slate for your beds without you having to haul a single bag to the curb."
         featuresNote="Each cleanup is customized to your property. Depending on what your beds need, any of the following can be included, scoped during your quote."
         features={[
           "Debris removal",
@@ -94,23 +91,25 @@ At Varsity Mulching, our flower bed cleanup service is designed to strip away th
           "Weed removal",
           "Haul-away",
         ]}
+        benefitsIntro="A bed cleanup looks simple from the outside, but the difference between a fast pass with a leaf blower and an actual reset is huge. Here's what hiring the right crew gets you:"
         benefits={[
           {
-            title: "Down to the Soil, Not Just the Surface",
+            title: "Down to the soil, not just the surface.",
             description:
               "A real cleanup gets your beds back to bare soil so what comes next has a clean foundation. The matted, decomposed layer underneath builds up all season and needs to come out, not just get covered over. We work all the way down.",
           },
           {
-            title: "Plants Respected",
+            title: "Plants respected.",
             description:
               "A good cleanup means knowing what to remove and what to leave alone. Live perennials, dormant ornamentals, and emerging shoots get carefully worked around. We treat the live parts of your bed like the asset they are.",
           },
           {
-            title: "Hauled Off, Not Piled Up",
+            title: "Hauled off, not piled up.",
             description:
               "Debris bagged at the curb or stacked in a corner of your yard is still your problem. We load every bit of it into our trucks and haul it off-site the same day. You come home to a clean property, not a project waiting on trash day.",
           },
         ]}
+        benefitsOutro="A real cleanup should leave you with nothing left to do. That's the only kind we deliver."
         relatedServices={[
           { slug: "mulch-installation", title: "Mulch Installation" },
           { slug: "weed-control", title: "Weed Control" },
@@ -128,10 +127,10 @@ At Varsity Mulching, our flower bed cleanup service is designed to strip away th
             Start Fresh
           </p>
           <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
-            Professional Flower &amp; Garden Bed Clean Up
+            Why an Early-Season Bed Cleanup Pays Off All Year
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Winters can be rough on your property, especially here in Pennsylvania. An early-season flower and garden bed clean-up will set your beds up to thrive in spring and summer. Here&apos;s how:
+            Winters can be rough on your property, especially here in Pennsylvania. An early-season flower and garden bed cleanup will set your beds up to thrive in spring and summer. Here&apos;s how:
           </p>
           <ul className="mt-6 space-y-6">
             <li className="flex gap-4">
@@ -164,7 +163,7 @@ At Varsity Mulching, our flower bed cleanup service is designed to strip away th
             </li>
           </ul>
           <p className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Leave the heavy lifting to the boys at Varsity Mulching. Our crew arrives with the right tools to handle the heavy raking and the meticulous detail work in a fraction of the time. We don&apos;t just move the mess — we haul it away, leaving your property spotless and your landscape perfectly primed for its spring transformation.
+            Leave the heavy lifting to the crew at Varsity Mulching. We arrive with the right tools to handle the heavy raking and the meticulous detail work in a fraction of the time. We don&apos;t just move the mess. We haul it away, leaving your property spotless and your landscape perfectly primed for its spring transformation.
           </p>
         </div>
       </section>

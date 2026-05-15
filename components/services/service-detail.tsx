@@ -22,6 +22,8 @@ interface ServiceDetailProps {
   featuresNote?: string
   featuresInSidebar?: boolean
   benefits?: { title: string; description: string }[]
+  benefitsIntro?: string
+  benefitsOutro?: string
   process?: { step: number; title: string; description: string }[]
   relatedServices: { slug: string; title: string }[]
   calculator?: ReactNode
@@ -39,6 +41,8 @@ export function ServiceDetail({
   featuresNote,
   featuresInSidebar = false,
   benefits = [],
+  benefitsIntro,
+  benefitsOutro,
   process = [],
   relatedServices,
   calculator,
@@ -193,23 +197,33 @@ export function ServiceDetail({
               </div>
             )}
 
-            {/* Why Varsity — only render when benefits are provided */}
-            {benefits.length > 0 && (
+            {/* Why Varsity — bullet format with optional intro/outro paragraphs */}
+            {(benefits.length > 0 || benefitsIntro || benefitsOutro) && (
               <div className="mt-12">
                 <h3 className="font-varsity text-lg tracking-wide text-vm-navy uppercase">Why Varsity</h3>
-                <div className="mt-4 grid gap-5 sm:grid-cols-2">
-                  {benefits.map((benefit) => (
-                    <div
-                      key={benefit.title}
-                      className="rounded-xl border border-border bg-card p-5"
-                    >
-                      <h4 className="font-semibold text-vm-navy">{benefit.title}</h4>
-                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                        {benefit.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                {benefitsIntro && (
+                  <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+                    {benefitsIntro}
+                  </p>
+                )}
+                {benefits.length > 0 && (
+                  <ul className="mt-6 space-y-5">
+                    {benefits.map((benefit) => (
+                      <li key={benefit.title} className="flex gap-4">
+                        <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
+                        <div>
+                          <span className="font-semibold text-vm-navy">{benefit.title} </span>
+                          <span className="text-base leading-relaxed text-muted-foreground md:text-lg">{benefit.description}</span>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {benefitsOutro && (
+                  <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
+                    {benefitsOutro}
+                  </p>
+                )}
               </div>
             )}
 

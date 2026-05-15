@@ -95,22 +95,22 @@ export default function MulchInstallationPage() {
         ]}
         benefits={[
           {
-            title: "Clean Material",
+            title: "Clean material.",
             description:
               "A lot of commercial mulch is ground-up construction waste, which means screws, plastic, and contaminants can end up in your beds. We use only natural raw material, sourced fresh and free of debris.",
           },
           {
-            title: "Filtered Water in the Grind",
+            title: "Filtered water in the grind.",
             description:
               "The water used to grind mulch becomes part of it. We use filtered water, so what arrives at your house is mulch and nothing else, with no introduced weed seeds, fungal spores, or contaminants.",
           },
           {
-            title: "Naturally Dyed for Real Protection",
+            title: "Naturally dyed for real protection.",
             description:
               "Our color comes from a vegetable oil and charcoal-based dye. The charcoal works as a natural weed suppressant, adding a layer of protection on top of our pre-emergent.",
           },
           {
-            title: "An Install That Shows",
+            title: "An install that shows.",
             description:
               "Premium mulch deserves a premium install. Our crews spread carefully around every plant, shrub, and bed edge, with consistent depth and crisp lines that keep your beds sharp and your plants healthy.",
           },

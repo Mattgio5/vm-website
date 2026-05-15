@@ -77,43 +77,63 @@ export default function WeedControlPage() {
       />
       <Navbar />
       <ServiceDetail
-        title="Professional Weed Control in Doylestown"
+        title="Professional Weed Control in Doylestown, PA"
         tagline="A discipline, not a one-time service"
         image="/images/service-weed.jpg"
         description="Killing weeds at the root and stopping new ones from breaking the surface, so your landscape stays beautiful and your weekends stay free."
-        featuresHeading="What's Included"
-        featuresInSidebar
+        longDescription="Weeds are the fastest way for a fresh-looking yard to start looking neglected. Our crew handles every part of the job: treat the existing weeds with professional-grade herbicide, return a week later to pull them clean, and lay down pre-emergent or landscape fabric to block the next wave. Done right, on a schedule that actually keeps your beds clean."
+        featuresHeading="Options"
         features={[
           "Pre-emergent application",
+          "Post-emergent weed killer treatments",
           "Manual weed removal",
           "Landscape fabric",
-          "Weed killer treatments",
         ]}
         process={[
           {
             step: 1,
             title: "Weed Killer Treatment",
             description:
-              "One week before removal — the essential step most people miss. Weed killer needs to enter through the green part of the weed so the plant is dead before it's pulled, which ensures the root residue doesn't regrow.",
+              "One week before removal. We apply professional-grade herbicide to all visible weeds in your beds. By the time we return for removal, the weeds are dead at the root.",
           },
           {
             step: 2,
-            title: "Removal",
-            description: "We pull every treated weed cleanly from the beds.",
+            title: "Manual Removal",
+            description:
+              "We pull every treated weed cleanly from the beds, root residue included.",
           },
           {
             step: 3,
             title: "Prevention Layer",
             description:
-              "Pre-emergent or landscape fabric, depending on which one the client wants.",
+              "We apply pre-emergent across the bed, or install landscape fabric for clients who want maximum coverage, before mulching.",
           },
           {
             step: 4,
-            title: "Maintenance",
+            title: "Ongoing Maintenance",
             description:
-              "Bi-weekly or monthly weed killer applications followed by manual removal of any new weeds.",
+              "Bi-weekly or monthly visits keep new weeds in check with targeted herbicide application followed by manual removal.",
           },
         ]}
+        benefitsIntro="Weed control is one of those services where the science matters more than the effort. Here's what we do differently:"
+        benefits={[
+          {
+            title: "Roots that actually die.",
+            description:
+              "Weed killer only works when it enters through the green part of the plant. From there, it travels down and kills the root. We treat each weed while it's still standing, let the herbicide do its work, and pull what's left, root and all.",
+          },
+          {
+            title: "The right wait time.",
+            description:
+              "Herbicide takes three to seven days to travel from the leaves down to the root. We schedule removal a full week after treatment, every time, so the plant is fully neutralized when we touch it.",
+          },
+          {
+            title: "Pre-emergent at the right moment.",
+            description:
+              "Pre-emergent blocks new seeds from germinating, but it doesn't kill anything already up. We lay it down right after the existing weeds are pulled, so the bed is clean and the shield is in place at the same time.",
+          },
+        ]}
+        benefitsOutro="Weed control is a discipline, not a one-time service. Our process treats it that way."
         relatedServices={[
           { slug: "mulch-installation", title: "Mulch Installation" },
           { slug: "bed-cleanup", title: "Bed Cleanup" },

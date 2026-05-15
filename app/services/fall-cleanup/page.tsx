@@ -65,19 +65,19 @@ export default function FallCleanupPage() {
         ]}
         benefits={[
           {
-            title: "The Whole Property, Not Just the Lawn",
+            title: "The whole property, not just the lawn.",
             description:
               "Leaves on the lawn are the visible problem, but the real damage happens where most cleanup work doesn't reach: under shrubs, along foundation lines, and inside your beds, where matted debris traps moisture against soil all winter. We clear the whole property, top to bottom.",
           },
           {
-            title: "Hauled Away",
+            title: "Hauled away.",
             description:
               "Every bag, every load, off-site the same day. We dispose of all collected debris properly, so your property goes into winter clean: no piles, no bags, nothing left to deal with on your own.",
           },
           {
-            title: "A Property Ready for Winter, Not Just Tidy for Now",
+            title: "A property ready for winter, not just tidy for now.",
             description:
-              "Cleanup isn't about how your yard looks before the snow flies — it's about how it makes it through. We touch up mulch where it's thinned over the season, clear debris from around your perennials and shrubs, and leave your property set up to come out of winter clean instead of needing weeks of recovery in March.",
+              "Cleanup isn't about how your yard looks before the snow flies, it's about how it makes it through. We touch up mulch where it's thinned over the season, clear debris from around your perennials and shrubs, and leave your property set up to come out of winter clean instead of needing weeks of recovery in March.",
           },
         ]}
         relatedServices={[
@@ -100,7 +100,7 @@ export default function FallCleanupPage() {
             Why a Thorough Fall Cleanup Sets Up Next Spring
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-            A fall cleanup isn&apos;t just about how your yard looks heading into winter — it&apos;s about whether your property makes it through. The leaves and debris that pile up in October and November don&apos;t disappear under the snow. They sit there for four or five months, doing real damage to lawn, beds, and the plants you&apos;re counting on next year.
+            A fall cleanup isn&apos;t just about how your yard looks heading into winter, it&apos;s about whether your property makes it through. The leaves and debris that pile up in October and November don&apos;t disappear under the snow. They sit there for four or five months, doing real damage to lawn, beds, and the plants you&apos;re counting on next year.
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
             Here&apos;s what a proper fall cleanup actually prevents:
@@ -131,7 +131,7 @@ export default function FallCleanupPage() {
               <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
               <div>
                 <span className="font-semibold text-vm-navy">A slow spring. </span>
-                <span className="text-muted-foreground">A property buried under winter debris doesn&apos;t bounce back when warm weather returns — it limps back. Patchy lawns, weakened plants, and matted bed surfaces take weeks of correction to recover. A property that was cleaned in the fall hits March green and ready.</span>
+                <span className="text-muted-foreground">A property buried under winter debris doesn&apos;t bounce back when warm weather returns, it limps back. Patchy lawns, weakened plants, and matted bed surfaces take weeks of correction to recover. A property that was cleaned in the fall hits March green and ready.</span>
               </div>
             </li>
           </ul>
