@@ -13,7 +13,7 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[400px] w-full overflow-hidden">
+      <section className="bg-noise relative h-[60vh] min-h-[400px] w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
           <video
             className="absolute inset-0 h-full w-full object-cover"
@@ -28,21 +28,31 @@ export default function AboutPage() {
             <source src="/videos/hero-video.webm" type="video/webm" />
             <source src="/videos/hero-video.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-b from-vm-navy/60 via-vm-navy/40 to-vm-navy/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-vm-navy/65 via-vm-navy/45 to-vm-navy/75" />
         </div>
 
         <div className="relative z-10 flex h-full items-center px-4 pt-24 md:px-12 lg:px-20">
           <div className="mx-auto max-w-4xl text-center">
-            <h1 className="font-varsity text-4xl tracking-wide text-white md:text-5xl lg:text-6xl text-balance uppercase">
+            <h1
+              className="vm-reveal font-varsity text-4xl tracking-wide text-white md:text-5xl lg:text-6xl text-balance uppercase"
+              style={{ animationDelay: "60ms" }}
+            >
               Our Story
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
+            <div
+              className="vm-reveal mx-auto mt-5 h-[2px] w-20 bg-vm-gold"
+              style={{ animationDelay: "160ms" }}
+            />
+            <p
+              className="vm-reveal mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/80"
+              style={{ animationDelay: "240ms" }}
+            >
               We&apos;re a small business in the greater Philadelphia area employing hometown talent to keep your yard fresh each year.
             </p>
-            <div className="mt-8">
+            <div className="vm-reveal mt-8" style={{ animationDelay: "320ms" }}>
               <a
                 href="/contact"
-                className="inline-flex rounded-full bg-vm-gold px-7 py-3.5 text-base font-semibold text-vm-navy transition-all hover:bg-vm-gold/90 hover:shadow-lg"
+                className="inline-flex rounded-full bg-vm-gold px-7 py-3.5 text-base font-semibold text-vm-navy transition-all hover:bg-vm-gold-dark hover:shadow-lg"
               >
                 Get a Free Quote
               </a>
@@ -59,24 +69,27 @@ export default function AboutPage() {
           <div className="h-2.5 w-full bg-vm-navy" />
         </div>
         <div className="mx-auto max-w-4xl">
-          <p className="mb-2 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
+          <div className="h-1 w-12 bg-vm-gold" />
+          <p className="mt-4 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
             The Kid Next Door
           </p>
-          <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
+          <h2 className="font-varsity mt-2 text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
             The Varsity Mulching Story
           </h2>
-          <p className="mt-1 text-lg font-semibold text-vm-blue-dark">
+          <p className="mt-2 text-lg font-semibold text-vm-blue-dark">
             Expert Quality. Youthful Spirit
           </p>
           <p className="mt-3 text-sm font-semibold tracking-wide text-muted-foreground">
             The Kid Next Door: Good Landscapes Start With Good Neighbors.
           </p>
 
-          <div className="mt-10 grid gap-12 md:grid-cols-5 md:gap-16">
+          <div className="mt-12 grid gap-12 md:grid-cols-5 md:gap-16">
             {/* Photo - Sticky on scroll */}
             <div className="md:col-span-2">
               <div className="md:sticky md:top-32">
-                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-muted">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-border bg-muted shadow-lg">
+                  {/* Gold accent stripe */}
+                  <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-vm-gold" />
                   {/* IMAGE NEEDED: Professional but approachable photo of the founder/owner, ideally in casual business attire or Varsity Mulching branded clothing */}
                   <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
                     <span className="text-sm">Founder Photo</span>
@@ -88,27 +101,34 @@ export default function AboutPage() {
             {/* Message */}
             <div className="md:col-span-3">
               <blockquote className="relative">
-                <p className="text-lg leading-relaxed text-vm-navy/80 md:text-xl md:leading-relaxed">
+                {/* Decorative quote mark */}
+                <span
+                  aria-hidden="true"
+                  className="font-varsity pointer-events-none absolute -left-1 -top-8 select-none text-7xl leading-none text-vm-gold/30 md:-top-10 md:text-8xl"
+                >
+                  &ldquo;
+                </span>
+                <p className="text-lg leading-relaxed text-vm-navy/85 md:text-xl md:leading-relaxed">
                   I started Varsity Mulching with a few of my hockey teammates in high school. We chose the name Varsity because that&apos;s what we were at the time. As the business grew, Varsity came to mean something more. It became a standard for attention to detail, clear communication, and customer service that people could rely on.
                 </p>
-                <p className="mt-6 text-lg leading-relaxed text-vm-navy/80 md:text-xl md:leading-relaxed">
+                <p className="mt-6 text-lg leading-relaxed text-vm-navy/85 md:text-xl md:leading-relaxed">
                   As we scaled, I wanted to protect that standard. That&apos;s why we partnered with three local colleges to bring student athletes from the fields to our clients&apos; mulch beds. We pair them with highly experienced crew leads who know the work and set expectations on every job. The result is a dependable, professional experience that delivers consistent results without losing what made Varsity special in the first place.
                 </p>
-                <p className="mt-6 text-lg leading-relaxed text-vm-navy/80 md:text-xl md:leading-relaxed">
+                <p className="mt-6 text-lg leading-relaxed text-vm-navy/85 md:text-xl md:leading-relaxed">
                   Everyone&apos;s hired the neighbor&apos;s kid to spread some mulch. Varsity is that kid — just with better equipment and a system that works every time. Our crews are college kids from the area. You&apos;ve probably seen them around. They&apos;re local, they show up, and they do the job right.
                 </p>
-                <p className="mt-6 text-lg leading-relaxed text-vm-navy/80 md:text-xl md:leading-relaxed">
+                <p className="mt-6 text-lg leading-relaxed text-vm-navy/85 md:text-xl md:leading-relaxed">
                   Thank you for being part of our story.
                 </p>
 
                 {/* Signature */}
-                <div className="mt-10 flex items-center gap-4">
-                  <div className="h-px flex-1 bg-border" />
+                <div className="mt-12 flex items-center gap-5">
+                  <div className="h-px flex-1 bg-vm-gold/40" />
                   <div className="text-right">
-                    <p className="font-semibold text-vm-navy text-lg">
-                      — Matt Giordano
+                    <p className="font-varsity text-xl tracking-wide text-vm-navy uppercase">
+                      &mdash; Matt Giordano
                     </p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="mt-1 text-xs font-semibold tracking-widest text-vm-gold-dark uppercase">
                       Founder, Varsity Mulching
                     </p>
                   </div>
@@ -129,21 +149,22 @@ export default function AboutPage() {
 
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
-            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
+            <div className="mx-auto h-1 w-12 bg-vm-gold" />
+            <p className="mt-4 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
               The Power Pair
             </p>
-            <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
+            <h2 className="font-varsity mt-2 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
               Meet the Team: The Power Behind the Polish
             </h2>
-            <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
               At Varsity Mulching, we believe that a great landscape is built on two things: expert strategy and unmatched hustle. Our unique &ldquo;Power Pair&rdquo; staffing model ensures that every job is overseen by a seasoned professional and executed with the energy of a division-level athlete. When you see a Varsity crew pull into your driveway, here is the team you&apos;re meeting:
             </p>
           </div>
 
           {/* Team Grid - 8 members */}
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {/* Team Member 1 */}
-            <div className="group rounded-2xl border border-border bg-card p-5">
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-card px-5 pt-6 pb-5 before:absolute before:left-0 before:right-0 before:top-0 before:h-1 before:bg-vm-gold before:content-['']">
               <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
                 {/* IMAGE NEEDED: Headshot of team member 1, casual/friendly style */}
                 <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
@@ -162,7 +183,7 @@ export default function AboutPage() {
             </div>
 
             {/* Team Member 2 */}
-            <div className="group rounded-2xl border border-border bg-card p-5">
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-card px-5 pt-6 pb-5 before:absolute before:left-0 before:right-0 before:top-0 before:h-1 before:bg-vm-gold before:content-['']">
               <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
                 {/* IMAGE NEEDED: Headshot of team member 2, casual/friendly style */}
                 <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
@@ -181,7 +202,7 @@ export default function AboutPage() {
             </div>
 
             {/* Team Member 3 */}
-            <div className="group rounded-2xl border border-border bg-card p-5">
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-card px-5 pt-6 pb-5 before:absolute before:left-0 before:right-0 before:top-0 before:h-1 before:bg-vm-gold before:content-['']">
               <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
                 {/* IMAGE NEEDED: Headshot of team member 3, casual/friendly style */}
                 <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
@@ -200,7 +221,7 @@ export default function AboutPage() {
             </div>
 
             {/* Team Member 4 */}
-            <div className="group rounded-2xl border border-border bg-card p-5">
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-card px-5 pt-6 pb-5 before:absolute before:left-0 before:right-0 before:top-0 before:h-1 before:bg-vm-gold before:content-['']">
               <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
                 {/* IMAGE NEEDED: Headshot of team member 4, casual/friendly style */}
                 <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
@@ -219,7 +240,7 @@ export default function AboutPage() {
             </div>
 
             {/* Team Member 5 */}
-            <div className="group rounded-2xl border border-border bg-card p-5">
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-card px-5 pt-6 pb-5 before:absolute before:left-0 before:right-0 before:top-0 before:h-1 before:bg-vm-gold before:content-['']">
               <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
                 {/* IMAGE NEEDED: Headshot of team member 5, casual/friendly style */}
                 <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
@@ -238,7 +259,7 @@ export default function AboutPage() {
             </div>
 
             {/* Team Member 6 */}
-            <div className="group rounded-2xl border border-border bg-card p-5">
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-card px-5 pt-6 pb-5 before:absolute before:left-0 before:right-0 before:top-0 before:h-1 before:bg-vm-gold before:content-['']">
               <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
                 {/* IMAGE NEEDED: Headshot of team member 6, casual/friendly style */}
                 <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
@@ -257,7 +278,7 @@ export default function AboutPage() {
             </div>
 
             {/* Team Member 7 */}
-            <div className="group rounded-2xl border border-border bg-card p-5">
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-card px-5 pt-6 pb-5 before:absolute before:left-0 before:right-0 before:top-0 before:h-1 before:bg-vm-gold before:content-['']">
               <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
                 {/* IMAGE NEEDED: Headshot of team member 7, casual/friendly style */}
                 <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
@@ -276,7 +297,7 @@ export default function AboutPage() {
             </div>
 
             {/* Team Member 8 */}
-            <div className="group rounded-2xl border border-border bg-card p-5">
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-card px-5 pt-6 pb-5 before:absolute before:left-0 before:right-0 before:top-0 before:h-1 before:bg-vm-gold before:content-['']">
               <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
                 {/* IMAGE NEEDED: Headshot of team member 8, casual/friendly style */}
                 <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
@@ -323,37 +344,41 @@ export default function AboutPage() {
         
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
-            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
+            <div className="mx-auto h-1 w-12 bg-vm-gold" />
+            <p className="mt-4 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
               Why Choose Us
             </p>
-            <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
+            <h2 className="font-varsity mt-2 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
               Neighbors Helping Neighbors
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              When you hire Varsity, you're supporting local college students and keeping your dollars in the community.
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              When you hire Varsity, you&apos;re supporting local college students and keeping your dollars in the community.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
+          <div className="mt-14 grid gap-8 md:grid-cols-3">
             <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-              <p className="font-varsity text-4xl text-vm-gold-dark">3</p>
-              <p className="mt-2 text-lg font-semibold text-vm-navy">Partner Colleges</p>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className="font-varsity text-5xl leading-none text-vm-navy md:text-6xl">3</p>
+              <span className="mt-3 block h-[2px] w-10 bg-vm-gold" />
+              <p className="mt-4 text-lg font-semibold text-vm-navy">Partner Colleges</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 We recruit hardworking student athletes from three local Pennsylvania colleges.
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-              <p className="font-varsity text-4xl text-vm-gold-dark">10+</p>
-              <p className="mt-2 text-lg font-semibold text-vm-navy">Crews Ready to Help</p>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className="font-varsity text-5xl leading-none text-vm-navy md:text-6xl">10+</p>
+              <span className="mt-3 block h-[2px] w-10 bg-vm-gold" />
+              <p className="mt-4 text-lg font-semibold text-vm-navy">Crews Ready to Help</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 With crews across the greater Philly area, we can be a help everywhere.
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-              <p className="font-varsity text-4xl text-vm-gold-dark">2021</p>
-              <p className="mt-2 text-lg font-semibold text-vm-navy">Est. & Growing</p>
-              <p className="mt-2 text-sm text-muted-foreground">
-                From a few high schoolers to a full team, we've grown through word of mouth ever since.
+              <p className="font-varsity text-5xl leading-none text-vm-navy md:text-6xl">2021</p>
+              <span className="mt-3 block h-[2px] w-10 bg-vm-gold" />
+              <p className="mt-4 text-lg font-semibold text-vm-navy">Est. &amp; Growing</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                From a few high schoolers to a full team, we&apos;ve grown through word of mouth ever since.
               </p>
             </div>
           </div>
