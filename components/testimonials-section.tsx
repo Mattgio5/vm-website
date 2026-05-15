@@ -15,8 +15,16 @@ export function TestimonialsSection() {
           <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
             Hear from our customers
           </p>
-          <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl lg:text-5xl text-balance uppercase">
-            5.0 on Google &mdash; 166 Reviews
+          <h2 className="font-varsity flex flex-wrap items-center justify-center gap-x-3 text-3xl tracking-wide text-vm-navy md:text-4xl lg:text-5xl text-balance uppercase">
+            <span>Rated 5</span>
+            <svg
+              viewBox="0 0 20 20"
+              aria-hidden="true"
+              className="inline-block h-7 w-7 shrink-0 fill-vm-gold md:h-9 md:w-9 lg:h-11 lg:w-11"
+            >
+              <path d="M10 1.5l2.6 5.4 5.9.6-4.4 4 1.3 5.8L10 14.7 4.6 17.3l1.3-5.8L1.5 7.5l5.9-.6L10 1.5z" />
+            </svg>
+            <span>by 166 Loyal Customers</span>
           </h2>
         </div>
 

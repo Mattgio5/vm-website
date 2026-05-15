@@ -32,7 +32,7 @@ function Initials({ name }: { name: string }) {
 
 function Card({ t }: { t: Testimonial }) {
   return (
-    <article className="flex h-full w-[min(85vw,360px)] shrink-0 flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm md:w-[360px]">
+    <article className="snap-start flex h-full w-[min(85vw,340px)] shrink-0 flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm md:w-[calc((100%-3rem)/3)]">
       {t.image ? (
         <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
           <img
@@ -125,9 +125,7 @@ export function TestimonialsCarousel() {
         className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {testimonials.map((t) => (
-          <div key={t.name} className="snap-start">
-            <Card t={t} />
-          </div>
+          <Card key={t.name} t={t} />
         ))}
       </div>
 
