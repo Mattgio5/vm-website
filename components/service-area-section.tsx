@@ -28,10 +28,10 @@ export function ServiceAreaSection() {
           <div className="flex justify-center">
             <div className="relative w-full max-w-md rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/service-area-map.png"
-                alt="Service area map showing Chester, Delaware, Montgomery, Bucks, Philadelphia, Burlington, and Camden counties"
-                width={696}
-                height={612}
+                src="/images/service-area-map.jpg"
+                alt="Service area map highlighting Bucks County and Montgomery County, PA"
+                width={1208}
+                height={805}
                 sizes="(min-width: 768px) 28rem, 100vw"
                 className="w-full h-auto"
               />
