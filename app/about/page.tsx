@@ -80,10 +80,7 @@ export default function AboutPage() {
         </div>
         <div className="mx-auto max-w-4xl">
           <div className="h-1 w-12 bg-vm-gold" />
-          <p className="mt-4 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
-            The Kid Next Door
-          </p>
-          <h2 className="font-varsity mt-2 text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
+          <h2 className="font-varsity mt-4 text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
             The Varsity Mulching Story
           </h2>
           <p className="mt-2 text-lg font-semibold text-vm-blue-dark">
@@ -164,10 +161,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <div className="mx-auto h-1 w-12 bg-vm-gold" />
-            <p className="mt-4 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
-              The Power Pair
-            </p>
-            <h2 className="font-varsity mt-2 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
+            <h2 className="font-varsity mt-4 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
               Meet the Team: The Power Behind the Polish
             </h2>
             <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">

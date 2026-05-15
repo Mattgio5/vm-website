@@ -102,22 +102,13 @@ export default function MediaPage() {
             <div>
               <div className="h-1 w-12 bg-vm-gold" />
               <p className="mt-4 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
-                Fresh From Instagram
+                On Instagram
               </p>
               <h2 className="font-varsity mt-2 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
-                Our Latest Post
+                Follow @varsitymulching
               </h2>
               <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                Follow{" "}
-                <Link
-                  href="https://www.instagram.com/varsitymulching/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-vm-blue-dark hover:underline"
-                >
-                  @varsitymulching
-                </Link>{" "}
-                for more updates.
+                Project shots, before-and-afters, and a peek at the crew between jobs.
               </p>
 
               {/* Instagram Embed Container */}
@@ -137,22 +128,13 @@ export default function MediaPage() {
             <div>
               <div className="h-1 w-12 bg-vm-gold" />
               <p className="mt-4 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
-                Fresh From Facebook
+                On Facebook
               </p>
               <h2 className="font-varsity mt-2 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
-                Our Latest Post
+                Like Our Page
               </h2>
               <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                Like us on{" "}
-                <Link
-                  href="https://www.facebook.com/people/Varsity-Mulching/61550553115186/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-vm-blue-dark hover:underline"
-                >
-                  Facebook
-                </Link>{" "}
-                to keep up with the team.
+                Project updates, customer stories, and what the team has been up to.
               </p>
 
               {/* Facebook Page Plugin Embed */}
