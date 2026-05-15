@@ -13,7 +13,7 @@ const services = [
     description: "Premium mulch delivered and professionally installed",
   },
   {
-    label: "Landscape Edging",
+    label: "Flower Bed Edging",
     href: "/services/edges",
     description: "Clean, crisp borders for your garden beds",
   },

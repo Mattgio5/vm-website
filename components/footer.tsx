@@ -4,7 +4,7 @@ import Image from "next/image"
 const footerLinks = {
   Services: [
     { label: "Mulch Installation", href: "/services/mulch-installation" },
-    { label: "Landscape Edging", href: "/services/edges" },
+    { label: "Flower Bed Edging", href: "/services/edges" },
     { label: "Weed Control", href: "/services/weed-control" },
     { label: "Bed Cleanup", href: "/services/bed-cleanup" },
   ],

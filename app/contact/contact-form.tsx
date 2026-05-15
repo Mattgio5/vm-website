@@ -8,7 +8,7 @@ import { CheckCircle2 } from "lucide-react"
 
 const services = [
   "Mulch Installation",
-  "Landscape Edging",
+  "Flower Bed Edging",
   "Weed Control",
   "Bed Cleanup",
   "Supplements / Add-ons",

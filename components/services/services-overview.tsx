@@ -18,7 +18,7 @@ const services = [
   },
   {
     slug: "edges",
-    title: "Landscape Edging",
+    title: "Flower Bed Edging",
     tagline: "The detail that finishes a yard",
     description:
       "Hand-cut, deep, vertical edges that hold their shape all season. Sharp lines around every bed, with the same attention to detail on tight curves and corners as on long straight runs.",

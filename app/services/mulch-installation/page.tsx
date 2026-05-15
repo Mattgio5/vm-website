@@ -116,7 +116,7 @@ export default function MulchInstallationPage() {
           },
         ]}
         relatedServices={[
-          { slug: "edges", title: "Landscape Edging" },
+          { slug: "edges", title: "Flower Bed Edging" },
           { slug: "weed-control", title: "Weed Control" },
           { slug: "bed-cleanup", title: "Bed Cleanup" },
         ]}

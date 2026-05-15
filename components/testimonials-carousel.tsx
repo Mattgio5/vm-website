@@ -131,12 +131,12 @@ export function TestimonialsCarousel() {
         ))}
       </div>
 
-      {/* Prev / Next buttons */}
+      {/* Prev / Next buttons — sit in the section's outer padding so they don't overlap the cards */}
       <button
         type="button"
         aria-label="Previous testimonials"
         onClick={() => scrollByCards(-1)}
-        className={`absolute -left-2 top-1/2 hidden -translate-y-1/2 items-center justify-center rounded-full border border-border bg-white p-2 text-vm-navy shadow-md transition-opacity hover:bg-vm-blue/20 md:flex ${
+        className={`absolute top-1/2 hidden -translate-y-1/2 items-center justify-center rounded-full border border-border bg-white p-2.5 text-vm-navy shadow-md transition-opacity hover:bg-vm-blue/20 md:flex md:-left-12 lg:-left-16 ${
           canScroll.left ? "opacity-100" : "pointer-events-none opacity-30"
         }`}
       >
@@ -148,7 +148,7 @@ export function TestimonialsCarousel() {
         type="button"
         aria-label="Next testimonials"
         onClick={() => scrollByCards(1)}
-        className={`absolute -right-2 top-1/2 hidden -translate-y-1/2 items-center justify-center rounded-full border border-border bg-white p-2 text-vm-navy shadow-md transition-opacity hover:bg-vm-blue/20 md:flex ${
+        className={`absolute top-1/2 hidden -translate-y-1/2 items-center justify-center rounded-full border border-border bg-white p-2.5 text-vm-navy shadow-md transition-opacity hover:bg-vm-blue/20 md:flex md:-right-12 lg:-right-16 ${
           canScroll.right ? "opacity-100" : "pointer-events-none opacity-30"
         }`}
       >

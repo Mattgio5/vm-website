@@ -16,6 +16,7 @@ interface ServiceDetailProps {
   description: string
   longDescription: string
   image: string
+  aboutHeading?: string
   features?: string[]
   featuresHeading?: string
   featuresNote?: string
@@ -31,6 +32,7 @@ export function ServiceDetail({
   description,
   longDescription,
   image,
+  aboutHeading = "About This Service",
   features = [],
   featuresHeading = "What's Included",
   featuresNote,
@@ -101,7 +103,7 @@ export function ServiceDetail({
           {/* Left column - main service content */}
           <div className="lg:col-span-2">
             <h2 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl uppercase">
-              About This Service
+              {aboutHeading}
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
               {longDescription}

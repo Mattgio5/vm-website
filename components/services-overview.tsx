@@ -8,7 +8,7 @@ const services = [
     href: "/services/mulch-installation",
   },
   {
-    title: "Precise Landscape Edging",
+    title: "Precise Flower Bed Edging",
     description:
       "Deep, clean borders that define your beds and walkways.",
     href: "/services/edges",

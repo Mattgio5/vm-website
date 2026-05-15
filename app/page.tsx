@@ -108,7 +108,7 @@ const jsonLd = {
       },
       {
         "@type": "OfferCatalog",
-        "name": "Landscape Edging",
+        "name": "Flower Bed Edging",
         "description": "Clean, crisp borders that define garden beds and prevent grass invasion"
       },
       {

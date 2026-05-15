@@ -3,17 +3,17 @@ import { Footer } from "@/components/footer"
 import { ServiceDetail } from "@/components/services/service-detail"
 
 export const metadata = {
-  title: "Landscape Edging in Chester County & Bucks County, PA | Varsity Mulching",
+  title: "Flower Bed Edging in Doylestown, PA | Varsity Mulching",
   description:
-    "Professional landscape edging in Chester County, Bucks County & Montgomery County, PA. Crisp, clean borders that define your beds and prevent grass invasion. Serving West Chester, Doylestown & Malvern.",
+    "Professional flower bed edging in Doylestown, PA and across Bucks, Chester & Montgomery County. Hand-cut, deep, clean borders that define your beds and keep mulch in place.",
 }
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "serviceType": "Landscape Edging",
-  "name": "Professional Landscape Edging",
-  "description": "Crisp, clean borders that define your beds and prevent grass invasion. Spade-cut edges, metal and plastic edging installation.",
+  "serviceType": "Flower Bed Edging",
+  "name": "Professional Flower Bed Edging",
+  "description": "Hand-cut, deep, clean borders that define flower and garden beds, stop grass invasion, and keep mulch in place.",
   "url": "https://www.varsitymulching.com/services/edges",
   "provider": {
     "@type": "LocalBusiness",
@@ -60,7 +60,7 @@ const breadcrumbJsonLd = {
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.varsitymulching.com/" },
     { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.varsitymulching.com/services" },
-    { "@type": "ListItem", "position": 3, "name": "Landscape Edging", "item": "https://www.varsitymulching.com/services/edges" }
+    { "@type": "ListItem", "position": 3, "name": "Flower Bed Edging", "item": "https://www.varsitymulching.com/services/edges" }
   ]
 }
 
@@ -77,11 +77,12 @@ export default function EdgesPage() {
       />
       <Navbar />
       <ServiceDetail
-        title="Landscape Edging in Doylestown, PA"
+        title="Flower Bed Edging in Doylestown, PA"
         tagline="The detail that finishes a yard"
         image="/images/service-edges.webp"
         description="Edging is the detail that separates a good yard from a great one."
-        longDescription="Our crew hand-cuts every line with edging spades, carving a deep, vertical trench that gives your beds a sharp, architectural look the moment we're done. Whether you're refreshing existing beds or starting from scratch, we set the lines, clear the debris, and leave you with crisp, finished edges that frame your landscape all season."
+        aboutHeading="Experience the Precision of Varsity Flower Bed Edging"
+        longDescription="Professional bed edging provides the sharp, clean lines that separate your lush lawn from your vibrant garden beds, instantly elevating your home's curb appeal from &ldquo;maintained&rdquo; to &ldquo;estate-quality.&rdquo; At Varsity Mulching, we specialize in cutting edges that define the flower and garden beds. That definition not only results in a cleaner, fresher look to your property — it also keeps the beds' mulch in place and minimizes the spread into the lawn."
         benefits={[
           {
             title: "The Look",
@@ -110,7 +111,7 @@ export default function EdgesPage() {
           { slug: "weed-control", title: "Weed Control" },
         ]}
       />
-      {/* SEO Section: Hand-Cut */}
+      {/* SEO Section: Why Professional Edging Matters */}
       <section className="relative bg-muted px-4 py-20 md:px-12 md:py-28 lg:px-20">
         <div className="absolute top-0 left-0 right-0 flex flex-col">
           <div className="h-2.5 w-full bg-vm-gold" />
@@ -118,42 +119,70 @@ export default function EdgesPage() {
         </div>
         <div className="mx-auto max-w-4xl">
           <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
-            Why Hand-Cut
+            Function, Not Just Form
           </p>
           <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
-            Not All Edging Is Equal: The Power of Hand-Cut
+            Why Professional Edging Matters
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-            A great edge is one of those details most homeowners notice without knowing why. It&apos;s the clean line between lawn and bed that makes a property feel cared for, intentional, and finished. But edging isn&apos;t just an aesthetic detail. A properly cut edge does real work in your landscape every day.
+            Edging is about more than just aesthetics; it is a functional component of your yard.
           </p>
           <ul className="mt-8 space-y-5">
             <li className="flex gap-4">
               <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
               <div>
-                <span className="font-semibold text-vm-navy">It stops grass invasion. </span>
-                <span className="text-muted-foreground">A deep, vertical trench creates a physical barrier that turf roots can&apos;t easily cross, keeping your lawn from creeping into your beds and choking out the plants you actually want there.</span>
+                <span className="font-semibold text-vm-navy">Stop Grass Invasion. </span>
+                <span className="text-muted-foreground">A deep, professional edge creates a physical trench that prevents turf grass roots from creeping into your flowerbeds and choking out your plants.</span>
               </div>
             </li>
             <li className="flex gap-4">
               <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
               <div>
-                <span className="font-semibold text-vm-navy">It keeps mulch where it belongs. </span>
-                <span className="text-muted-foreground">That same trench acts as a natural basin during heavy rain, holding your mulch in the bed instead of letting it wash out onto your grass or driveway.</span>
+                <span className="font-semibold text-vm-navy">Keep Mulch in its Place. </span>
+                <span className="text-muted-foreground">Tired of mulch washing onto your grass or driveway after a rainstorm? Varsity Mulching&apos;s precision edging acts as a natural basin, keeping your premium triple-ground mulch exactly where it belongs.</span>
               </div>
             </li>
             <li className="flex gap-4">
               <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
               <div>
-                <span className="font-semibold text-vm-navy">It makes mowing faster and safer. </span>
-                <span className="text-muted-foreground">A clean, visible border gives your mower and trimmer a clear strike zone, which protects your plants from accidental damage and shaves time off every weekly cut.</span>
+                <span className="font-semibold text-vm-navy">Mow with Ease. </span>
+                <span className="text-muted-foreground">Clean borders create a clear &ldquo;strike zone&rdquo; for mowers and trimmers, protecting your delicate plantings from accidental damage and making your weekly yard work faster and easier.</span>
               </div>
             </li>
           </ul>
-          <p className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
-            The catch is that most edges aren&apos;t cut to actually do these things. Machinery edges round off the trench and leave a shallow, soft line that grass crosses again within weeks. Plastic strips look fine on day one but crack, heave, and shift as soil freezes and thaws, leaving you with a maintenance problem and a yard that looks worse a few years in than it did the day it was installed.
+
+          <p className="mt-10 text-base leading-relaxed text-muted-foreground md:text-lg">
+            While some companies rely on flimsy plastic strips, we recommend the timeless look of a natural hand-cut edge. This traditional technique involves carving a crisp, vertical trench into the soil.
           </p>
-          <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Hand-cut edging is the old-school technique for a reason: it drains naturally, holds its shape, and can be re-cut clean each spring with the same spade work. No materials to rip out, no plastic to fight, no compromise on the look. The trench you get on installation day is the same trench you get all season, and the season after that.
+          <ul className="mt-6 space-y-5">
+            <li className="flex gap-4">
+              <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
+              <div>
+                <span className="font-semibold text-vm-navy">The Look. </span>
+                <span className="text-muted-foreground">A deep, architectural shadow line that looks clean, organic, and high-end.</span>
+              </div>
+            </li>
+            <li className="flex gap-4">
+              <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
+              <div>
+                <span className="font-semibold text-vm-navy">The Benefit. </span>
+                <span className="text-muted-foreground">It allows for better drainage and makes it easy to refresh your beds each season without dealing with cracked or heaving plastic barriers.</span>
+              </div>
+            </li>
+            <li className="flex gap-4">
+              <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
+              <div>
+                <span className="font-semibold text-vm-navy">The Varsity Touch. </span>
+                <span className="text-muted-foreground">Our crew uses specialized equipment and steady hands to ensure every curve is smooth and every straight line is true.</span>
+              </div>
+            </li>
+          </ul>
+
+          <p className="mt-10 text-base leading-relaxed text-muted-foreground md:text-lg">
+            Don&apos;t let a blurred property line or messy grass creep take away from the beauty of your home. Professional edging is the fastest way to give your landscape a structured, high-end look that lasts all season. Whether you are refreshing your current garden beds or starting from scratch, our team is ready to provide the precision and clean finish your yard deserves.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+            Let us handle the heavy lifting and the meticulous detail work so you can simply step back and enjoy a perfectly manicured view.
           </p>
         </div>
       </section>

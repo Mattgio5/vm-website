@@ -8,7 +8,7 @@ const GOOGLE_REVIEWS_URL =
 
 const SERVICE_OPTIONS = [
   "Mulch Installation",
-  "Landscape Edging",
+  "Flower Bed Edging",
   "Weed Control",
   "Bed Cleanup",
   "Brush Removal & Trimming",

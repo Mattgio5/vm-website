@@ -111,7 +111,7 @@ export default function BedCleanupPage() {
         relatedServices={[
           { slug: "mulch-installation", title: "Mulch Installation" },
           { slug: "weed-control", title: "Weed Control" },
-          { slug: "edges", title: "Landscape Edging" },
+          { slug: "edges", title: "Flower Bed Edging" },
         ]}
       />
       {/* SEO Section: Professional Flower & Garden Bed Clean Up */}

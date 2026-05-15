@@ -338,7 +338,7 @@ export default function SupplementsPage() {
                   href="/services/edges"
                   className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-vm-navy transition-all hover:border-vm-blue/40 hover:bg-vm-blue/10"
                 >
-                  Landscape Edging
+                  Flower Bed Edging
                 </Link>
                 <Link
                   href="/services/weed-control"
