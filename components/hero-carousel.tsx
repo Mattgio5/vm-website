@@ -28,8 +28,8 @@ export function HeroCarousel() {
 
   return (
     <section
-      className="relative w-full overflow-hidden"
-      style={{ minHeight: "calc(100vh - 1px)" }}
+      className="relative w-full overflow-hidden md:h-screen"
+      style={{ minHeight: "640px" }}
     >
       {/* Background: static poster on mobile, video on desktop */}
       <Image
@@ -60,30 +60,30 @@ export function HeroCarousel() {
       <div className="absolute inset-0 bg-vm-navy/30" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-10 px-4 pt-28 pb-16 md:grid-cols-2 md:gap-12 md:px-12 md:pt-32 md:pb-24 lg:gap-16 lg:px-20">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-8 px-4 pt-24 pb-10 md:h-full md:grid-cols-2 md:gap-10 md:px-12 md:pt-24 md:pb-8 lg:gap-14 lg:px-20">
         {/* Left: text overlay */}
         <div className="flex flex-col justify-center text-white">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-vm-gold drop-shadow">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-vm-gold drop-shadow md:text-sm">
             Welcome to Varsity Mulching
           </p>
-          <h1 className="mt-4 font-varsity text-5xl uppercase leading-[0.95] tracking-wide drop-shadow-lg md:text-6xl lg:text-7xl">
+          <h1 className="mt-3 font-varsity text-5xl uppercase leading-[0.95] tracking-wide drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl">
             Promote Your Yard
             <br />
             <span className="text-vm-gold">to Varsity</span>
           </h1>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-white/90 drop-shadow md:text-lg">
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/90 drop-shadow md:text-base lg:text-lg">
             Fresh mulch, expertly installed. Because JV-level landscaping isn&apos;t going to cut it.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-5 flex flex-wrap gap-3">
             <Link
               href="/services"
-              className="inline-flex rounded-full bg-vm-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-vm-navy transition-all hover:bg-vm-gold-dark hover:shadow-lg md:text-base"
+              className="inline-flex rounded-full bg-vm-gold px-6 py-3 text-sm font-bold uppercase tracking-wide text-vm-navy transition-all hover:bg-vm-gold-dark hover:shadow-lg"
             >
               See Our Services
             </Link>
             <Link
               href="/gallery"
-              className="inline-flex rounded-full border border-white/40 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-all hover:bg-white/20 md:text-base"
+              className="inline-flex rounded-full border border-white/40 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-all hover:bg-white/20"
             >
               Hear From Customers
             </Link>
@@ -91,7 +91,7 @@ export function HeroCarousel() {
         </div>
 
         {/* Right: quick quote + reviews */}
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col justify-center gap-3 md:h-full md:gap-3">
           <QuickQuoteForm />
           <GoogleReviewsCard />
         </div>
@@ -117,26 +117,26 @@ function QuickQuoteForm() {
   }
 
   return (
-    <div className="rounded-2xl border border-white/15 bg-vm-navy/80 p-6 shadow-2xl backdrop-blur-xl md:p-7">
-      <p className="text-xs font-bold uppercase tracking-[0.2em] text-vm-gold">
+    <div className="rounded-2xl border border-white/15 bg-vm-navy/80 p-4 shadow-2xl backdrop-blur-xl md:p-5">
+      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-vm-gold md:text-xs">
         Quick Quote
       </p>
-      <h2 className="mt-1 text-2xl font-semibold text-white md:text-3xl">
+      <h2 className="mt-0.5 text-lg font-semibold text-white md:text-xl lg:text-2xl">
         Tell us about the property.
       </h2>
 
       {submitted ? (
-        <div className="mt-5 rounded-xl border border-vm-gold/40 bg-vm-gold/10 p-5 text-center">
-          <p className="font-varsity text-xl tracking-wide text-white uppercase">
+        <div className="mt-3 rounded-xl border border-vm-gold/40 bg-vm-gold/10 p-4 text-center">
+          <p className="font-varsity text-lg tracking-wide text-white uppercase">
             Thanks &mdash; We Got It
           </p>
-          <p className="mt-2 text-sm text-white/85">
+          <p className="mt-1 text-xs text-white/85">
             A rep will reach out within one business day.
           </p>
         </div>
       ) : (
-        <form onSubmit={onSubmit} className="mt-5 space-y-4">
-          <div className="grid gap-4 sm:grid-cols-2">
+        <form onSubmit={onSubmit} className="mt-3 space-y-2.5">
+          <div className="grid gap-2.5 sm:grid-cols-2">
             <HeroField label="Full name">
               <input
                 type="text"
@@ -159,7 +159,7 @@ function QuickQuoteForm() {
             </HeroField>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-2.5 sm:grid-cols-2">
             <HeroField label="Email">
               <input
                 type="email"
@@ -222,7 +222,7 @@ function QuickQuoteForm() {
 
           <button
             type="submit"
-            className="mt-2 inline-flex w-full items-center justify-center rounded-full bg-vm-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-vm-navy transition-all hover:bg-vm-gold-dark hover:shadow-lg"
+            className="mt-1 inline-flex w-full items-center justify-center rounded-full bg-vm-gold px-6 py-2.5 text-sm font-bold uppercase tracking-wide text-vm-navy transition-all hover:bg-vm-gold-dark hover:shadow-lg"
           >
             Request My Quote
           </button>
@@ -235,7 +235,7 @@ function QuickQuoteForm() {
           border-radius: 0.5rem;
           border: 1px solid rgba(255, 255, 255, 0.18);
           background-color: rgba(255, 255, 255, 0.06);
-          padding: 0.625rem 0.75rem;
+          padding: 0.5rem 0.75rem;
           font-size: 0.875rem;
           color: #ffffff;
           outline: none;
@@ -264,10 +264,10 @@ function HeroField({
 }) {
   return (
     <div>
-      <div className="mb-1.5 flex items-baseline justify-between">
-        <span className="text-sm font-semibold text-white">{label}</span>
+      <div className="mb-1 flex items-baseline justify-between">
+        <span className="text-xs font-semibold text-white">{label}</span>
         {hint && (
-          <span className="text-xs font-medium text-white/55">{hint}</span>
+          <span className="text-[10px] font-medium text-white/55">{hint}</span>
         )}
       </div>
       {children}
@@ -277,49 +277,31 @@ function HeroField({
 
 function GoogleReviewsCard() {
   return (
-    <div className="overflow-hidden rounded-2xl border border-vm-gold/30 bg-gradient-to-br from-vm-navy via-vm-navy-light to-vm-navy p-6 shadow-2xl">
+    <a
+      href={GOOGLE_REVIEWS_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex items-center justify-between gap-3 overflow-hidden rounded-2xl border border-vm-gold/30 bg-gradient-to-br from-vm-navy via-vm-navy-light to-vm-navy px-4 py-3 shadow-2xl transition-all hover:border-vm-gold/60"
+    >
       <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow">
-          <GoogleG className="h-5 w-5" />
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white shadow">
+          <GoogleG className="h-4 w-4" />
         </div>
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-vm-gold">
+        <div className="min-w-0">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-vm-gold">
             Google Reviews
           </p>
-          <p className="text-base font-semibold text-white">
-            Trusted by 166+ Homeowners
+          <p className="truncate text-sm font-semibold text-white">
+            <span className="font-varsity text-base tracking-wide text-vm-gold">5.0</span>
+            <span className="mx-1.5 text-white/40">·</span>
+            166+ 5-Star Reviews
           </p>
         </div>
       </div>
-
-      <div className="mt-4 grid grid-cols-3 gap-2">
-        <Stat value="5.0" label="Google Rating" />
-        <Stat value="166" label="5-Star Reviews" />
-        <Stat value="100%" label="Recommend" />
-      </div>
-
-      <a
-        href={GOOGLE_REVIEWS_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full border border-vm-gold/40 bg-vm-gold/10 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.15em] text-vm-gold transition-all hover:bg-vm-gold hover:text-vm-navy"
-      >
-        Read Our Reviews →
-      </a>
-    </div>
-  )
-}
-
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="rounded-lg border border-white/10 bg-white/5 px-2 py-2 text-center">
-      <p className="font-varsity text-xl tracking-wide text-vm-gold md:text-2xl">
-        {value}
-      </p>
-      <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-wider text-white/70">
-        {label}
-      </p>
-    </div>
+      <span className="hidden shrink-0 rounded-full border border-vm-gold/40 bg-vm-gold/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-vm-gold transition-colors group-hover:bg-vm-gold group-hover:text-vm-navy sm:inline-flex">
+        Read →
+      </span>
+    </a>
   )
 }
 
