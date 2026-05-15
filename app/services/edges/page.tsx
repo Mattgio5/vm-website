@@ -77,7 +77,7 @@ export default function EdgesPage() {
       />
       <Navbar />
       <ServiceDetail
-        title="Landscape Edging"
+        title="Landscape Edging in Doylestown, PA"
         tagline="The detail that finishes a yard"
         image="/images/service-edges.webp"
         description="Edging is the detail that separates a good yard from a great one."

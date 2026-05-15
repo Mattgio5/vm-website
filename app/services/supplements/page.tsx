@@ -175,7 +175,7 @@ export default function SupplementsPage() {
               Beyond the core
             </p>
             <h1 className="font-varsity mt-2 text-4xl tracking-wide text-white md:text-5xl lg:text-6xl text-balance uppercase">
-              Varsity Mulching&apos;s Add-On Services
+              Add-On Services in Doylestown, PA
             </h1>
             <p className="mt-4 max-w-lg text-lg leading-relaxed text-white/80">
               Beyond our core services, we offer add-ons and follow-up care to keep your landscape looking its best year-round.

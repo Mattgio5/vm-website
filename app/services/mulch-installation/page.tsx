@@ -78,7 +78,7 @@ export default function MulchInstallationPage() {
       />
       <Navbar />
       <ServiceDetail
-        title="Mulch Installation"
+        title="Mulch Installation in Doylestown, PA"
         tagline="Premium mulch, professionally installed"
         image="/images/service-mulch.webp"
         description="Fresh mulch does more than look good. It locks in moisture, keeps weeds down, and protects your plants through the seasons."
@@ -169,6 +169,53 @@ export default function MulchInstallationPage() {
           <p className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
             You&apos;ll notice the difference year after year: no large bark chunks, no patchy fading, no mulch that dries out and blows away. It looks better, lasts longer, and actually improves your landscape over time.
           </p>
+        </div>
+      </section>
+
+      {/* SEO Section: Precision Promise */}
+      <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+        </div>
+        <div className="mx-auto max-w-4xl">
+          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
+            Coaching the Details
+          </p>
+          <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl uppercase">
+            The Varsity Mulching Precision Promise
+          </h2>
+          <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p>
+              At Varsity Mulching, we believe the difference between a &ldquo;good&rdquo; yard and a &ldquo;great&rdquo; one lies in the details. Our installation process is built on a foundation of professional precision, ensuring that your property is treated with the highest level of care.
+            </p>
+            <p>
+              We don&apos;t just spread mulch; we meticulously install it. Our team is trained to handle your landscape as if it were our own, focusing on the small touches that create a high-end, manicured finish.
+            </p>
+          </div>
+          <ul className="mt-8 space-y-5">
+            <li className="flex gap-4">
+              <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
+              <div>
+                <span className="font-semibold text-vm-navy">Careful Hand-Tucking. </span>
+                <span className="text-muted-foreground">We take the time to hand-install mulch around your delicate flowers, ornamental grasses, and established shrubs. We ensure every plant has the space it needs to breathe, avoiding the &ldquo;mulch volcanoes&rdquo; that can trap moisture against bark and harm your trees.</span>
+              </div>
+            </li>
+            <li className="flex gap-4">
+              <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
+              <div>
+                <span className="font-semibold text-vm-navy">The Perfect Edge. </span>
+                <span className="text-muted-foreground">A great mulch job is defined by its borders. Our crew ensures the mulch sits cleanly under the edge of your beds, creating sharp, defined lines that make your lawn and walkways pop.</span>
+              </div>
+            </li>
+            <li className="flex gap-4">
+              <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-vm-blue" />
+              <div>
+                <span className="font-semibold text-vm-navy">Consistent Depth for Long-Term Health. </span>
+                <span className="text-muted-foreground">We apply our triple-ground mulch at a consistent, ideal thickness. This ensures maximum weed suppression and moisture retention without smothering your soil&apos;s natural ecosystem.</span>
+              </div>
+            </li>
+          </ul>
         </div>
       </section>
 

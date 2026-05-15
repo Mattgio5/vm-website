@@ -77,7 +77,7 @@ export default function BedCleanupPage() {
       />
       <Navbar />
       <ServiceDetail
-        title="Bed Cleanup"
+        title="Bed Cleanup in Doylestown, PA"
         tagline="A clean slate for your beds"
         image="/images/service-cleanup.webp"
         description="Sometimes a yard just needs a reset."

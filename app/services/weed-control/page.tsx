@@ -77,7 +77,7 @@ export default function WeedControlPage() {
       />
       <Navbar />
       <ServiceDetail
-        title="Weed Control"
+        title="Weed Control in Doylestown, PA"
         tagline="A discipline, not a one-time service"
         image="/images/service-weed.jpg"
         description="Weeds are the fastest way for a fresh-looking yard to start looking neglected."

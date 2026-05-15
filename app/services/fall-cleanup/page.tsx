@@ -50,7 +50,7 @@ export default function FallCleanupPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <Navbar />
       <ServiceDetail
-        title="Fall Cleanup"
+        title="Fall Cleanup in Doylestown, PA"
         tagline="Set your property up for winter"
         image="/images/service-cleanup.webp"
         description="When the season ends, a proper fall cleanup is what keeps your lawn and beds healthy through the winter."
