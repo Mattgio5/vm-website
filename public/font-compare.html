@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Varsity font comparison</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Bungee+Inline&family=Black+Ops+One&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --vm-navy: #0b1d3a;
+    --vm-gold: #ffd700;
+    --vm-blue: #89CFF0;
+    --vm-blue-dark: #5ba3d9;
+    --paper: #ffffff;
+    --paper-2: #e8f4fc;
+    --muted: #3a5a7c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Open Sans', system-ui, sans-serif;
+    color: var(--vm-navy);
+    background: var(--paper);
+    line-height: 1.5;
+  }
+  header.toc {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--vm-navy); color: #fff;
+    padding: 16px 24px;
+    border-bottom: 4px solid var(--vm-gold);
+    display: flex; gap: 24px; align-items: baseline; flex-wrap: wrap;
+  }
+  header.toc strong { color: var(--vm-gold); letter-spacing: 0.15em; font-size: 12px; text-transform: uppercase; }
+  header.toc a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; }
+  header.toc a:hover { color: var(--vm-gold); }
+
+  .row { padding: 56px 32px; border-bottom: 1px solid #d0dcec; }
+  .row.dark { background: var(--vm-navy); color: #fff; position: relative; overflow: hidden; }
+  .row.dark::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to bottom, rgba(11,29,58,0.65), rgba(11,29,58,0.85)),
+      radial-gradient(circle at 30% 40%, rgba(255,215,0,0.10), transparent 60%);
+    pointer-events: none;
+  }
+  .row .label {
+    color: var(--vm-gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .row.light .label { color: #b59300; }
+
+  .display {
+    font-size: clamp(40px, 7vw, 96px);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom: 16px;
+  }
+  .display .gold { color: var(--vm-gold); }
+
+  .sub {
+    font-size: clamp(14px, 1.5vw, 20px);
+    margin-top: 12px;
+    max-width: 720px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .row.light .sub { color: var(--muted); }
+
+  .specimen {
+    font-size: clamp(22px, 2.4vw, 36px);
+    letter-spacing: 0.02em;
+    margin-top: 28px;
+    position: relative;
+    text-transform: uppercase;
+  }
+
+  .gold-rule { height: 2px; width: 80px; background: var(--vm-gold); margin: 16px 0; position: relative; }
+
+  .panel { max-width: 1100px; margin: 0 auto; position: relative; }
+
+  /* Fonts */
+  .font-bowlby { font-family: 'Bowlby One SC', 'Impact', sans-serif; }
+  .font-bungee { font-family: 'Bungee Inline', 'Impact', sans-serif; }
+  .font-blackops { font-family: 'Black Ops One', 'Impact', sans-serif; }
+
+  /* Punctuation row */
+  .glyphs {
+    font-size: clamp(28px, 3vw, 44px);
+    margin-top: 20px;
+    letter-spacing: 0.04em;
+    position: relative;
+  }
+
+  /* Caption */
+  .caption {
+    font-size: 13px;
+    margin-top: 32px;
+    padding: 12px 16px;
+    background: var(--paper-2);
+    border-left: 4px solid var(--vm-gold);
+    color: var(--vm-navy);
+    max-width: 720px;
+    position: relative;
+  }
+  .row.dark .caption {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.85);
+    border-color: var(--vm-gold);
+  }
+
+  footer { padding: 32px; text-align: center; color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+
+<header class="toc">
+  <strong>Varsity font compare</strong>
+  <a href="#bowlby">Bowlby One SC (current)</a>
+  <a href="#bungee">Bungee Inline</a>
+  <a href="#blackops">Black Ops One</a>
+  <a href="#three-up">Three-up</a>
+</header>
+
+<!-- =========================== BOWLBY ONE SC =========================== -->
+<section id="bowlby" class="row dark">
+  <div class="panel">
+    <p class="label">Option A &mdash; Bowlby One SC (currently installed)</p>
+    <h1 class="display font-bowlby">
+      Promote Your Yard<br>
+      <span class="gold">to Varsity.</span>
+    </h1>
+    <div class="gold-rule"></div>
+    <p class="sub font-bowlby">Welcome to Varsity Mulching</p>
+    <p class="sub" style="font-family:'Open Sans',sans-serif;text-transform:none;">
+      Fresh mulch, expertly installed. Because JV-level landscaping isn&apos;t going to cut it.
+    </p>
+
+    <p class="glyphs font-bowlby">A B C D E F G &middot; 0 1 2 3 4 5 &middot; ! ? &amp; , . : &lsquo; &rsquo; &mdash;</p>
+
+    <div class="caption">
+      What you have now. Bold, all-caps small-caps display. Reads more like a vintage poster than a varsity letterman.
+    </div>
+  </div>
+</section>
+
+<section class="row light">
+  <div class="panel">
+    <p class="label">Bowlby One SC &mdash; on light</p>
+    <h2 class="display font-bowlby" style="color:var(--vm-navy);">
+      Our Story
+    </h2>
+    <div class="gold-rule"></div>
+    <p class="specimen font-bowlby" style="color:var(--vm-navy);">5.0 on Google &mdash; 166 Reviews</p>
+  </div>
+</section>
+
+<!-- =========================== BUNGEE INLINE =========================== -->
+<section id="bungee" class="row dark">
+  <div class="panel">
+    <p class="label">Option B &mdash; Bungee Inline (recommended)</p>
+    <h1 class="display font-bungee">
+      Promote Your Yard<br>
+      <span class="gold">to Varsity.</span>
+    </h1>
+    <div class="gold-rule"></div>
+    <p class="sub font-bungee">Welcome to Varsity Mulching</p>
+    <p class="sub" style="font-family:'Open Sans',sans-serif;text-transform:none;">
+      Fresh mulch, expertly installed. Because JV-level landscaping isn&apos;t going to cut it.
+    </p>
+
+    <p class="glyphs font-bungee">A B C D E F G &middot; 0 1 2 3 4 5 &middot; ! ? &amp; , . : &lsquo; &rsquo; &mdash;</p>
+
+    <div class="caption">
+      Has the double-outline (inline) detail from your reference image. Classic letterman aesthetic. Heavier visual weight than Bowlby.
+    </div>
+  </div>
+</section>
+
+<section class="row light">
+  <div class="panel">
+    <p class="label">Bungee Inline &mdash; on light</p>
+    <h2 class="display font-bungee" style="color:var(--vm-navy);">
+      Our Story
+    </h2>
+    <div class="gold-rule"></div>
+    <p class="specimen font-bungee" style="color:var(--vm-navy);">5.0 on Google &mdash; 166 Reviews</p>
+  </div>
+</section>
+
+<!-- =========================== BLACK OPS ONE =========================== -->
+<section id="blackops" class="row dark">
+  <div class="panel">
+    <p class="label">Option C &mdash; Black Ops One</p>
+    <h1 class="display font-blackops">
+      Promote Your Yard<br>
+      <span class="gold">to Varsity.</span>
+    </h1>
+    <div class="gold-rule"></div>
+    <p class="sub font-blackops">Welcome to Varsity Mulching</p>
+    <p class="sub" style="font-family:'Open Sans',sans-serif;text-transform:none;">
+      Fresh mulch, expertly installed. Because JV-level landscaping isn&apos;t going to cut it.
+    </p>
+
+    <p class="glyphs font-blackops">A B C D E F G &middot; 0 1 2 3 4 5 &middot; ! ? &amp; , . : &lsquo; &rsquo; &mdash;</p>
+
+    <div class="caption">
+      Solid block letters, military-stencil-adjacent. Closer to the "chunky single-stroke" feel without the inline detail.
+    </div>
+  </div>
+</section>
+
+<section class="row light">
+  <div class="panel">
+    <p class="label">Black Ops One &mdash; on light</p>
+    <h2 class="display font-blackops" style="color:var(--vm-navy);">
+      Our Story
+    </h2>
+    <div class="gold-rule"></div>
+    <p class="specimen font-blackops" style="color:var(--vm-navy);">5.0 on Google &mdash; 166 Reviews</p>
+  </div>
+</section>
+
+<!-- =========================== THREE-UP =========================== -->
+<section id="three-up" class="row light" style="padding-bottom: 80px;">
+  <div class="panel">
+    <p class="label">Direct three-up &mdash; same headline, same size</p>
+
+    <div style="display:grid; gap:48px; margin-top:24px;">
+      <div>
+        <p style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:#888;text-transform:uppercase;margin-bottom:8px;">Bowlby One SC</p>
+        <p class="font-bowlby" style="font-size:clamp(36px,5vw,64px);line-height:0.95;color:var(--vm-navy);text-transform:uppercase;letter-spacing:0.02em;">
+          Promote Your Yard <span style="color:var(--vm-gold);">to Varsity.</span>
+        </p>
+      </div>
+
+      <div>
+        <p style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:#888;text-transform:uppercase;margin-bottom:8px;">Bungee Inline</p>
+        <p class="font-bungee" style="font-size:clamp(36px,5vw,64px);line-height:0.95;color:var(--vm-navy);text-transform:uppercase;letter-spacing:0.02em;">
+          Promote Your Yard <span style="color:var(--vm-gold);">to Varsity.</span>
+        </p>
+      </div>
+
+      <div>
+        <p style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:#888;text-transform:uppercase;margin-bottom:8px;">Black Ops One</p>
+        <p class="font-blackops" style="font-size:clamp(36px,5vw,64px);line-height:0.95;color:var(--vm-navy);text-transform:uppercase;letter-spacing:0.02em;">
+          Promote Your Yard <span style="color:var(--vm-gold);">to Varsity.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="caption">
+      Same headline, same size, same color. The inline detail in Bungee is what gives it the closest match to your reference letterman image.
+    </div>
+  </div>
+</section>
+
+<footer>
+  All three fonts ship from Google Fonts with full Latin glyph sets including punctuation. None requires the cdnfonts hack.
+</footer>
+
+</body>
+</html>
