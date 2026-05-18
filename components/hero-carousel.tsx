@@ -1,7 +1,8 @@
 "use client"
 
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import { extractUtmFromSearch, type UtmParams } from "@/lib/quote-intake"
 
 const GOOGLE_REVIEWS_URL =
   "https://www.google.com/search?q=varsity+mulching&oq=varsity+mulching&gs_lcrp=EgZjaHJvbWUqDAgAECMYJxiABBiKBTIMCAAQIxgnGIAEGIoFMhAIARAuGK8BGMcBGIAEGI4FMgcIAhAAGIAEMggIAxAAGBYYHjIICAQQABgWGB4yBggFEEUYPDIGCAYQRRg8MgYIBxBFGDzSAQgyOTUxajBqNKgCAbACAfEFGOyPwE2C6og&sourceid=chrome&ie=UTF-8"
@@ -85,10 +86,27 @@ export function HeroCarousel() {
   )
 }
 
+type QuickStatus = "idle" | "submitting" | "success" | "error"
+
 function QuickQuoteForm() {
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState<QuickStatus>("idle")
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
+  const [scheduleUrl, setScheduleUrl] = useState<string | null>(null)
+
+  const [fullName, setFullName] = useState("")
+  const [phone, setPhone] = useState("")
+  const [email, setEmail] = useState("")
+  const [address, setAddress] = useState("")
   const [services, setServices] = useState<string[]>([])
   const [open, setOpen] = useState(false)
+
+  const utmRef = useRef<UtmParams>({})
+  const pageSlugRef = useRef<string>("")
+
+  useEffect(() => {
+    utmRef.current = extractUtmFromSearch(window.location.search)
+    pageSlugRef.current = window.location.pathname
+  }, [])
 
   function toggleService(s: string) {
     setServices((prev) =>
@@ -96,10 +114,74 @@ function QuickQuoteForm() {
     )
   }
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setSubmitted(true)
+
+    const form = e.currentTarget
+    if (!form.checkValidity()) {
+      form.reportValidity()
+      return
+    }
+
+    setStatus("submitting")
+    setErrorMsg(null)
+
+    const body = {
+      full_name: fullName,
+      email,
+      phone,
+      address,
+      services,
+      page_slug: pageSlugRef.current,
+      utm: utmRef.current,
+    }
+
+    try {
+      const res = await fetch("/api/lead-intake", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      })
+
+      const data = await res.json().catch(() => ({}))
+
+      if (!res.ok || !data?.ok) {
+        const issuesMsg =
+          Array.isArray(data?.issues) && data.issues.length
+            ? data.issues
+                .map((i: { path: string; message: string }) =>
+                  i.path ? `${i.path}: ${i.message}` : i.message,
+                )
+                .join("; ")
+            : null
+        setErrorMsg(
+          issuesMsg ||
+            data?.error ||
+            "Something went wrong sending your request. Please try again.",
+        )
+        setStatus("error")
+        return
+      }
+
+      const redirect: string | null = data?.redirect_to || data?.schedule_url || null
+      setScheduleUrl(redirect)
+      setStatus("success")
+
+      if (redirect) {
+        window.setTimeout(() => {
+          window.location.href = redirect
+        }, 800)
+      }
+    } catch (err) {
+      console.error("[quick-quote] submit failed:", err)
+      setErrorMsg(
+        "Network error. Please check your connection and try again, or call us directly.",
+      )
+      setStatus("error")
+    }
   }
+
+  const submitting = status === "submitting"
 
   return (
     <div className="rounded-2xl border border-white/15 bg-vm-navy/80 p-4 shadow-2xl backdrop-blur-xl md:p-5">
@@ -110,14 +192,24 @@ function QuickQuoteForm() {
         Tell us about the property.
       </h2>
 
-      {submitted ? (
+      {status === "success" ? (
         <div className="mt-3 rounded-xl border border-vm-gold/40 bg-vm-gold/10 p-4 text-center">
           <p className="font-varsity text-lg tracking-wide text-white uppercase">
             Thanks &mdash; We Got It
           </p>
           <p className="mt-1 text-xs text-white/85">
-            A rep will reach out within one business day.
+            {scheduleUrl
+              ? "Sending you to schedule a time…"
+              : "A rep will reach out within one business day."}
           </p>
+          {scheduleUrl && (
+            <a
+              href={scheduleUrl}
+              className="mt-3 inline-flex items-center justify-center rounded-full bg-vm-gold px-4 py-2 text-xs font-bold uppercase tracking-wide text-vm-navy hover:bg-vm-gold-dark"
+            >
+              Schedule My Quote
+            </a>
+          )}
         </div>
       ) : (
         <form onSubmit={onSubmit} className="mt-3 space-y-2.5">
@@ -130,6 +222,9 @@ function QuickQuoteForm() {
                 autoComplete="name"
                 placeholder="Jane Smith"
                 className="hero-input"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                disabled={submitting}
               />
             </HeroField>
             <HeroField label="Phone">
@@ -140,6 +235,9 @@ function QuickQuoteForm() {
                 autoComplete="tel"
                 placeholder="(267) 555-0123"
                 className="hero-input"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                disabled={submitting}
               />
             </HeroField>
           </div>
@@ -153,6 +251,9 @@ function QuickQuoteForm() {
                 autoComplete="email"
                 placeholder="you@example.com"
                 className="hero-input"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={submitting}
               />
             </HeroField>
             <HeroField
@@ -164,6 +265,7 @@ function QuickQuoteForm() {
                   type="button"
                   onClick={() => setOpen((o) => !o)}
                   className="hero-input flex w-full items-center justify-between text-left"
+                  disabled={submitting}
                 >
                   <span className={services.length ? "text-white" : "text-white/50"}>
                     {services.length
@@ -194,22 +296,35 @@ function QuickQuoteForm() {
             </HeroField>
           </div>
 
-          <HeroField label="Property address">
+          <HeroField label="Property address" hint="Street, City, STATE ZIP">
             <input
               type="text"
               name="address"
               required
               autoComplete="street-address"
-              placeholder="123 Main St, Newtown, PA"
+              placeholder="123 Main St, Newtown, PA 19380"
               className="hero-input"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              disabled={submitting}
             />
           </HeroField>
 
+          {status === "error" && errorMsg && (
+            <p
+              role="alert"
+              className="rounded-lg border border-red-400/40 bg-red-500/10 px-3 py-2 text-xs leading-relaxed text-red-100"
+            >
+              {errorMsg}
+            </p>
+          )}
+
           <button
             type="submit"
-            className="mt-1 inline-flex w-full items-center justify-center rounded-full bg-vm-gold px-6 py-2.5 text-sm font-bold uppercase tracking-wide text-vm-navy transition-all hover:bg-vm-gold-dark hover:shadow-lg"
+            disabled={submitting}
+            className="mt-1 inline-flex w-full items-center justify-center rounded-full bg-vm-gold px-6 py-2.5 text-sm font-bold uppercase tracking-wide text-vm-navy transition-all hover:bg-vm-gold-dark hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70"
           >
-            Request My Quote
+            {submitting ? "Sending…" : "Request My Quote"}
           </button>
         </form>
       )}
