@@ -8,11 +8,7 @@ export const metadata = {
     "Updates, tips & behind-the-scenes from Varsity Mulching. Follow our crew as we transform yards across Chester County, Bucks County & Montgomery County, PA.",
 }
 
-// Once the Facebook account is converted to a Business Page, swap this for the
-// new Page URL (e.g. "https://www.facebook.com/varsitymulching"). The embed
-// iframe below only works for Business Pages, not personal /people/ profiles.
 const FACEBOOK_URL = "https://www.facebook.com/people/Varsity-Mulching/61550553115186/"
-const FACEBOOK_EMBED_SRC = `https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(FACEBOOK_URL)}&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true`
 
 // Sample company posts - in production these would come from a database/CMS
 const companyPosts = [
@@ -103,7 +99,7 @@ export default function MediaPage() {
           <div className="h-2.5 w-full bg-vm-navy" />
         </div>
         <div className="mx-auto max-w-6xl">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
+          <div className="grid gap-10 lg:grid-cols-[2fr_1fr] lg:gap-12 items-start">
             {/* Left - Instagram Embed */}
             <div>
               <div className="h-1 w-12 bg-vm-gold" />
@@ -117,33 +113,96 @@ export default function MediaPage() {
                 <iframe
                   src="https://www.instagram.com/varsitymulching/embed"
                   className="w-full"
-                  style={{ minHeight: "500px", border: "none" }}
+                  style={{ minHeight: "560px", border: "none" }}
                   scrolling="no"
                   title="Varsity Mulching Instagram Feed"
                 />
               </div>
             </div>
 
-            {/* Middle - Facebook Embed */}
-            <div>
+            {/* Right - Facebook CTA Card */}
+            <div className="lg:sticky lg:top-24">
               <div className="h-1 w-12 bg-vm-gold" />
-              <h2 className="font-varsity mt-4 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
-                Like Us on Facebook
+              <p className="mt-4 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
+                Find Us On Facebook
+              </p>
+              <h2 className="font-varsity mt-2 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
+                Like &amp; Follow
               </h2>
 
-              {/* Facebook Page Plugin Embed */}
-              <div className="relative mt-6 overflow-hidden rounded-2xl border border-border bg-card shadow-sm ring-1 ring-vm-navy/5">
+              <Link
+                href={FACEBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative mt-6 block overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-[#1877F2] to-[#0b5fd1] p-6 text-white shadow-md ring-1 ring-vm-navy/5 transition-all hover:shadow-xl"
+              >
                 <div className="absolute inset-x-0 top-0 z-10 h-1 bg-vm-gold" />
-                <iframe
-                  src={FACEBOOK_EMBED_SRC}
-                  className="w-full"
-                  style={{ minHeight: "500px", border: "none", overflow: "hidden" }}
-                  scrolling="no"
-                  loading="lazy"
-                  allow="encrypted-media"
-                  title="Varsity Mulching Facebook Feed"
-                />
-              </div>
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/15 ring-1 ring-white/30">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="h-7 w-7 text-white"
+                      aria-hidden="true"
+                    >
+                      <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.24 10.44 22v-7.03H7.9v-2.91h2.54V9.84c0-2.52 1.49-3.91 3.78-3.91 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.77-1.63 1.57v1.88h2.78l-.45 2.91h-2.33V22C18.34 21.24 22 17.08 22 12.06z" />
+                    </svg>
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">
+                      Facebook
+                    </p>
+                    <p className="mt-1 text-base font-bold leading-tight">
+                      Varsity Mulching
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-white/85">
+                      Behind-the-scenes shots, finished yards, and updates from the crew.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-[#1877F2] transition-transform group-hover:translate-x-0.5">
+                  Visit Our Page
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-4 w-4"
+                    aria-hidden="true"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </div>
+              </Link>
+
+              <Link
+                href="https://www.instagram.com/varsitymulching/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 flex items-center justify-between rounded-xl border border-border bg-card px-4 py-3 text-sm font-semibold text-vm-navy transition-colors hover:border-vm-navy/40"
+              >
+                <span className="flex items-center gap-2.5">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    className="h-4 w-4 text-vm-navy"
+                    aria-hidden="true"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+                  </svg>
+                  Also on Instagram
+                </span>
+                <span className="text-xs text-muted-foreground">@varsitymulching →</span>
+              </Link>
             </div>
           </div>
         </div>
