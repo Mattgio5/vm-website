@@ -2,8 +2,9 @@ import { NextResponse } from "next/server"
 import { getSupabaseAdmin } from "@/lib/supabase"
 import {
   quoteIntakeSchema,
+  quickQuoteSchema,
   toSchedulerPayload,
-  type QuoteIntakeInput,
+  toSchedulerPayloadFromQuick,
 } from "@/lib/quote-intake"
 
 export const runtime = "nodejs"
@@ -26,6 +27,94 @@ type SchedulerResponse = {
   redirect_to?: string | null
 }
 
+type NormalizedIntake = {
+  form: "contact" | "quick"
+  schedulerPayload: ReturnType<typeof toSchedulerPayload>
+  // The fields we want to mirror into the Supabase row, normalized across forms.
+  supabaseExtras: {
+    service_primary: string | null
+    yard_size: string | null
+    job_timing: string | null
+    message: string | null
+  }
+}
+
+/**
+ * The API accepts two body shapes:
+ *
+ *   1. Contact form (`/contact` page) — split name + address + single service.
+ *   2. Quick Quote (homepage hero) — `full_name` + single `address` line +
+ *      `services` array.
+ *
+ * We sniff by the presence of `full_name`. Either way, we normalize down to
+ * the same scheduler payload before dual-writing.
+ */
+function normalizeBody(body: unknown):
+  | { ok: true; data: NormalizedIntake }
+  | { ok: false; error: string; status: number; issues?: { path: string; message: string }[] } {
+  if (!body || typeof body !== "object") {
+    return { ok: false, error: "Invalid JSON body", status: 400 }
+  }
+
+  const hasFullName = typeof (body as { full_name?: unknown }).full_name === "string"
+
+  if (hasFullName) {
+    const parsed = quickQuoteSchema.safeParse(body)
+    if (!parsed.success) {
+      return {
+        ok: false,
+        error: "Validation failed",
+        status: 422,
+        issues: parsed.error.issues.map((i) => ({
+          path: i.path.join("."),
+          message: i.message,
+        })),
+      }
+    }
+    const schedulerPayload = toSchedulerPayloadFromQuick(parsed.data)
+    return {
+      ok: true,
+      data: {
+        form: "quick",
+        schedulerPayload,
+        supabaseExtras: {
+          service_primary: parsed.data.services[0] || null,
+          yard_size: null,
+          job_timing: null,
+          message: null,
+        },
+      },
+    }
+  }
+
+  const parsed = quoteIntakeSchema.safeParse(body)
+  if (!parsed.success) {
+    return {
+      ok: false,
+      error: "Validation failed",
+      status: 422,
+      issues: parsed.error.issues.map((i) => ({
+        path: i.path.join("."),
+        message: i.message,
+      })),
+    }
+  }
+  const schedulerPayload = toSchedulerPayload(parsed.data)
+  return {
+    ok: true,
+    data: {
+      form: "contact",
+      schedulerPayload,
+      supabaseExtras: {
+        service_primary: parsed.data.service || null,
+        yard_size: parsed.data.yard_size || null,
+        job_timing: parsed.data.job_timing || null,
+        message: parsed.data.message || null,
+      },
+    },
+  }
+}
+
 export async function POST(req: Request) {
   let body: unknown
   try {
@@ -37,23 +126,19 @@ export async function POST(req: Request) {
     )
   }
 
-  const parsed = quoteIntakeSchema.safeParse(body)
-  if (!parsed.success) {
+  const normalized = normalizeBody(body)
+  if (!normalized.ok) {
     return NextResponse.json(
       {
         ok: false,
-        error: "Validation failed",
-        issues: parsed.error.issues.map((i) => ({
-          path: i.path.join("."),
-          message: i.message,
-        })),
+        error: normalized.error,
+        ...(normalized.issues ? { issues: normalized.issues } : {}),
       },
-      { status: 422 },
+      { status: normalized.status },
     )
   }
 
-  const input: QuoteIntakeInput = parsed.data
-  const schedulerPayload = toSchedulerPayload(input)
+  const { form, schedulerPayload, supabaseExtras } = normalized.data
 
   const headersList = req.headers
   const userAgent = headersList.get("user-agent") || null
@@ -71,21 +156,22 @@ export async function POST(req: Request) {
     .filter(Boolean)
     .join(", ")
 
+  const utm = schedulerPayload.utm || {}
+
   // --- 1. Write to Supabase (best-effort, never blocks the lead) -------------
   let supabaseId: string | null = null
   let supabaseError: string | null = null
 
   try {
     const supabase = getSupabaseAdmin()
-    const utm = input.utm || {}
     const insertRow = {
-      source: "varsitymulching.com",
-      page_slug: input.page_slug || null,
+      source: `varsitymulching.com:${form}`,
+      page_slug: schedulerPayload.page_slug || null,
 
-      first_name: input.first_name,
-      last_name: input.last_name,
-      email: input.email,
-      phone: input.phone,
+      first_name: schedulerPayload.first_name,
+      last_name: schedulerPayload.last_name,
+      email: schedulerPayload.email,
+      phone: schedulerPayload.phone,
 
       street_address: schedulerPayload.street_address,
       city: schedulerPayload.city,
@@ -94,10 +180,10 @@ export async function POST(req: Request) {
       full_address: fullAddress,
 
       services: schedulerPayload.services,
-      service_primary: input.service,
-      yard_size: input.yard_size || null,
-      job_timing: input.job_timing || null,
-      message: input.message || null,
+      service_primary: supabaseExtras.service_primary,
+      yard_size: supabaseExtras.yard_size,
+      job_timing: supabaseExtras.job_timing,
+      message: supabaseExtras.message,
 
       utm_source: utm.utm_source || null,
       utm_medium: utm.utm_medium || null,
