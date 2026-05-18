@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import { extractUtmFromSearch, type UtmParams } from "@/lib/quote-intake"
+import { AddressAutofillWrapper } from "@/components/address-autofill"
 
 const GOOGLE_REVIEWS_URL =
   "https://www.google.com/search?q=varsity+mulching&oq=varsity+mulching&gs_lcrp=EgZjaHJvbWUqDAgAECMYJxiABBiKBTIMCAAQIxgnGIAEGIoFMhAIARAuGK8BGMcBGIAEGI4FMgcIAhAAGIAEMggIAxAAGBYYHjIICAQQABgWGB4yBggFEEUYPDIGCAYQRRg8MgYIBxBFGDzSAQgyOTUxajBqNKgCAbACAfEFGOyPwE2C6og&sourceid=chrome&ie=UTF-8"
@@ -296,18 +297,32 @@ function QuickQuoteForm() {
             </HeroField>
           </div>
 
-          <HeroField label="Property address" hint="Street, City, STATE ZIP">
-            <input
-              type="text"
-              name="address"
-              required
-              autoComplete="street-address"
-              placeholder="123 Main St, Newtown, PA 19380"
-              className="hero-input"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              disabled={submitting}
-            />
+          <HeroField label="Property address">
+            <AddressAutofillWrapper
+              variant="dark"
+              onSelect={(parts) => {
+                const clean = [
+                  parts.street_address,
+                  parts.city,
+                  [parts.state, parts.zip].filter(Boolean).join(" "),
+                ]
+                  .filter(Boolean)
+                  .join(", ")
+                setAddress(clean || parts.full_address)
+              }}
+            >
+              <input
+                type="text"
+                name="address"
+                required
+                autoComplete="address-line1"
+                placeholder="Start typing your address…"
+                className="hero-input"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                disabled={submitting}
+              />
+            </AddressAutofillWrapper>
           </HeroField>
 
           {status === "error" && errorMsg && (
