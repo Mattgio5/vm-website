@@ -56,7 +56,7 @@ const services = [
       "Weed removal",
       "Full haul-away",
     ],
-    image: "/images/service-cleanup.webp",
+    image: "/images/service-bed-cleanup.jpg",
   },
   {
     slug: "fall-cleanup",

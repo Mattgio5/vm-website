@@ -1,6 +1,5 @@
 import Image from "next/image"
 import Link from "next/link"
-import type { ReactNode } from "react"
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -26,7 +25,6 @@ interface ServiceDetailProps {
   benefitsOutro?: string
   process?: { step: number; title: string; description: string }[]
   relatedServices: { slug: string; title: string }[]
-  calculator?: ReactNode
 }
 
 export function ServiceDetail({
@@ -45,7 +43,6 @@ export function ServiceDetail({
   benefitsOutro,
   process = [],
   relatedServices,
-  calculator,
 }: ServiceDetailProps) {
   return (
     <>
@@ -260,8 +257,6 @@ export function ServiceDetail({
               </div>
             )}
 
-            {/* Calculator (if provided) — renders at the bottom of the main column */}
-            {calculator && <div className="mt-12">{calculator}</div>}
           </div>
 
           {/* Right column - compact sticky sidebar */}
