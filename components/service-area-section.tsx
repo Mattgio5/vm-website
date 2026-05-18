@@ -17,7 +17,7 @@ export function ServiceAreaSection() {
               Service Area
             </p>
             <h2 className="font-varsity text-3xl tracking-wide text-white md:text-4xl text-balance uppercase">
-              Proudly Serving Greater Philadelphia
+              Proudly Serving Bucks and Montgomery County
             </h2>
             <p className="mt-4 text-base leading-relaxed text-white/70 md:text-lg">
               We operate throughout the greater Philly area, bringing professional mulching services to residential and commercial properties alike.

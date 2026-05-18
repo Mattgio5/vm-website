@@ -59,9 +59,8 @@ export default function CareersPage() {
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/placeholder.svg?height=800&width=1600')" }}
+          style={{ backgroundImage: "url('/images/team/careers-hero.png')" }}
         >
-          {/* IMAGE NEEDED: Team working together on a job site, friendly atmosphere, maybe loading mulch or finishing a yard */}
           <div className="absolute inset-0 bg-gradient-to-b from-vm-navy/65 via-vm-navy/55 to-vm-navy/75" />
         </div>
 
@@ -102,47 +101,26 @@ export default function CareersPage() {
           <div className="h-2.5 w-full bg-vm-navy" />
         </div>
         
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* Left - Team Photos Grid */}
-            <div className="grid grid-cols-2 gap-4">
-              {/* IMAGE NEEDED: 4 photos of team members - working, having fun, on job sites, etc. */}
-              {[1, 2, 3, 4].map((n) => (
-                <div
-                  key={n}
-                  className="relative aspect-[4/5] overflow-hidden rounded-xl border border-border bg-muted shadow-sm ring-1 ring-vm-navy/5"
-                >
-                  <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-vm-gold" />
-                  <div className="flex h-full items-center justify-center text-muted-foreground text-sm">
-                    Team Photo {n}
-                  </div>
-                </div>
-              ))}
-            </div>
+        <div className="mx-auto max-w-4xl">
+          <div className="h-1 w-12 bg-vm-gold" />
+          <h2 className="font-varsity mt-4 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
+            Our Culture is Shaped by Our 4 Core Values
+          </h2>
 
-            {/* Right - Core Values */}
-            <div>
-              <div className="h-1 w-12 bg-vm-gold" />
-              <h2 className="font-varsity mt-4 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
-                Our Culture is Shaped by Our 4 Core Values
-              </h2>
-
-              <div className="mt-8 space-y-4">
-                {coreValues.map((value) => (
-                  <div
-                    key={value.title}
-                    className="rounded-xl border border-border border-l-4 border-l-vm-gold bg-card p-5 pl-6"
-                  >
-                    <h3 className="font-varsity text-xl tracking-wide text-vm-navy uppercase">
-                      {value.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      {value.description}
-                    </p>
-                  </div>
-                ))}
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {coreValues.map((value) => (
+              <div
+                key={value.title}
+                className="rounded-xl border border-border border-l-4 border-l-vm-gold bg-card p-5 pl-6"
+              >
+                <h3 className="font-varsity text-xl tracking-wide text-vm-navy uppercase">
+                  {value.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {value.description}
+                </p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

@@ -141,8 +141,8 @@ export default function Home() {
       <HeroCarousel />
       <ServicesOverview />
       <WinningRosterSection />
-      <ServiceAreaSection />
       <TestimonialsSection />
+      <ServiceAreaSection />
       <CtaSection />
       <Footer />
     </main>
