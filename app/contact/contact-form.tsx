@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { CheckCircle2, Loader2, AlertCircle } from "lucide-react"
+import { AddressAutofillWrapper } from "@/components/address-autofill"
 import {
   SERVICE_OPTIONS,
   YARD_SIZE_OPTIONS,
@@ -223,18 +224,30 @@ export function ContactForm() {
         </Field>
       </div>
 
-      {/* Address */}
+      {/* Address — Mapbox autocomplete auto-fills city/state/zip on select */}
       <Field id="address" label="Property Address" required>
-        <Input
-          id="address"
-          name="address"
-          required
-          autoComplete="street-address"
-          placeholder="123 Main St"
-          value={form.address}
-          onChange={(e) => update("address", e.target.value)}
-          disabled={submitting}
-        />
+        <AddressAutofillWrapper
+          onSelect={(parts) => {
+            setForm((prev) => ({
+              ...prev,
+              address: parts.street_address || prev.address,
+              city: parts.city || prev.city,
+              state: parts.state || prev.state,
+              zip: parts.zip || prev.zip,
+            }))
+          }}
+        >
+          <Input
+            id="address"
+            name="address"
+            required
+            autoComplete="address-line1"
+            placeholder="Start typing your address…"
+            value={form.address}
+            onChange={(e) => update("address", e.target.value)}
+            disabled={submitting}
+          />
+        </AddressAutofillWrapper>
       </Field>
 
       <div className="grid gap-6 sm:grid-cols-3">
@@ -244,6 +257,7 @@ export function ContactForm() {
             name="city"
             required
             autoComplete="address-level2"
+            placeholder="Auto-fills from address"
             value={form.city}
             onChange={(e) => update("city", e.target.value)}
             disabled={submitting}
@@ -255,6 +269,7 @@ export function ContactForm() {
             name="state"
             required
             autoComplete="address-level1"
+            placeholder="PA"
             value={form.state}
             onChange={(e) => update("state", e.target.value)}
             disabled={submitting}
@@ -267,6 +282,7 @@ export function ContactForm() {
             required
             autoComplete="postal-code"
             inputMode="numeric"
+            placeholder="19380"
             value={form.zip}
             onChange={(e) =>
               update("zip", e.target.value.replace(/[^\d-]/g, "").slice(0, 10))
