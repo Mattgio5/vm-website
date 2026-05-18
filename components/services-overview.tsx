@@ -2,19 +2,19 @@ import Link from "next/link"
 
 const services = [
   {
-    title: "Premium Mulch Installation",
+    title: "Mulch Installation",
     description:
       "High-quality coverage to protect soil and pop your colors.",
     href: "/services/mulch-installation",
   },
   {
-    title: "Precise Flower Bed Edging",
+    title: "Flower Bed Edging",
     description:
       "Deep, clean borders that define your beds and walkways.",
     href: "/services/edges",
   },
   {
-    title: "Expert Weed Control",
+    title: "Weed Control",
     description:
       "Chemical removal and proactive treatments to keep the intruders at bay.",
     href: "/services/weed-control",
@@ -26,9 +26,15 @@ const services = [
     href: "/services/bed-cleanup",
   },
   {
-    title: "Brush Removal & Trimming",
+    title: "Fall Cleanup",
     description:
-      "Sculpting your greenery and clearing the clutter.",
+      "Whole-property leaf and debris haul-away to put your yard to bed for winter.",
+    href: "/services/fall-cleanup",
+  },
+  {
+    title: "Supplements",
+    description:
+      "Bush trimming, planting, and the extras that round out your yard.",
     href: "/services/supplements",
   },
 ]
@@ -55,7 +61,7 @@ export function ServicesOverview() {
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <Link
               key={service.title}

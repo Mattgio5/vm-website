@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin, Clock } from "lucide-react"
 export const metadata = {
   title: "Schedule a Free Quote | Varsity Mulching",
   description:
-    "Fill out the form and a Varsity Mulching representative will reach out to schedule your free, no-obligation quote. Serving Chester, Bucks & Montgomery County, PA.",
+    "Fill out the form and a Varsity Mulching representative will reach out to schedule your free, no-obligation quote. Serving Bucks & Montgomery County, PA.",
 }
 
 export default function ContactPage() {
@@ -108,7 +108,7 @@ export default function ContactPage() {
                         Service Area
                       </p>
                       <p className="mt-0.5 font-semibold text-vm-navy">
-                        Chester, Bucks &amp; Montgomery County, PA
+                        Bucks &amp; Montgomery County, PA
                       </p>
                     </div>
                   </div>

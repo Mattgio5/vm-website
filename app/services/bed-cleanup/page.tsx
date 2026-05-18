@@ -112,8 +112,8 @@ export default function BedCleanupPage() {
         benefitsOutro="A real cleanup should leave you with nothing left to do. That's the only kind we deliver."
         relatedServices={[
           { slug: "mulch-installation", title: "Mulch Installation" },
-          { slug: "weed-control", title: "Weed Control" },
           { slug: "edges", title: "Flower Bed Edging" },
+          { slug: "fall-cleanup", title: "Fall Cleanup" },
         ]}
       />
       {/* SEO Section: Professional Flower & Garden Bed Clean Up */}

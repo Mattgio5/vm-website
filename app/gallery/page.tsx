@@ -74,7 +74,7 @@ export default function GalleryPage() {
 
       {/* Hero */}
       <section className="relative bg-vm-blue px-4 pt-32 pb-16 md:px-12 md:pt-40 md:pb-20 lg:px-20">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-6xl text-center">
           <h1
             className="vm-reveal font-varsity text-4xl tracking-wide text-vm-navy md:text-5xl lg:text-6xl text-balance uppercase"
             style={{ animationDelay: "60ms" }}
@@ -82,11 +82,11 @@ export default function GalleryPage() {
             Our Work
           </h1>
           <div
-            className="vm-reveal mt-5 h-[2px] w-20 bg-vm-gold"
+            className="vm-reveal mx-auto mt-5 h-[2px] w-20 bg-vm-gold"
             style={{ animationDelay: "160ms" }}
           />
           <p
-            className="vm-reveal mt-5 max-w-2xl text-base leading-relaxed text-vm-navy/70 md:text-lg"
+            className="vm-reveal mx-auto mt-5 max-w-2xl text-base leading-relaxed text-vm-navy/70 md:text-lg"
             style={{ animationDelay: "240ms" }}
           >
             Take a look at some of the yards we&apos;ve helped transform across the greater Philadelphia area.
