@@ -29,36 +29,39 @@ export function HeroCarousel() {
 
   return (
     <section
-      className="relative w-full overflow-hidden md:h-screen"
+      className="relative w-full md:h-screen"
       style={{ minHeight: "640px" }}
     >
-      {/* Background: static poster on mobile, video on desktop */}
-      <Image
-        src="/videos/hero-poster.jpg"
-        alt="Varsity Mulching crew at work"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-      />
-      {showVideo && (
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/videos/hero-poster.jpg"
-          aria-label="Varsity Mulching crew at work"
-        >
-          <source src="/videos/hero-video.webm" type="video/webm" />
-          <source src="/videos/hero-video.mp4" type="video/mp4" />
-        </video>
-      )}
-      {/* Dark gradient overlay for legibility */}
-      <div className="absolute inset-0 bg-gradient-to-r from-vm-navy/85 via-vm-navy/65 to-vm-navy/45" />
-      <div className="absolute inset-0 bg-vm-navy/30" />
+      {/* Background layers live in their own clipped wrapper so the Mapbox
+          address-autocomplete dropdown inside the form below is free to
+          overflow the section bounds without being chopped off. */}
+      <div className="absolute inset-0 overflow-hidden">
+        <Image
+          src="/videos/hero-poster.jpg"
+          alt="Varsity Mulching crew at work"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        {showVideo && (
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="/videos/hero-poster.jpg"
+            aria-label="Varsity Mulching crew at work"
+          >
+            <source src="/videos/hero-video.webm" type="video/webm" />
+            <source src="/videos/hero-video.mp4" type="video/mp4" />
+          </video>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-r from-vm-navy/85 via-vm-navy/65 to-vm-navy/45" />
+        <div className="absolute inset-0 bg-vm-navy/30" />
+      </div>
 
       {/* Content */}
       <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-8 px-4 pt-24 pb-10 md:h-full md:grid-cols-2 md:gap-10 md:px-12 md:pt-24 md:pb-8 lg:gap-14 lg:px-20">
