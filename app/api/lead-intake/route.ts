@@ -19,6 +19,27 @@ function getSchedulerUrl(): string {
   return raw.replace(/\/+$/, "")
 }
 
+/**
+ * The Flask scheduler always builds redirect URLs against
+ * https://varsitymulching.com (its PUBLIC_SITE_BASE_URL default), but that
+ * apex still points to the old Framer site. The matching /schedule-* routes
+ * live in this Next.js app, so swap the host onto whatever origin the user
+ * actually hit. Path + query (sid, utm_*) are preserved.
+ */
+function rewriteRedirectHost(redirectTo: string | null | undefined, req: Request): string | null {
+  if (!redirectTo) return null
+  try {
+    const requestUrl = new URL(req.url)
+    const proto = req.headers.get("x-forwarded-proto") || requestUrl.protocol.replace(":", "")
+    const host = req.headers.get("x-forwarded-host") || req.headers.get("host") || requestUrl.host
+    const origin = `${proto}://${host}`
+    const target = new URL(redirectTo)
+    return `${origin}${target.pathname}${target.search}${target.hash}`
+  } catch {
+    return redirectTo
+  }
+}
+
 type SchedulerResponse = {
   ok?: boolean
   sid?: string | null
@@ -285,8 +306,8 @@ export async function POST(req: Request) {
   return NextResponse.json({
     ok: true,
     sid: schedulerData?.sid ?? supabaseId,
-    redirect_to: schedulerData?.redirect_to ?? null,
-    schedule_url: schedulerData?.schedule_url ?? null,
+    redirect_to: rewriteRedirectHost(schedulerData?.redirect_to, req),
+    schedule_url: rewriteRedirectHost(schedulerData?.schedule_url, req),
     routing_zone: schedulerData?.routing_zone ?? null,
   })
 }
