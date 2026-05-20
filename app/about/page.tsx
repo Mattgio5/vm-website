@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description:
     "Varsity Mulching is locally owned and run by college student athletes, serving Bucks & Montgomery County, PA with premium mulching and landscaping.",
   alternates: { canonical: "/about" },
+  openGraph: { url: "/about" },
 }
 
 const breadcrumbLd = {

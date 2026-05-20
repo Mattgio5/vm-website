@@ -8,6 +8,7 @@ export const metadata = {
   description:
     "Leaf removal, stick removal, mulch touch-ups and full haul-away across Bucks & Montgomery County, PA. Set your property up for winter.",
   alternates: { canonical: "/services/fall-cleanup" },
+  openGraph: { url: "/services/fall-cleanup" },
 }
 
 const jsonLd = {

@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   description:
     "Mulch installation, edging, weed control & bed cleanup in Bucks & Montgomery County, PA. College athletes delivering premium results. Free quotes.",
   alternates: { canonical: "/" },
+  openGraph: { url: "/" },
 }
 
 const jsonLd = {

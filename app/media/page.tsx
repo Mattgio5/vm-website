@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Updates, tips and behind-the-scenes from Varsity Mulching as we transform yards across Bucks & Montgomery County, PA.",
   alternates: { canonical: "/media" },
+  openGraph: { url: "/media" },
 }
 
 const FACEBOOK_URL = "https://www.facebook.com/people/Varsity-Mulching/61550553115186/"

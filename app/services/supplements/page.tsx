@@ -17,6 +17,7 @@ export const metadata = {
   description:
     "Bush removal, trimming, planting and ongoing landscape maintenance in Bucks & Montgomery County, PA. Serving Doylestown, Newtown and nearby.",
   alternates: { canonical: "/services/supplements" },
+  openGraph: { url: "/services/supplements" },
 }
 
 const addOns = [

@@ -8,6 +8,7 @@ export const metadata = {
   description:
     "Premium hardwood, cedar and colored mulch delivered and installed across Bucks & Montgomery County, PA. Serving Doylestown, Newtown, Lansdale and nearby.",
   alternates: { canonical: "/services/mulch-installation" },
+  openGraph: { url: "/services/mulch-installation" },
 }
 
 const jsonLd = {

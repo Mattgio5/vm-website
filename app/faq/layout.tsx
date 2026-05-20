@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   description:
     "Pricing, scheduling, materials and process — answers to common mulching and landscaping questions for Bucks & Montgomery County, PA.",
   alternates: { canonical: "/faq" },
+  openGraph: { url: "/faq" },
 }
 
 const faqJsonLd = {

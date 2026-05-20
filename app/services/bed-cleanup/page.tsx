@@ -8,6 +8,7 @@ export const metadata = {
   description:
     "Landscape bed cleanup in Bucks & Montgomery County, PA. Remove debris, dead plants and old mulch to revitalize your beds. Serving Doylestown and nearby.",
   alternates: { canonical: "/services/bed-cleanup" },
+  openGraph: { url: "/services/bed-cleanup" },
 }
 
 const jsonLd = {
