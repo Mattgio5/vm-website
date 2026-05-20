@@ -16,8 +16,8 @@ const footerLinks = {
   ],
   Contact: [
     { label: "(267) 489-1567", href: "tel:+12674891567" },
-    { label: "info@varsitymulch.com", href: "mailto:info@varsitymulch.com" },
-    { label: "Serving Chester County & the Greater Philadelphia Area", href: "#" },
+    { label: "hello@varsitymulching.com", href: "mailto:hello@varsitymulching.com" },
+    { label: "Serving Bucks & Montgomery County, PA", href: "/contact" },
   ],
 }
 
@@ -43,8 +43,8 @@ export function Footer() {
               />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/50">
-              Your trusted source for premium mulch, topsoil, stone, and
-              landscaping supplies. Fast delivery, fair prices, and expert advice.
+              Locally owned mulch installation and landscape services
+              for Bucks &amp; Montgomery County, PA. Free quotes.
             </p>
           </div>
 

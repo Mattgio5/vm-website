@@ -10,8 +10,9 @@ import { SITE_URL } from "@/lib/site"
 export const metadata: Metadata = {
   title: "Landscaping Services in Bucks County, PA",
   description:
-    "Mulch installation, edging, weed control & bed cleanup across Bucks & Montgomery County, PA. Serving Doylestown, Newtown, Lansdale, Sellersville and nearby.",
+    "Mulch installation, edging, weed control and bed cleanup across Bucks & Montgomery County, PA. Doylestown, Newtown, Lansdale and nearby.",
   alternates: { canonical: "/services" },
+  openGraph: { url: "/services" },
 }
 
 const services = [

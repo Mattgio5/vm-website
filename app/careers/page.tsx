@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Join the Varsity Mulching crew. Hiring hardworking college students and crew leads in Bucks & Montgomery County, PA.",
   alternates: { canonical: "/careers" },
+  openGraph: { url: "/careers" },
 }
 
 const coreValues = [

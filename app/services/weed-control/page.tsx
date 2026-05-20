@@ -8,6 +8,7 @@ export const metadata = {
   description:
     "Pre-emergent treatments, manual removal and landscape fabric for beds across Bucks & Montgomery County, PA. Serving Doylestown and nearby.",
   alternates: { canonical: "/services/weed-control" },
+  openGraph: { url: "/services/weed-control" },
 }
 
 const jsonLd = {

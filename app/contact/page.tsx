@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description:
     "Get a free, no-obligation mulching or landscaping quote in Bucks & Montgomery County, PA. Quick reply from our team.",
   alternates: { canonical: "/contact" },
+  openGraph: { url: "/contact" },
 }
 
 export default function ContactPage() {

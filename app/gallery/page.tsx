@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "Completed mulching, edging and bed projects across Doylestown, Newtown, Lansdale and Bucks & Montgomery County, PA.",
   alternates: { canonical: "/gallery" },
+  openGraph: { url: "/gallery" },
 }
 
 const breadcrumbLd = {
@@ -21,62 +22,77 @@ const breadcrumbLd = {
   ],
 }
 
-// Gallery projects with real images and simple descriptions
+// Gallery projects with real images and short SEO descriptions
 const projects = [
   {
     id: 1,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5794.JPG-3A8GQnvzZGQ109AidmaQvjWAfgISbp.jpeg",
-    description: "Curved front yard bed with fresh black mulch and bright green boxwood shrubs along a stone walkway.",
+    image: "/images/gallery/vm-gallery-01.webp",
+    description: "Backyard slope landscaped with fresh black mulch, river-rock border, and a natural stone stepping-stone path.",
   },
   {
     id: 2,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5776.JPG-NeKgQFVVRGji0At2YpqxRBrMshPu2R.jpeg",
-    description: "Backyard landscape bed around a gazebo and brick patio with various shrubs and fresh mulch.",
+    image: "/images/gallery/vm-gallery-02.webp",
+    description: "Side-of-house mulch bed with a long sweeping curved edge — clean lines that lift any Bucks County backyard.",
   },
   {
     id: 3,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5778.JPG-4dWlSVtNMq8xp4rSPtuTKZQKpjcQ9D.jpeg",
-    description: "Large island bed with mature shrubs, stone border accent, and freshly applied black mulch.",
+    image: "/images/gallery/vm-gallery-03.webp",
+    description: "Two crisp circular shrub islands of fresh black mulch on an open front lawn — instant curb appeal.",
   },
   {
     id: 4,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5780.JPG-LVE3o1tU14VkzjQAZEDoyeQ59knvjV.jpeg",
-    description: "Foundation bed along a brick porch with crisp edges and low shrubs freshly mulched.",
+    image: "/images/gallery/vm-gallery-04.webp",
+    description: "Narrow side-yard mulch bed running the length of a driveway, hand-edged for a sharp turf line.",
   },
   {
     id: 5,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5782.JPG-nP6Lsc5mrDehuaWJ6pKemXAV8c7sIl.jpeg",
-    description: "Clean circular tree ring with black mulch around a single tree in an open suburban lawn.",
+    image: "/images/gallery/vm-gallery-05.webp",
+    description: "Single circular front-lawn island bed framing mature shrubs with a fresh coat of premium black mulch.",
   },
   {
     id: 6,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5786.JPG-VxeAMGroOCtKGxzfgOVnabZSt8odNI.jpeg",
-    description: "Front yard bed near the driveway with a young tree, shrubs, and fresh black mulch.",
+    image: "/images/gallery/vm-gallery-06.webp",
+    description: "Front-walk mulch bed with red-brick border, freshly mulched around a young ornamental tree.",
   },
   {
     id: 7,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5790.JPG-XSeiXznDzWw7ZqNA7dLCIqEJQ1SdBv.jpeg",
-    description: "Shaded garden bed under a large pine tree with hostas and freshly spread mulch.",
+    image: "/images/gallery/vm-gallery-07.webp",
+    description: "Foundation bed wrapping the side of a Montgomery County home with a clean, sweeping mulched border.",
   },
   {
     id: 8,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5792.JPG-yb8RfbGAnMyMR6H6SSGhxlDFpVkCuM.jpeg",
-    description: "Side yard mulch bed along a black iron fence with ornamental grasses and hostas.",
+    image: "/images/gallery/vm-gallery-08.webp",
+    description: "Stucco-home front entry beds packed with ornamental shrubs and freshly installed black mulch.",
   },
   {
     id: 9,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5796.JPG-KzSND0J9yzDg9G3OwyDIGehhvbLhEs.jpeg",
-    description: "Large tree ring with fresh dark mulch around a mature ivy-covered tree in the front yard.",
+    image: "/images/gallery/vm-gallery-09.webp",
+    description: "Curved front-yard mulch bed with boxwoods and low shrubs framing a stone walkway and porch.",
   },
   {
     id: 10,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5800.JPG-vmGUBL0BE8sp7xTgcsPMLuxVLsRVOq.jpeg",
-    description: "Curved landscape bed around a tree with birdbath, fresh mulch, flowers, and shrubs.",
+    image: "/images/gallery/vm-gallery-10.webp",
+    description: "Long mulch bed running along a black iron property fence — refreshed with deep black mulch and a hand-cut edge.",
   },
   {
     id: 11,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5802.JPG-Bmc9KL0puTqPsATM2hlwAHIWAfQNxf.jpeg",
-    description: "Long narrow bed along a patio edge with young trees and freshly applied black mulch.",
+    image: "/images/gallery/vm-gallery-11.webp",
+    description: "Brick-foundation side bed with low boxwoods and shrubs, freshly mulched with a crisp turf-line edge.",
+  },
+  {
+    id: 12,
+    image: "/images/gallery/vm-gallery-12.webp",
+    description: "Curved iron-fence bed around two young staked saplings, dressed with fresh dark mulch.",
+  },
+  {
+    id: 13,
+    image: "/images/gallery/vm-gallery-13.webp",
+    description: "Pond-side bed with stone accents, a Japanese maple, and fresh black mulch for a manicured shoreline finish.",
+  },
+  {
+    id: 14,
+    image: "/images/gallery/vm-gallery-14.webp",
+    description: "Side-yard foundation bed with low boxwoods and ornamental grasses, freshly mulched and crisply edged.",
   },
 ]
 

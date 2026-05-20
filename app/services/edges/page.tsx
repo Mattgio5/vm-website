@@ -8,6 +8,7 @@ export const metadata = {
   description:
     "Hand-cut, deep, clean borders for flower and garden beds across Bucks & Montgomery County, PA. Defines beds and keeps mulch in place.",
   alternates: { canonical: "/services/edges" },
+  openGraph: { url: "/services/edges" },
 }
 
 const jsonLd = {
