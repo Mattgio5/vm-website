@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 
 export function WinningRosterSection() {
@@ -26,11 +27,13 @@ export function WinningRosterSection() {
           {/* The Hustle */}
           <div className="overflow-hidden rounded-2xl border border-white/20 bg-white/10">
             <div className="relative aspect-[16/9] w-full overflow-hidden bg-vm-navy/40">
-              <img
+              <Image
                 src="/images/team/hustle.webp"
                 alt="Varsity Mulching crew at work"
+                fill
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover"
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
               />
             </div>
             <div className="p-6 md:p-8">
@@ -46,11 +49,13 @@ export function WinningRosterSection() {
           {/* The Strategy */}
           <div className="overflow-hidden rounded-2xl border border-white/20 bg-white/10">
             <div className="relative aspect-[16/9] w-full overflow-hidden bg-vm-navy/40">
-              <img
+              <Image
                 src="/images/team/strategy.webp"
                 alt="Varsity Mulching team lead reviewing the job"
+                fill
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover"
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
               />
             </div>
             <div className="p-6 md:p-8">

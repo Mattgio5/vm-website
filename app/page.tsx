@@ -1,31 +1,34 @@
+import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { HeroCarousel } from "@/components/hero-carousel"
-
-export const metadata = {
-  title: "Varsity Mulching | Mulch Installation & Landscaping in Chester County, PA",
-  description:
-    "Professional mulch installation, edging, weed control & bed cleanup in Chester County, Bucks County & Montgomery County, PA. College athletes delivering premium results. Free quotes — call (267) 489-1567.",
-}
 import { ServicesOverview } from "@/components/services-overview"
 import { WinningRosterSection } from "@/components/winning-roster-section"
 import { ServiceAreaSection } from "@/components/service-area-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { CtaSection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
+import { SITE_URL, absoluteUrl } from "@/lib/site"
+
+export const metadata: Metadata = {
+  title: "Mulch Installation & Landscaping in Bucks County, PA",
+  description:
+    "Mulch installation, edging, weed control & bed cleanup in Bucks & Montgomery County, PA. College athletes delivering premium results. Free quotes.",
+  alternates: { canonical: "/" },
+}
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://www.varsitymulching.com/#business",
+  "@id": `${SITE_URL}/#business`,
   "name": "Varsity Mulching LLC",
-  "url": "https://www.varsitymulching.com",
-  "logo": "https://www.varsitymulching.com/images/vm-logo.png",
-  "image": "https://www.varsitymulching.com/images/vm-logo.png",
+  "url": SITE_URL,
+  "logo": absoluteUrl("/images/vm-logo.png"),
+  "image": absoluteUrl("/images/vm-logo.png"),
   "telephone": "+1-267-489-1567",
-  "email": "info@varsitymulch.com",
+  "email": "hello@varsitymulching.com",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "18 Mystic View Ln",
+    "streetAddress": "PO Box 2031",
     "addressLocality": "Doylestown",
     "addressRegion": "PA",
     "postalCode": "18901",
@@ -36,6 +39,10 @@ const jsonLd = {
     "latitude": 40.3101,
     "longitude": -75.1290
   },
+  "sameAs": [
+    "https://www.facebook.com/varsitymulching",
+    "https://www.instagram.com/varsitymulching",
+  ],
   "areaServed": [
     {
       "@type": "AdministrativeArea",

@@ -1,11 +1,13 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ServiceDetail } from "@/components/services/service-detail"
+import { SITE_URL } from "@/lib/site"
 
 export const metadata = {
-  title: "Weed Control in Chester County & Bucks County, PA | Varsity Mulching",
+  title: "Weed Control in Bucks County, PA",
   description:
-    "Professional weed control for landscape beds in Chester County, Bucks County & Montgomery County, PA. Pre-emergent treatments, manual removal & landscape fabric. Serving West Chester, Doylestown & Malvern.",
+    "Pre-emergent treatments, manual removal and landscape fabric for beds across Bucks & Montgomery County, PA. Serving Doylestown and nearby.",
+  alternates: { canonical: "/services/weed-control" },
 }
 
 const jsonLd = {
@@ -14,10 +16,10 @@ const jsonLd = {
   "serviceType": "Weed Control",
   "name": "Professional Weed Control",
   "description": "Pre-emergent treatments, manual weed removal, and landscape fabric installation for landscape beds in Chester County, Bucks County and Montgomery County, PA.",
-  "url": "https://www.varsitymulching.com/services/weed-control",
+  "url": `${SITE_URL}/services/weed-control`,
   "provider": {
     "@type": "LocalBusiness",
-    "@id": "https://www.varsitymulching.com/#business",
+    "@id": `${SITE_URL}/#business`,
     "name": "Varsity Mulching LLC",
     "telephone": "+1-267-489-1567"
   },
@@ -58,9 +60,9 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.varsitymulching.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.varsitymulching.com/services" },
-    { "@type": "ListItem", "position": 3, "name": "Weed Control", "item": "https://www.varsitymulching.com/services/weed-control" }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": `${SITE_URL}/services` },
+    { "@type": "ListItem", "position": 3, "name": "Weed Control", "item": `${SITE_URL}/services/weed-control` }
   ]
 }
 

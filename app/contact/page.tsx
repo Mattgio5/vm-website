@@ -1,12 +1,14 @@
+import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ContactForm } from "./contact-form"
 import { Mail, Phone, MapPin, Clock } from "lucide-react"
 
-export const metadata = {
-  title: "Schedule a Free Quote | Varsity Mulching",
+export const metadata: Metadata = {
+  title: "Schedule a Free Quote",
   description:
-    "Fill out the form and a Varsity Mulching representative will reach out to schedule your free, no-obligation quote. Serving Bucks & Montgomery County, PA.",
+    "Get a free, no-obligation mulching or landscaping quote in Bucks & Montgomery County, PA. Quick reply from our team.",
+  alternates: { canonical: "/contact" },
 }
 
 export default function ContactPage() {

@@ -1,11 +1,13 @@
+import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import Link from "next/link"
 
-export const metadata = {
-  title: "Varsity Mulch Blog & News | Landscaping Tips | West Chester PA",
+export const metadata: Metadata = {
+  title: "Blog & News — Landscaping Tips in Bucks County, PA",
   description:
-    "Updates, tips & behind-the-scenes from Varsity Mulching. Follow our crew as we transform yards across Chester County, Bucks County & Montgomery County, PA.",
+    "Updates, tips and behind-the-scenes from Varsity Mulching as we transform yards across Bucks & Montgomery County, PA.",
+  alternates: { canonical: "/media" },
 }
 
 const FACEBOOK_URL = "https://www.facebook.com/people/Varsity-Mulching/61550553115186/"
@@ -115,6 +117,8 @@ export default function MediaPage() {
                   className="w-full"
                   style={{ minHeight: "560px", border: "none" }}
                   scrolling="no"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
                   title="Varsity Mulching Instagram Feed"
                 />
               </div>

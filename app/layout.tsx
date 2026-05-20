@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Open_Sans, Bowlby_One_SC } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { SITE_URL } from '@/lib/site'
 import './globals.css'
 
 const openSans = Open_Sans({
@@ -17,19 +18,36 @@ const bowlbyOneSc = Bowlby_One_SC({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://varsitymulching.com'),
+  metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: '/',
   },
   verification: {
     google: '_g3QByJq47ZO1tjuIuGxcJ5LOleNLGOOVoJEiqu1470',
   },
-  title: 'Varsity Mulching | Professional Mulch & Landscaping in Chester County, Bucks County & Montgomery County, PA',
+  title: {
+    default: 'Varsity Mulching | Mulch Installation & Landscaping in Bucks County, PA',
+    template: '%s | Varsity Mulching',
+  },
   description:
-    'Professional mulch installation, landscape edging, weed control & bed cleanup serving Chester County, Bucks County & Montgomery County, PA. Locally owned — serving West Chester, Doylestown, Malvern, Exton & more.',
+    'Mulch installation, bed cleanup, edging and weed control for Bucks & Montgomery County homes. Locally owned — serving Doylestown, Newtown, Lansdale & nearby.',
+  applicationName: 'Varsity Mulching',
+  authors: [{ name: 'Varsity Mulching LLC' }],
+  keywords: [
+    'mulch installation',
+    'landscaping',
+    'bed cleanup',
+    'flower bed edging',
+    'weed control',
+    'Doylestown PA',
+    'Bucks County',
+    'Montgomery County',
+  ],
   openGraph: {
     type: 'website',
     siteName: 'Varsity Mulching',
+    url: '/',
+    locale: 'en_US',
     images: [
       {
         url: '/images/vm-logo.png',
@@ -41,6 +59,18 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    images: ['/images/vm-logo.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
   },
   icons: {
     icon: [

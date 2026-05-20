@@ -171,9 +171,12 @@ export function Navbar() {
               Get a Quote
             </Link>
             <button
+              type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
               className="flex flex-col gap-1.5 p-1 md:hidden"
-              aria-label="Toggle menu"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
             >
               <span className={`block h-0.5 w-5 bg-vm-navy transition-all ${mobileOpen ? "translate-y-2 rotate-45" : ""}`} />
               <span className={`block h-0.5 w-5 bg-vm-navy transition-all ${mobileOpen ? "opacity-0" : ""}`} />
@@ -184,7 +187,7 @@ export function Navbar() {
 
         {/* Mobile dropdown */}
         {mobileOpen && (
-          <div className="mt-3 flex flex-col gap-1 border-t border-vm-navy/10 pt-3 md:hidden">
+          <div id="mobile-menu" className="mt-3 flex flex-col gap-1 border-t border-vm-navy/10 pt-3 md:hidden">
             <div className="mb-2">
               <p className="px-3 pb-2 text-xs text-vm-navy/60">
                 Professional landscaping solutions

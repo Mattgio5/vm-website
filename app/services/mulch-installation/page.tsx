@@ -1,11 +1,13 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ServiceDetail } from "@/components/services/service-detail"
+import { SITE_URL } from "@/lib/site"
 
 export const metadata = {
-  title: "Mulch Installation in Chester County & Bucks County, PA | Varsity Mulching",
+  title: "Mulch Installation in Bucks County, PA",
   description:
-    "Professional mulch installation in Chester County, Bucks County & Montgomery County, PA. Premium hardwood, cedar & colored mulch delivered and installed. Serving West Chester, Doylestown, Malvern & Exton.",
+    "Premium hardwood, cedar and colored mulch delivered and installed across Bucks & Montgomery County, PA. Serving Doylestown, Newtown, Lansdale and nearby.",
+  alternates: { canonical: "/services/mulch-installation" },
 }
 
 const jsonLd = {
@@ -14,10 +16,10 @@ const jsonLd = {
   "serviceType": "Mulch Installation",
   "name": "Professional Mulch Installation",
   "description": "Premium mulch delivered and professionally installed for garden beds. Hardwood, cedar, and colored mulch options available.",
-  "url": "https://www.varsitymulching.com/services/mulch-installation",
+  "url": `${SITE_URL}/services/mulch-installation`,
   "provider": {
     "@type": "LocalBusiness",
-    "@id": "https://www.varsitymulching.com/#business",
+    "@id": `${SITE_URL}/#business`,
     "name": "Varsity Mulching LLC",
     "telephone": "+1-267-489-1567"
   },
@@ -58,9 +60,9 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.varsitymulching.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.varsitymulching.com/services" },
-    { "@type": "ListItem", "position": 3, "name": "Mulch Installation", "item": "https://www.varsitymulching.com/services/mulch-installation" }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": `${SITE_URL}/services` },
+    { "@type": "ListItem", "position": 3, "name": "Mulch Installation", "item": `${SITE_URL}/services/mulch-installation` }
   ]
 }
 

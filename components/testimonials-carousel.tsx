@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { testimonials, type Testimonial } from "@/lib/testimonials"
 
@@ -35,11 +36,13 @@ function Card({ t }: { t: Testimonial }) {
     <article className="snap-start flex h-full w-[min(85vw,340px)] shrink-0 flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm md:w-[calc((100%-3rem)/3)]">
       {t.image ? (
         <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
-          <img
+          <Image
             src={t.image}
             alt={`Work completed for ${t.name}`}
+            fill
             loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover"
+            sizes="(min-width: 768px) 33vw, 85vw"
+            className="object-cover"
           />
         </div>
       ) : null}

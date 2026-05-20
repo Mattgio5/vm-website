@@ -252,13 +252,13 @@ export const testimonials: Testimonial[] = [
     name: "Jodi Stout",
     quote:
       "I was completely impressed by Varsity Mulching. They were prompt in responding to my inquiries and provided a detailed estimate on the spot. They scheduled me immediately and even confirmed service the day before. The crew was professional and fast! Extremely happy with their services.",
-    image: "/images/testimonials/jodi-stout.png",
+    image: "/images/testimonials/jodi-stout.webp",
   },
   {
     name: "Patti Finlay",
     quote:
       "Matt and his crew were responsive from the moment I inquired about mulching our property. They were courteous, polite, hard-working, on time, and concerned with providing the best customer service.",
-    image: "/images/testimonials/patti-finlay.png",
+    image: "/images/testimonials/patti-finlay.webp",
   },
   {
     name: "Mary Ann Pierce",
@@ -269,13 +269,13 @@ export const testimonials: Testimonial[] = [
     name: "Shaun Rody",
     quote:
       "Scheduling was quick and easy. Andrew came out for an estimate and gave me a reasonable price on the spot. The work was done soon after that and everything looks great!",
-    image: "/images/testimonials/shaun-rody.png",
+    image: "/images/testimonials/shaun-rody.webp",
   },
   {
     name: "Krista Spadt",
     quote:
       "Varsity Mulching did a wonderful job! From the very first estimate visit, to the laying of the mulch, there was great communication and the work was top notch. We would recommend Varsity Mulching to anyone, and we will definitely use them again in the future!",
-    image: "/images/testimonials/krista-spadt.png",
+    image: "/images/testimonials/krista-spadt.webp",
   },
   {
     name: "Aubrey Buch",
@@ -287,7 +287,7 @@ export const testimonials: Testimonial[] = [
     name: "Ryan Gamo",
     quote:
       "Big shoutout to Jacob and his crew for the awesome job they did with the mulching and edging around our house. They were super easy to work with, showed up on time, and really knew what they were doing. Highly recommend!",
-    image: "/images/testimonials/ryan-gamo.png",
+    image: "/images/testimonials/ryan-gamo.webp",
   },
   {
     name: "Alfred Ashton",
@@ -298,6 +298,6 @@ export const testimonials: Testimonial[] = [
     name: "Eileen Gresh",
     quote:
       "I am very pleased with the work Matt and his team did. I highly recommend them. Everything looks perfect.",
-    image: "/images/testimonials/eileen-gresh.png",
+    image: "/images/testimonials/eileen-gresh.webp",
   },
 ]
