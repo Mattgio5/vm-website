@@ -1,11 +1,24 @@
+import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import Link from "next/link"
 import Image from "next/image"
+import { SITE_URL } from "@/lib/site"
 
-export const metadata = {
-  title: "Project Gallery | Mulch & Landscaping in Chester County, Bucks County & Montgomery County, PA",
-  description: "Browse completed mulching, edging & landscape bed projects in West Chester, Doylestown, Malvern, Exton, Downingtown & more across Chester County, Bucks County & Montgomery County, PA.",
+export const metadata: Metadata = {
+  title: "Project Gallery — Mulch & Landscaping in Bucks County, PA",
+  description:
+    "Completed mulching, edging and bed projects across Doylestown, Newtown, Lansdale and Bucks & Montgomery County, PA.",
+  alternates: { canonical: "/gallery" },
+}
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+    { "@type": "ListItem", position: 2, name: "Gallery", item: `${SITE_URL}/gallery` },
+  ],
 }
 
 // Gallery projects with real images and simple descriptions
@@ -70,6 +83,10 @@ const projects = [
 export default function GalleryPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
       <Navbar />
 
       {/* Hero */}

@@ -1,7 +1,10 @@
-export const metadata = {
-  title: "FAQ | Varsity Mulching — Mulch & Landscaping Questions Answered",
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "FAQ — Mulch & Landscaping Questions Answered",
   description:
-    "Answers to common questions about mulch installation, edging, weed control & bed cleanup services in Chester County & Bucks County, PA. Pricing, scheduling & more.",
+    "Pricing, scheduling, materials and process — answers to common mulching and landscaping questions for Bucks & Montgomery County, PA.",
+  alternates: { canonical: "/faq" },
 }
 
 const faqJsonLd = {

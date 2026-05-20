@@ -29,8 +29,10 @@ export async function generateMetadata({
   if (!isValidZone(zone)) return {}
   const label = ZONE_LABELS[zone]
   return {
-    title: `${label.title} — Schedule a Free Quote | Varsity Mulching`,
+    title: `${label.title} — Schedule a Free Quote`,
     description: `Pick a time that works for you. Free, no-obligation quotes for ${label.coverage}.`,
+    // Post-conversion funnel page — keep out of the index.
+    robots: { index: false, follow: true },
   }
 }
 

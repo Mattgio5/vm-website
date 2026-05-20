@@ -1,11 +1,13 @@
+import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import Link from "next/link"
 
-export const metadata = {
-  title: "Careers | Varsity Mulching",
+export const metadata: Metadata = {
+  title: "Careers — Landscaping & Mulching Jobs in Bucks County, PA",
   description:
-    "Join the Varsity Mulching team. We're looking for hardworking, friendly college students who take pride in transforming yards across Pennsylvania.",
+    "Join the Varsity Mulching crew. Hiring hardworking college students and crew leads in Bucks & Montgomery County, PA.",
+  alternates: { canonical: "/careers" },
 }
 
 const coreValues = [

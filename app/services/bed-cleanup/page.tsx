@@ -1,11 +1,13 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ServiceDetail } from "@/components/services/service-detail"
+import { SITE_URL } from "@/lib/site"
 
 export const metadata = {
-  title: "Bed Cleanup in Chester County & Bucks County, PA | Varsity Mulching",
+  title: "Bed Cleanup in Bucks County, PA",
   description:
-    "Professional landscape bed cleanup in Chester County, Bucks County & Montgomery County, PA. Remove debris, dead plants & old mulch to revitalize your garden beds. Serving West Chester, Doylestown & Malvern.",
+    "Landscape bed cleanup in Bucks & Montgomery County, PA. Remove debris, dead plants and old mulch to revitalize your beds. Serving Doylestown and nearby.",
+  alternates: { canonical: "/services/bed-cleanup" },
 }
 
 const jsonLd = {
@@ -14,10 +16,10 @@ const jsonLd = {
   "serviceType": "Bed Cleanup",
   "name": "Professional Landscape Bed Cleanup",
   "description": "Remove debris, dead plants, and old mulch to revitalize your garden beds. Complete bed restoration and soil preparation.",
-  "url": "https://www.varsitymulching.com/services/bed-cleanup",
+  "url": `${SITE_URL}/services/bed-cleanup`,
   "provider": {
     "@type": "LocalBusiness",
-    "@id": "https://www.varsitymulching.com/#business",
+    "@id": `${SITE_URL}/#business`,
     "name": "Varsity Mulching LLC",
     "telephone": "+1-267-489-1567"
   },
@@ -58,9 +60,9 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.varsitymulching.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.varsitymulching.com/services" },
-    { "@type": "ListItem", "position": 3, "name": "Bed Cleanup", "item": "https://www.varsitymulching.com/services/bed-cleanup" }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": `${SITE_URL}/services` },
+    { "@type": "ListItem", "position": 3, "name": "Bed Cleanup", "item": `${SITE_URL}/services/bed-cleanup` }
   ]
 }
 

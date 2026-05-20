@@ -1,11 +1,13 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ServiceDetail } from "@/components/services/service-detail"
+import { SITE_URL } from "@/lib/site"
 
 export const metadata = {
-  title: "Fall Cleanup in Bucks County & Montgomery County, PA | Varsity Mulching",
+  title: "Fall Cleanup in Bucks County, PA",
   description:
-    "Professional fall cleanup in Bucks County & Montgomery County, PA. Leaf removal, stick removal, mulch touch-ups and full haul-away. Setting your property up for winter.",
+    "Leaf removal, stick removal, mulch touch-ups and full haul-away across Bucks & Montgomery County, PA. Set your property up for winter.",
+  alternates: { canonical: "/services/fall-cleanup" },
 }
 
 const jsonLd = {
@@ -15,10 +17,10 @@ const jsonLd = {
   "name": "Professional Fall Cleanup",
   "description":
     "Complete property fall cleanup: leaf removal, organic debris removal, mulch touch-ups and full haul-away to prep your property for winter.",
-  "url": "https://www.varsitymulching.com/services/fall-cleanup",
+  "url": `${SITE_URL}/services/fall-cleanup`,
   "provider": {
     "@type": "LocalBusiness",
-    "@id": "https://www.varsitymulching.com/#business",
+    "@id": `${SITE_URL}/#business`,
     "name": "Varsity Mulching LLC",
     "telephone": "+1-267-489-1567",
   },
@@ -37,9 +39,9 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.varsitymulching.com/" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.varsitymulching.com/services" },
-    { "@type": "ListItem", position: 3, name: "Fall Cleanup", item: "https://www.varsitymulching.com/services/fall-cleanup" },
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+    { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
+    { "@type": "ListItem", position: 3, name: "Fall Cleanup", item: `${SITE_URL}/services/fall-cleanup` },
   ],
 }
 

@@ -1,11 +1,13 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ServiceDetail } from "@/components/services/service-detail"
+import { SITE_URL } from "@/lib/site"
 
 export const metadata = {
-  title: "Flower Bed Edging in Doylestown, PA | Varsity Mulching",
+  title: "Flower Bed Edging in Doylestown, PA",
   description:
-    "Professional flower bed edging in Doylestown, PA and across Bucks, Chester & Montgomery County. Hand-cut, deep, clean borders that define your beds and keep mulch in place.",
+    "Hand-cut, deep, clean borders for flower and garden beds across Bucks & Montgomery County, PA. Defines beds and keeps mulch in place.",
+  alternates: { canonical: "/services/edges" },
 }
 
 const jsonLd = {
@@ -14,10 +16,10 @@ const jsonLd = {
   "serviceType": "Flower Bed Edging",
   "name": "Professional Flower Bed Edging",
   "description": "Hand-cut, deep, clean borders that define flower and garden beds, stop grass invasion, and keep mulch in place.",
-  "url": "https://www.varsitymulching.com/services/edges",
+  "url": `${SITE_URL}/services/edges`,
   "provider": {
     "@type": "LocalBusiness",
-    "@id": "https://www.varsitymulching.com/#business",
+    "@id": `${SITE_URL}/#business`,
     "name": "Varsity Mulching LLC",
     "telephone": "+1-267-489-1567"
   },
@@ -58,9 +60,9 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.varsitymulching.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.varsitymulching.com/services" },
-    { "@type": "ListItem", "position": 3, "name": "Flower Bed Edging", "item": "https://www.varsitymulching.com/services/edges" }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": `${SITE_URL}/services` },
+    { "@type": "ListItem", "position": 3, "name": "Flower Bed Edging", "item": `${SITE_URL}/services/edges` }
   ]
 }
 

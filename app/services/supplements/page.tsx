@@ -2,6 +2,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
 import Link from "next/link"
+import { SITE_URL } from "@/lib/site"
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -12,9 +13,10 @@ import {
 } from "@/components/ui/breadcrumb"
 
 export const metadata = {
-  title: "Landscaping Add-Ons & Maintenance in Chester County & Bucks County, PA | Varsity Mulching",
+  title: "Landscaping Add-Ons & Maintenance in Bucks County, PA",
   description:
-    "Bush removal, trimming, planting, fall cleanups & ongoing landscape maintenance in Chester County, Bucks County & Montgomery County, PA. Serving West Chester, Doylestown, Malvern & Exton.",
+    "Bush removal, trimming, planting and ongoing landscape maintenance in Bucks & Montgomery County, PA. Serving Doylestown, Newtown and nearby.",
+  alternates: { canonical: "/services/supplements" },
 }
 
 const addOns = [
@@ -44,10 +46,10 @@ const jsonLd = {
   "serviceType": "Landscape Maintenance & Add-Ons",
   "name": "Landscaping Add-Ons & Maintenance Services",
   "description": "Bush removal, transplanting, trimming, planting, fall cleanups, bed maintenance, weed treatments, and aeration services.",
-  "url": "https://www.varsitymulching.com/services/supplements",
+  "url": `${SITE_URL}/services/supplements`,
   "provider": {
     "@type": "LocalBusiness",
-    "@id": "https://www.varsitymulching.com/#business",
+    "@id": `${SITE_URL}/#business`,
     "name": "Varsity Mulching LLC",
     "telephone": "+1-267-489-1567"
   },
@@ -88,9 +90,9 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.varsitymulching.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.varsitymulching.com/services" },
-    { "@type": "ListItem", "position": 3, "name": "Supplements", "item": "https://www.varsitymulching.com/services/supplements" }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": `${SITE_URL}/services` },
+    { "@type": "ListItem", "position": 3, "name": "Supplements", "item": `${SITE_URL}/services/supplements` }
   ]
 }
 

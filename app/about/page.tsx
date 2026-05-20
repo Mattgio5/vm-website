@@ -1,25 +1,41 @@
+import type { Metadata } from "next"
 import Image from "next/image"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { SITE_URL } from "@/lib/site"
 
-export const metadata = {
-  title: "About Varsity Mulching | Locally Owned in Doylestown, PA",
+export const metadata: Metadata = {
+  title: "About Us — Locally Owned in Doylestown, PA",
   description:
-    "Varsity Mulching is a locally owned landscaping business run by college student athletes, serving Chester County, Bucks County & Montgomery County, PA with premium mulching services.",
+    "Varsity Mulching is locally owned and run by college student athletes, serving Bucks & Montgomery County, PA with premium mulching and landscaping.",
+  alternates: { canonical: "/about" },
+}
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+    { "@type": "ListItem", position: 2, name: "About", item: `${SITE_URL}/about` },
+  ],
 }
 
 const team = [
-  { name: "Jacob", role: "General Manager", hometown: "Doylestown, PA", photo: "/images/team/jacob.jpg" },
-  { name: "Chase", role: "Lead Estimator", hometown: "Lansdale, PA", photo: "/images/team/chase.jpg" },
-  { name: "Tyler", role: "Crew Lead", hometown: "Doylestown, PA", photo: "/images/team/tyler.jpg" },
-  { name: "Klay", role: "Crew Lead", hometown: "Furlong, PA", photo: "/images/team/klay.jpg" },
-  { name: "Niko", role: "Crew Lead", hometown: "Doylestown, PA", photo: "/images/team/niko.jpg" },
-  { name: "Connor", role: "Crew Lead", hometown: "Doylestown, PA", photo: "/images/team/connor.jpg" },
+  { name: "Jacob", role: "General Manager", hometown: "Doylestown, PA", photo: "/images/team/jacob.webp" },
+  { name: "Chase", role: "Lead Estimator", hometown: "Lansdale, PA", photo: "/images/team/chase.webp" },
+  { name: "Tyler", role: "Crew Lead", hometown: "Doylestown, PA", photo: "/images/team/tyler.webp" },
+  { name: "Klay", role: "Crew Lead", hometown: "Furlong, PA", photo: "/images/team/klay.webp" },
+  { name: "Niko", role: "Crew Lead", hometown: "Doylestown, PA", photo: "/images/team/niko.webp" },
+  { name: "Connor", role: "Crew Lead", hometown: "Doylestown, PA", photo: "/images/team/connor.webp" },
 ]
 
 export default function AboutPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
       <Navbar />
 
       {/* Hero Section */}
@@ -98,7 +114,7 @@ export default function AboutPage() {
                   {/* Gold accent stripe */}
                   <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-vm-gold" />
                   <Image
-                    src="/images/team/matt.jpg"
+                    src="/images/team/matt.webp"
                     alt="Matt Giordano, founder of Varsity Mulching"
                     fill
                     sizes="(min-width: 768px) 40vw, 100vw"
