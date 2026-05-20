@@ -8,11 +8,6 @@ export type Testimonial = {
 // from varsitymulching.com (text only, with the 6 excluded names removed).
 export const testimonials: Testimonial[] = [
   {
-    name: "Brandon Shearer",
-    quote:
-      "The work was great. They were timely, efficient, communicative and hard working. They were at the property all day. I've had three different landscapers do my mulch gardens — this was by far the best experience and service for mulching that I have had.",
-  },
-  {
     name: "Scott Grezeszak",
     quote:
       "Connor K and his team arrived as scheduled, were respectful, meticulous, and cleaned up nicely. I'm very pleased with their work and the quality of the mulch they spread. This is a quality company and work crew. I'll use Varsity again.",
