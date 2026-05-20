@@ -45,38 +45,14 @@ const jsonLd = {
     "https://www.instagram.com/varsitymulching",
   ],
   "areaServed": [
-    {
-      "@type": "AdministrativeArea",
-      "name": "Chester County, PA"
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Bucks County, PA"
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Montgomery County, PA"
-    },
-    {
-      "@type": "City",
-      "name": "West Chester, PA"
-    },
-    {
-      "@type": "City",
-      "name": "Doylestown, PA"
-    },
-    {
-      "@type": "City",
-      "name": "Malvern, PA"
-    },
-    {
-      "@type": "City",
-      "name": "Exton, PA"
-    },
-    {
-      "@type": "City",
-      "name": "Downingtown, PA"
-    }
+    { "@type": "AdministrativeArea", "name": "Bucks County, PA" },
+    { "@type": "AdministrativeArea", "name": "Montgomery County, PA" },
+    { "@type": "City", "name": "Doylestown, PA" },
+    { "@type": "City", "name": "Newtown, PA" },
+    { "@type": "City", "name": "Lansdale, PA" },
+    { "@type": "City", "name": "Sellersville, PA" },
+    { "@type": "City", "name": "Buckingham, PA" },
+    { "@type": "City", "name": "New Hope, PA" }
   ],
   "openingHoursSpecification": [
     {

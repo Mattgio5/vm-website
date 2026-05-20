@@ -86,6 +86,13 @@ export const quickQuoteSchema = z.object({
   email: z.string().trim().email("Enter a valid email"),
   phone: z.string().trim().min(7, "Enter a valid phone number").max(40),
   address: z.string().trim().min(3, "Enter your property address").max(255),
+  // Optional structured address parts. The hero form fills these when the
+  // user picks a Mapbox suggestion so the server doesn't have to re-parse
+  // the formatted string. ZIP-based routing on the scheduler needs the ZIP.
+  street_address: z.string().trim().max(255).optional().or(z.literal("")),
+  city: z.string().trim().max(120).optional().or(z.literal("")),
+  state: z.string().trim().max(60).optional().or(z.literal("")),
+  zip: z.string().trim().max(10).optional().or(z.literal("")),
   services: z.array(z.string().trim().min(1).max(120)).max(20).default([]),
 
   page_slug: z.string().trim().max(200).optional().or(z.literal("")),
@@ -132,6 +139,33 @@ const US_STATE_ABBRS = new Set([
   "DC",
 ])
 
+const US_STATE_NAME_TO_ABBR: Record<string, string> = {
+  alabama: "AL", alaska: "AK", arizona: "AZ", arkansas: "AR", california: "CA",
+  colorado: "CO", connecticut: "CT", delaware: "DE", florida: "FL", georgia: "GA",
+  hawaii: "HI", idaho: "ID", illinois: "IL", indiana: "IN", iowa: "IA",
+  kansas: "KS", kentucky: "KY", louisiana: "LA", maine: "ME", maryland: "MD",
+  massachusetts: "MA", michigan: "MI", minnesota: "MN", mississippi: "MS", missouri: "MO",
+  montana: "MT", nebraska: "NE", nevada: "NV", "new hampshire": "NH", "new jersey": "NJ",
+  "new mexico": "NM", "new york": "NY", "north carolina": "NC", "north dakota": "ND",
+  ohio: "OH", oklahoma: "OK", oregon: "OR", pennsylvania: "PA", "rhode island": "RI",
+  "south carolina": "SC", "south dakota": "SD", tennessee: "TN", texas: "TX", utah: "UT",
+  vermont: "VT", virginia: "VA", washington: "WA", "west virginia": "WV", wisconsin: "WI",
+  wyoming: "WY", "district of columbia": "DC",
+}
+
+/**
+ * Normalize a state value into a 2-letter USPS abbreviation. Accepts either
+ * an abbreviation ("PA", "pa") or a full state name ("Pennsylvania"). Returns
+ * an empty string if it can't tell.
+ */
+export function toStateAbbr(raw: string): string {
+  const v = raw.trim()
+  if (!v) return ""
+  if (v.length === 2 && US_STATE_ABBRS.has(v.toUpperCase())) return v.toUpperCase()
+  const abbr = US_STATE_NAME_TO_ABBR[v.toLowerCase()]
+  return abbr || ""
+}
+
 /**
  * Best-effort parser for a single-line property address. Handles the common
  * "Street, City, STATE ZIP" shape that the placeholder text suggests. Falls
@@ -162,14 +196,26 @@ export function parseAddressLine(raw: string): {
     .replace(/,\s*$/, "")
     .trim()
 
-  // Pull a 2-letter US state abbreviation off the end if present. The
-  // whitelist check prevents "St", "Rd", "Dr" etc. from being misread.
-  const stateMatch = withoutZip.match(/[,\s]+([A-Za-z]{2})\s*$/)
+  // Pull a state off the end if present. Try full names first (two words like
+  // "New York"; one word like "Pennsylvania") then fall back to a 2-letter
+  // USPS abbreviation. The abbreviation whitelist prevents "St", "Rd", "Dr"
+  // etc. from being misread.
   let state = ""
   let withoutState = withoutZip
-  if (stateMatch && US_STATE_ABBRS.has(stateMatch[1].toUpperCase())) {
-    state = stateMatch[1].toUpperCase()
-    withoutState = withoutZip.slice(0, stateMatch.index).trim().replace(/,\s*$/, "").trim()
+  const nameMatch = withoutZip.match(/[,\s]+([A-Za-z]+(?:\s[A-Za-z]+)?)\s*$/)
+  if (nameMatch) {
+    const abbr = US_STATE_NAME_TO_ABBR[nameMatch[1].toLowerCase()]
+    if (abbr) {
+      state = abbr
+      withoutState = withoutZip.slice(0, nameMatch.index).trim().replace(/,\s*$/, "").trim()
+    }
+  }
+  if (!state) {
+    const abbrMatch = withoutZip.match(/[,\s]+([A-Za-z]{2})\s*$/)
+    if (abbrMatch && US_STATE_ABBRS.has(abbrMatch[1].toUpperCase())) {
+      state = abbrMatch[1].toUpperCase()
+      withoutState = withoutZip.slice(0, abbrMatch.index).trim().replace(/,\s*$/, "").trim()
+    }
   }
 
   // Whatever's left is "street[, city]". Prefer the last comma-segment as the
@@ -236,7 +282,20 @@ export function toSchedulerPayload(input: QuoteIntakeInput) {
  */
 export function toSchedulerPayloadFromQuick(input: QuickQuoteInput) {
   const { first_name, last_name } = splitFullName(input.full_name)
-  const { street_address, city, state, zip } = parseAddressLine(input.address)
+
+  // Prefer the explicit split fields the form sends after a Mapbox pick.
+  // Only fall back to parsing the single `address` line if the client
+  // didn't (or couldn't) provide them.
+  const provided = {
+    street_address: (input.street_address || "").trim(),
+    city: (input.city || "").trim(),
+    state: toStateAbbr(input.state || "") || (input.state || "").trim().toUpperCase(),
+    zip: (input.zip || "").trim(),
+  }
+  const hasProvided =
+    !!provided.street_address || !!provided.city || !!provided.state || !!provided.zip
+  const parts = hasProvided ? provided : parseAddressLine(input.address)
+  const { street_address, city, state, zip } = parts
 
   const cityStateZip = [city, state, zip].filter(Boolean).join(" ")
   const address = [street_address, cityStateZip].filter(Boolean).join(", ")

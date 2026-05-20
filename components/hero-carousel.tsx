@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
-import { extractUtmFromSearch, type UtmParams } from "@/lib/quote-intake"
+import { extractUtmFromSearch, toStateAbbr, type UtmParams } from "@/lib/quote-intake"
 import { AddressAutofillWrapper } from "@/components/address-autofill"
 
 const GOOGLE_REVIEWS_URL =
@@ -101,6 +101,12 @@ function QuickQuoteForm() {
   const [phone, setPhone] = useState("")
   const [email, setEmail] = useState("")
   const [address, setAddress] = useState("")
+  const [addressParts, setAddressParts] = useState<{
+    street_address: string
+    city: string
+    state: string
+    zip: string
+  } | null>(null)
   const [services, setServices] = useState<string[]>([])
   const [open, setOpen] = useState(false)
 
@@ -135,6 +141,11 @@ function QuickQuoteForm() {
       email,
       phone,
       address,
+      // When the user picked a Mapbox suggestion we already have clean
+      // street/city/state/zip split; ship them so the server doesn't have to
+      // re-parse the formatted string (and so ZIP-based routing on the Flask
+      // scheduler always sees the ZIP).
+      ...(addressParts ?? {}),
       services,
       page_slug: pageSlugRef.current,
       utm: utmRef.current,
@@ -304,14 +315,21 @@ function QuickQuoteForm() {
             <AddressAutofillWrapper
               variant="dark"
               onSelect={(parts) => {
+                const stateAbbr = toStateAbbr(parts.state) || parts.state
                 const clean = [
                   parts.street_address,
                   parts.city,
-                  [parts.state, parts.zip].filter(Boolean).join(" "),
+                  [stateAbbr, parts.zip].filter(Boolean).join(" "),
                 ]
                   .filter(Boolean)
                   .join(", ")
                 setAddress(clean || parts.full_address)
+                setAddressParts({
+                  street_address: parts.street_address,
+                  city: parts.city,
+                  state: stateAbbr,
+                  zip: parts.zip,
+                })
               }}
             >
               <input
@@ -322,7 +340,12 @@ function QuickQuoteForm() {
                 placeholder="Start typing your address…"
                 className="hero-input"
                 value={address}
-                onChange={(e) => setAddress(e.target.value)}
+                onChange={(e) => {
+                  setAddress(e.target.value)
+                  // User edited after picking — drop the cached parts so the
+                  // server falls back to parsing the typed string.
+                  setAddressParts(null)
+                }}
                 disabled={submitting}
               />
             </AddressAutofillWrapper>
