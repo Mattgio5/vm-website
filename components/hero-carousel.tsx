@@ -20,11 +20,11 @@ export function HeroCarousel() {
   const [showVideo, setShowVideo] = useState(false)
 
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 768px)")
-    const update = () => setShowVideo(mq.matches)
-    update()
-    mq.addEventListener("change", update)
-    return () => mq.removeEventListener("change", update)
+    // Mount the <video> element only after hydration so the SSR'd HTML
+    // doesn't trigger a fetch before React takes over. Plays on all
+    // viewports (portrait phones included) — modern mobile can handle
+    // the 3MB and `preload="metadata"` keeps the initial fetch tiny.
+    setShowVideo(true)
   }, [])
 
   return (
