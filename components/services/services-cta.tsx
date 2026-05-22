@@ -26,11 +26,11 @@ export function ServicesCta() {
             <ArrowRight className="h-4 w-4" />
           </Link>
           <a
-            href="tel:+12674891567"
+            href="tel:+12673899789"
             className="inline-flex items-center gap-2 rounded-full border-2 border-vm-navy px-8 py-3.5 text-base font-semibold text-vm-navy transition-all hover:bg-vm-navy hover:text-white"
           >
             <Phone className="h-4 w-4" />
-            Call (267) 489-1567
+            Call (267) 389-9789
           </a>
         </div>
       </div>

@@ -67,11 +67,11 @@ export function CalendlyEmbed({ calendlyUrl }: Props) {
               get you scheduled.
             </p>
             <a
-              href="tel:+12674891567"
+              href="tel:+12673899789"
               className="mt-4 inline-flex items-center gap-2 rounded-full bg-vm-navy px-5 py-2.5 text-sm font-semibold text-white hover:bg-vm-navy-light"
             >
               <Phone className="h-4 w-4" />
-              (267) 489-1567
+              (267) 389-9789
             </a>
           </div>
         </div>

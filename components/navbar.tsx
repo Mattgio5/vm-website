@@ -237,7 +237,7 @@ export function Navbar() {
               FAQ
             </Link>
             <Link
-              href="tel:+12674891567"
+              href="tel:+12673899789"
               onClick={() => setMobileOpen(false)}
               className="rounded-lg px-3 py-2.5 text-sm font-medium text-vm-navy transition-colors hover:bg-vm-blue/15"
             >

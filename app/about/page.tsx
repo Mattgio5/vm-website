@@ -28,6 +28,7 @@ const team = [
   { name: "Klay", role: "Crew Lead", hometown: "Furlong, PA", photo: "/images/team/klay.webp" },
   { name: "Niko", role: "Crew Lead", hometown: "Doylestown, PA", photo: "/images/team/niko.webp" },
   { name: "Connor", role: "Crew Lead", hometown: "Doylestown, PA", photo: "/images/team/connor.webp" },
+  { name: "Szymon", role: "Crew Lead", hometown: "Warminster, PA", photo: "/images/team/szymon.webp" },
 ]
 
 export default function AboutPage() {
@@ -264,7 +265,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-              <p className="font-varsity text-5xl leading-none text-vm-navy md:text-6xl">10+</p>
+              <p className="font-varsity text-5xl leading-none text-vm-navy md:text-6xl">5+</p>
               <span className="mt-3 block h-[2px] w-10 bg-vm-gold" />
               <p className="mt-4 text-lg font-semibold text-vm-navy">Crews Ready to Help</p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">

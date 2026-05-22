@@ -166,21 +166,6 @@ export function ServicesOverview() {
             </article>
           ))}
         </div>
-
-        {/* What We Do Not Offer Section */}
-        <div className="mt-20 rounded-2xl border border-border bg-card p-8 md:mt-28 md:p-12 border-t-4 border-t-vm-gold">
-          <h3 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl uppercase">
-            What We Do Not Offer
-          </h3>
-          <div className="mt-6 space-y-4">
-            <p className="text-base leading-relaxed text-muted-foreground">
-              At Varsity Mulching, we are focused on one thing: rejuvenating yards through expert mulching. This singular focus allows us to maintain the premium quality that our customers have come to love and expect.
-            </p>
-            <p className="text-base leading-relaxed text-muted-foreground">
-              While we complement the work of general landscapers beautifully, please note that we DO NOT offer broad landscaping services. If a service is not listed within our specific packages or on the add-ons page, it falls outside our area of expertise. Rest assured, engaging our services doesn't mean parting ways with your trusted landscaper who has been maintaining your lawn all these years. We're here to add that extra touch of vitality and beauty to your yard.
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   )

@@ -54,6 +54,14 @@ export default function ContactPage() {
               Request a Quote
             </p>
 
+            {/* PRICE-ON-QUOTE CALLOUT — delete this block to revert */}
+            <div className="mt-4 flex items-start gap-3 rounded-xl border border-vm-gold/40 bg-vm-gold/10 px-4 py-3.5">
+              <p className="text-sm leading-snug text-vm-navy">
+                <span className="font-semibold">You get the price at the quote.</span>{" "}
+                We assess the job on-site and give you a number before we leave, so we can look at scheduling while we&apos;re there!
+              </p>
+            </div>
+
             <div className="mt-6">
               <ContactForm />
             </div>
@@ -69,7 +77,7 @@ export default function ContactPage() {
 
                 <div className="mt-6 space-y-5">
                   <a
-                    href="tel:+12674891567"
+                    href="tel:+12673899789"
                     className="group flex items-start gap-3 rounded-lg p-2 -m-2 transition-colors hover:bg-vm-blue/10"
                   >
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-vm-blue/15">
@@ -80,7 +88,7 @@ export default function ContactPage() {
                         Phone
                       </p>
                       <p className="mt-0.5 font-semibold text-vm-navy group-hover:text-vm-blue-dark">
-                        (267) 489-1567
+                        (267) 389-9789
                       </p>
                     </div>
                   </a>
@@ -125,10 +133,7 @@ export default function ContactPage() {
                         Hours
                       </p>
                       <p className="mt-0.5 font-semibold text-vm-navy">
-                        Mon&ndash;Sat &middot; 8am&ndash;6pm
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        Quotes returned within 1 business day
+                        Mon&ndash;Fri &middot; 7:30am&ndash;5pm
                       </p>
                     </div>
                   </div>

@@ -7,6 +7,7 @@ import { ServiceAreaSection } from "@/components/service-area-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { CtaSection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
+import { MobileCallButton } from "@/components/mobile-call-button"
 import { SITE_URL, absoluteUrl } from "@/lib/site"
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ const jsonLd = {
   "url": SITE_URL,
   "logo": absoluteUrl("/images/vm-logo.png"),
   "image": absoluteUrl("/images/vm-logo.png"),
-  "telephone": "+1-267-489-1567",
+  "telephone": "+1-267-389-9789",
   "email": "hello@varsitymulching.com",
   "address": {
     "@type": "PostalAddress",
@@ -58,14 +59,8 @@ const jsonLd = {
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "08:00",
-      "closes": "18:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "08:00",
-      "closes": "14:00"
+      "opens": "07:30",
+      "closes": "17:00"
     }
   ],
   "paymentAccepted": "Cash, Credit Card, Venmo, Zelle",
@@ -129,6 +124,7 @@ export default function Home() {
       <ServiceAreaSection />
       <CtaSection />
       <Footer />
+      <MobileCallButton />
     </main>
   )
 }

@@ -15,8 +15,8 @@ const footerLinks = {
     { label: "Media", href: "/media" },
   ],
   Contact: [
-    { label: "(267) 489-1567", href: "tel:+12674891567" },
-    { label: "hello@varsitymulching.com", href: "mailto:hello@varsitymulching.com" },
+    { label: "(267) 389-9789", href: "tel:+12673899789" },
+    { label: "matthewg@varsitymulching.com", href: "mailto:matthewg@varsitymulching.com" },
     { label: "Serving Bucks & Montgomery County, PA", href: "/contact" },
   ],
 }
@@ -70,10 +70,13 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-8">
-          <p className="text-center text-xs text-white/35">
+        <div className="mt-12 border-t border-white/10 pt-8 flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
+          <p className="text-xs text-white/35">
             {`© ${new Date().getFullYear()} Varsity Mulch. All rights reserved.`}
           </p>
+          <Link href="/privacy-policy" className="text-xs text-white/35 hover:text-white/60 transition-colors">
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </footer>

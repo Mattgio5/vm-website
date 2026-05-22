@@ -1,29 +1,30 @@
 import { z } from "zod"
 
 export const SERVICE_OPTIONS = [
-  "Mulch Installation",
-  "Flower Bed Edging",
-  "Weed Control",
-  "Bed Cleanup",
-  "Supplements / Add-ons",
-  "Multiple Services",
-  "Career Inquiry",
-  "Other",
-] as const
-
-export const YARD_SIZE_OPTIONS = [
-  "Small (under 1/4 acre)",
-  "Medium (1/4 - 1/2 acre)",
-  "Large (1/2 - 1 acre)",
-  "Extra Large (1+ acre)",
-  "Not sure",
+  "Mulching",
+  "Edging",
+  "Weeding",
+  "Cleanup",
+  "Bush Trimming",
+  "Bush Removal",
+  "Planting",
+  "Chemical Weed Treatment",
+  "Follow-on Maintenance",
 ] as const
 
 export const TIMING_OPTIONS = [
-  "As soon as possible",
-  "Within 2 weeks",
-  "Within a month",
-  "Just exploring — no rush",
+  "June",
+  "July (5% discount)",
+  "August (7% discount)",
+] as const
+
+export const HEAR_ABOUT_OPTIONS = [
+  "Returning Customer",
+  "Referral",
+  "Google",
+  "Facebook",
+  "Brochure",
+  "Yard Sign",
 ] as const
 
 const UTM_KEYS = [
@@ -54,10 +55,9 @@ export const quoteIntakeSchema = z.object({
     .max(10)
     .regex(/^[0-9\-\s]+$/, "ZIP must be digits"),
 
-  service: z.string().trim().min(1, "Pick a service").max(120),
-  yard_size: z.string().trim().max(120).optional().or(z.literal("")),
+  services: z.array(z.string().trim().min(1).max(120)).min(1, "Pick at least one service").max(20),
   job_timing: z.string().trim().max(120).optional().or(z.literal("")),
-  message: z.string().trim().max(2000).optional().or(z.literal("")),
+  hear_about: z.string().trim().max(200).optional().or(z.literal("")),
 
   page_slug: z.string().trim().max(200).optional().or(z.literal("")),
   utm: z
@@ -245,7 +245,7 @@ export function parseAddressLine(raw: string): {
  * endpoint expects (street_address/city/state/zip + services[] array).
  */
 export function toSchedulerPayload(input: QuoteIntakeInput) {
-  const services = input.service ? [input.service] : []
+  const services = input.services
 
   const street = input.street_address.trim()
   const cityStateZip = [input.city.trim(), input.state.trim(), input.zip.trim()]
@@ -268,7 +268,7 @@ export function toSchedulerPayload(input: QuoteIntakeInput) {
     address,
 
     services,
-    hear_about: "",
+    hear_about: input.hear_about || "",
     job_timing: input.job_timing || "",
 
     utm: input.utm || {},
@@ -292,10 +292,15 @@ export function toSchedulerPayloadFromQuick(input: QuickQuoteInput) {
     state: toStateAbbr(input.state || "") || (input.state || "").trim().toUpperCase(),
     zip: (input.zip || "").trim(),
   }
-  const hasProvided =
-    !!provided.street_address || !!provided.city || !!provided.state || !!provided.zip
-  const parts = hasProvided ? provided : parseAddressLine(input.address)
-  const { street_address, city, state, zip } = parts
+  // Always parse the address string as a fallback so any gaps in the
+  // Mapbox-provided parts (e.g. missing city or zip) are filled in.
+  const parsed = parseAddressLine(input.address)
+  const { street_address, city, state, zip } = {
+    street_address: provided.street_address || parsed.street_address,
+    city: provided.city || parsed.city,
+    state: provided.state || parsed.state,
+    zip: provided.zip || parsed.zip,
+  }
 
   const cityStateZip = [city, state, zip].filter(Boolean).join(" ")
   const address = [street_address, cityStateZip].filter(Boolean).join(", ")

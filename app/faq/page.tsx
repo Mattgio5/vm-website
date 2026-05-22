@@ -198,7 +198,7 @@ export default function FAQPage() {
               Get a Free Quote
             </a>
             <a
-              href="tel:+12674891567"
+              href="tel:+12673899789"
               className="inline-flex rounded-full border-2 border-white/30 px-7 py-3.5 text-base font-semibold text-white transition-all hover:border-white hover:bg-white/10"
             >
               Call Us

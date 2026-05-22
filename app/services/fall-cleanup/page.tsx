@@ -23,7 +23,7 @@ const jsonLd = {
     "@type": "LocalBusiness",
     "@id": `${SITE_URL}/#business`,
     "name": "Varsity Mulching LLC",
-    "telephone": "+1-267-489-1567",
+    "telephone": "+1-267-389-9789",
   },
   "areaServed": {
     "@type": "GeoCircle",
