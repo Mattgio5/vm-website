@@ -405,13 +405,13 @@ export function Navbar() {
               </Link>
 
               <a
-                href="tel:+12674891567"
+                href="tel:+12673899789"
                 className="mt-3 flex items-center justify-center gap-2 py-3 text-sm tracking-wide text-white/70 transition-colors hover:text-vm-gold"
               >
                 <span className="font-varsity text-[10px] tracking-[0.3em] text-vm-gold/80 uppercase">
                   Or call
                 </span>
-                <span className="font-semibold">(267) 489-1567</span>
+                <span className="font-semibold">(267) 389-9789</span>
               </a>
             </div>
           </div>

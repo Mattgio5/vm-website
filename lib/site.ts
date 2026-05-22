@@ -19,7 +19,7 @@ export const SITE_URL = normalize(process.env.NEXT_PUBLIC_SITE_URL)
 export const BUSINESS = {
   name: "Varsity Mulching",
   legalName: "Varsity Mulching LLC",
-  telephone: "+1-267-489-1567",
+  telephone: "+1-267-389-9789",
   email: "hello@varsitymulching.com",
   streetAddress: "PO Box 2031",
   addressLocality: "Doylestown",

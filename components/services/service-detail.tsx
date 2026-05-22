@@ -280,10 +280,10 @@ export function ServiceDetail({
                     Request Quote
                   </Link>
                   <a
-                    href="tel:+12674891567"
+                    href="tel:+12673899789"
                     className="inline-flex justify-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-all hover:border-white hover:bg-white/10"
                   >
-                    (267) 489-1567
+                    (267) 389-9789
                   </a>
                 </div>
               </div>

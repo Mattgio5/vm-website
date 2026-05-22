@@ -6,9 +6,46 @@ import {
   toSchedulerPayload,
   toSchedulerPayloadFromQuick,
 } from "@/lib/quote-intake"
+import { ZONE_ROUTING_ENABLED } from "@/lib/scheduling"
 
 export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
+
+/**
+ * When the hero form is submitted without a Mapbox suggestion pick, city/state/zip
+ * are empty. Call Mapbox Geocoding to fill them in so Supabase gets the full
+ * address AND Flask gets the ZIP it needs for zone routing.
+ */
+async function geocodeAddress(address: string): Promise<{
+  city: string; state: string; zip: string
+} | null> {
+  const token = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN
+  if (!token || !address.trim()) return null
+  try {
+    const encoded = encodeURIComponent(address.trim())
+    const res = await fetch(
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${encoded}.json?access_token=${token}&types=address&country=us&limit=1`,
+      { signal: AbortSignal.timeout(4000) },
+    )
+    if (!res.ok) return null
+    const json = await res.json()
+    const context: Array<{ id: string; text?: string; short_code?: string }> =
+      json.features?.[0]?.context ?? []
+    let city = "", state = "", zip = ""
+    for (const entry of context) {
+      if (entry.id.startsWith("postcode.")) zip = entry.text ?? ""
+      if (entry.id.startsWith("place.")) city = entry.text ?? ""
+      if (entry.id.startsWith("region.")) {
+        const sc = (entry.short_code ?? "").toUpperCase()
+        state = sc.startsWith("US-") ? sc.slice(3) : sc
+      }
+    }
+    if (!city && !state && !zip) return null
+    return { city, state, zip }
+  } catch {
+    return null
+  }
+}
 
 const DEFAULT_SCHEDULER_URL =
   "https://quote-scheduler-0fwk.onrender.com/public/lead-intake"
@@ -127,10 +164,10 @@ function normalizeBody(body: unknown):
       form: "contact",
       schedulerPayload,
       supabaseExtras: {
-        service_primary: parsed.data.service || null,
-        yard_size: parsed.data.yard_size || null,
+        service_primary: parsed.data.services[0] || null,
+        yard_size: null,
         job_timing: parsed.data.job_timing || null,
-        message: parsed.data.message || null,
+        message: null,
       },
     },
   }
@@ -159,7 +196,22 @@ export async function POST(req: Request) {
     )
   }
 
-  const { form, schedulerPayload, supabaseExtras } = normalized.data
+  const { form, supabaseExtras } = normalized.data
+  // Make a mutable copy so we can enrich it with geocoded address parts.
+  const schedulerPayload = { ...normalized.data.schedulerPayload }
+
+  // If city/state/zip are missing, geocode the address string server-side so
+  // Supabase gets complete data and Flask has the ZIP for zone routing.
+  if (!schedulerPayload.city || !schedulerPayload.state || !schedulerPayload.zip) {
+    const geocoded = await geocodeAddress(
+      schedulerPayload.address || schedulerPayload.street_address,
+    )
+    if (geocoded) {
+      if (!schedulerPayload.city) schedulerPayload.city = geocoded.city
+      if (!schedulerPayload.state) schedulerPayload.state = geocoded.state
+      if (!schedulerPayload.zip) schedulerPayload.zip = geocoded.zip
+    }
+  }
 
   const headersList = req.headers
   const userAgent = headersList.get("user-agent") || null
@@ -303,11 +355,18 @@ export async function POST(req: Request) {
     )
   }
 
+  const sid = schedulerData?.sid ?? supabaseId
+  const redirectTo = ZONE_ROUTING_ENABLED
+    ? rewriteRedirectHost(schedulerData?.redirect_to, req)
+    : `/schedule-general${sid ? `?sid=${sid}` : ""}`
+
   return NextResponse.json({
     ok: true,
-    sid: schedulerData?.sid ?? supabaseId,
-    redirect_to: rewriteRedirectHost(schedulerData?.redirect_to, req),
-    schedule_url: rewriteRedirectHost(schedulerData?.schedule_url, req),
+    sid,
+    redirect_to: redirectTo,
+    schedule_url: ZONE_ROUTING_ENABLED
+      ? rewriteRedirectHost(schedulerData?.schedule_url, req)
+      : redirectTo,
     routing_zone: schedulerData?.routing_zone ?? null,
   })
 }

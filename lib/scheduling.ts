@@ -15,6 +15,15 @@
 // the per-zone URLs are filled in via env vars.
 const DEFAULT_CALENDLY_URL = "https://calendly.com/matt-giordano/15min"
 
+/**
+ * ROUTING TOGGLE
+ * false → every form submission goes to /schedule-general (thank you page, no Calendly)
+ * true  → Flask routes by ZIP to zone-specific Calendly pages
+ *
+ * To enable zone routing: set this to true and redeploy.
+ */
+export const ZONE_ROUTING_ENABLED = false
+
 export const VALID_ZONES = [
   "central-bucks",
   "south-bucks",

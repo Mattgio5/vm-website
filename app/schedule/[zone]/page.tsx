@@ -46,6 +46,47 @@ export default async function SchedulePage({
   const { zone } = await params
   if (!isValidZone(zone)) notFound()
 
+  // General zone → thank you page, no Calendly
+  if (zone === "general") {
+    return (
+      <main>
+        <Navbar />
+        <section className="relative min-h-[70vh] bg-vm-navy px-4 py-20 flex items-center md:px-12 lg:px-20">
+          <div className="absolute top-0 left-0 right-0 flex flex-col">
+            <div className="h-2.5 w-full bg-vm-gold" />
+          </div>
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-widest text-vm-gold">
+              Quote Request Received
+            </p>
+            <h1 className="mt-4 font-varsity text-4xl tracking-wide text-white md:text-5xl lg:text-6xl uppercase">
+              Thanks &mdash; We Got It.
+            </h1>
+            <div className="mx-auto mt-6 h-[2px] w-16 bg-vm-gold" />
+            <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-white/80">
+              A representative from Varsity Mulching will be in touch with you shortly to discuss your project and schedule your free quote.
+            </p>
+            <p className="mt-4 text-sm text-white/55">
+              Questions in the meantime? Give us a call.
+            </p>
+            <a
+              href="tel:+12673899789"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-vm-gold px-8 py-4 text-base font-bold text-vm-navy transition-all hover:bg-vm-gold-dark hover:shadow-lg"
+            >
+              (267) 389-9789
+            </a>
+            <div className="mt-6">
+              <a href="/" className="text-sm text-white/40 hover:text-white/70 transition-colors">
+                ← Back to home
+              </a>
+            </div>
+          </div>
+        </section>
+        <Footer />
+      </main>
+    )
+  }
+
   const search = await searchParams
   const baseUrl = getCalendlyUrlForZone(zone as Zone)
   const widgetUrl = buildCalendlyWidgetUrl(baseUrl, search)
@@ -90,12 +131,12 @@ export default async function SchedulePage({
           <p className="mt-8 text-center text-sm text-muted-foreground">
             Need to talk first? Call us at{" "}
             <a
-              href="tel:+12674891567"
+              href="tel:+12673899789"
               className="font-semibold text-vm-navy hover:text-vm-blue-dark"
             >
-              (267) 489-1567
+              (267) 389-9789
             </a>{" "}
-            &middot; Mon&ndash;Sat 8am&ndash;6pm
+            &middot; Mon&ndash;Fri 7:30am&ndash;5pm
           </p>
         </div>
       </section>

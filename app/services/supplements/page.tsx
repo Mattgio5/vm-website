@@ -52,7 +52,7 @@ const jsonLd = {
     "@type": "LocalBusiness",
     "@id": `${SITE_URL}/#business`,
     "name": "Varsity Mulching LLC",
-    "telephone": "+1-267-489-1567"
+    "telephone": "+1-267-389-9789"
   },
   "areaServed": {
     "@type": "GeoCircle",
@@ -75,14 +75,8 @@ const jsonLd = {
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "08:00",
-      "closes": "18:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "08:00",
-      "closes": "14:00"
+      "opens": "07:30",
+      "closes": "17:00"
     }
   ]
 }
@@ -253,10 +247,10 @@ export default function SupplementsPage() {
                   Request Quote
                 </Link>
                 <a
-                  href="tel:+12674891567"
+                  href="tel:+12673899789"
                   className="inline-flex justify-center rounded-full border-2 border-vm-navy px-6 py-3 text-sm font-semibold text-vm-navy transition-all hover:bg-vm-navy hover:text-white"
                 >
-                  (267) 489-1567
+                  (267) 389-9789
                 </a>
               </div>
             </div>

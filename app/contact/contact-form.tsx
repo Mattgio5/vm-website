@@ -3,13 +3,12 @@
 import { useEffect, useRef, useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
 import { CheckCircle2, Loader2, AlertCircle } from "lucide-react"
 import { AddressAutofillWrapper } from "@/components/address-autofill"
 import {
   SERVICE_OPTIONS,
-  YARD_SIZE_OPTIONS,
   TIMING_OPTIONS,
+  HEAR_ABOUT_OPTIONS,
   extractUtmFromSearch,
   type UtmParams,
 } from "@/lib/quote-intake"
@@ -25,14 +24,14 @@ const INITIAL_FORM = {
   city: "",
   state: "PA",
   zip: "",
-  service: "",
-  yardSize: "",
   timing: "",
-  message: "",
+  hearAbout: "",
 }
 
 export function ContactForm() {
   const [form, setForm] = useState(INITIAL_FORM)
+  const [services, setServices] = useState<string[]>([])
+  const [servicesOpen, setServicesOpen] = useState(false)
   const [status, setStatus] = useState<Status>("idle")
   const [errorMsg, setErrorMsg] = useState<string | null>(null)
   const [scheduleUrl, setScheduleUrl] = useState<string | null>(null)
@@ -40,7 +39,6 @@ export function ContactForm() {
   const utmRef = useRef<UtmParams>({})
   const pageSlugRef = useRef<string>("")
 
-  // Capture UTMs + page slug on mount (client-only).
   useEffect(() => {
     utmRef.current = extractUtmFromSearch(window.location.search)
     pageSlugRef.current = window.location.pathname
@@ -53,12 +51,21 @@ export function ContactForm() {
     setForm((prev) => ({ ...prev, [key]: value }))
   }
 
+  function toggleService(s: string) {
+    setServices((prev) =>
+      prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s],
+    )
+  }
+
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
-    // Native required validation has already run because of the browser
-    // submitting the form. We add a tiny belt-and-suspenders check here for
-    // the rare path where validation is bypassed (e.g. JS-driven submit).
+    if (services.length === 0) {
+      setErrorMsg("Please select at least one service.")
+      setStatus("error")
+      return
+    }
+
     const target = e.currentTarget
     if (!target.checkValidity()) {
       target.reportValidity()
@@ -77,10 +84,9 @@ export function ContactForm() {
       city: form.city,
       state: form.state,
       zip: form.zip,
-      service: form.service,
-      yard_size: form.yardSize,
+      services,
       job_timing: form.timing,
-      message: form.message,
+      hear_about: form.hearAbout,
       page_slug: pageSlugRef.current,
       utm: utmRef.current,
     }
@@ -112,14 +118,11 @@ export function ContactForm() {
         return
       }
 
-      // Success — capture the Calendly URL so we can both auto-redirect and
-      // give the user a manual link as a fallback.
       const redirect: string | null = data?.redirect_to || data?.schedule_url || null
       setScheduleUrl(redirect)
       setStatus("success")
 
       if (redirect) {
-        // Brief pause so the user sees the success state before redirecting.
         window.setTimeout(() => {
           window.location.href = redirect
         }, 800)
@@ -224,7 +227,7 @@ export function ContactForm() {
         </Field>
       </div>
 
-      {/* Address — Mapbox autocomplete auto-fills city/state/zip on select */}
+      {/* Address */}
       <Field id="address" label="Property Address" required>
         <AddressAutofillWrapper
           onSelect={(parts) => {
@@ -292,47 +295,63 @@ export function ContactForm() {
         </Field>
       </div>
 
-      {/* Service */}
-      <div className="grid gap-6 sm:grid-cols-2">
-        <Field id="service" label="Service Interested In" required>
-          <NativeSelect
-            id="service"
-            name="service"
-            required
-            value={form.service}
-            onChange={(e) => update("service", e.target.value)}
+      {/* Services — multi-select */}
+      <Field id="services" label="Services Interested In" required hint="Select all that apply">
+        <div className="relative">
+          <button
+            type="button"
+            onClick={() => setServicesOpen((o) => !o)}
             disabled={submitting}
+            className="border-input focus-visible:border-ring focus-visible:ring-ring/50 flex h-9 w-full items-center justify-between rounded-md border bg-transparent px-3 py-1 text-base shadow-xs outline-none transition-[color,box-shadow] focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
           >
-            <option value="" disabled>
-              Select a service&hellip;
-            </option>
-            {SERVICE_OPTIONS.map((s) => (
-              <option key={s} value={s}>
+            <span className={services.length ? "text-foreground" : "text-muted-foreground"}>
+              {services.length ? `${services.length} selected` : "Select services…"}
+            </span>
+            <span className="text-muted-foreground">▾</span>
+          </button>
+          {servicesOpen && (
+            <div className="absolute left-0 right-0 top-full z-20 mt-1 rounded-md border border-input bg-background p-2 shadow-md">
+              {SERVICE_OPTIONS.map((s) => (
+                <label
+                  key={s}
+                  className="flex cursor-pointer items-center gap-2.5 rounded px-2 py-1.5 text-sm hover:bg-muted"
+                >
+                  <input
+                    type="checkbox"
+                    checked={services.includes(s)}
+                    onChange={() => toggleService(s)}
+                    className="h-4 w-4 accent-vm-navy"
+                  />
+                  {s}
+                </label>
+              ))}
+            </div>
+          )}
+        </div>
+        {services.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {services.map((s) => (
+              <span
+                key={s}
+                className="inline-flex items-center gap-1 rounded-full bg-vm-blue/20 px-2.5 py-0.5 text-xs font-medium text-vm-navy"
+              >
                 {s}
-              </option>
+                <button
+                  type="button"
+                  onClick={() => toggleService(s)}
+                  className="ml-0.5 text-vm-navy/60 hover:text-vm-navy"
+                  aria-label={`Remove ${s}`}
+                >
+                  ×
+                </button>
+              </span>
             ))}
-          </NativeSelect>
-        </Field>
-        <Field id="yardSize" label="Yard Size">
-          <NativeSelect
-            id="yardSize"
-            name="yardSize"
-            value={form.yardSize}
-            onChange={(e) => update("yardSize", e.target.value)}
-            disabled={submitting}
-          >
-            <option value="">Select an estimate&hellip;</option>
-            {YARD_SIZE_OPTIONS.map((y) => (
-              <option key={y} value={y}>
-                {y}
-              </option>
-            ))}
-          </NativeSelect>
-        </Field>
-      </div>
+          </div>
+        )}
+      </Field>
 
       {/* Timing */}
-      <Field id="timing" label="Ideal Timing" hint="When would you like the work done?">
+      <Field id="timing" label="Ideal Timing">
         <NativeSelect
           id="timing"
           name="timing"
@@ -340,7 +359,7 @@ export function ContactForm() {
           onChange={(e) => update("timing", e.target.value)}
           disabled={submitting}
         >
-          <option value="">Select a window&hellip;</option>
+          <option value="">Select a window…</option>
           {TIMING_OPTIONS.map((t) => (
             <option key={t} value={t}>
               {t}
@@ -349,17 +368,22 @@ export function ContactForm() {
         </NativeSelect>
       </Field>
 
-      {/* Message */}
-      <Field id="message" label="Anything Else?">
-        <Textarea
-          id="message"
-          name="message"
-          rows={5}
-          placeholder="Tell us a little about your property or project."
-          value={form.message}
-          onChange={(e) => update("message", e.target.value)}
+      {/* How did you hear about us */}
+      <Field id="hearAbout" label="How Did You Hear About Us?">
+        <NativeSelect
+          id="hearAbout"
+          name="hearAbout"
+          value={form.hearAbout}
+          onChange={(e) => update("hearAbout", e.target.value)}
           disabled={submitting}
-        />
+        >
+          <option value="">Select an option…</option>
+          {HEAR_ABOUT_OPTIONS.map((o) => (
+            <option key={o} value={o}>
+              {o}
+            </option>
+          ))}
+        </NativeSelect>
       </Field>
 
       {/* Error */}

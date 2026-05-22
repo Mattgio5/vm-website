@@ -9,11 +9,15 @@ const GOOGLE_REVIEWS_URL =
   "https://www.google.com/search?q=varsity+mulching&oq=varsity+mulching&gs_lcrp=EgZjaHJvbWUqDAgAECMYJxiABBiKBTIMCAAQIxgnGIAEGIoFMhAIARAuGK8BGMcBGIAEGI4FMgcIAhAAGIAEMggIAxAAGBYYHjIICAQQABgWGB4yBggFEEUYPDIGCAYQRRg8MgYIBxBFGDzSAQgyOTUxajBqNKgCAbACAfEFGOyPwE2C6og&sourceid=chrome&ie=UTF-8"
 
 const SERVICE_OPTIONS = [
-  "Mulch Installation",
-  "Flower Bed Edging",
-  "Weed Control",
-  "Bed Cleanup",
-  "Brush Removal & Trimming",
+  "Mulching",
+  "Edging",
+  "Weeding",
+  "Cleanup",
+  "Bush Trimming",
+  "Bush Removal",
+  "Planting",
+  "Chemical Weed Treatment",
+  "Follow-on Maintenance",
 ]
 
 export function HeroCarousel() {
