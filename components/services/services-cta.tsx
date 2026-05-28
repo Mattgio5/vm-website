@@ -19,7 +19,7 @@ export function ServicesCta() {
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
-            href="/contact"
+            href="/schedule-a-quote"
             className="inline-flex items-center gap-2 rounded-full bg-vm-navy px-8 py-3.5 text-base font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg"
           >
             Get a Free Quote

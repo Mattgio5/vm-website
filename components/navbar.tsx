@@ -191,7 +191,7 @@ export function Navbar() {
                 FAQ
               </Link>
               <Link
-                href="/contact"
+                href="/schedule-a-quote"
                 className="inline-flex items-center gap-1.5 rounded-full bg-vm-blue px-3.5 py-1.5 text-xs font-semibold text-vm-navy transition-all hover:bg-vm-blue-dark hover:shadow-md sm:px-4 sm:py-2 sm:text-sm md:px-5"
               >
                 Get a Quote
@@ -387,7 +387,7 @@ export function Navbar() {
             {/* CTA block */}
             <div className="mt-8">
               <Link
-                href="/contact"
+                href="/schedule-a-quote"
                 onClick={() => setMobileOpen(false)}
                 className="group relative flex items-center justify-between overflow-hidden rounded-2xl bg-vm-gold px-5 py-4 shadow-lg shadow-vm-gold/10 transition-all hover:bg-vm-gold/90"
               >

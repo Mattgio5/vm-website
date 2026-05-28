@@ -19,7 +19,7 @@ const entries: Entry[] = [
   { path: '/about', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/gallery', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/faq', changeFrequency: 'monthly', priority: 0.6 },
-  { path: '/contact', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/schedule-a-quote', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/media', changeFrequency: 'monthly', priority: 0.4 },
   { path: '/careers', changeFrequency: 'monthly', priority: 0.4 },
 ]

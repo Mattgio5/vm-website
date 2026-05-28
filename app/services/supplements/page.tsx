@@ -195,7 +195,7 @@ export default function SupplementsPage() {
 
               <div className="mt-8">
                 <Link
-                  href="/contact"
+                  href="/schedule-a-quote"
                   className="inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
                 >
                   Request a Quote
@@ -241,7 +241,7 @@ export default function SupplementsPage() {
               </p>
               <div className="mt-5 flex flex-col gap-3">
                 <Link
-                  href="/contact"
+                  href="/schedule-a-quote"
                   className="inline-flex justify-center rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
                 >
                   Request Quote
@@ -298,7 +298,7 @@ export default function SupplementsPage() {
             Add any of these services to your quote, or ask us about setting up a maintenance plan.
           </p>
           <Link
-            href="/contact"
+            href="/schedule-a-quote"
             className="mt-6 inline-flex rounded-full bg-vm-navy px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg"
           >
             Get a Quote

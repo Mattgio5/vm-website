@@ -32,7 +32,7 @@ export default function NotFound() {
               { href: "/services/mulch-installation", label: "Mulch Installation" },
               { href: "/gallery", label: "Gallery" },
               { href: "/about", label: "About Us" },
-              { href: "/contact", label: "Get a Quote" },
+              { href: "/schedule-a-quote", label: "Get a Quote" },
             ].map(({ href, label }) => (
               <li key={href}>
                 <Link

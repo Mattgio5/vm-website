@@ -17,7 +17,7 @@ const footerLinks = {
   Contact: [
     { label: "(267) 389-9789", href: "tel:+12673899789" },
     { label: "matthewg@varsitymulching.com", href: "mailto:matthewg@varsitymulching.com" },
-    { label: "Serving Bucks & Montgomery County, PA", href: "/contact" },
+    { label: "Serving Bucks & Montgomery County, PA", href: "/schedule-a-quote" },
   ],
 }
 

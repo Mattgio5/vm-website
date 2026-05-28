@@ -79,7 +79,7 @@ export default function AboutPage() {
             </p>
             <div className="vm-reveal mt-8" style={{ animationDelay: "320ms" }}>
               <a
-                href="/contact"
+                href="/schedule-a-quote"
                 className="inline-flex rounded-full bg-vm-gold px-7 py-3.5 text-base font-semibold text-vm-navy transition-all hover:bg-vm-gold-dark hover:shadow-lg"
               >
                 Get a Free Quote
