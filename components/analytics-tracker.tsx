@@ -14,29 +14,33 @@ declare global {
 }
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+const IS_DEV = process.env.NODE_ENV === "development"
 
-function gtagPageView(pathname: string, search: string) {
+function gtagPageView(pagePath: string, pageUrl: string) {
   if (GA_ID && typeof window.gtag === "function") {
     window.gtag("event", "page_view", {
-      page_location: window.location.href,
-      page_path: pathname,
-      page_search: search,
+      page_path: pagePath,
+      page_location: pageUrl,
     })
   }
 }
 
-function fbqPageView() {
+function fbqPageView(pagePath: string, pageUrl: string) {
   if (typeof window.fbq === "function") {
-    window.fbq("track", "PageView")
+    window.fbq("trackCustom", "PageView", { page_path: pagePath, page_url: pageUrl })
   }
 }
 
-function fireLeadEvents(pathname: string) {
+function fireLeadEvents(pagePath: string, pageUrl: string) {
   if (GA_ID && typeof window.gtag === "function") {
-    window.gtag("event", "generate_lead", { page_path: pathname })
+    window.gtag("event", "generate_lead", { page_path: pagePath, page_location: pageUrl })
   }
   if (typeof window.fbq === "function") {
-    window.fbq("track", "Lead")
+    window.fbq("track", "Lead", {
+      content_name: "Schedule Page",
+      page_path: pagePath,
+      page_url: pageUrl,
+    })
   }
 }
 
@@ -53,15 +57,16 @@ export function AnalyticsTracker() {
 
   useEffect(() => {
     const search = searchParams.toString()
-    const url = pathname + (search ? `?${search}` : "")
+    const pagePath = pathname + (search ? `?${search}` : "")
+    const pageUrl = window.location.origin + pagePath
 
     // Deduplicate: skip if URL hasn't changed.
     // This also handles React Strict Mode's double-invocation in dev.
-    if (prevUrl.current === url) return
+    if (prevUrl.current === pagePath) return
 
     const isFirst = prevUrl.current === null
     const isSchedule = pathname.includes("schedule")
-    prevUrl.current = url
+    prevUrl.current = pagePath
 
     if (isFirst) {
       // Initial page load — the inline GA4 config and Meta Pixel base code
@@ -69,18 +74,20 @@ export function AnalyticsTracker() {
       // events if applicable.
       captureAndStoreUtms(window.location.search)
       if (isSchedule) {
-        fireLeadEvents(pathname)
+        fireLeadEvents(pagePath, pageUrl)
         lastLeadPath.current = pathname
       }
       return
     }
 
     // SPA navigation — gtag/fbq scripts don't re-execute, so fire manually.
-    gtagPageView(pathname, search)
-    fbqPageView()
+    if (IS_DEV) console.log("[Analytics] route tracked:", pagePath, pageUrl)
+
+    gtagPageView(pagePath, pageUrl)
+    fbqPageView(pagePath, pageUrl)
 
     if (isSchedule && lastLeadPath.current !== pathname) {
-      fireLeadEvents(pathname)
+      fireLeadEvents(pagePath, pageUrl)
       lastLeadPath.current = pathname
     }
   }, [pathname, searchParams])
