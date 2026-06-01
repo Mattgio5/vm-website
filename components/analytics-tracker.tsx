@@ -16,6 +16,17 @@ declare global {
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 const IS_DEV = process.env.NODE_ENV === "development"
 
+// Post-submit confirmation pages that should fire a Lead conversion.
+// /schedule-a-quote is intentionally excluded — it's the form page, not a conversion.
+// Add new thank-you pages here as they're created.
+const LEAD_PATHS = [
+  "/schedule-general",
+  "/schedule-central-bucks",
+  "/schedule-north-bucks",
+  "/schedule-south-bucks",
+  "/schedule-montco-west",
+]
+
 function gtagPageView(pagePath: string, pageUrl: string) {
   if (GA_ID && typeof window.gtag === "function") {
     window.gtag("event", "page_view", {
@@ -65,7 +76,7 @@ export function AnalyticsTracker() {
     if (prevUrl.current === pagePath) return
 
     const isFirst = prevUrl.current === null
-    const isSchedule = pathname.includes("schedule")
+    const isLeadPage = LEAD_PATHS.includes(pathname)
     prevUrl.current = pagePath
 
     if (isFirst) {
@@ -73,7 +84,7 @@ export function AnalyticsTracker() {
       // already fired their own pageviews. Just capture UTMs and emit lead
       // events if applicable.
       captureAndStoreUtms(window.location.search)
-      if (isSchedule) {
+      if (isLeadPage) {
         fireLeadEvents(pagePath, pageUrl)
         lastLeadPath.current = pathname
       }
@@ -86,7 +97,7 @@ export function AnalyticsTracker() {
     gtagPageView(pagePath, pageUrl)
     fbqPageView(pagePath, pageUrl)
 
-    if (isSchedule && lastLeadPath.current !== pathname) {
+    if (isLeadPage && lastLeadPath.current !== pathname) {
       fireLeadEvents(pagePath, pageUrl)
       lastLeadPath.current = pathname
     }
