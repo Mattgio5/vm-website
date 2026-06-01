@@ -9,7 +9,7 @@ import {
   SERVICE_OPTIONS,
   TIMING_OPTIONS,
   HEAR_ABOUT_OPTIONS,
-  extractUtmFromSearch,
+  captureAndStoreUtms,
   type UtmParams,
 } from "@/lib/quote-intake"
 
@@ -53,7 +53,7 @@ export function ContactForm() {
   const pageSlugRef = useRef<string>("")
 
   useEffect(() => {
-    utmRef.current = extractUtmFromSearch(window.location.search)
+    utmRef.current = captureAndStoreUtms(window.location.search)
     pageSlugRef.current = window.location.pathname
   }, [])
 

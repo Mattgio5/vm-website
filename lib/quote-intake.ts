@@ -339,3 +339,24 @@ export function extractUtmFromSearch(search: string): UtmParams {
   }
   return out
 }
+
+const SESSION_UTM_KEY = "__vm_utms"
+
+/**
+ * Call on every page mount. If the current URL has UTMs, saves them to
+ * sessionStorage and returns them. If not, returns whatever was saved when
+ * the user first landed — preserving attribution across SPA navigations.
+ */
+export function captureAndStoreUtms(search: string): UtmParams {
+  const fromUrl = extractUtmFromSearch(search)
+  if (typeof window === "undefined") return fromUrl
+  if (Object.keys(fromUrl).length > 0) {
+    try { sessionStorage.setItem(SESSION_UTM_KEY, JSON.stringify(fromUrl)) } catch {}
+    return fromUrl
+  }
+  try {
+    const raw = sessionStorage.getItem(SESSION_UTM_KEY)
+    if (raw) return JSON.parse(raw) as UtmParams
+  } catch {}
+  return {}
+}

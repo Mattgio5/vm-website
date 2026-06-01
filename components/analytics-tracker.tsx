@@ -2,6 +2,7 @@
 
 import { usePathname, useSearchParams } from "next/navigation"
 import { useEffect, useRef } from "react"
+import { captureAndStoreUtms } from "@/lib/quote-intake"
 
 declare global {
   interface Window {
@@ -52,6 +53,9 @@ export function AnalyticsTracker() {
 
     if (!mounted.current) {
       mounted.current = true
+      // Seed sessionStorage with any UTMs present on the landing URL so forms
+      // on subsequent pages can still read them after SPA navigation strips the params.
+      captureAndStoreUtms(window.location.search)
       // Initial load: the GA4 config script and Meta Pixel base code each fire
       // their own initial pageview — don't double-fire here. Only emit the lead
       // conversion events if the landing page is already a schedule page.

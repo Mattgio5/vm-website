@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
-import { extractUtmFromSearch, toStateAbbr, type UtmParams } from "@/lib/quote-intake"
+import { captureAndStoreUtms, toStateAbbr, type UtmParams } from "@/lib/quote-intake"
 import { AddressAutofillWrapper } from "@/components/address-autofill"
 
 const GOOGLE_REVIEWS_URL =
@@ -131,7 +131,7 @@ function QuickQuoteForm() {
   const pageSlugRef = useRef<string>("")
 
   useEffect(() => {
-    utmRef.current = extractUtmFromSearch(window.location.search)
+    utmRef.current = captureAndStoreUtms(window.location.search)
     pageSlugRef.current = window.location.pathname
   }, [])
 
