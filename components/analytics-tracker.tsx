@@ -27,7 +27,7 @@ function gtagPageView(pagePath: string, pageUrl: string) {
 
 function fbqPageView(pagePath: string, pageUrl: string) {
   if (typeof window.fbq === "function") {
-    window.fbq("trackCustom", "PageView", { page_path: pagePath, page_url: pageUrl })
+    window.fbq("track", "PageView", { page_path: pagePath, page_url: pageUrl })
   }
 }
 
