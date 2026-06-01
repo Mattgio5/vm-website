@@ -44,21 +44,30 @@ function fireLeadEvents(pathname: string) {
 export function AnalyticsTracker() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const mounted = useRef(false)
+
+  // Track the last URL we processed. null = not yet run (initial load).
+  // Using URL comparison instead of a boolean mount flag prevents silent
+  // resets when Next.js or Suspense remounts the component on navigation.
+  const prevUrl = useRef<string | null>(null)
   const lastLeadPath = useRef<string | null>(null)
 
   useEffect(() => {
-    const isSchedule = pathname.includes("schedule")
     const search = searchParams.toString()
+    const url = pathname + (search ? `?${search}` : "")
 
-    if (!mounted.current) {
-      mounted.current = true
-      // Seed sessionStorage with any UTMs present on the landing URL so forms
-      // on subsequent pages can still read them after SPA navigation strips the params.
+    // Deduplicate: skip if URL hasn't changed.
+    // This also handles React Strict Mode's double-invocation in dev.
+    if (prevUrl.current === url) return
+
+    const isFirst = prevUrl.current === null
+    const isSchedule = pathname.includes("schedule")
+    prevUrl.current = url
+
+    if (isFirst) {
+      // Initial page load — the inline GA4 config and Meta Pixel base code
+      // already fired their own pageviews. Just capture UTMs and emit lead
+      // events if applicable.
       captureAndStoreUtms(window.location.search)
-      // Initial load: the GA4 config script and Meta Pixel base code each fire
-      // their own initial pageview — don't double-fire here. Only emit the lead
-      // conversion events if the landing page is already a schedule page.
       if (isSchedule) {
         fireLeadEvents(pathname)
         lastLeadPath.current = pathname
@@ -66,7 +75,7 @@ export function AnalyticsTracker() {
       return
     }
 
-    // SPA route change — the gtag/fbq scripts don't re-execute, so fire manually.
+    // SPA navigation — gtag/fbq scripts don't re-execute, so fire manually.
     gtagPageView(pathname, search)
     fbqPageView()
 
