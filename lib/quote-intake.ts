@@ -33,6 +33,7 @@ const UTM_KEYS = [
   "utm_campaign",
   "utm_term",
   "utm_content",
+  "utm_adset",
   "gclid",
   "fbclid",
 ] as const
@@ -67,6 +68,7 @@ export const quoteIntakeSchema = z.object({
       utm_campaign: z.string().trim().max(200).optional(),
       utm_term: z.string().trim().max(200).optional(),
       utm_content: z.string().trim().max(200).optional(),
+      utm_adset: z.string().trim().max(200).optional(),
       gclid: z.string().trim().max(200).optional(),
       fbclid: z.string().trim().max(200).optional(),
     })
@@ -103,6 +105,7 @@ export const quickQuoteSchema = z.object({
       utm_campaign: z.string().trim().max(200).optional(),
       utm_term: z.string().trim().max(200).optional(),
       utm_content: z.string().trim().max(200).optional(),
+      utm_adset: z.string().trim().max(200).optional(),
       gclid: z.string().trim().max(200).optional(),
       fbclid: z.string().trim().max(200).optional(),
     })

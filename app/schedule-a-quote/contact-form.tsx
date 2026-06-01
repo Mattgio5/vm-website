@@ -15,6 +15,19 @@ import {
 
 type Status = "idle" | "submitting" | "success" | "error"
 
+function appendUtmsToUrl(url: string | null, utms: UtmParams): string | null {
+  if (!url || Object.keys(utms).length === 0) return url
+  try {
+    const parsed = new URL(url, window.location.origin)
+    for (const [k, v] of Object.entries(utms)) {
+      if (v) parsed.searchParams.set(k, v)
+    }
+    return parsed.toString()
+  } catch {
+    return url
+  }
+}
+
 const INITIAL_FORM = {
   firstName: "",
   lastName: "",
@@ -119,12 +132,13 @@ export function ContactForm() {
       }
 
       const redirect: string | null = data?.redirect_to || data?.schedule_url || null
-      setScheduleUrl(redirect)
+      const finalRedirect = appendUtmsToUrl(redirect, utmRef.current)
+      setScheduleUrl(finalRedirect)
       setStatus("success")
 
-      if (redirect) {
+      if (finalRedirect) {
         window.setTimeout(() => {
-          window.location.href = redirect
+          window.location.href = finalRedirect
         }, 800)
       }
     } catch (err) {

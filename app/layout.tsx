@@ -2,7 +2,13 @@ import type { Metadata, Viewport } from 'next'
 import { Open_Sans, Bowlby_One_SC } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { SITE_URL } from '@/lib/site'
+import Script from 'next/script'
+import { Suspense } from 'react'
+import { AnalyticsTracker } from '@/components/analytics-tracker'
 import './globals.css'
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+const META_PIXEL_ID = '2602896006774846'
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -101,6 +107,29 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         {children}
         <Analytics />
+
+        {/* Google Analytics 4 */}
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA_ID}');`}
+            </Script>
+          </>
+        )}
+
+        {/* Meta Pixel — base code fires the initial PageView */}
+        <Script id="meta-pixel" strategy="afterInteractive">
+          {`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${META_PIXEL_ID}');fbq('track','PageView');`}
+        </Script>
+
+        {/* SPA route-change tracker — fires GA4 + Meta pageviews and lead events */}
+        <Suspense fallback={null}>
+          <AnalyticsTracker />
+        </Suspense>
       </body>
     </html>
   )
