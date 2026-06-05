@@ -360,3 +360,16 @@ export function captureAndStoreUtms(search: string): UtmParams {
   } catch {}
   return {}
 }
+
+export function injectUtmsIntoUrl(utms: UtmParams): void {
+  if (typeof window === "undefined" || Object.keys(utms).length === 0) return
+  const params = new URLSearchParams(window.location.search)
+  let changed = false
+  for (const [k, v] of Object.entries(utms)) {
+    if (v && !params.has(k)) { params.set(k, v); changed = true }
+  }
+  if (changed) {
+    const newUrl = window.location.pathname + "?" + params.toString() + window.location.hash
+    window.history.replaceState(null, "", newUrl)
+  }
+}

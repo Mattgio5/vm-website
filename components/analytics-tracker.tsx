@@ -2,7 +2,7 @@
 
 import { usePathname, useSearchParams } from "next/navigation"
 import { useEffect, useRef } from "react"
-import { captureAndStoreUtms } from "@/lib/quote-intake"
+import { captureAndStoreUtms, injectUtmsIntoUrl } from "@/lib/quote-intake"
 
 declare global {
   interface Window {
@@ -79,11 +79,12 @@ export function AnalyticsTracker() {
     const isLeadPage = LEAD_PATHS.includes(pathname)
     prevUrl.current = pagePath
 
+    const storedUtms = captureAndStoreUtms(window.location.search)
+    injectUtmsIntoUrl(storedUtms)
+
     if (isFirst) {
       // Initial page load — the inline GA4 config and Meta Pixel base code
-      // already fired their own pageviews. Just capture UTMs and emit lead
-      // events if applicable.
-      captureAndStoreUtms(window.location.search)
+      // already fired their own pageviews. Just handle lead events if applicable.
       if (isLeadPage) {
         fireLeadEvents(pagePath, pageUrl)
         lastLeadPath.current = pathname
