@@ -90,7 +90,7 @@ export const metadata: Metadata = {
         media: '(prefers-color-scheme: dark)',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/icon-light-32x32.png',
   },
 }
 
