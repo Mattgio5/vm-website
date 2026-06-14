@@ -8,7 +8,7 @@ import { AnalyticsTracker } from '@/components/analytics-tracker'
 import './globals.css'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
-const META_PIXEL_ID = '2602896006774846'
+const META_PIXEL_ID = '2885970711746304'
 
 const openSans = Open_Sans({
   subsets: ['latin'],
