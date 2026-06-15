@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import Link from "next/link"
+import Image from "next/image"
 
 export const metadata: Metadata = {
   title: "Blog & News — Landscaping Tips in Bucks County, PA",
@@ -208,9 +209,17 @@ export default function MediaPage() {
 
           <Link
             href="/blog/why-pulling-weeds-bucks-county"
-            className="group relative mt-8 flex overflow-hidden rounded-2xl border border-border bg-card shadow-sm ring-1 ring-vm-navy/5 transition-all hover:shadow-md hover:ring-vm-navy/15"
+            className="group relative mt-8 flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm ring-1 ring-vm-navy/5 transition-all hover:shadow-md hover:ring-vm-navy/15"
           >
-            <div className="absolute inset-x-0 top-0 h-1.5 bg-vm-gold" />
+            <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-vm-gold" />
+            <div className="relative aspect-video w-full overflow-hidden">
+              <Image
+                src="/images/blog/Canadian-Thistle.jpg"
+                alt="Canada Thistle weed in a Bucks County landscape bed"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
             <div className="p-6">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="rounded-full bg-vm-gold/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-vm-gold-dark">
