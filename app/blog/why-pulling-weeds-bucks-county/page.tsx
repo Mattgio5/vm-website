@@ -149,9 +149,16 @@ export default function WhyPullingWeedsPage() {
           </p>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
             If you are frustrated by a cycle of endless weeding, you aren&apos;t alone. When it
-            comes to achieving effective, long-term weed control in Bucks County, many of our
-            toughest local weeds can withstand hand pulling. To permanently clear your landscape
-            beds and protect your home investment, you have to change your order of operations.
+            comes to achieving effective, long-term{" "}
+            <Link
+              href="/services/weed-control"
+              className="font-medium text-vm-navy underline decoration-vm-gold underline-offset-2 transition-colors hover:text-vm-blue-dark"
+            >
+              weed control in Bucks County
+            </Link>
+            , many of our toughest local weeds can withstand hand pulling. To permanently clear
+            your landscape beds and protect your home investment, you have to change your order of
+            operations.
           </p>
 
           {/* Section: Hidden Underground Network */}

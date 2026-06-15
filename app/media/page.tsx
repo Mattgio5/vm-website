@@ -213,6 +213,61 @@ export default function MediaPage() {
         </div>
       </section>
 
+      {/* From the Blog */}
+      <section className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
+        <div className="absolute top-0 left-0 right-0 flex flex-col">
+          <div className="h-2.5 w-full bg-vm-gold" />
+          <div className="h-2.5 w-full bg-vm-navy" />
+        </div>
+        <div className="mx-auto max-w-3xl">
+          <div className="h-1 w-12 bg-vm-gold" />
+          <p className="mt-4 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
+            From the Blog
+          </p>
+          <h2 className="font-varsity mt-2 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
+            Landscaping Tips &amp; Advice
+          </h2>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            Expert guides for Bucks County homeowners who want better-looking yards with less work.
+          </p>
+
+          <Link
+            href="/blog/why-pulling-weeds-bucks-county"
+            className="group relative mt-8 flex overflow-hidden rounded-2xl border border-border bg-card shadow-sm ring-1 ring-vm-navy/5 transition-all hover:shadow-md hover:ring-vm-navy/15"
+          >
+            <div className="absolute inset-x-0 top-0 h-1.5 bg-vm-gold" />
+            <div className="p-6">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="rounded-full bg-vm-gold/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-vm-gold-dark">
+                  Weed Control
+                </span>
+                <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                  June 15, 2026
+                </span>
+              </div>
+              <h3 className="font-varsity mt-4 text-xl tracking-wide text-vm-navy transition-colors group-hover:text-vm-blue-dark md:text-2xl uppercase">
+                Why Pulling Weeds May Be Making Your Bucks County Property Look Worse
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
+                Hand-pulling breaks the stem while leaving the root network intact — giving aggressive weeds like Canada Thistle exactly what they need to come back stronger. Here&apos;s the science-based 4-step sequence that actually works.
+              </p>
+              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-vm-navy transition-all group-hover:gap-2.5 group-hover:text-vm-blue-dark">
+                Read article <span aria-hidden="true">&rarr;</span>
+              </span>
+            </div>
+          </Link>
+
+          <div className="mt-6 text-right">
+            <Link
+              href="/blog"
+              className="text-sm font-semibold text-vm-navy/60 transition-colors hover:text-vm-navy"
+            >
+              View all articles &rarr;
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Latest Updates from the Team */}
       <section className="relative bg-muted/30 px-4 py-20 md:px-12 md:py-28 lg:px-20">
         <div className="absolute top-0 left-0 right-0 flex flex-col">
