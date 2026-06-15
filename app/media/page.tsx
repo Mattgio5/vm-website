@@ -232,14 +232,6 @@ export default function MediaPage() {
             </div>
           </Link>
 
-          <div className="mt-6 text-right">
-            <Link
-              href="/blog"
-              className="text-sm font-semibold text-vm-navy/60 transition-colors hover:text-vm-navy"
-            >
-              View all articles &rarr;
-            </Link>
-          </div>
         </div>
       </section>
 
