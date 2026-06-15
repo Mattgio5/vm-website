@@ -163,15 +163,17 @@ export default function WhyPullingWeedsPage() {
           </p>
 
           {/* Canadian Thistle image */}
-          <figure className="mt-12 overflow-hidden rounded-2xl">
-            <Image
-              src="/images/blog/Canadian-Thistle.jpg"
-              alt="Canada Thistle — a common invasive weed in Bucks County with an aggressive underground root system"
-              width={800}
-              height={530}
-              className="w-full object-cover"
-              priority
-            />
+          <figure className="mt-12">
+            <div className="relative aspect-video w-full overflow-hidden rounded-2xl">
+              <Image
+                src="/images/blog/Canadian-Thistle.jpg"
+                alt="Canada Thistle — a common invasive weed in Bucks County with an aggressive underground root system"
+                fill
+                sizes="(min-width: 768px) 672px, 100vw"
+                className="object-cover"
+                priority
+              />
+            </div>
             <figcaption className="mt-2 text-center text-xs text-muted-foreground">
               Canada Thistle — what you see above ground is only a fraction of the root system below.
             </figcaption>

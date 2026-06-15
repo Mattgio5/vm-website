@@ -217,6 +217,7 @@ export default function MediaPage() {
                 src="/images/blog/Canadian-Thistle.jpg"
                 alt="Canada Thistle weed in a Bucks County landscape bed"
                 fill
+                sizes="(min-width: 768px) 672px, 100vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
