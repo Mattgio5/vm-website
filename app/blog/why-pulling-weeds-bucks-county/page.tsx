@@ -2,6 +2,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { SITE_URL } from "@/lib/site"
 import Link from "next/link"
+import Image from "next/image"
 
 export const metadata = {
   title: "Why Pulling Weeds May Be Making Your Bucks County Property Look Worse",
@@ -160,6 +161,21 @@ export default function WhyPullingWeedsPage() {
             your landscape beds and protect your home investment, you have to change your order of
             operations.
           </p>
+
+          {/* Canadian Thistle image */}
+          <figure className="mt-12 overflow-hidden rounded-2xl">
+            <Image
+              src="/images/blog/Canadian-Thistle.jpg"
+              alt="Canada Thistle — a common invasive weed in Bucks County with an aggressive underground root system"
+              width={800}
+              height={530}
+              className="w-full object-cover"
+              priority
+            />
+            <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+              Canada Thistle — what you see above ground is only a fraction of the root system below.
+            </figcaption>
+          </figure>
 
           {/* Section: Hidden Underground Network */}
           <h2 className="font-varsity mt-16 text-2xl tracking-wide text-vm-navy md:text-3xl uppercase">

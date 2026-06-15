@@ -13,31 +13,6 @@ export const metadata: Metadata = {
 
 const FACEBOOK_URL = "https://www.facebook.com/people/Varsity-Mulching/61550553115186/"
 
-// Sample company posts - in production these would come from a database/CMS
-const companyPosts = [
-  {
-    id: 1,
-    title: "Spring Season Kickoff",
-    date: "March 15, 2026",
-    excerpt: "The crew is back and ready for another great season! We've been prepping equipment and can't wait to get out there.",
-    image: "/images/hero-mulch.jpg",
-  },
-  {
-    id: 2,
-    title: "New Partnership with Local College",
-    date: "February 28, 2026",
-    excerpt: "Excited to announce we're partnering with another local college to bring even more talented student athletes to our team.",
-    image: "/images/hero-delivery.jpg",
-  },
-  {
-    id: 3,
-    title: "End of Season Wrap-Up",
-    date: "November 10, 2025",
-    excerpt: "What a season! Thank you to all our amazing customers who trusted us with their yards this year.",
-    image: "/images/hero-yard.jpg",
-  },
-]
-
 export default function MediaPage() {
   return (
     <main>
@@ -268,76 +243,6 @@ export default function MediaPage() {
         </div>
       </section>
 
-      {/* Latest Updates from the Team */}
-      <section className="relative bg-muted/30 px-4 py-20 md:px-12 md:py-28 lg:px-20">
-        <div className="absolute top-0 left-0 right-0 flex flex-col">
-          <div className="h-2.5 w-full bg-vm-gold" />
-          <div className="h-2.5 w-full bg-vm-navy" />
-        </div>
-        <div className="mx-auto max-w-3xl">
-          <div>
-            {/* What We've Been Up To */}
-            <div>
-              <div className="h-1 w-12 bg-vm-gold" />
-              <p className="mt-4 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
-                Latest Updates
-              </p>
-              <h2 className="font-varsity mt-2 text-3xl tracking-wide text-vm-navy md:text-4xl text-balance uppercase">
-                What We&apos;ve Been Up To
-              </h2>
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                News and highlights from the Varsity Mulching team.
-              </p>
-
-              {/* Most Recent Post - Featured */}
-              {companyPosts[0] && (
-                <div className="relative mt-8 overflow-hidden rounded-2xl border border-border bg-card shadow-sm ring-1 ring-vm-navy/5">
-                  <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-vm-gold" />
-                  <div
-                    className="aspect-video bg-cover bg-center"
-                    style={{ backgroundImage: `url(${companyPosts[0].image})` }}
-                  />
-                  <div className="p-6">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-vm-gold-dark">
-                      Latest
-                    </p>
-                    <h3 className="mt-2 text-xl font-bold text-vm-navy md:text-2xl">
-                      {companyPosts[0].title}
-                    </h3>
-                    <p className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                      {companyPosts[0].date}
-                    </p>
-                    <p className="mt-4 text-sm leading-relaxed text-vm-navy/80 md:text-base">
-                      {companyPosts[0].excerpt}
-                    </p>
-                  </div>
-                </div>
-              )}
-
-              {/* Older Posts - Compact List */}
-              {companyPosts.length > 1 && (
-                <div className="mt-4 space-y-3">
-                  {companyPosts.slice(1).map((post) => (
-                    <div
-                      key={post.id}
-                      className="flex gap-4 rounded-xl border border-l-4 border-border border-l-vm-gold bg-card p-4 pl-5"
-                    >
-                      <div className="flex-1">
-                        <h4 className="text-base font-semibold text-vm-navy">
-                          {post.title}
-                        </h4>
-                        <p className="mt-0.5 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                          {post.date}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Google Reviews Section */}
       <section className="relative bg-muted/50 px-4 py-20 md:px-12 md:py-28 lg:px-20">
