@@ -20,7 +20,6 @@ const entries: Entry[] = [
   { path: '/gallery', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/faq', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/schedule-a-quote', changeFrequency: 'monthly', priority: 0.6 },
-  { path: '/blog', changeFrequency: 'weekly', priority: 0.6 },
   { path: '/blog/why-pulling-weeds-bucks-county', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/media', changeFrequency: 'monthly', priority: 0.4 },
   { path: '/careers', changeFrequency: 'monthly', priority: 0.4 },

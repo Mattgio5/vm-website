@@ -99,11 +99,11 @@ export default function WhyPullingWeedsPage() {
       <section className="bg-noise relative overflow-hidden bg-vm-navy px-4 pt-32 pb-20 md:px-12 md:pt-40 md:pb-28 lg:px-20">
         <div className="relative z-10 mx-auto max-w-3xl">
           <Link
-            href="/blog"
+            href="/media"
             className="vm-reveal inline-flex items-center gap-1.5 text-xs font-semibold tracking-widest text-vm-gold/80 uppercase transition-colors hover:text-vm-gold"
             style={{ animationDelay: "0ms" }}
           >
-            ← Blog
+            ← Media
           </Link>
           <p
             className="vm-reveal mt-5 text-sm font-semibold tracking-widest text-vm-gold uppercase"

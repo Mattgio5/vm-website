@@ -42,7 +42,6 @@ const services = [
 const navLinks = [
   { label: "About", href: "/about" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Blog", href: "/blog" },
   { label: "Careers", href: "/careers" },
   { label: "Media", href: "/media" },
 ]
