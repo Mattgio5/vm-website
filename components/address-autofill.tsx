@@ -25,7 +25,12 @@ type MapboxTheme = {
 type AddressAutofillProps = {
   accessToken: string
   onRetrieve?: (res: RetrieveResponse) => void
-  options?: { country?: string; language?: string }
+  options?: {
+    country?: string
+    language?: string
+    proximity?: [number, number] | "ip"
+    bbox?: [number, number, number, number]
+  }
   theme?: MapboxTheme
   children: ReactNode
 }
@@ -83,7 +88,13 @@ export function AddressAutofillWrapper({
   return (
     <AddressAutofill
       accessToken={token}
-      options={{ country: "us" }}
+      options={{
+          country: "us",
+          // Bias results toward Doylestown (center of service area) and
+          // restrict to PA so a partial street name never resolves to Texas.
+          proximity: [-75.1299, 40.3101],
+          bbox: [-80.5199, 39.7198, -74.6895, 42.2699],
+        }}
       theme={variant === "dark" ? DARK_THEME : undefined}
       onRetrieve={(res) => {
         const feature = res.features?.[0]
