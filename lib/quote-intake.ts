@@ -13,9 +13,9 @@ export const SERVICE_OPTIONS = [
 ] as const
 
 export const TIMING_OPTIONS = [
-  "June",
-  "July (5% discount)",
-  "August (7% discount)",
+  "Before July 13th",
+  "After July 13th",
+  "August (5% discount)",
 ] as const
 
 export const HEAR_ABOUT_OPTIONS = [
@@ -25,6 +25,7 @@ export const HEAR_ABOUT_OPTIONS = [
   "Facebook",
   "Brochure",
   "Yard Sign",
+  "Other",
 ] as const
 
 const UTM_KEYS = [

@@ -79,6 +79,12 @@ export function ContactForm() {
       return
     }
 
+    if (!form.hearAbout) {
+      setErrorMsg("Please let us know how you heard about us.")
+      setStatus("error")
+      return
+    }
+
     const target = e.currentTarget
     if (!target.checkValidity()) {
       target.reportValidity()
@@ -383,10 +389,11 @@ export function ContactForm() {
       </Field>
 
       {/* How did you hear about us */}
-      <Field id="hearAbout" label="How Did You Hear About Us?">
+      <Field id="hearAbout" label="How Did You Hear About Us?" required>
         <NativeSelect
           id="hearAbout"
           name="hearAbout"
+          required
           value={form.hearAbout}
           onChange={(e) => update("hearAbout", e.target.value)}
           disabled={submitting}
