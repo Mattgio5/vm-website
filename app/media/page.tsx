@@ -207,40 +207,77 @@ export default function MediaPage() {
             Expert guides for Bucks County homeowners who want better-looking yards with less work.
           </p>
 
-          <Link
-            href="/blog/why-pulling-weeds-bucks-county"
-            className="group relative mt-8 flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm ring-1 ring-vm-navy/5 transition-all hover:shadow-md hover:ring-vm-navy/15"
-          >
-            <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-vm-gold" />
-            <div className="relative aspect-video w-full overflow-hidden">
-              <Image
-                src="/images/blog/Canadian-Thistle.jpg"
-                alt="Canada Thistle weed in a Bucks County landscape bed"
-                fill
-                sizes="(min-width: 768px) 672px, 100vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-            <div className="p-6">
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="rounded-full bg-vm-gold/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-vm-gold-dark">
-                  Weed Control
-                </span>
-                <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                  June 15, 2026
+          <div className="mt-8 flex flex-col gap-6">
+            <Link
+              href="/blog/why-pruning-every-plant-the-same-way-can-hurt-your-landscape"
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm ring-1 ring-vm-navy/5 transition-all hover:shadow-md hover:ring-vm-navy/15"
+            >
+              <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-vm-gold" />
+              <div className="relative aspect-video w-full overflow-hidden">
+                <Image
+                  src="/images/blog/Japanese_Maple.jpg"
+                  alt="Japanese maple tree with delicate layered canopy"
+                  fill
+                  sizes="(min-width: 768px) 672px, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="rounded-full bg-vm-gold/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-vm-gold-dark">
+                    Pruning
+                  </span>
+                  <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                    June 23, 2026
+                  </span>
+                </div>
+                <h3 className="font-varsity mt-4 text-xl tracking-wide text-vm-navy transition-colors group-hover:text-vm-blue-dark md:text-2xl uppercase">
+                  Why Pruning Every Plant the Same Way Can Hurt Your Landscape
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
+                  Japanese maples, hydrangeas, and fruit trees each require a different approach. Grabbing the hedge trimmer for everything can cost you blooms, natural shape, and long-term plant health. Here&apos;s what to know before you cut.
+                </p>
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-vm-navy transition-all group-hover:gap-2.5 group-hover:text-vm-blue-dark">
+                  Read article <span aria-hidden="true">&rarr;</span>
                 </span>
               </div>
-              <h3 className="font-varsity mt-4 text-xl tracking-wide text-vm-navy transition-colors group-hover:text-vm-blue-dark md:text-2xl uppercase">
-                Why Pulling Weeds May Be Making Your Bucks County Property Look Worse
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
-                Hand-pulling breaks the stem while leaving the root network intact — giving aggressive weeds like Canada Thistle exactly what they need to come back stronger. Here&apos;s the science-based 4-step sequence that actually works.
-              </p>
-              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-vm-navy transition-all group-hover:gap-2.5 group-hover:text-vm-blue-dark">
-                Read article <span aria-hidden="true">&rarr;</span>
-              </span>
-            </div>
-          </Link>
+            </Link>
+
+            <Link
+              href="/blog/why-pulling-weeds-bucks-county"
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm ring-1 ring-vm-navy/5 transition-all hover:shadow-md hover:ring-vm-navy/15"
+            >
+              <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-vm-gold" />
+              <div className="relative aspect-video w-full overflow-hidden">
+                <Image
+                  src="/images/blog/Canadian-Thistle.jpg"
+                  alt="Canada Thistle weed in a Bucks County landscape bed"
+                  fill
+                  sizes="(min-width: 768px) 672px, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="rounded-full bg-vm-gold/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-vm-gold-dark">
+                    Weed Control
+                  </span>
+                  <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                    June 15, 2026
+                  </span>
+                </div>
+                <h3 className="font-varsity mt-4 text-xl tracking-wide text-vm-navy transition-colors group-hover:text-vm-blue-dark md:text-2xl uppercase">
+                  Why Pulling Weeds May Be Making Your Bucks County Property Look Worse
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
+                  Hand-pulling breaks the stem while leaving the root network intact — giving aggressive weeds like Canada Thistle exactly what they need to come back stronger. Here&apos;s the science-based 4-step sequence that actually works.
+                </p>
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-vm-navy transition-all group-hover:gap-2.5 group-hover:text-vm-blue-dark">
+                  Read article <span aria-hidden="true">&rarr;</span>
+                </span>
+              </div>
+            </Link>
+          </div>
 
         </div>
       </section>
