@@ -96,6 +96,7 @@ export const quickQuoteSchema = z.object({
   state: z.string().trim().max(60).optional().or(z.literal("")),
   zip: z.string().trim().max(10).optional().or(z.literal("")),
   services: z.array(z.string().trim().min(1).max(120)).max(20).default([]),
+  hear_about: z.string().trim().max(200).optional().or(z.literal("")),
 
   page_slug: z.string().trim().max(200).optional().or(z.literal("")),
   utm: z
@@ -323,7 +324,7 @@ export function toSchedulerPayloadFromQuick(input: QuickQuoteInput) {
     address,
 
     services: input.services,
-    hear_about: "",
+    hear_about: input.hear_about || "",
     job_timing: "",
 
     utm: input.utm || {},

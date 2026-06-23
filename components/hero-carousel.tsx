@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
-import { captureAndStoreUtms, toStateAbbr, type UtmParams } from "@/lib/quote-intake"
+import { captureAndStoreUtms, toStateAbbr, HEAR_ABOUT_OPTIONS, type UtmParams } from "@/lib/quote-intake"
 import { AddressAutofillWrapper } from "@/components/address-autofill"
 
 const GOOGLE_REVIEWS_URL =
@@ -126,6 +126,7 @@ function QuickQuoteForm() {
   } | null>(null)
   const [services, setServices] = useState<string[]>([])
   const [open, setOpen] = useState(false)
+  const [hearAbout, setHearAbout] = useState("")
 
   const utmRef = useRef<UtmParams>({})
   const pageSlugRef = useRef<string>("")
@@ -164,6 +165,7 @@ function QuickQuoteForm() {
       // scheduler always sees the ZIP).
       ...(addressParts ?? {}),
       services,
+      hear_about: hearAbout,
       page_slug: pageSlugRef.current,
       utm: utmRef.current,
     }
@@ -329,8 +331,9 @@ function QuickQuoteForm() {
             </HeroField>
           </div>
 
-          <HeroField label="Property address">
-            <AddressAutofillWrapper
+          <div className="grid gap-2.5 sm:grid-cols-2">
+            <HeroField label="Property address">
+              <AddressAutofillWrapper
               variant="dark"
               onSelect={(parts) => {
                 const stateAbbr = toStateAbbr(parts.state) || parts.state
@@ -369,6 +372,22 @@ function QuickQuoteForm() {
             </AddressAutofillWrapper>
           </HeroField>
 
+            <HeroField label="How did you hear about us?">
+              <select
+                name="hearAbout"
+                className="hero-input hero-select"
+                value={hearAbout}
+                onChange={(e) => setHearAbout(e.target.value)}
+                disabled={submitting}
+              >
+                <option value="">Select one…</option>
+                {HEAR_ABOUT_OPTIONS.map((o) => (
+                  <option key={o} value={o}>{o}</option>
+                ))}
+              </select>
+            </HeroField>
+          </div>
+
           {status === "error" && errorMsg && (
             <p
               role="alert"
@@ -406,6 +425,18 @@ function QuickQuoteForm() {
         :global(.hero-input:focus-visible) {
           border-color: var(--vm-gold);
           box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.25);
+        }
+        :global(.hero-select) {
+          appearance: none;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.45)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 0.75rem center;
+          padding-right: 2rem;
+          cursor: pointer;
+        }
+        :global(.hero-select option) {
+          background-color: #0b1d3a;
+          color: #ffffff;
         }
       `}</style>
     </div>
