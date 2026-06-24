@@ -7,7 +7,9 @@ export const SERVICE_OPTIONS = [
   "Cleanup",
   "Bush Trimming",
   "Bush Removal",
-  "Planting",
+  "Plant Design & Install",
+  "Rock Installation",
+  "Drainage Project",
   "Chemical Weed Treatment",
   "Follow-on Maintenance",
 ] as const
