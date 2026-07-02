@@ -15,9 +15,9 @@ export const SERVICE_OPTIONS = [
 ] as const
 
 export const TIMING_OPTIONS = [
-  "Before July 13th",
-  "After July 13th",
+  "ASAP",
   "August (5% discount)",
+  "No Preference",
 ] as const
 
 export const HEAR_ABOUT_OPTIONS = [
