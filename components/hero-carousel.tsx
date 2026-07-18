@@ -486,7 +486,7 @@ function GoogleReviewsCard() {
           <p className="flex items-baseline gap-2 text-sm font-semibold text-white">
             <span className="text-2xl font-extrabold leading-none text-vm-gold">5.0</span>
             <span className="text-white/40">·</span>
-            <span>166+ 5-Star Reviews</span>
+            <span>280+ 5-Star Reviews</span>
           </p>
         </div>
       </div>

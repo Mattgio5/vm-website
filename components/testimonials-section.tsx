@@ -24,7 +24,7 @@ export function TestimonialsSection() {
             >
               <path d="M10 1.5l2.6 5.4 5.9.6-4.4 4 1.3 5.8L10 14.7 4.6 17.3l1.3-5.8L1.5 7.5l5.9-.6L10 1.5z" />
             </svg>
-            <span>by 166 Loyal Customers</span>
+            <span>by 280+ Loyal Customers</span>
           </h2>
         </div>
 

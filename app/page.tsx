@@ -3,6 +3,7 @@ import { Navbar } from "@/components/navbar"
 import { HeroCarousel } from "@/components/hero-carousel"
 import { ServicesOverview } from "@/components/services-overview"
 import { WinningRosterSection } from "@/components/winning-roster-section"
+import { MoreThanMulchSection } from "@/components/more-than-mulch-section"
 import { ServiceAreaSection } from "@/components/service-area-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { CtaSection } from "@/components/cta-section"
@@ -118,6 +119,7 @@ export default function Home() {
       />
       <Navbar />
       <HeroCarousel />
+      <MoreThanMulchSection />
       <ServicesOverview />
       <WinningRosterSection />
       <TestimonialsSection />

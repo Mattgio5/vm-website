@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 
 const services = [
@@ -47,18 +48,30 @@ export function ServicesOverview() {
         <div className="h-2.5 w-full bg-vm-gold" />
         <div className="h-2.5 w-full bg-vm-navy" />
       </div>
-      
+
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 max-w-2xl md:mb-16">
-          <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
-            What We Do
-          </p>
-          <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl lg:text-5xl text-balance uppercase">
-            Our Core Services
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-            From a full spring cleanup to a simple mulch and edge touch-up, we bring the Varsity standard to every job.
-          </p>
+        <div className="mb-12 grid gap-8 md:mb-16 md:grid-cols-2 md:items-center md:gap-12">
+          <div className="max-w-2xl">
+            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
+              What We Do
+            </p>
+            <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl lg:text-5xl text-balance uppercase">
+              Our Core Services
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+              From a full spring cleanup to a simple mulch and edge touch-up, we bring the Varsity standard to every job.
+            </p>
+          </div>
+          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-border shadow-lg">
+            <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-vm-gold" />
+            <Image
+              src="/images/team/team_drone.png"
+              alt="Aerial drone view of the Varsity Mulching team"
+              fill
+              sizes="(min-width: 768px) 45vw, 100vw"
+              className="object-cover"
+            />
+          </div>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

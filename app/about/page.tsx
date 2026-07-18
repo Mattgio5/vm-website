@@ -25,7 +25,6 @@ const team = [
   { name: "Jacob", role: "General Manager", hometown: "Doylestown, PA", photo: "/images/team/jacob.webp" },
   { name: "Chase", role: "Lead Estimator", hometown: "Lansdale, PA", photo: "/images/team/chase.webp" },
   { name: "Tyler", role: "Crew Lead", hometown: "Doylestown, PA", photo: "/images/team/tyler.webp" },
-  { name: "Klay", role: "Crew Lead", hometown: "Furlong, PA", photo: "/images/team/klay.webp" },
   { name: "Niko", role: "Crew Lead", hometown: "Doylestown, PA", photo: "/images/team/niko.webp" },
   { name: "Connor", role: "Crew Lead", hometown: "Doylestown, PA", photo: "/images/team/connor.webp" },
   { name: "Szymon", role: "Crew Lead", hometown: "Warminster, PA", photo: "/images/team/szymon.webp" },
@@ -43,19 +42,14 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="bg-noise relative h-[60vh] min-h-[400px] w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <video
-            className="absolute inset-0 h-full w-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster="/videos/hero-poster.jpg"
-            aria-label="Varsity Mulching crew at work"
-          >
-            <source src="/videos/hero-video.webm" type="video/webm" />
-            <source src="/videos/hero-video.mp4" type="video/mp4" />
-          </video>
+          <Image
+            src="/images/team/team_drone.png"
+            alt="Aerial drone view of the Varsity Mulching team"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-vm-navy/65 via-vm-navy/45 to-vm-navy/75" />
         </div>
 
