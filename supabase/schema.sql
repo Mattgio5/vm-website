@@ -43,7 +43,6 @@ create table if not exists public.quote_requests (
     utm_campaign text,
     utm_term text,
     utm_content text,
-    utm_adset text,
     gclid text,
     fbclid text,
 
@@ -59,10 +58,6 @@ create table if not exists public.quote_requests (
     user_agent text,
     ip_address text
 );
-
--- Add utm_adset for pre-existing tables (safe/idempotent on repeat runs).
-alter table public.quote_requests
-    add column if not exists utm_adset text;
 
 create index if not exists quote_requests_created_at_idx
     on public.quote_requests (created_at desc);

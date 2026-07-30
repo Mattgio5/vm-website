@@ -73,6 +73,20 @@ const services = [
     image: "/images/service-cleanup.webp",
   },
   {
+    slug: "aeration-overseeding",
+    title: "Core Aeration & Overseeding",
+    tagline: "A thicker, healthier lawn starts below the surface",
+    description:
+      "Core aeration removes small plugs of soil to relieve compaction, then we overseed immediately after so new grass gets better seed-to-soil contact. Offered seasonally in late summer and early fall.",
+    features: [
+      "Relieves soil compaction",
+      "Improves seed-to-soil contact",
+      "Fills in thin or worn areas",
+      "Builds a thicker, more resilient lawn",
+    ],
+    image: "/images/gallery/vm-gallery-05.webp",
+  },
+  {
     slug: "supplements",
     title: "Supplements",
     tagline: "Extra touches for your yard",

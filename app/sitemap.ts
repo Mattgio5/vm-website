@@ -16,6 +16,7 @@ const entries: Entry[] = [
   { path: '/services/bed-cleanup', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/services/supplements', changeFrequency: 'monthly', priority: 0.75 },
   { path: '/services/fall-cleanup', changeFrequency: 'monthly', priority: 0.75 },
+  { path: '/services/aeration-overseeding', changeFrequency: 'monthly', priority: 0.75 },
   { path: '/about', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/gallery', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/faq', changeFrequency: 'monthly', priority: 0.6 },

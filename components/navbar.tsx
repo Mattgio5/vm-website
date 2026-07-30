@@ -37,6 +37,11 @@ const services = [
     href: "/services/supplements",
     description: "Add-ons and follow-up services",
   },
+  {
+    label: "Aeration & Overseeding",
+    href: "/services/aeration-overseeding",
+    description: "Relieve compaction, grow a thicker lawn",
+  },
 ]
 
 const navLinks = [

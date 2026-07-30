@@ -38,6 +38,12 @@ const services = [
       "Bush trimming, planting, and the extras that round out your yard.",
     href: "/services/supplements",
   },
+  {
+    title: "Core Aeration & Overseeding",
+    description:
+      "Relieve soil compaction and grow a thicker lawn — offered seasonally.",
+    href: "/services/aeration-overseeding",
+  },
 ]
 
 export function ServicesOverview() {

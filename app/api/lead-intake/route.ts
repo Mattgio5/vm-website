@@ -263,7 +263,6 @@ export async function POST(req: Request) {
       utm_campaign: utm.utm_campaign || null,
       utm_term: utm.utm_term || null,
       utm_content: utm.utm_content || null,
-      utm_adset: utm.utm_adset || null,
       gclid: utm.gclid || null,
       fbclid: utm.fbclid || null,
 

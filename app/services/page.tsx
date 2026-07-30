@@ -21,6 +21,7 @@ const services = [
   { slug: "weed-control", name: "Weed Control" },
   { slug: "bed-cleanup", name: "Bed Cleanup" },
   { slug: "fall-cleanup", name: "Fall Cleanup" },
+  { slug: "aeration-overseeding", name: "Core Aeration & Overseeding" },
   { slug: "supplements", name: "Supplements & Add-ons" },
 ]
 
