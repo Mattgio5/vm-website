@@ -6,6 +6,9 @@ import Link from "next/link"
 import { SITE_URL } from "@/lib/site"
 import { AerationFAQ } from "@/components/services/aeration-faq"
 import { aerationFaqs } from "@/lib/aeration-faqs"
+import { AerationQuoteForm } from "@/components/services/aeration-quote-form"
+import { AerationCtaLink } from "@/components/services/aeration-cta-link"
+import { AERATION_SPOTS_REMAINING } from "@/lib/aeration-config"
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -25,7 +28,7 @@ export const metadata: Metadata = {
 
 const benefits = [
   "Relieve soil compaction",
-  "Improve seed-to-soil contact",
+  "Improve water, air, and nutrient movement",
   "Fill in thin or worn areas",
   "Encourage stronger root growth",
   "Build a thicker, more resilient lawn",
@@ -92,12 +95,9 @@ export default function AerationOverseedingPage() {
       />
       <Navbar />
 
-      {/* Hero Section */}
-      <section
-        className="relative w-full overflow-hidden"
-        style={{ height: "calc(65vh)", minHeight: "520px" }}
-      >
-        <div className="absolute inset-0 z-0">
+      {/* Hero Section — two-column: copy + availability left, quote form right */}
+      <section className="relative w-full overflow-visible">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <Image
             src="/images/lawn_image.png"
             alt="Thick, healthy lawn after core aeration and overseeding"
@@ -105,11 +105,12 @@ export default function AerationOverseedingPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-vm-navy/70 via-vm-navy/50 to-vm-navy/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-vm-navy/70 via-vm-navy/55 to-vm-navy/80" />
         </div>
 
-        <div className="relative z-10 flex h-full items-center px-4 pt-24 pb-16 md:px-12 lg:px-20">
-          <div className="max-w-2xl">
+        <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-8 px-4 pt-28 pb-14 md:grid-cols-2 md:items-center md:gap-10 md:px-12 md:pt-32 md:pb-20 lg:gap-14 lg:px-20">
+          {/* Left: existing hero copy + availability */}
+          <div>
             <Breadcrumb className="mb-6">
               <BreadcrumbList>
                 <BreadcrumbItem>
@@ -136,18 +137,26 @@ export default function AerationOverseedingPage() {
               Core Aeration &amp; Overseeding
             </h1>
             <p className="mt-4 max-w-lg text-lg leading-relaxed text-white/80">
-              Over time, soil becomes compacted from foot traffic, pets, mowing and seasonal weather. Core
-              aeration and overseeding work together to loosen the soil, improve seed-to-soil contact and
-              help thin lawns grow back thicker.
+              Loosen compacted soil and help thin lawns grow back thicker.
             </p>
-            <div className="mt-8">
-              <Link
-                href="/schedule-a-quote"
-                className="inline-flex rounded-full bg-vm-gold px-7 py-3.5 text-base font-semibold text-vm-navy transition-all hover:bg-vm-gold-dark hover:shadow-lg"
-              >
-                Get a Free Quote
-              </Link>
+
+            {/* Seasonal availability */}
+            <div className="mt-6 max-w-lg rounded-2xl border border-vm-gold/40 bg-vm-navy/60 p-5 backdrop-blur-sm">
+              <p className="text-lg font-semibold text-white">
+                <span className="font-varsity text-3xl leading-none tracking-wide text-vm-gold">
+                  {AERATION_SPOTS_REMAINING}
+                </span>{" "}
+                fall aeration appointments remain
+              </p>
+              <p className="mt-1.5 text-sm leading-relaxed text-white/75">
+                Once our seasonal capacity is filled, scheduling will close.
+              </p>
             </div>
+          </div>
+
+          {/* Right: embedded quote form */}
+          <div className="md:pl-2 lg:pl-6">
+            <AerationQuoteForm />
           </div>
         </div>
       </section>
@@ -161,20 +170,19 @@ export default function AerationOverseedingPage() {
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-3 lg:gap-16">
           {/* Left column */}
           <div className="lg:col-span-2">
-            <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
-              Why We Do It
-            </p>
             <h2 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl uppercase">
-              Give New Seed a Real Chance to Take Root
+              Why Your Lawn Looks Thin After Summer
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Spreading grass seed over hard, compacted soil often produces disappointing results. Much of
-              the seed remains on the surface, where it can dry out or wash away before taking root.
+              After a long, hot summer, Pennsylvania lawns are often left thin, patchy, and worn down. Heat
+              and dry conditions stress the grass, while mowing, foot traffic, pets, and everyday use
+              compact the soil beneath it. This makes it harder for water, air, and nutrients to reach the
+              roots the lawn depends on.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Core aeration removes small plugs of soil from across the lawn, creating openings for water,
-              air and nutrients to reach the root zone. Overseeding immediately afterward allows new seed to
-              settle into those openings and make better contact with the soil.
+              Core aeration removes small plugs of soil to relieve compaction and open the root zone. We
+              then overseed the lawn to introduce new grass into thin and worn areas, helping it recover
+              with thicker, stronger growth.
             </p>
 
             <p className="mt-8 text-base font-semibold text-vm-navy">
@@ -260,12 +268,9 @@ export default function AerationOverseedingPage() {
                 scheduling fills quickly.
               </p>
               <div className="mt-6">
-                <Link
-                  href="/schedule-a-quote"
-                  className="inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
-                >
+                <AerationCtaLink className="inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light">
                   Request Your Fall Lawn Quote
-                </Link>
+                </AerationCtaLink>
               </div>
             </div>
 
@@ -288,12 +293,9 @@ export default function AerationOverseedingPage() {
                 Scheduling fills quickly during our late-summer and early-fall aeration window.
               </p>
               <div className="mt-5 flex flex-col gap-3">
-                <Link
-                  href="/schedule-a-quote"
-                  className="inline-flex justify-center rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
-                >
+                <AerationCtaLink className="inline-flex justify-center rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light">
                   Request Quote
-                </Link>
+                </AerationCtaLink>
                 <a
                   href="tel:+12673899789"
                   className="inline-flex justify-center rounded-full border-2 border-vm-navy px-6 py-3 text-sm font-semibold text-vm-navy transition-all hover:bg-vm-navy hover:text-white"
@@ -344,12 +346,16 @@ export default function AerationOverseedingPage() {
             Aeration and overseeding scheduling fills quickly — request your quote today to lock in a spot
             in the late-summer and early-fall window.
           </p>
-          <Link
-            href="/schedule-a-quote"
-            className="mt-6 inline-flex rounded-full bg-vm-navy px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg"
-          >
+          <p className="mx-auto mt-4 max-w-xl text-sm font-semibold text-vm-navy">
+            {AERATION_SPOTS_REMAINING} appointments remain for the fall season. Request your quote before
+            our remaining routes are filled.
+          </p>
+          <p className="mx-auto mt-1 max-w-xl text-xs text-vm-navy/60">
+            Updated daily based on approved quotes.
+          </p>
+          <AerationCtaLink className="mt-6 inline-flex rounded-full bg-vm-navy px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg">
             Get a Quote
-          </Link>
+          </AerationCtaLink>
         </div>
       </section>
 
