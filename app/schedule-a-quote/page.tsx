@@ -140,20 +140,6 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="rounded-2xl bg-vm-blue p-6 md:p-8">
-                <p className="font-varsity text-2xl tracking-wide text-vm-navy uppercase">
-                  Looking to Join the Crew?
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-vm-navy/70">
-                  Select &ldquo;Career Inquiry&rdquo; in the form, or head over to our open positions.
-                </p>
-                <a
-                  href="/careers"
-                  className="mt-4 inline-flex rounded-full bg-vm-navy px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-md"
-                >
-                  See Open Positions
-                </a>
-              </div>
             </div>
           </aside>
         </div>
