@@ -260,6 +260,7 @@ export function AerationQuoteForm() {
           <Field label="How did you hear about us?">
             <select
               name="hearAbout"
+              required
               className="aeration-input aeration-select"
               value={hearAbout}
               onChange={(e) => setHearAbout(e.target.value)}

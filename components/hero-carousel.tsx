@@ -381,6 +381,7 @@ function QuickQuoteForm() {
             <HeroField label="How did you hear about us?">
               <select
                 name="hearAbout"
+                required
                 className="hero-input hero-select"
                 value={hearAbout}
                 onChange={(e) => setHearAbout(e.target.value)}
