@@ -4,6 +4,7 @@ import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import { captureAndStoreUtms, toStateAbbr, HEAR_ABOUT_OPTIONS, type UtmParams } from "@/lib/quote-intake"
 import { AddressAutofillWrapper } from "@/components/address-autofill"
+import { FallAvailability } from "@/components/fall-availability"
 
 const GOOGLE_REVIEWS_URL =
   "https://www.google.com/search?q=varsity+mulching&oq=varsity+mulching&gs_lcrp=EgZjaHJvbWUqDAgAECMYJxiABBiKBTIMCAAQIxgnGIAEGIoFMhAIARAuGK8BGMcBGIAEGI4FMgcIAhAAGIAEMggIAxAAGBYYHjIICAQQABgWGB4yBggFEEUYPDIGCAYQRRg8MgYIBxBFGDzSAQgyOTUxajBqNKgCAbACAfEFGOyPwE2C6og&sourceid=chrome&ie=UTF-8"
@@ -84,6 +85,9 @@ export function HeroCarousel() {
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/90 drop-shadow md:text-base lg:text-lg">
             Fresh mulch, expertly installed. Because JV-level landscaping isn&apos;t going to cut it.
           </p>
+          <div className="mt-6">
+            <FallAvailability tone="dark" />
+          </div>
         </div>
 
         {/* Right: quick quote + reviews */}
