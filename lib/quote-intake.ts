@@ -64,8 +64,10 @@ export const quoteIntakeSchema = z.object({
   services: z.array(z.string().trim().min(1).max(120)).min(1, "Pick at least one service").max(20),
   job_timing: z.string().trim().max(120).optional().or(z.literal("")),
   hear_about: z.string().trim().max(200).optional().or(z.literal("")),
+  referred_by_text: z.string().trim().max(200).optional().or(z.literal("")),
 
   page_slug: z.string().trim().max(200).optional().or(z.literal("")),
+  landing_referrer: z.string().trim().max(2048).optional().or(z.literal("")),
   utm: z
     .object({
       utm_source: z.string().trim().max(200).optional(),
@@ -102,8 +104,10 @@ export const quickQuoteSchema = z.object({
   zip: z.string().trim().max(10).optional().or(z.literal("")),
   services: z.array(z.string().trim().min(1).max(120)).max(20).default([]),
   hear_about: z.string().trim().max(200).optional().or(z.literal("")),
+  referred_by_text: z.string().trim().max(200).optional().or(z.literal("")),
 
   page_slug: z.string().trim().max(200).optional().or(z.literal("")),
+  landing_referrer: z.string().trim().max(2048).optional().or(z.literal("")),
   utm: z
     .object({
       utm_source: z.string().trim().max(200).optional(),
@@ -278,8 +282,10 @@ export function toSchedulerPayload(input: QuoteIntakeInput) {
 
     services,
     hear_about: input.hear_about || "",
+    referred_by_text: input.referred_by_text || "",
     job_timing: input.job_timing || "",
 
+    landing_referrer: input.landing_referrer || "",
     utm: input.utm || {},
   }
 }
@@ -330,8 +336,10 @@ export function toSchedulerPayloadFromQuick(input: QuickQuoteInput) {
 
     services: input.services,
     hear_about: input.hear_about || "",
+    referred_by_text: input.referred_by_text || "",
     job_timing: "",
 
+    landing_referrer: input.landing_referrer || "",
     utm: input.utm || {},
   }
 }
@@ -365,6 +373,39 @@ export function captureAndStoreUtms(search: string): UtmParams {
     if (raw) return JSON.parse(raw) as UtmParams
   } catch {}
   return {}
+}
+
+const SESSION_REFERRER_KEY = "__vm_landing_referrer"
+
+function isOwnDomain(url: string): boolean {
+  try {
+    const u = new URL(url)
+    return u.hostname === window.location.hostname
+  } catch {
+    return false
+  }
+}
+
+/**
+ * Capture the FIRST external referrer for this browser session (i.e. how the
+ * visitor actually arrived — a Google search result, a Facebook post, etc.).
+ * Only ever set once per session: internal SPA navigation between pages must
+ * not overwrite it. Varsity's own domain is never treated as a meaningful
+ * external referrer (e.g. navigating from / to /schedule-a-quote).
+ */
+export function captureLandingReferrer(): string {
+  if (typeof window === "undefined") return ""
+  try {
+    const existing = sessionStorage.getItem(SESSION_REFERRER_KEY)
+    if (existing !== null) return existing
+  } catch {}
+
+  const ref = document.referrer || ""
+  const value = ref && !isOwnDomain(ref) ? ref : ""
+  try {
+    sessionStorage.setItem(SESSION_REFERRER_KEY, value)
+  } catch {}
+  return value
 }
 
 export function injectUtmsIntoUrl(utms: UtmParams): void {

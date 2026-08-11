@@ -2,7 +2,13 @@
 
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
-import { captureAndStoreUtms, toStateAbbr, HEAR_ABOUT_OPTIONS, type UtmParams } from "@/lib/quote-intake"
+import {
+  captureAndStoreUtms,
+  captureLandingReferrer,
+  toStateAbbr,
+  HEAR_ABOUT_OPTIONS,
+  type UtmParams,
+} from "@/lib/quote-intake"
 import { AddressAutofillWrapper } from "@/components/address-autofill"
 import { FallAvailability } from "@/components/fall-availability"
 
@@ -133,13 +139,16 @@ function QuickQuoteForm() {
   const [services, setServices] = useState<string[]>([])
   const [open, setOpen] = useState(false)
   const [hearAbout, setHearAbout] = useState("")
+  const [referredByText, setReferredByText] = useState("")
 
   const utmRef = useRef<UtmParams>({})
   const pageSlugRef = useRef<string>("")
+  const landingReferrerRef = useRef<string>("")
 
   useEffect(() => {
     utmRef.current = captureAndStoreUtms(window.location.search)
     pageSlugRef.current = window.location.pathname
+    landingReferrerRef.current = captureLandingReferrer()
   }, [])
 
   function toggleService(s: string) {
@@ -154,6 +163,11 @@ function QuickQuoteForm() {
     const form = e.currentTarget
     if (!form.checkValidity()) {
       form.reportValidity()
+      return
+    }
+    if (hearAbout === "Referral" && !referredByText.trim()) {
+      setErrorMsg("Please tell us who referred you.")
+      setStatus("error")
       return
     }
 
@@ -172,7 +186,9 @@ function QuickQuoteForm() {
       ...(addressParts ?? {}),
       services,
       hear_about: hearAbout,
+      referred_by_text: hearAbout === "Referral" ? referredByText : "",
       page_slug: pageSlugRef.current,
+      landing_referrer: landingReferrerRef.current,
       utm: utmRef.current,
     }
 
@@ -394,6 +410,24 @@ function QuickQuoteForm() {
               </select>
             </HeroField>
           </div>
+
+          {hearAbout === "Referral" && (
+            <HeroField label="Who referred you?" hint="First and last name">
+              <input
+                type="text"
+                name="referredByText"
+                required
+                placeholder="Jane Smith"
+                className="hero-input"
+                value={referredByText}
+                onChange={(e) => setReferredByText(e.target.value)}
+                disabled={submitting}
+              />
+              <p className="mt-1 text-[11px] leading-snug text-white/60">
+                Enter their first and last name so we can thank them.
+              </p>
+            </HeroField>
+          )}
 
           {status === "error" && errorMsg && (
             <p

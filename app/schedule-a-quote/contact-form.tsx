@@ -10,6 +10,7 @@ import {
   TIMING_OPTIONS,
   HEAR_ABOUT_OPTIONS,
   captureAndStoreUtms,
+  captureLandingReferrer,
   type UtmParams,
 } from "@/lib/quote-intake"
 
@@ -39,6 +40,7 @@ const INITIAL_FORM = {
   zip: "",
   timing: "",
   hearAbout: "",
+  referredByText: "",
 }
 
 export function ContactForm() {
@@ -51,10 +53,12 @@ export function ContactForm() {
 
   const utmRef = useRef<UtmParams>({})
   const pageSlugRef = useRef<string>("")
+  const landingReferrerRef = useRef<string>("")
 
   useEffect(() => {
     utmRef.current = captureAndStoreUtms(window.location.search)
     pageSlugRef.current = window.location.pathname
+    landingReferrerRef.current = captureLandingReferrer()
   }, [])
 
   function update<K extends keyof typeof INITIAL_FORM>(
@@ -85,6 +89,12 @@ export function ContactForm() {
       return
     }
 
+    if (form.hearAbout === "Referral" && !form.referredByText.trim()) {
+      setErrorMsg("Please tell us who referred you.")
+      setStatus("error")
+      return
+    }
+
     const target = e.currentTarget
     if (!target.checkValidity()) {
       target.reportValidity()
@@ -106,7 +116,9 @@ export function ContactForm() {
       services,
       job_timing: form.timing,
       hear_about: form.hearAbout,
+      referred_by_text: form.hearAbout === "Referral" ? form.referredByText : "",
       page_slug: pageSlugRef.current,
+      landing_referrer: landingReferrerRef.current,
       utm: utmRef.current,
     }
 
@@ -406,6 +418,23 @@ export function ContactForm() {
           ))}
         </NativeSelect>
       </Field>
+
+      {form.hearAbout === "Referral" && (
+        <Field id="referredByText" label="Who Referred You?" required>
+          <Input
+            id="referredByText"
+            name="referredByText"
+            required
+            placeholder="Jane Smith"
+            value={form.referredByText}
+            onChange={(e) => update("referredByText", e.target.value)}
+            disabled={submitting}
+          />
+          <p className="text-xs text-muted-foreground">
+            Enter their first and last name so we can thank them.
+          </p>
+        </Field>
+      )}
 
       {/* Error */}
       {status === "error" && errorMsg && (

@@ -1,7 +1,13 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { captureAndStoreUtms, toStateAbbr, HEAR_ABOUT_OPTIONS, type UtmParams } from "@/lib/quote-intake"
+import {
+  captureAndStoreUtms,
+  captureLandingReferrer,
+  toStateAbbr,
+  HEAR_ABOUT_OPTIONS,
+  type UtmParams,
+} from "@/lib/quote-intake"
 import { AddressAutofillWrapper } from "@/components/address-autofill"
 
 type Status = "idle" | "submitting" | "success" | "error"
@@ -43,13 +49,16 @@ export function AerationQuoteForm() {
     zip: string
   } | null>(null)
   const [hearAbout, setHearAbout] = useState("")
+  const [referredByText, setReferredByText] = useState("")
 
   const utmRef = useRef<UtmParams>({})
   const pageSlugRef = useRef<string>("")
+  const landingReferrerRef = useRef<string>("")
 
   useEffect(() => {
     utmRef.current = captureAndStoreUtms(window.location.search)
     pageSlugRef.current = window.location.pathname
+    landingReferrerRef.current = captureLandingReferrer()
   }, [])
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -61,6 +70,11 @@ export function AerationQuoteForm() {
       return
     }
     if (status === "submitting") return
+    if (hearAbout === "Referral" && !referredByText.trim()) {
+      setErrorMsg("Please tell us who referred you.")
+      setStatus("error")
+      return
+    }
 
     setStatus("submitting")
     setErrorMsg(null)
@@ -73,7 +87,9 @@ export function AerationQuoteForm() {
       ...(addressParts ?? {}),
       services: ["Core Aeration & Overseeding"],
       hear_about: hearAbout,
+      referred_by_text: hearAbout === "Referral" ? referredByText : "",
       page_slug: pageSlugRef.current,
+      landing_referrer: landingReferrerRef.current,
       utm: utmRef.current,
     }
 
@@ -272,6 +288,24 @@ export function AerationQuoteForm() {
               ))}
             </select>
           </Field>
+
+          {hearAbout === "Referral" && (
+            <Field label="Who referred you?">
+              <input
+                type="text"
+                name="referredByText"
+                required
+                placeholder="Jane Smith"
+                className="aeration-input"
+                value={referredByText}
+                onChange={(e) => setReferredByText(e.target.value)}
+                disabled={submitting}
+              />
+              <p className="mt-1 text-[11px] leading-snug text-white/60">
+                Enter their first and last name so we can thank them.
+              </p>
+            </Field>
+          )}
 
           {status === "error" && errorMsg && (
             <p
