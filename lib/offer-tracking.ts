@@ -1,19 +1,20 @@
 /**
  * Landing-page funnel events for the $259 aeration promo.
  *
- * These are extra GA4/Meta signals for measuring the funnel — they are NOT the
+ * These are extra GA4 signals for measuring the funnel — they are NOT the
  * conversion. The conversion fires on /schedule-aeration via LEAD_PATHS in
  * components/analytics-tracker.tsx.
  *
- * Events fired here:
- *   offer_view        (GA4) + ViewContent (Meta) — landing page visit
- *   offer_cta_click   (GA4)                      — CTA engagement
- *   offer_form_start  (GA4)                      — first field focused
+ * Events fired here (GA4 only — no Meta events, so Meta sees exactly one
+ * standard `Lead` for this flow and nothing else):
+ *   offer_view        — landing page visit
+ *   offer_cta_click   — CTA engagement
+ *   offer_form_start  — first field focused
  *
  * The LEAD CONVERSION is NOT fired here. The form redirects to
  * /schedule-aeration, which is registered in LEAD_PATHS in
- * components/analytics-tracker.tsx — the single place GA4 generate_lead and
- * Meta Lead fire for every conversion on the site.
+ * components/analytics-tracker.tsx, which fires GA4 `form_submit` and Meta
+ * `Lead` there. That page is the single conversion location for this flow.
  *
  * Every event carries the UTM set captured on landing, so source / medium /
  * campaign / content segment cleanly even after the URL is cleaned up.
@@ -74,18 +75,9 @@ function ga(event: string, params: Record<string, unknown>) {
   )
 }
 
-function meta(event: string, params: Record<string, unknown>) {
-  whenAvailable(
-    () => typeof window.fbq === "function",
-    () => window.fbq!("track", event, params),
-  )
-}
-
 /** Landing page visit — a segmentable signal on top of the base PageView. */
 export function trackOfferView(utms: UtmParams) {
-  const params = baseParams(utms)
-  ga("offer_view", params)
-  meta("ViewContent", { ...params, content_category: "Landing Page" })
+  ga("offer_view", baseParams(utms))
 }
 
 /** Any "Claim the $259 Offer" button press. `location` names the section. */

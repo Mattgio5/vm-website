@@ -47,9 +47,8 @@ function hearAboutFromUtms(utms: UtmParams): string {
  * Posts to the existing /api/lead-intake quick-quote pipeline (Supabase +
  * Flask scheduler + Jobber) with the service preset to the promo, then
  * redirects to /schedule-aeration. That page is registered in LEAD_PATHS
- * (components/analytics-tracker.tsx), so the GA4 + Meta lead conversion fires
- * through the same single mechanism as every other conversion on the site.
- * This form fires no conversion event of its own.
+ * (components/analytics-tracker.tsx), which fires GA4 `form_submit` + Meta
+ * `Lead` there. This form fires no conversion event of its own.
  */
 export function OfferLeadForm() {
   const { utms, landingReferrer } = useOfferTracking()
@@ -135,8 +134,8 @@ export function OfferLeadForm() {
 
       // No conversion event here. Redirecting to /schedule-aeration lets the
       // site's single lead mechanism (LEAD_PATHS in analytics-tracker.tsx)
-      // fire GA4 generate_lead + Meta Lead, exactly like every other
-      // conversion on the site.
+      // fire GA4 form_submit + Meta Lead. That page is the one and only
+      // conversion location for this flow.
       const target = buildConfirmedUrl(utms, data?.sid)
       setConfirmedUrl(target)
       setStatus("success")

@@ -29,6 +29,15 @@ const LEAD_PATHS = [
   "/schedule-aeration",
 ]
 
+// GA4 event name per confirmation page. The existing zone pages keep firing
+// `generate_lead` so their reporting is unchanged; /schedule-aeration fires
+// `form_submit`, which is the GA4 key event the Google Ads conversion is
+// imported from. Meta fires the standard `Lead` for every path either way.
+const GA_LEAD_EVENT_DEFAULT = "generate_lead"
+const GA_LEAD_EVENT_BY_PATH: Record<string, string> = {
+  "/schedule-aeration": "form_submit",
+}
+
 /**
  * Run `fn` once the tag exists.
  *
@@ -68,11 +77,12 @@ function fbqPageView(pagePath: string, pageUrl: string) {
   }
 }
 
-function fireLeadEvents(pagePath: string, pageUrl: string) {
+function fireLeadEvents(pathname: string, pagePath: string, pageUrl: string) {
+  const gaEvent = GA_LEAD_EVENT_BY_PATH[pathname] ?? GA_LEAD_EVENT_DEFAULT
   if (GA_ID) {
     whenAvailable(
       () => typeof window.gtag === "function",
-      () => window.gtag!("event", "generate_lead", { page_path: pagePath, page_location: pageUrl }),
+      () => window.gtag!("event", gaEvent, { page_path: pagePath, page_location: pageUrl }),
     )
   }
   whenAvailable(
@@ -117,7 +127,7 @@ export function AnalyticsTracker() {
       // Initial page load — the inline GA4 config and Meta Pixel base code
       // already fired their own pageviews. Just handle lead events if applicable.
       if (isLeadPage) {
-        fireLeadEvents(pagePath, pageUrl)
+        fireLeadEvents(pathname, pagePath, pageUrl)
         lastLeadPath.current = pathname
       }
       return
@@ -130,7 +140,7 @@ export function AnalyticsTracker() {
     fbqPageView(pagePath, pageUrl)
 
     if (isLeadPage && lastLeadPath.current !== pathname) {
-      fireLeadEvents(pagePath, pageUrl)
+      fireLeadEvents(pathname, pagePath, pageUrl)
       lastLeadPath.current = pathname
     }
   }, [pathname, searchParams])
