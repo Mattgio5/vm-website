@@ -1,16 +1,19 @@
 /**
- * Landing-page-specific conversion events for the $259 aeration promo.
+ * Landing-page funnel events for the $259 aeration promo.
  *
- * Additive only — the site-wide GA4 config, Meta Pixel base code, and the
- * /schedule-* Lead events in components/analytics-tracker.tsx are untouched.
- * This page never redirects into the /schedule-* flow, so it has to fire its
- * own Lead conversion; these helpers are the only place that happens.
+ * These are extra GA4/Meta signals for measuring the funnel — they are NOT the
+ * conversion. The conversion fires on /schedule-aeration via LEAD_PATHS in
+ * components/analytics-tracker.tsx.
  *
  * Events fired here:
  *   offer_view        (GA4) + ViewContent (Meta) — landing page visit
  *   offer_cta_click   (GA4)                      — CTA engagement
  *   offer_form_start  (GA4)                      — first field focused
- *   generate_lead     (GA4) + Lead (Meta)        — form submitted
+ *
+ * The LEAD CONVERSION is NOT fired here. The form redirects to
+ * /schedule-aeration, which is registered in LEAD_PATHS in
+ * components/analytics-tracker.tsx — the single place GA4 generate_lead and
+ * Meta Lead fire for every conversion on the site.
  *
  * Every event carries the UTM set captured on landing, so source / medium /
  * campaign / content segment cleanly even after the URL is cleaned up.
@@ -95,26 +98,3 @@ export function trackOfferFormStart(utms: UtmParams) {
   ga("offer_form_start", baseParams(utms))
 }
 
-/**
- * Form submitted successfully. THIS is the conversion, and the only place
- * `Lead` / `generate_lead` fire.
- *
- * Fired from the form's submit handler rather than the confirmation page: the
- * campaign optimizes for the standard `Lead` event, not a URL-rule custom
- * conversion, so the event's URL doesn't matter — and firing here removes any
- * dependency on the redirect completing. Accuracy is preserved because the
- * caller only reaches it after /api/lead-intake returns ok:true.
- */
-export function trackOfferLead(utms: UtmParams) {
-  const params = baseParams(utms)
-  ga("generate_lead", { ...params, value: OFFER.price, currency: "USD" })
-  meta("Lead", { ...params, value: OFFER.price, currency: "USD" })
-}
-
-/**
- * Confirmation page reached. A GA4-only funnel signal — deliberately no Meta
- * event, so the Lead conversion is never double-counted.
- */
-export function trackOfferConfirmedView(utms: UtmParams) {
-  ga("offer_confirmed_view", baseParams(utms))
-}

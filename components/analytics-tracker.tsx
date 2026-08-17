@@ -25,7 +25,33 @@ const LEAD_PATHS = [
   "/schedule-north-bucks",
   "/schedule-south-bucks",
   "/schedule-montco-west",
+  // $259 fall aeration offer confirmation.
+  "/schedule-aeration",
 ]
+
+/**
+ * Run `fn` once the tag exists.
+ *
+ * gtag and fbq are injected by <Script strategy="afterInteractive">, which can
+ * land AFTER React mounts and runs this component's effect. Without this, a
+ * conversion on initial page load was silently dropped whenever the effect won
+ * that race. Polls briefly, then gives up rather than leaking a timer.
+ */
+function whenAvailable(isReady: () => boolean, fn: () => void, timeoutMs = 8000) {
+  if (isReady()) {
+    fn()
+    return
+  }
+  const started = Date.now()
+  const timer = window.setInterval(() => {
+    if (isReady()) {
+      window.clearInterval(timer)
+      fn()
+    } else if (Date.now() - started > timeoutMs) {
+      window.clearInterval(timer)
+    }
+  }, 100)
+}
 
 function gtagPageView(pagePath: string, pageUrl: string) {
   if (GA_ID && typeof window.gtag === "function") {
@@ -43,16 +69,21 @@ function fbqPageView(pagePath: string, pageUrl: string) {
 }
 
 function fireLeadEvents(pagePath: string, pageUrl: string) {
-  if (GA_ID && typeof window.gtag === "function") {
-    window.gtag("event", "generate_lead", { page_path: pagePath, page_location: pageUrl })
+  if (GA_ID) {
+    whenAvailable(
+      () => typeof window.gtag === "function",
+      () => window.gtag!("event", "generate_lead", { page_path: pagePath, page_location: pageUrl }),
+    )
   }
-  if (typeof window.fbq === "function") {
-    window.fbq("track", "Lead", {
-      content_name: "Schedule Page",
-      page_path: pagePath,
-      page_url: pageUrl,
-    })
-  }
+  whenAvailable(
+    () => typeof window.fbq === "function",
+    () =>
+      window.fbq!("track", "Lead", {
+        content_name: "Schedule Page",
+        page_path: pagePath,
+        page_url: pageUrl,
+      }),
+  )
 }
 
 // Wrapped in Suspense by the parent — useSearchParams requires it in App Router.

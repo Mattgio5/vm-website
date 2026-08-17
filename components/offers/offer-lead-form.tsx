@@ -5,7 +5,7 @@ import { CheckCircle2 } from "lucide-react"
 import { toStateAbbr, type UtmParams } from "@/lib/quote-intake"
 import { AddressAutofillWrapper } from "@/components/address-autofill"
 import { OFFER } from "@/lib/aeration-offer"
-import { trackOfferFormStart, trackOfferLead } from "@/lib/offer-tracking"
+import { trackOfferFormStart } from "@/lib/offer-tracking"
 import { useOfferTracking } from "@/components/offers/offer-tracking-provider"
 import { OFFER_FORM_ID } from "@/components/offers/offer-cta"
 
@@ -45,11 +45,11 @@ function hearAboutFromUtms(utms: UtmParams): string {
  * questions — lawn size gets confirmed on the follow-up call, not here.
  *
  * Posts to the existing /api/lead-intake quick-quote pipeline (Supabase +
- * Flask scheduler + Jobber) with the service preset to the promo. Unlike the
- * service-page form it deliberately does NOT follow the scheduler's redirect
- * into the /schedule-* quote-booking flow: this is a fixed-price offer, so the
- * visitor stays here and sees a confirmation. That means the Lead conversion
- * has to fire from this page — see lib/offer-tracking.ts.
+ * Flask scheduler + Jobber) with the service preset to the promo, then
+ * redirects to /schedule-aeration. That page is registered in LEAD_PATHS
+ * (components/analytics-tracker.tsx), so the GA4 + Meta lead conversion fires
+ * through the same single mechanism as every other conversion on the site.
+ * This form fires no conversion event of its own.
  */
 export function OfferLeadForm() {
   const { utms, landingReferrer } = useOfferTracking()
@@ -133,22 +133,14 @@ export function OfferLeadForm() {
         return
       }
 
-      // Fire the conversion HERE, not on the confirmation page. The campaign
-      // optimizes for the standard `Lead` event (not a URL-rule custom
-      // conversion), so the event's URL is irrelevant — and firing here has no
-      // dependency on the navigation completing. It's still accurate: we only
-      // reach this line after the API confirmed ok:true.
-      trackOfferLead(utms)
-
+      // No conversion event here. Redirecting to /schedule-aeration lets the
+      // site's single lead mechanism (LEAD_PATHS in analytics-tracker.tsx)
+      // fire GA4 generate_lead + Meta Lead, exactly like every other
+      // conversion on the site.
       const target = buildConfirmedUrl(utms, data?.sid)
       setConfirmedUrl(target)
       setStatus("success")
-
-      // Small head start so the Pixel's beacon isn't cancelled by the
-      // navigation. The success panel is on screen during this.
-      window.setTimeout(() => {
-        window.location.href = target
-      }, 400)
+      window.location.href = target
     } catch (err) {
       console.error("[offer-lead-form] submit failed:", err)
       setErrorMsg(
