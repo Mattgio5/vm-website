@@ -33,6 +33,14 @@ export const OFFER = {
   formCta: "Claim My $259 Offer",
   stickyCta: "Claim the $259 Offer",
   path: "/offers/fall-aeration-259",
+  /**
+   * Post-submit confirmation URL. Exists as its own page (rather than an
+   * inline success state) so the conversion has a distinct URL: Meta custom
+   * conversions are commonly defined by a URL rule, and a full page load also
+   * re-fires the base-code PageView. The Lead + generate_lead events fire here
+   * and nowhere else — see components/offers/offer-confirmed-tracker.tsx.
+   */
+  confirmedPath: "/offers/fall-aeration-259/confirmed",
 } as const
 
 /**

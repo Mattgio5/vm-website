@@ -5,11 +5,26 @@ import { CheckCircle2 } from "lucide-react"
 import { toStateAbbr, type UtmParams } from "@/lib/quote-intake"
 import { AddressAutofillWrapper } from "@/components/address-autofill"
 import { OFFER } from "@/lib/aeration-offer"
-import { trackOfferFormStart, trackOfferLead } from "@/lib/offer-tracking"
+import { trackOfferFormStart } from "@/lib/offer-tracking"
 import { useOfferTracking } from "@/components/offers/offer-tracking-provider"
 import { OFFER_FORM_ID } from "@/components/offers/offer-cta"
 
 type Status = "idle" | "submitting" | "success" | "error"
+
+/**
+ * Confirmation URL carrying the UTMs forward, so the conversion event fired on
+ * that page is still attributed to the ad that produced it. `sid` is included
+ * for support/debugging — it ties the page view back to the Jobber request.
+ */
+function buildConfirmedUrl(utms: UtmParams, sid?: string | null): string {
+  const params = new URLSearchParams()
+  for (const [k, v] of Object.entries(utms)) {
+    if (v) params.set(k, v)
+  }
+  if (sid) params.set("sid", sid)
+  const query = params.toString()
+  return query ? `${OFFER.confirmedPath}?${query}` : OFFER.confirmedPath
+}
 
 /**
  * Meta ad clicks arrive with utm_source=facebook/instagram. Deriving
@@ -41,6 +56,7 @@ export function OfferLeadForm() {
 
   const [status, setStatus] = useState<Status>("idle")
   const [errorMsg, setErrorMsg] = useState<string | null>(null)
+  const [confirmedUrl, setConfirmedUrl] = useState<string | null>(null)
 
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
@@ -117,8 +133,13 @@ export function OfferLeadForm() {
         return
       }
 
-      trackOfferLead(utms)
+      // The conversion fires on the confirmation page, not here, so it has a
+      // distinct URL for Meta to key on and can't double-count. Full page
+      // navigation (not router.push) so the Pixel base code re-fires PageView.
+      const target = buildConfirmedUrl(utms, data?.sid)
+      setConfirmedUrl(target)
       setStatus("success")
+      window.location.href = target
     } catch (err) {
       console.error("[offer-lead-form] submit failed:", err)
       setErrorMsg(
@@ -152,21 +173,22 @@ export function OfferLeadForm() {
 
       <div className="px-5 py-6 md:px-8 md:py-7">
         {status === "success" ? (
+          /* Shown only for the instant before the redirect lands — and as the
+             fallback if the browser blocks it, hence the manual link. The
+             conversion event lives on the confirmation page. */
           <div className="py-6 text-center">
             <CheckCircle2 className="mx-auto h-12 w-12 text-vm-gold" aria-hidden="true" />
             <p className="font-varsity mt-4 text-2xl tracking-wide text-white">
               Your {OFFER.priceLabel} Spot Is Reserved
             </p>
             <p className="mx-auto mt-3 max-w-sm text-base leading-relaxed text-white/80">
-              We&apos;ll reach out shortly to confirm your lawn qualifies for the under-
-              {OFFER.sqFtLabel} price and to lock in your service date. During business hours
-              that&apos;s usually within the hour.
+              We&apos;ll reach out shortly to confirm your spot on the schedule.
             </p>
             <a
-              href="tel:+12673899789"
-              className="mt-6 inline-flex items-center justify-center rounded-full border-2 border-vm-gold px-6 py-3 text-base font-bold text-vm-gold transition-colors hover:bg-vm-gold hover:text-vm-navy"
+              href={confirmedUrl ?? OFFER.confirmedPath}
+              className="mt-6 inline-flex items-center justify-center rounded-full bg-vm-gold px-6 py-3 text-base font-bold text-vm-navy transition-colors hover:bg-vm-gold-dark"
             >
-              Or call us: (267) 389-9789
+              Continue
             </a>
           </div>
         ) : (
