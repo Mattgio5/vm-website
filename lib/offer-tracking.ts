@@ -36,15 +36,46 @@ function baseParams(utms: UtmParams): Record<string, unknown> {
   }
 }
 
+/**
+ * Run `fn` once the tag it depends on exists.
+ *
+ * Both gtag and fbq are injected by `<Script strategy="afterInteractive">` in
+ * app/layout.tsx, which can land AFTER React has mounted and run its effects.
+ * The conversion fires from a useEffect on a fresh page load, so simply
+ * checking `typeof window.fbq === "function"` and bailing would silently drop
+ * the event whenever the effect wins that race — losing the conversion
+ * outright. Poll briefly instead, then give up rather than leak a timer.
+ */
+function whenAvailable(isReady: () => boolean, fn: () => void, timeoutMs = 8000) {
+  if (typeof window === "undefined") return
+  if (isReady()) {
+    fn()
+    return
+  }
+  const started = Date.now()
+  const timer = window.setInterval(() => {
+    if (isReady()) {
+      window.clearInterval(timer)
+      fn()
+    } else if (Date.now() - started > timeoutMs) {
+      window.clearInterval(timer)
+    }
+  }, 100)
+}
+
 function ga(event: string, params: Record<string, unknown>) {
-  if (!GA_ID || typeof window === "undefined") return
-  if (typeof window.gtag !== "function") return
-  window.gtag("event", event, params)
+  if (!GA_ID) return
+  whenAvailable(
+    () => typeof window.gtag === "function",
+    () => window.gtag!("event", event, params),
+  )
 }
 
 function meta(event: string, params: Record<string, unknown>) {
-  if (typeof window === "undefined" || typeof window.fbq !== "function") return
-  window.fbq("track", event, params)
+  whenAvailable(
+    () => typeof window.fbq === "function",
+    () => window.fbq!("track", event, params),
+  )
 }
 
 /** Landing page visit — a segmentable signal on top of the base PageView. */
