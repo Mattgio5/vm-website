@@ -30,13 +30,15 @@ const HERO_ID = "offer-hero"
  */
 export const metadata: Metadata = {
   title: `Fall Aeration + Overseeding for ${OFFER.priceLabel}`,
-  description: `Core aeration and overseeding for ${OFFER.priceLabel} on lawns under ${OFFER.sqFtLabel}. Sign up by ${OFFER.deadlineLabel}. 300+ reviews, 5.0/5.0 on Google, serving Bucks & Montgomery County, PA.`,
+  // OFFER.sqFtLabel already ends in a period ("10,000 sq. ft."), so don't add
+  // another one after it.
+  description: `Core aeration and overseeding for ${OFFER.priceLabel} on lawns under ${OFFER.sqFtLabel} Sign up by ${OFFER.deadlineLabel}. 300+ reviews, 5.0/5.0 on Google, serving Bucks & Montgomery County, PA.`,
   robots: { index: false, follow: false },
   alternates: { canonical: OFFER.path },
   openGraph: {
     url: OFFER.path,
     title: `Fall Aeration + Overseeding for ${OFFER.priceLabel}`,
-    description: `For lawns under ${OFFER.sqFtLabel}. Sign up by ${OFFER.deadlineLabel} to lock in the offer.`,
+    description: `For lawns under ${OFFER.sqFtLabel} Sign up by ${OFFER.deadlineLabel} to lock in the offer.`,
   },
 }
 

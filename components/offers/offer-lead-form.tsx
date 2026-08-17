@@ -5,7 +5,7 @@ import { CheckCircle2 } from "lucide-react"
 import { toStateAbbr, type UtmParams } from "@/lib/quote-intake"
 import { AddressAutofillWrapper } from "@/components/address-autofill"
 import { OFFER } from "@/lib/aeration-offer"
-import { trackOfferFormStart } from "@/lib/offer-tracking"
+import { trackOfferFormStart, trackOfferLead } from "@/lib/offer-tracking"
 import { useOfferTracking } from "@/components/offers/offer-tracking-provider"
 import { OFFER_FORM_ID } from "@/components/offers/offer-cta"
 
@@ -133,13 +133,22 @@ export function OfferLeadForm() {
         return
       }
 
-      // The conversion fires on the confirmation page, not here, so it has a
-      // distinct URL for Meta to key on and can't double-count. Full page
-      // navigation (not router.push) so the Pixel base code re-fires PageView.
+      // Fire the conversion HERE, not on the confirmation page. The campaign
+      // optimizes for the standard `Lead` event (not a URL-rule custom
+      // conversion), so the event's URL is irrelevant — and firing here has no
+      // dependency on the navigation completing. It's still accurate: we only
+      // reach this line after the API confirmed ok:true.
+      trackOfferLead(utms)
+
       const target = buildConfirmedUrl(utms, data?.sid)
       setConfirmedUrl(target)
       setStatus("success")
-      window.location.href = target
+
+      // Small head start so the Pixel's beacon isn't cancelled by the
+      // navigation. The success panel is on screen during this.
+      window.setTimeout(() => {
+        window.location.href = target
+      }, 400)
     } catch (err) {
       console.error("[offer-lead-form] submit failed:", err)
       setErrorMsg(

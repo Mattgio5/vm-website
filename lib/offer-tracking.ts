@@ -95,9 +95,26 @@ export function trackOfferFormStart(utms: UtmParams) {
   ga("offer_form_start", baseParams(utms))
 }
 
-/** Form submitted successfully. This is the conversion. */
+/**
+ * Form submitted successfully. THIS is the conversion, and the only place
+ * `Lead` / `generate_lead` fire.
+ *
+ * Fired from the form's submit handler rather than the confirmation page: the
+ * campaign optimizes for the standard `Lead` event, not a URL-rule custom
+ * conversion, so the event's URL doesn't matter — and firing here removes any
+ * dependency on the redirect completing. Accuracy is preserved because the
+ * caller only reaches it after /api/lead-intake returns ok:true.
+ */
 export function trackOfferLead(utms: UtmParams) {
   const params = baseParams(utms)
   ga("generate_lead", { ...params, value: OFFER.price, currency: "USD" })
   meta("Lead", { ...params, value: OFFER.price, currency: "USD" })
+}
+
+/**
+ * Confirmation page reached. A GA4-only funnel signal — deliberately no Meta
+ * event, so the Lead conversion is never double-counted.
+ */
+export function trackOfferConfirmedView(utms: UtmParams) {
+  ga("offer_confirmed_view", baseParams(utms))
 }
