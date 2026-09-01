@@ -26,6 +26,8 @@ const SERVICE_OPTIONS = [
   "Rock Installation",
   "Drainage Project",
   "Chemical Weed Treatment",
+  "Aeration",
+  "Overseeding",
   "Follow-on Maintenance",
 ]
 
