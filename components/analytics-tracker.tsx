@@ -25,7 +25,7 @@ const LEAD_PATHS = [
   "/schedule-north-bucks",
   "/schedule-south-bucks",
   "/schedule-montco-west",
-  // $259 fall aeration offer confirmation. Treated exactly like the others —
+  // $269 fall aeration offer confirmation. Treated exactly like the others —
   // GA4 `form_submit` for that flow comes from GA4 Enhanced Measurement on the
   // form page (confirmed firing), not from this file.
   "/schedule-aeration",

@@ -3,7 +3,7 @@ import Link from "next/link"
 import { OFFER } from "@/lib/aeration-offer"
 
 /**
- * Post-submit confirmation page for the $259 aeration offer.
+ * Post-submit confirmation page for the $269 aeration offer.
  *
  * Deliberately named to match the existing /schedule-* thank-you pages: it is
  * registered in LEAD_PATHS in components/analytics-tracker.tsx, so it fires the

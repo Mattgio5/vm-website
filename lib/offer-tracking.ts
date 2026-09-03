@@ -1,5 +1,5 @@
 /**
- * Landing-page funnel events for the $259 aeration promo.
+ * Landing-page funnel events for the $269 aeration promo.
  *
  * These are extra GA4 signals for measuring the funnel — they are NOT the
  * conversion. The conversion fires on /schedule-aeration via LEAD_PATHS in
@@ -80,7 +80,7 @@ export function trackOfferView(utms: UtmParams) {
   ga("offer_view", baseParams(utms))
 }
 
-/** Any "Claim the $259 Offer" button press. `location` names the section. */
+/** Any "Claim the $269 Offer" button press. `location` names the section. */
 export function trackOfferCtaClick(utms: UtmParams, location: string) {
   ga("offer_cta_click", { ...baseParams(utms), cta_location: location })
 }

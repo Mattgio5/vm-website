@@ -2,20 +2,20 @@
  * Fall 2026 Aeration + Overseeding promo — single source of truth.
  *
  * The landing page at /offers/fall-aeration-259 receives paid Meta traffic and
- * has to hold exact message match with the ads: $259, aeration + overseeding,
+ * has to hold exact message match with the ads: $269, aeration + overseeding,
  * under 10,000 sq. ft., sign up by the deadline below. Every mention of those facts
  * on the page reads from here, so changing the price or the deadline is a
  * one-line edit and the ads and page can't drift apart.
  */
 
 export const OFFER = {
-  price: 259,
-  priceLabel: "$259",
+  price: 269,
+  priceLabel: "$269",
   sqFtCap: 10000,
   sqFtLabel: "10,000 sq. ft.",
-  deadlineLabel: "September 1",
+  deadlineLabel: "September 15",
   /** Used for the schema.org priceValidUntil / offer expiry. */
-  deadlineIso: "2026-09-01",
+  deadlineIso: "2026-09-15",
   service: "Core Aeration & Overseeding",
   /**
    * Sent as a second entry in the `services` array so the admin can spot a
@@ -28,10 +28,10 @@ export const OFFER = {
    * off it. Kept second so Supabase's `service_primary` (= services[0]) stays
    * "Core Aeration & Overseeding" and existing reporting doesn't shift.
    */
-  jobberTag: "*** $259 FALL OFFER — CONFIRM LAWN IS UNDER 10,000 SQ FT ***",
-  primaryCta: "Claim the $259 Offer",
-  formCta: "Claim My $259 Offer",
-  stickyCta: "Claim the $259 Offer",
+  jobberTag: "*** $269 FALL OFFER — CONFIRM LAWN IS UNDER 10,000 SQ FT ***",
+  primaryCta: "Claim the $269 Offer",
+  formCta: "Claim My $269 Offer",
+  stickyCta: "Claim the $269 Offer",
   path: "/offers/fall-aeration-259",
   /**
    * Post-submit confirmation URL. Named to match the site's other /schedule-*
@@ -55,7 +55,7 @@ export const TRUST_POINTS = [
   { label: "Proudly Employing Local College Athletes" },
 ] as const
 
-/** What the flat $259 covers. Deliberately three lines — no package tiers. */
+/** What the flat $269 covers. Deliberately three lines — no package tiers. */
 export const INCLUDED = [
   {
     title: "Core Aeration",

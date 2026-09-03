@@ -181,9 +181,9 @@ export default function FallAerationOfferPage() {
             {/* Deliberately short and `whitespace-nowrap`: the longer phrasing
                 ("…to lock in the offer") measured 322px against the 246px
                 available inside this box at a 320px viewport, so it wrapped to
-                two lines on every iPhone up to 390px wide. With a "September 1"
-                deadline this measures ~183px at 16px, fitting from 320px up with
-                ~63px to spare. Re-measure if the deadline label gets longer —
+                two lines on every iPhone up to 390px wide. With a "September 15"
+                deadline this measures ~193px at 16px, fitting from 320px up with
+                ~53px to spare. Re-measure if the deadline label gets longer —
                 the nowrap guard turns an overrun into overflow, not a wrap. */}
             <p
               className="vm-reveal mx-auto mt-5 inline-block rounded-xl border border-white/20 bg-vm-navy/70 px-5 py-3 text-base font-semibold whitespace-nowrap text-white backdrop-blur-sm md:text-lg"
