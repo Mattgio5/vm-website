@@ -8,6 +8,7 @@ import {
   OFFER,
   TRUST_POINTS,
   INCLUDED,
+  ADD_ON,
   FALL_BENEFITS,
   WHY_VARSITY,
   HOW_IT_WORKS,
@@ -266,11 +267,18 @@ export default function FallAerationOfferPage() {
               ))}
             </div>
 
-            <p className="mt-7 rounded-2xl border border-vm-navy/15 bg-muted/50 px-6 py-5 text-center text-base leading-relaxed text-vm-navy">
-              <span className="font-bold">Lawn bigger than {OFFER.sqFtLabel}?</span> Submit the
-              form anyway — we&apos;ll send you custom pricing for your exact lawn size before you
-              commit to anything.
-            </p>
+            {/* Two secondary notes, deliberately styled below the three
+                included cards so neither reads as a competing offer. */}
+            <div className="mt-7 grid gap-4 md:grid-cols-2">
+              <p className="rounded-2xl border border-vm-navy/15 bg-muted/50 px-6 py-5 text-base leading-relaxed text-vm-navy">
+                <span className="font-bold">Lawn bigger than {OFFER.sqFtLabel}?</span> Submit the
+                form anyway — we&apos;ll send you custom pricing for your exact lawn size before
+                you commit to anything.
+              </p>
+              <p className="rounded-2xl border border-vm-navy/15 bg-muted/50 px-6 py-5 text-base leading-relaxed text-vm-navy">
+                <span className="font-bold">{ADD_ON.title}</span> {ADD_ON.body}
+              </p>
+            </div>
 
             <div className="mt-8 flex justify-center">
               <OfferCta location="what-you-get" />

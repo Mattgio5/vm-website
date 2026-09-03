@@ -58,18 +58,27 @@ export const TRUST_POINTS = [
 /** What the flat $269 covers. Deliberately three lines — no package tiers. */
 export const INCLUDED = [
   {
-    title: "Core Aeration",
-    body: "We pull small plugs of soil across the whole lawn to relieve compaction and open up the root zone.",
+    title: "True Core Aeration",
+    body: "We pull actual plugs of soil out of the lawn — not just poke holes in it. That's what genuinely relieves compaction and opens up the root zone. The cores stay on the lawn and break down on their own.",
   },
   {
-    title: "Overseeding",
-    body: "Fresh grass seed applied right after aeration, while the openings give the seed real contact with the soil.",
+    title: "Sun & Shade Overseeding",
+    body: "A sun-and-shade seed mix — a combination of perennial ryegrass, creeping red fescue, chewings fescue and Kentucky bluegrass — applied right after aeration, so it establishes across every sun exposure on your lawn.",
   },
   {
     title: `Lawns Under ${OFFER.sqFtLabel}`,
     body: `One flat ${OFFER.priceLabel} price for the whole lawn — no per-visit add-ons and no surprise upcharges.`,
   },
 ] as const
+
+/**
+ * Optional paid extra. Deliberately NOT part of INCLUDED — the flat price has
+ * to stay unambiguous — and rendered as a secondary note, not a second offer.
+ */
+export const ADD_ON = {
+  title: "Bare or low spots?",
+  body: "We can bring out topsoil to patch low areas and heavier bare spots for an additional charge. Mention it when we confirm your lawn size and we'll quote it before any work happens.",
+} as const
 
 /** Homeowner-facing outcomes, not agronomy. */
 export const FALL_BENEFITS = [
@@ -147,6 +156,21 @@ export const OFFER_FAQS = [
   {
     question: `What if my lawn is over ${OFFER.sqFtLabel}?`,
     answer: `Still submit the form. The ${OFFER.priceLabel} price applies to lawns under ${OFFER.sqFtLabel}, and for anything larger we'll send you custom pricing for your exact lawn size before you commit to anything.`,
+  },
+  {
+    question: "What kind of grass seed do you use?",
+    answer:
+      "A sun-and-shade mix — a combination of perennial ryegrass, creeping red fescue, chewings fescue and Kentucky bluegrass. It's blended to establish across the different sun exposures on a typical lawn, so the shaded areas aren't left behind.",
+  },
+  {
+    question: "Is this core aeration or just spike aeration?",
+    answer:
+      "True core aeration. We pull actual plugs of soil out of the ground rather than poking holes in it, which is what genuinely relieves compaction. The plugs are meant to stay on the lawn and will break down naturally — don't rake them up.",
+  },
+  {
+    question: "What if I have bare or low spots?",
+    answer:
+      "We can bring out topsoil to patch low areas and heavier bare spots for an additional charge. Mention it when we confirm your lawn size and we'll quote it before any work happens.",
   },
   {
     question: "When will you perform the service?",
