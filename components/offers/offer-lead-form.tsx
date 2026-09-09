@@ -2,8 +2,16 @@
 
 import { useRef, useState } from "react"
 import { CheckCircle2 } from "lucide-react"
-import { toStateAbbr, type UtmParams } from "@/lib/quote-intake"
-import { AddressAutofillWrapper } from "@/components/address-autofill"
+import {
+  formatAddress,
+  validateAddressParts,
+  type UtmParams,
+} from "@/lib/quote-intake"
+import {
+  AddressFields,
+  EMPTY_ADDRESS,
+  type AddressValue,
+} from "@/components/address-fields"
 import { OFFER } from "@/lib/aeration-offer"
 import { trackOfferFormStart } from "@/lib/offer-tracking"
 import { useOfferTracking } from "@/components/offers/offer-tracking-provider"
@@ -61,13 +69,7 @@ export function OfferLeadForm() {
   const [lastName, setLastName] = useState("")
   const [phone, setPhone] = useState("")
   const [email, setEmail] = useState("")
-  const [address, setAddress] = useState("")
-  const [addressParts, setAddressParts] = useState<{
-    street_address: string
-    city: string
-    state: string
-    zip: string
-  } | null>(null)
+  const [addr, setAddr] = useState<AddressValue>(EMPTY_ADDRESS)
 
   const startFired = useRef(false)
 
@@ -86,6 +88,12 @@ export function OfferLeadForm() {
       return
     }
     if (status === "submitting") return
+    const addressError = validateAddressParts(addr)
+    if (addressError) {
+      setErrorMsg(addressError)
+      setStatus("error")
+      return
+    }
 
     setStatus("submitting")
     setErrorMsg(null)
@@ -94,8 +102,12 @@ export function OfferLeadForm() {
       full_name: [firstName.trim(), lastName.trim()].filter(Boolean).join(" "),
       email,
       phone,
-      address,
-      ...(addressParts ?? {}),
+      address: formatAddress(addr),
+      street_address: addr.street_address,
+      city: addr.city,
+      state: addr.state,
+      zip: addr.zip,
+      address_source: addr.address_source,
       // Second entry flags this as a promo lead in Jobber — see OFFER.jobberTag.
       services: [OFFER.service, OFFER.jobberTag],
       hear_about: hearAboutFromUtms(utms),
@@ -257,44 +269,20 @@ export function OfferLeadForm() {
               </Field>
             </div>
 
-            <Field label="Property address" htmlFor="offer-address">
-              <AddressAutofillWrapper
-                variant="dark"
-                onSelect={(parts) => {
-                  const stateAbbr = toStateAbbr(parts.state) || parts.state
-                  const clean = [
-                    parts.street_address,
-                    parts.city,
-                    [stateAbbr, parts.zip].filter(Boolean).join(" "),
-                  ]
-                    .filter(Boolean)
-                    .join(", ")
-                  setAddress(clean || parts.full_address)
-                  setAddressParts({
-                    street_address: parts.street_address,
-                    city: parts.city,
-                    state: stateAbbr,
-                    zip: parts.zip,
-                  })
-                }}
-              >
-                <input
-                  id="offer-address"
-                  type="text"
-                  name="address"
-                  required
-                  autoComplete="address-line1"
-                  placeholder="Start typing your address…"
-                  className="offer-input"
-                  value={address}
-                  onChange={(e) => {
-                    setAddress(e.target.value)
-                    setAddressParts(null)
-                  }}
-                  disabled={submitting}
-                />
-              </AddressAutofillWrapper>
-            </Field>
+            <AddressFields
+              value={addr}
+              onChange={setAddr}
+              idPrefix="offer"
+              variant="dark"
+              disabled={submitting}
+              inputClassName="offer-input"
+              selectClassName="offer-select"
+              renderField={({ label, htmlFor, children }) => (
+                <Field key={htmlFor} label={label} htmlFor={htmlFor}>
+                  {children}
+                </Field>
+              )}
+            />
 
             {status === "error" && errorMsg && (
               <p
@@ -339,6 +327,18 @@ export function OfferLeadForm() {
         :global(.offer-input:focus-visible) {
           border-color: var(--vm-gold);
           box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.25);
+        }
+        :global(.offer-select) {
+          appearance: none;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.45)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 0.75rem center;
+          padding-right: 2rem;
+          cursor: pointer;
+        }
+        :global(.offer-select option) {
+          background-color: #0b1d3a;
+          color: #ffffff;
         }
       `}</style>
     </div>

@@ -12,12 +12,15 @@ export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
 
 /**
- * When the hero form is submitted without a Mapbox suggestion pick, city/state/zip
- * are empty. Call Mapbox Geocoding to fill them in so Supabase gets the full
- * address AND Flask gets the ZIP it needs for zone routing.
+ * Server-side backstop. The forms now collect street/city/state/zip as four
+ * required fields, so a complete address should arrive intact — but if any
+ * part is still missing (an older cached client, a bot, JS-disabled validation
+ * bypass) we geocode the address string so Supabase gets the full address AND
+ * Flask gets the ZIP it needs for zone routing. A lead is never rejected for
+ * this; we fill what we can and flag the rest.
  */
 async function geocodeAddress(address: string): Promise<{
-  city: string; state: string; zip: string
+  street: string; city: string; state: string; zip: string
 } | null> {
   const token = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN
   if (!token || !address.trim()) return null
@@ -29,8 +32,10 @@ async function geocodeAddress(address: string): Promise<{
     )
     if (!res.ok) return null
     const json = await res.json()
+    const feature = json.features?.[0]
+    if (!feature) return null
     const context: Array<{ id: string; text?: string; short_code?: string }> =
-      json.features?.[0]?.context ?? []
+      feature.context ?? []
     let city = "", state = "", zip = ""
     for (const entry of context) {
       if (entry.id.startsWith("postcode.")) zip = entry.text ?? ""
@@ -40,8 +45,9 @@ async function geocodeAddress(address: string): Promise<{
         state = sc.startsWith("US-") ? sc.slice(3) : sc
       }
     }
-    if (!city && !state && !zip) return null
-    return { city, state, zip }
+    const street = [feature.address, feature.text].filter(Boolean).join(" ").trim()
+    if (!city && !state && !zip && !street) return null
+    return { street, city, state, zip }
   } catch {
     return null
   }
@@ -94,6 +100,9 @@ type NormalizedIntake = {
     yard_size: string | null
     job_timing: string | null
     message: string | null
+    /** "autofill" | "manual" from the form, "geocoded" when the server filled
+     * the gaps, or null when we never learned. Lets us audit lead quality. */
+    address_source: string | null
   }
 }
 
@@ -140,6 +149,7 @@ function normalizeBody(body: unknown):
           yard_size: null,
           job_timing: null,
           message: null,
+          address_source: parsed.data.address_source ?? null,
         },
       },
     }
@@ -168,6 +178,7 @@ function normalizeBody(body: unknown):
         yard_size: null,
         job_timing: parsed.data.job_timing || null,
         message: null,
+        address_source: parsed.data.address_source ?? null,
       },
     },
   }
@@ -200,17 +211,44 @@ export async function POST(req: Request) {
   // Make a mutable copy so we can enrich it with geocoded address parts.
   const schedulerPayload = { ...normalized.data.schedulerPayload }
 
-  // If city/state/zip are missing, geocode the address string server-side so
-  // Supabase gets complete data and Flask has the ZIP for zone routing.
-  if (!schedulerPayload.city || !schedulerPayload.state || !schedulerPayload.zip) {
+  // If any part is missing, geocode the address string server-side so Supabase
+  // gets complete data and Flask has the ZIP for zone routing.
+  let addressSource = supabaseExtras.address_source
+  const incomplete = () =>
+    !schedulerPayload.street_address ||
+    !schedulerPayload.city ||
+    !schedulerPayload.state ||
+    !schedulerPayload.zip
+
+  if (incomplete()) {
     const geocoded = await geocodeAddress(
       schedulerPayload.address || schedulerPayload.street_address,
     )
     if (geocoded) {
+      if (!schedulerPayload.street_address) schedulerPayload.street_address = geocoded.street
       if (!schedulerPayload.city) schedulerPayload.city = geocoded.city
       if (!schedulerPayload.state) schedulerPayload.state = geocoded.state
       if (!schedulerPayload.zip) schedulerPayload.zip = geocoded.zip
+      addressSource = "geocoded"
     }
+  }
+
+  // Never drop the lead for an incomplete address — but make it loud in the
+  // logs so a partial address is visible instead of silently landing in
+  // Supabase looking complete.
+  const addressComplete = !incomplete()
+  if (!addressComplete) {
+    console.warn(
+      "[lead-intake] incomplete address after enrichment:",
+      JSON.stringify({
+        form,
+        email: schedulerPayload.email,
+        street_address: schedulerPayload.street_address,
+        city: schedulerPayload.city,
+        state: schedulerPayload.state,
+        zip: schedulerPayload.zip,
+      }),
+    )
   }
 
   const headersList = req.headers
@@ -267,7 +305,11 @@ export async function POST(req: Request) {
       fbclid: utm.fbclid || null,
 
       scheduler_status: "pending",
-      raw_payload: schedulerPayload,
+      raw_payload: {
+        ...schedulerPayload,
+        address_source: addressSource,
+        address_complete: addressComplete,
+      },
       user_agent: userAgent,
       ip_address: ip,
     }

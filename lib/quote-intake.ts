@@ -62,6 +62,8 @@ export const quoteIntakeSchema = z.object({
     .min(3, "ZIP is required")
     .max(10)
     .regex(/^[0-9\-\s]+$/, "ZIP must be digits"),
+  /** How the parts were produced client-side, for lead-quality auditing. */
+  address_source: z.enum(["autofill", "manual"]).optional(),
 
   services: z.array(z.string().trim().min(1).max(120)).min(1, "Pick at least one service").max(20),
   job_timing: z.string().trim().max(120).optional().or(z.literal("")),
@@ -92,18 +94,20 @@ export type QuoteIntakeInput = z.infer<typeof quoteIntakeSchema>
  * name, single address line, multi-select services. Server normalizes into the
  * same shape as the contact form before forwarding to the Flask backend.
  */
-export const quickQuoteSchema = z.object({
+export const quickQuoteSchema = z
+  .object({
   full_name: z.string().trim().min(1, "Enter your name").max(240),
   email: z.string().trim().email("Enter a valid email"),
   phone: z.string().trim().min(7, "Enter a valid phone number").max(40),
-  address: z.string().trim().min(3, "Enter your property address").max(255),
-  // Optional structured address parts. The hero form fills these when the
-  // user picks a Mapbox suggestion so the server doesn't have to re-parse
-  // the formatted string. ZIP-based routing on the scheduler needs the ZIP.
+  // The single-line address is now composed client-side from the structured
+  // parts, and older/cached clients may still post only this. Either shape is
+  // accepted; the refinement below requires at least one of them.
+  address: z.string().trim().max(255).optional().or(z.literal("")),
   street_address: z.string().trim().max(255).optional().or(z.literal("")),
   city: z.string().trim().max(120).optional().or(z.literal("")),
   state: z.string().trim().max(60).optional().or(z.literal("")),
   zip: z.string().trim().max(10).optional().or(z.literal("")),
+  address_source: z.enum(["autofill", "manual"]).optional(),
   services: z.array(z.string().trim().min(1).max(120)).max(20).default([]),
   hear_about: z.string().trim().max(200).optional().or(z.literal("")),
   referred_by_text: z.string().trim().max(200).optional().or(z.literal("")),
@@ -124,6 +128,10 @@ export const quickQuoteSchema = z.object({
     .partial()
     .optional(),
 })
+  .refine(
+    (v) => Boolean((v.address || "").trim() || (v.street_address || "").trim()),
+    { path: ["address"], message: "Enter your property address" },
+  )
 
 export type QuickQuoteInput = z.infer<typeof quickQuoteSchema>
 
@@ -166,6 +174,54 @@ const US_STATE_NAME_TO_ABBR: Record<string, string> = {
   "south carolina": "SC", "south dakota": "SD", tennessee: "TN", texas: "TX", utah: "UT",
   vermont: "VT", virginia: "VA", washington: "WA", "west virginia": "WV", wisconsin: "WI",
   wyoming: "WY", "district of columbia": "DC",
+}
+
+/** Sorted USPS abbreviations, for the State <select> in address forms. */
+export const US_STATE_OPTIONS: string[] = Array.from(US_STATE_ABBRS).sort()
+
+/**
+ * Trim a ZIP to a storable form: 5 digits, or ZIP+4 when the user gave all 9.
+ * Anything else is returned trimmed so a partial entry still reaches a human.
+ */
+export function normalizeZip(raw: string): string {
+  const digits = (raw || "").replace(/[^\d]/g, "")
+  if (digits.length === 9) return `${digits.slice(0, 5)}-${digits.slice(5)}`
+  if (digits.length >= 5) return digits.slice(0, 5)
+  return (raw || "").trim()
+}
+
+export type AddressParts = {
+  street_address: string
+  city: string
+  state: string
+  zip: string
+}
+
+/**
+ * Client-side gate: returns an error message when the address is incomplete,
+ * or null when it's good to send. Every form runs this before POSTing so an
+ * ignored autocomplete suggestion can't produce a lead with no city/state/zip.
+ */
+export function validateAddressParts(parts: AddressParts): string | null {
+  if (!parts.street_address.trim()) return "Enter your street address."
+  if (!parts.city.trim()) return "Enter your city."
+  if (!toStateAbbr(parts.state)) return "Select your state."
+  if (!/^\d{5}(-\d{4})?$/.test(normalizeZip(parts.zip)))
+    return "Enter a valid 5-digit ZIP code."
+  return null
+}
+
+/** Compose the single-line address string from structured parts. */
+export function formatAddress(parts: AddressParts): string {
+  const cityStateZip = [
+    parts.city.trim(),
+    [toStateAbbr(parts.state) || parts.state.trim(), normalizeZip(parts.zip)]
+      .filter(Boolean)
+      .join(" "),
+  ]
+    .filter(Boolean)
+    .join(", ")
+  return [parts.street_address.trim(), cityStateZip].filter(Boolean).join(", ")
 }
 
 /**
@@ -263,10 +319,10 @@ export function toSchedulerPayload(input: QuoteIntakeInput) {
   const services = input.services
 
   const street = input.street_address.trim()
-  const cityStateZip = [input.city.trim(), input.state.trim(), input.zip.trim()]
-    .filter(Boolean)
-    .join(" ")
-  const address = [street, cityStateZip].filter(Boolean).join(", ")
+  const city = input.city.trim()
+  const state = toStateAbbr(input.state) || input.state.trim().toUpperCase()
+  const zip = normalizeZip(input.zip)
+  const address = formatAddress({ street_address: street, city, state, zip })
 
   return {
     page_slug: input.page_slug || "",
@@ -276,9 +332,9 @@ export function toSchedulerPayload(input: QuoteIntakeInput) {
     phone: input.phone,
 
     street_address: street,
-    city: input.city.trim(),
-    state: input.state.trim(),
-    zip: input.zip.trim(),
+    city,
+    state,
+    zip,
 
     address,
 
@@ -307,20 +363,18 @@ export function toSchedulerPayloadFromQuick(input: QuickQuoteInput) {
     street_address: (input.street_address || "").trim(),
     city: (input.city || "").trim(),
     state: toStateAbbr(input.state || "") || (input.state || "").trim().toUpperCase(),
-    zip: (input.zip || "").trim(),
+    zip: normalizeZip(input.zip || ""),
   }
   // Always parse the address string as a fallback so any gaps in the
-  // Mapbox-provided parts (e.g. missing city or zip) are filled in.
-  const parsed = parseAddressLine(input.address)
-  const { street_address, city, state, zip } = {
-    street_address: provided.street_address || parsed.street_address,
-    city: provided.city || parsed.city,
-    state: provided.state || parsed.state,
-    zip: provided.zip || parsed.zip,
-  }
+  // structured parts (older clients, or a client-side validation bypass)
+  // are filled in.
+  const parsed = parseAddressLine(input.address || "")
+  const street_address = provided.street_address || parsed.street_address
+  const city = provided.city || parsed.city
+  const state = provided.state || parsed.state
+  const zip = provided.zip || normalizeZip(parsed.zip)
 
-  const cityStateZip = [city, state, zip].filter(Boolean).join(" ")
-  const address = [street_address, cityStateZip].filter(Boolean).join(", ")
+  const address = formatAddress({ street_address, city, state, zip })
 
   return {
     page_slug: input.page_slug || "",

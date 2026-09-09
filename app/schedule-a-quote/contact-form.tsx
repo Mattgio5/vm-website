@@ -11,6 +11,10 @@ import {
   HEAR_ABOUT_OPTIONS,
   captureAndStoreUtms,
   captureLandingReferrer,
+  formatAddress,
+  validateAddressParts,
+  toStateAbbr,
+  US_STATE_OPTIONS,
   type UtmParams,
 } from "@/lib/quote-intake"
 
@@ -45,6 +49,9 @@ const INITIAL_FORM = {
 
 export function ContactForm() {
   const [form, setForm] = useState(INITIAL_FORM)
+  // Tracks whether the address came from a Mapbox pick or was typed, so lead
+  // quality can be audited server-side.
+  const addressSourceRef = useRef<"autofill" | "manual">("manual")
   const [services, setServices] = useState<string[]>([])
   const [servicesOpen, setServicesOpen] = useState(false)
   const [status, setStatus] = useState<Status>("idle")
@@ -101,6 +108,18 @@ export function ContactForm() {
       return
     }
 
+    const addressError = validateAddressParts({
+      street_address: form.address,
+      city: form.city,
+      state: form.state,
+      zip: form.zip,
+    })
+    if (addressError) {
+      setErrorMsg(addressError)
+      setStatus("error")
+      return
+    }
+
     setStatus("submitting")
     setErrorMsg(null)
 
@@ -113,6 +132,13 @@ export function ContactForm() {
       city: form.city,
       state: form.state,
       zip: form.zip,
+      address: formatAddress({
+        street_address: form.address,
+        city: form.city,
+        state: form.state,
+        zip: form.zip,
+      }),
+      address_source: addressSourceRef.current,
       services,
       job_timing: form.timing,
       hear_about: form.hearAbout,
@@ -263,11 +289,12 @@ export function ContactForm() {
       <Field id="address" label="Property Address" required>
         <AddressAutofillWrapper
           onSelect={(parts) => {
+            addressSourceRef.current = "autofill"
             setForm((prev) => ({
               ...prev,
               address: parts.street_address || prev.address,
               city: parts.city || prev.city,
-              state: parts.state || prev.state,
+              state: toStateAbbr(parts.state) || parts.state || prev.state,
               zip: parts.zip || prev.zip,
             }))
           }}
@@ -279,7 +306,10 @@ export function ContactForm() {
             autoComplete="address-line1"
             placeholder="Start typing your address…"
             value={form.address}
-            onChange={(e) => update("address", e.target.value)}
+            onChange={(e) => {
+              addressSourceRef.current = "manual"
+              update("address", e.target.value)
+            }}
             disabled={submitting}
           />
         </AddressAutofillWrapper>
@@ -292,23 +322,29 @@ export function ContactForm() {
             name="city"
             required
             autoComplete="address-level2"
-            placeholder="Auto-fills from address"
+            placeholder="Doylestown"
             value={form.city}
             onChange={(e) => update("city", e.target.value)}
             disabled={submitting}
           />
         </Field>
         <Field id="state" label="State" required>
-          <Input
+          <NativeSelect
             id="state"
             name="state"
             required
             autoComplete="address-level1"
-            placeholder="PA"
             value={form.state}
             onChange={(e) => update("state", e.target.value)}
             disabled={submitting}
-          />
+          >
+            <option value="">State…</option>
+            {US_STATE_OPTIONS.map((abbr) => (
+              <option key={abbr} value={abbr}>
+                {abbr}
+              </option>
+            ))}
+          </NativeSelect>
         </Field>
         <Field id="zip" label="ZIP" required>
           <Input
@@ -317,7 +353,10 @@ export function ContactForm() {
             required
             autoComplete="postal-code"
             inputMode="numeric"
-            placeholder="19380"
+            pattern="\d{5}(-\d{4})?"
+            title="Enter a 5-digit ZIP code"
+            maxLength={10}
+            placeholder="18901"
             value={form.zip}
             onChange={(e) =>
               update("zip", e.target.value.replace(/[^\d-]/g, "").slice(0, 10))

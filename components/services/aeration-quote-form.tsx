@@ -4,11 +4,16 @@ import { useEffect, useRef, useState } from "react"
 import {
   captureAndStoreUtms,
   captureLandingReferrer,
-  toStateAbbr,
+  formatAddress,
+  validateAddressParts,
   HEAR_ABOUT_OPTIONS,
   type UtmParams,
 } from "@/lib/quote-intake"
-import { AddressAutofillWrapper } from "@/components/address-autofill"
+import {
+  AddressFields,
+  EMPTY_ADDRESS,
+  type AddressValue,
+} from "@/components/address-fields"
 
 type Status = "idle" | "submitting" | "success" | "error"
 
@@ -41,13 +46,7 @@ export function AerationQuoteForm() {
   const [lastName, setLastName] = useState("")
   const [phone, setPhone] = useState("")
   const [email, setEmail] = useState("")
-  const [address, setAddress] = useState("")
-  const [addressParts, setAddressParts] = useState<{
-    street_address: string
-    city: string
-    state: string
-    zip: string
-  } | null>(null)
+  const [addr, setAddr] = useState<AddressValue>(EMPTY_ADDRESS)
   const [hearAbout, setHearAbout] = useState("")
   const [referredByText, setReferredByText] = useState("")
 
@@ -75,6 +74,12 @@ export function AerationQuoteForm() {
       setStatus("error")
       return
     }
+    const addressError = validateAddressParts(addr)
+    if (addressError) {
+      setErrorMsg(addressError)
+      setStatus("error")
+      return
+    }
 
     setStatus("submitting")
     setErrorMsg(null)
@@ -83,8 +88,12 @@ export function AerationQuoteForm() {
       full_name: [firstName.trim(), lastName.trim()].filter(Boolean).join(" "),
       email,
       phone,
-      address,
-      ...(addressParts ?? {}),
+      address: formatAddress(addr),
+      street_address: addr.street_address,
+      city: addr.city,
+      state: addr.state,
+      zip: addr.zip,
+      address_source: addr.address_source,
       services: ["Core Aeration & Overseeding"],
       hear_about: hearAbout,
       referred_by_text: hearAbout === "Referral" ? referredByText : "",
@@ -206,43 +215,20 @@ export function AerationQuoteForm() {
             </Field>
           </div>
 
-          <Field label="Property address">
-            <AddressAutofillWrapper
-              variant="dark"
-              onSelect={(parts) => {
-                const stateAbbr = toStateAbbr(parts.state) || parts.state
-                const clean = [
-                  parts.street_address,
-                  parts.city,
-                  [stateAbbr, parts.zip].filter(Boolean).join(" "),
-                ]
-                  .filter(Boolean)
-                  .join(", ")
-                setAddress(clean || parts.full_address)
-                setAddressParts({
-                  street_address: parts.street_address,
-                  city: parts.city,
-                  state: stateAbbr,
-                  zip: parts.zip,
-                })
-              }}
-            >
-              <input
-                type="text"
-                name="address"
-                required
-                autoComplete="address-line1"
-                placeholder="Start typing your address…"
-                className="aeration-input"
-                value={address}
-                onChange={(e) => {
-                  setAddress(e.target.value)
-                  setAddressParts(null)
-                }}
-                disabled={submitting}
-              />
-            </AddressAutofillWrapper>
-          </Field>
+          <AddressFields
+            value={addr}
+            onChange={setAddr}
+            idPrefix="aeration"
+            variant="dark"
+            disabled={submitting}
+            inputClassName="aeration-input"
+            selectClassName="aeration-select"
+            renderField={({ label, htmlFor, children }) => (
+              <Field key={htmlFor} label={label}>
+                {children}
+              </Field>
+            )}
+          />
 
           <div className="grid gap-2.5 sm:grid-cols-2">
             <Field label="Email">

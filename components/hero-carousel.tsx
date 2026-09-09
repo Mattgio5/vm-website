@@ -5,11 +5,16 @@ import { useEffect, useRef, useState } from "react"
 import {
   captureAndStoreUtms,
   captureLandingReferrer,
-  toStateAbbr,
+  formatAddress,
+  validateAddressParts,
   HEAR_ABOUT_OPTIONS,
   type UtmParams,
 } from "@/lib/quote-intake"
-import { AddressAutofillWrapper } from "@/components/address-autofill"
+import {
+  AddressFields,
+  EMPTY_ADDRESS,
+  type AddressValue,
+} from "@/components/address-fields"
 import { FallAvailability } from "@/components/fall-availability"
 
 const GOOGLE_REVIEWS_URL =
@@ -131,13 +136,7 @@ function QuickQuoteForm() {
   const [fullName, setFullName] = useState("")
   const [phone, setPhone] = useState("")
   const [email, setEmail] = useState("")
-  const [address, setAddress] = useState("")
-  const [addressParts, setAddressParts] = useState<{
-    street_address: string
-    city: string
-    state: string
-    zip: string
-  } | null>(null)
+  const [addr, setAddr] = useState<AddressValue>(EMPTY_ADDRESS)
   const [services, setServices] = useState<string[]>([])
   const [open, setOpen] = useState(false)
   const [hearAbout, setHearAbout] = useState("")
@@ -172,6 +171,12 @@ function QuickQuoteForm() {
       setStatus("error")
       return
     }
+    const addressError = validateAddressParts(addr)
+    if (addressError) {
+      setErrorMsg(addressError)
+      setStatus("error")
+      return
+    }
 
     setStatus("submitting")
     setErrorMsg(null)
@@ -180,12 +185,15 @@ function QuickQuoteForm() {
       full_name: fullName,
       email,
       phone,
-      address,
-      // When the user picked a Mapbox suggestion we already have clean
-      // street/city/state/zip split; ship them so the server doesn't have to
-      // re-parse the formatted string (and so ZIP-based routing on the Flask
-      // scheduler always sees the ZIP).
-      ...(addressParts ?? {}),
+      // The four address fields are collected separately and validated above,
+      // so street/city/state/zip always ship structured. `address` is the
+      // composed single line, kept for display and as a parse fallback.
+      address: formatAddress(addr),
+      street_address: addr.street_address,
+      city: addr.city,
+      state: addr.state,
+      zip: addr.zip,
+      address_source: addr.address_source,
       services,
       hear_about: hearAbout,
       referred_by_text: hearAbout === "Referral" ? referredByText : "",
@@ -355,46 +363,23 @@ function QuickQuoteForm() {
             </HeroField>
           </div>
 
-          <div className="grid gap-2.5 sm:grid-cols-2">
-            <HeroField label="Property address">
-              <AddressAutofillWrapper
-              variant="dark"
-              onSelect={(parts) => {
-                const stateAbbr = toStateAbbr(parts.state) || parts.state
-                const clean = [
-                  parts.street_address,
-                  parts.city,
-                  [stateAbbr, parts.zip].filter(Boolean).join(" "),
-                ]
-                  .filter(Boolean)
-                  .join(", ")
-                setAddress(clean || parts.full_address)
-                setAddressParts({
-                  street_address: parts.street_address,
-                  city: parts.city,
-                  state: stateAbbr,
-                  zip: parts.zip,
-                })
-              }}
-            >
-              <input
-                type="text"
-                name="address"
-                required
-                autoComplete="address-line1"
-                placeholder="Start typing your address…"
-                className="hero-input"
-                value={address}
-                onChange={(e) => {
-                  setAddress(e.target.value)
-                  // User edited after picking — drop the cached parts so the
-                  // server falls back to parsing the typed string.
-                  setAddressParts(null)
-                }}
+          <div className="grid gap-2.5">
+            <div>
+              <AddressFields
+                value={addr}
+                onChange={setAddr}
+                idPrefix="hero"
+                variant="dark"
                 disabled={submitting}
+                inputClassName="hero-input"
+                selectClassName="hero-select"
+                renderField={({ label, htmlFor, children }) => (
+                  <HeroField key={htmlFor} label={label}>
+                    {children}
+                  </HeroField>
+                )}
               />
-            </AddressAutofillWrapper>
-          </HeroField>
+            </div>
 
             <HeroField label="How did you hear about us?">
               <select
