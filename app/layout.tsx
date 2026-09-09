@@ -127,6 +127,13 @@ export default function RootLayout({
           {`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${META_PIXEL_ID}');fbq('track','PageView');`}
         </Script>
 
+        {/* CallRail dynamic number swap */}
+        <Script
+          id="callrail"
+          src="https://cdn.callrail.com/companies/425820877/3b8d38c417d738553eaa/12/swap.js"
+          strategy="afterInteractive"
+        />
+
         {/* SPA route-change tracker — fires GA4 + Meta pageviews and lead events */}
         <Suspense fallback={null}>
           <AnalyticsTracker />
