@@ -2,9 +2,10 @@
 
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
-import { OFFER_FAQS } from "@/lib/aeration-offer"
 
-function FAQItem({ question, answer }: { question: string; answer: string }) {
+type FAQ = { readonly question: string; readonly answer: string }
+
+function FAQItem({ question, answer }: FAQ) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -32,10 +33,10 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   )
 }
 
-export function OfferFAQ() {
+export function OfferFAQ({ items }: { items: readonly FAQ[] }) {
   return (
     <div className="rounded-2xl border border-border bg-card px-5 md:px-8">
-      {OFFER_FAQS.map((item) => (
+      {items.map((item) => (
         <FAQItem key={item.question} question={item.question} answer={item.answer} />
       ))}
     </div>

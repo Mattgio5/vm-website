@@ -29,6 +29,8 @@ const LEAD_PATHS = [
   // GA4 `form_submit` for that flow comes from GA4 Enhanced Measurement on the
   // form page (confirmed firing), not from this file.
   "/schedule-aeration",
+  // $100-off leaf cleanup offer confirmation (/offers/leaf-cleanup-100-off).
+  "/schedule-leaf-cleanup",
 ]
 
 /**

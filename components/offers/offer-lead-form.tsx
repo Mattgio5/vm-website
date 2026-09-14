@@ -12,26 +12,28 @@ import {
   EMPTY_ADDRESS,
   type AddressValue,
 } from "@/components/address-fields"
-import { OFFER } from "@/lib/aeration-offer"
 import { trackOfferFormStart } from "@/lib/offer-tracking"
 import { useOfferTracking } from "@/components/offers/offer-tracking-provider"
 import { OFFER_FORM_ID } from "@/components/offers/offer-cta"
 
 type Status = "idle" | "submitting" | "success" | "error"
 
+/** Matches the per-entry cap on `services` in quickQuoteSchema. */
+const SERVICE_ENTRY_MAX = 120
+
 /**
  * Confirmation URL carrying the UTMs forward, so the conversion event fired on
  * that page is still attributed to the ad that produced it. `sid` is included
  * for support/debugging — it ties the page view back to the Jobber request.
  */
-function buildConfirmedUrl(utms: UtmParams, sid?: string | null): string {
+function buildConfirmedUrl(path: string, utms: UtmParams, sid?: string | null): string {
   const params = new URLSearchParams()
   for (const [k, v] of Object.entries(utms)) {
     if (v) params.set(k, v)
   }
   if (sid) params.set("sid", sid)
   const query = params.toString()
-  return query ? `${OFFER.confirmedPath}?${query}` : OFFER.confirmedPath
+  return query ? `${path}?${query}` : path
 }
 
 /**
@@ -49,17 +51,41 @@ function hearAboutFromUtms(utms: UtmParams): string {
 }
 
 /**
- * The one conversion point on the landing page. Five fields, no qualifying
- * questions — lawn size gets confirmed on the follow-up call, not here.
+ * Customer notes as a single `services` entry, so the crew sees them on the
+ * Jobber request (the Flask scheduler joins `services` into free text). The
+ * full, untruncated notes are saved to Supabase `message` separately.
+ */
+function notesServiceEntry(notes: string): string {
+  const entry = `Customer notes: ${notes.replace(/\s+/g, " ")}`
+  return entry.length > SERVICE_ENTRY_MAX ? `${entry.slice(0, SERVICE_ENTRY_MAX - 1)}…` : entry
+}
+
+/**
+ * The one conversion point on an offer landing page. Name, phone, email and
+ * address — plus an optional notes box when `showNotes` is set.
  *
  * Posts to the existing /api/lead-intake quick-quote pipeline (Supabase +
  * Flask scheduler + Jobber) with the service preset to the promo, then
- * redirects to /schedule-aeration. That page is registered in LEAD_PATHS
- * (components/analytics-tracker.tsx), which fires GA4 `form_submit` + Meta
- * `Lead` there. This form fires no conversion event of its own.
+ * redirects to the offer's `confirmedPath`. That page is registered in
+ * LEAD_PATHS (components/analytics-tracker.tsx), which fires GA4
+ * `generate_lead` + Meta `Lead` there. This form fires no conversion event of
+ * its own.
  */
-export function OfferLeadForm() {
-  const { utms, landingReferrer } = useOfferTracking()
+export function OfferLeadForm({
+  header,
+  footnote,
+  showNotes = false,
+  notesLabel = "Anything we should know? (optional)",
+  notesPlaceholder = "",
+}: {
+  /** Offer restated on the form itself, above the fields. */
+  header: React.ReactNode
+  footnote: string
+  showNotes?: boolean
+  notesLabel?: string
+  notesPlaceholder?: string
+}) {
+  const { offer, utms, landingReferrer } = useOfferTracking()
 
   const [status, setStatus] = useState<Status>("idle")
   const [errorMsg, setErrorMsg] = useState<string | null>(null)
@@ -70,13 +96,14 @@ export function OfferLeadForm() {
   const [phone, setPhone] = useState("")
   const [email, setEmail] = useState("")
   const [addr, setAddr] = useState<AddressValue>(EMPTY_ADDRESS)
+  const [notes, setNotes] = useState("")
 
   const startFired = useRef(false)
 
   function onFirstInteraction() {
     if (startFired.current) return
     startFired.current = true
-    trackOfferFormStart(utms)
+    trackOfferFormStart(offer, utms)
   }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -98,6 +125,8 @@ export function OfferLeadForm() {
     setStatus("submitting")
     setErrorMsg(null)
 
+    const trimmedNotes = notes.trim()
+
     const body = {
       full_name: [firstName.trim(), lastName.trim()].filter(Boolean).join(" "),
       email,
@@ -108,11 +137,16 @@ export function OfferLeadForm() {
       state: addr.state,
       zip: addr.zip,
       address_source: addr.address_source,
-      // Second entry flags this as a promo lead in Jobber — see OFFER.jobberTag.
-      services: [OFFER.service, OFFER.jobberTag],
+      // Second entry flags this as a promo lead in Jobber — see offer.jobberTag.
+      services: [
+        offer.service,
+        offer.jobberTag,
+        ...(trimmedNotes ? [notesServiceEntry(trimmedNotes)] : []),
+      ],
+      message: trimmedNotes,
       hear_about: hearAboutFromUtms(utms),
       referred_by_text: "",
-      page_slug: OFFER.path,
+      page_slug: offer.path,
       landing_referrer: landingReferrer,
       utm: utms,
     }
@@ -144,11 +178,11 @@ export function OfferLeadForm() {
         return
       }
 
-      // No conversion event here. Redirecting to /schedule-aeration lets the
+      // No conversion event here. Redirecting to the confirmation page lets the
       // site's single lead mechanism (LEAD_PATHS in analytics-tracker.tsx)
-      // fire GA4 form_submit + Meta Lead. That page is the one and only
+      // fire GA4 generate_lead + Meta Lead. That page is the one and only
       // conversion location for this flow.
-      const target = buildConfirmedUrl(utms, data?.sid)
+      const target = buildConfirmedUrl(offer.confirmedPath, utms, data?.sid)
       setConfirmedUrl(target)
       setStatus("success")
       window.location.href = target
@@ -171,16 +205,7 @@ export function OfferLeadForm() {
       {/* Offer restated on the form itself — the visitor never has to scroll
           back up to remember what they're claiming. */}
       <div className="border-b border-white/10 bg-vm-navy-light/60 px-5 py-5 text-center md:px-8">
-        <p className="font-varsity text-xl tracking-wide text-white md:text-2xl">
-          Fall Aeration + Overseeding
-        </p>
-        <p className="font-varsity mt-1 text-4xl leading-none tracking-wide text-vm-gold md:text-5xl">
-          {OFFER.priceLabel}
-        </p>
-        <p className="mt-2 text-sm text-white/80">For lawns under {OFFER.sqFtLabel}</p>
-        <p className="mt-1 text-sm font-semibold text-vm-gold">
-          Sign up by {OFFER.deadlineLabel}
-        </p>
+        {header}
       </div>
 
       <div className="px-5 py-6 md:px-8 md:py-7">
@@ -191,13 +216,13 @@ export function OfferLeadForm() {
           <div className="py-6 text-center">
             <CheckCircle2 className="mx-auto h-12 w-12 text-vm-gold" aria-hidden="true" />
             <p className="font-varsity mt-4 text-2xl tracking-wide text-white">
-              Your {OFFER.priceLabel} Spot Is Reserved
+              {offer.successTitle}
             </p>
             <p className="mx-auto mt-3 max-w-sm text-base leading-relaxed text-white/80">
-              We&apos;ll reach out shortly to confirm your spot on the schedule.
+              {offer.successBody}
             </p>
             <a
-              href={confirmedUrl ?? OFFER.confirmedPath}
+              href={confirmedUrl ?? offer.confirmedPath}
               className="mt-6 inline-flex items-center justify-center rounded-full bg-vm-gold px-6 py-3 text-base font-bold text-vm-navy transition-colors hover:bg-vm-gold-dark"
             >
               Continue
@@ -284,6 +309,22 @@ export function OfferLeadForm() {
               )}
             />
 
+            {showNotes && (
+              <Field label={notesLabel} htmlFor="offer-notes">
+                <textarea
+                  id="offer-notes"
+                  name="notes"
+                  rows={3}
+                  maxLength={1000}
+                  placeholder={notesPlaceholder}
+                  className="offer-input resize-y"
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                  disabled={submitting}
+                />
+              </Field>
+            )}
+
             {status === "error" && errorMsg && (
               <p
                 role="alert"
@@ -298,12 +339,10 @@ export function OfferLeadForm() {
               disabled={submitting}
               className="inline-flex w-full items-center justify-center rounded-full bg-vm-gold px-6 py-4 text-base font-bold tracking-wide text-vm-navy shadow-lg transition-all hover:bg-vm-gold-dark hover:shadow-xl active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70 md:text-lg"
             >
-              {submitting ? "Reserving your spot…" : OFFER.formCta}
+              {submitting ? offer.submittingLabel : offer.formCta}
             </button>
 
-            <p className="text-center text-sm leading-relaxed text-white/60">
-              No deposit required. We confirm your lawn size before scheduling.
-            </p>
+            <p className="text-center text-sm leading-relaxed text-white/60">{footnote}</p>
           </form>
         )}
       </div>

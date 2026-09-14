@@ -109,6 +109,8 @@ export const quickQuoteSchema = z
   zip: z.string().trim().max(10).optional().or(z.literal("")),
   address_source: z.enum(["autofill", "manual"]).optional(),
   services: z.array(z.string().trim().min(1).max(120)).max(20).default([]),
+  /** Optional free-text notes (offer landing pages). Saved to Supabase `message`. */
+  message: z.string().trim().max(2000).optional().or(z.literal("")),
   hear_about: z.string().trim().max(200).optional().or(z.literal("")),
   referred_by_text: z.string().trim().max(200).optional().or(z.literal("")),
 

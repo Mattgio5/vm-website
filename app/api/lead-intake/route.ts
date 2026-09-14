@@ -148,7 +148,7 @@ function normalizeBody(body: unknown):
           service_primary: parsed.data.services[0] || null,
           yard_size: null,
           job_timing: null,
-          message: null,
+          message: parsed.data.message || null,
           address_source: parsed.data.address_source ?? null,
         },
       },

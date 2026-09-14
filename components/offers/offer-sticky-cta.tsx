@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { OFFER } from "@/lib/aeration-offer"
 import { trackOfferCtaClick } from "@/lib/offer-tracking"
 import { useOfferTracking } from "@/components/offers/offer-tracking-provider"
 import { OFFER_FORM_ID } from "@/components/offers/offer-cta"
@@ -15,7 +14,7 @@ import { OFFER_FORM_ID } from "@/components/offers/offer-cta"
  * listener — no per-frame work on low-end phones.
  */
 export function OfferStickyCta({ heroId, formId = OFFER_FORM_ID }: { heroId: string; formId?: string }) {
-  const { utms } = useOfferTracking()
+  const { offer, utms } = useOfferTracking()
   const [pastHero, setPastHero] = useState(false)
   const [formVisible, setFormVisible] = useState(false)
 
@@ -60,7 +59,7 @@ export function OfferStickyCta({ heroId, formId = OFFER_FORM_ID }: { heroId: str
         href={`#${formId}`}
         tabIndex={show ? 0 : -1}
         onClick={(e) => {
-          trackOfferCtaClick(utms, "sticky-mobile")
+          trackOfferCtaClick(offer, utms, "sticky-mobile")
           const target = document.getElementById(formId)
           if (!target) return
           e.preventDefault()
@@ -68,9 +67,13 @@ export function OfferStickyCta({ heroId, formId = OFFER_FORM_ID }: { heroId: str
         }}
         className="flex w-full items-center justify-center gap-2 rounded-full bg-vm-gold px-5 py-4 text-base font-bold tracking-wide text-vm-navy shadow-lg active:scale-[0.98]"
       >
-        {OFFER.stickyCta}
-        <span className="text-vm-navy/60">—</span>
-        <span>{OFFER.priceLabel}</span>
+        {offer.stickyCta}
+        {offer.stickySuffix && (
+          <>
+            <span className="text-vm-navy/60">—</span>
+            <span>{offer.stickySuffix}</span>
+          </>
+        )}
       </a>
     </div>
   )
