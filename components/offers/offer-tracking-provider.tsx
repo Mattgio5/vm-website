@@ -8,27 +8,36 @@ import {
   type UtmParams,
 } from "@/lib/quote-intake"
 import { trackOfferView } from "@/lib/offer-tracking"
+import type { LandingOffer } from "@/lib/landing-offer"
 
 type OfferTracking = {
+  offer: LandingOffer
   utms: UtmParams
   landingReferrer: string
 }
 
-const OfferTrackingContext = createContext<OfferTracking>({
-  utms: {},
-  landingReferrer: "",
-})
+const OfferTrackingContext = createContext<OfferTracking | null>(null)
 
 /**
- * Captures the Meta ad click's UTMs once on mount, keeps them in
- * sessionStorage (so they survive the form submit and any navigation away),
- * re-injects them into the URL, and fires the landing-page-visit event.
+ * Captures the ad click's UTMs once on mount, keeps them in sessionStorage (so
+ * they survive the form submit and any navigation away), re-injects them into
+ * the URL, and fires the landing-page-visit event.
  *
- * Every CTA and the lead form read the same set from context, so a click and
- * the resulting conversion are always attributed to the same ad.
+ * Also hands the page's offer config to every CTA and the lead form, so a
+ * click and the resulting conversion are always attributed to the same ad and
+ * the same promo.
  */
-export function OfferTrackingProvider({ children }: { children: React.ReactNode }) {
-  const [tracking, setTracking] = useState<OfferTracking>({ utms: {}, landingReferrer: "" })
+export function OfferTrackingProvider({
+  offer,
+  children,
+}: {
+  offer: LandingOffer
+  children: React.ReactNode
+}) {
+  const [tracking, setTracking] = useState<Omit<OfferTracking, "offer">>({
+    utms: {},
+    landingReferrer: "",
+  })
   const fired = useRef(false)
 
   useEffect(() => {
@@ -39,14 +48,18 @@ export function OfferTrackingProvider({ children }: { children: React.ReactNode 
     const landingReferrer = captureLandingReferrer()
     injectUtmsIntoUrl(utms)
     setTracking({ utms, landingReferrer })
-    trackOfferView(utms)
-  }, [])
+    trackOfferView(offer, utms)
+  }, [offer])
 
   return (
-    <OfferTrackingContext.Provider value={tracking}>{children}</OfferTrackingContext.Provider>
+    <OfferTrackingContext.Provider value={{ offer, ...tracking }}>
+      {children}
+    </OfferTrackingContext.Provider>
   )
 }
 
 export function useOfferTracking(): OfferTracking {
-  return useContext(OfferTrackingContext)
+  const ctx = useContext(OfferTrackingContext)
+  if (!ctx) throw new Error("useOfferTracking must be used inside <OfferTrackingProvider>")
+  return ctx
 }

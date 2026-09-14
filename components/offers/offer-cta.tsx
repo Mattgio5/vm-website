@@ -1,6 +1,5 @@
 "use client"
 
-import { OFFER } from "@/lib/aeration-offer"
 import { trackOfferCtaClick } from "@/lib/offer-tracking"
 import { useOfferTracking } from "@/components/offers/offer-tracking-provider"
 
@@ -14,7 +13,7 @@ export const OFFER_FORM_ID = "claim-offer"
 export function OfferCta({
   location,
   className = "",
-  children = OFFER.primaryCta,
+  children,
   size = "lg",
 }: {
   location: string
@@ -22,7 +21,7 @@ export function OfferCta({
   children?: React.ReactNode
   size?: "lg" | "md"
 }) {
-  const { utms } = useOfferTracking()
+  const { offer, utms } = useOfferTracking()
 
   const sizing =
     size === "lg"
@@ -33,7 +32,7 @@ export function OfferCta({
     <a
       href={`#${OFFER_FORM_ID}`}
       onClick={(e) => {
-        trackOfferCtaClick(utms, location)
+        trackOfferCtaClick(offer, utms, location)
         const target = document.getElementById(OFFER_FORM_ID)
         if (!target) return
         e.preventDefault()
@@ -41,7 +40,7 @@ export function OfferCta({
       }}
       className={`inline-flex items-center justify-center rounded-full bg-vm-gold font-bold tracking-wide text-vm-navy shadow-lg transition-all hover:bg-vm-gold-dark hover:shadow-xl active:scale-[0.98] ${sizing} ${className}`}
     >
-      {children}
+      {children ?? offer.primaryCta}
     </a>
   )
 }

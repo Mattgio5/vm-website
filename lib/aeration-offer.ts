@@ -8,6 +8,8 @@
  * one-line edit and the ads and page can't drift apart.
  */
 
+import type { LandingOffer } from "@/lib/landing-offer"
+
 export const OFFER = {
   price: 269,
   priceLabel: "$269",
@@ -41,6 +43,25 @@ export const OFFER = {
    */
   confirmedPath: "/schedule-aeration",
 } as const
+
+/** Config the shared components/offers/* pieces read for this promo. */
+export const AERATION_LANDING: LandingOffer = {
+  path: OFFER.path,
+  confirmedPath: OFFER.confirmedPath,
+  service: OFFER.service,
+  jobberTag: OFFER.jobberTag,
+  primaryCta: OFFER.primaryCta,
+  formCta: OFFER.formCta,
+  stickyCta: OFFER.stickyCta,
+  stickySuffix: OFFER.priceLabel,
+  submittingLabel: "Reserving your spot…",
+  successTitle: `Your ${OFFER.priceLabel} Spot Is Reserved`,
+  successBody: "We'll reach out shortly to confirm your spot on the schedule.",
+  trackingParams: {
+    content_name: `Fall Aeration + Overseeding ${OFFER.priceLabel}`,
+    offer_price: OFFER.price,
+  },
+}
 
 /**
  * Trust bar directly under the hero CTA. Short enough to scan in one pass.

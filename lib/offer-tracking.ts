@@ -1,37 +1,36 @@
 /**
- * Landing-page funnel events for the $269 aeration promo.
+ * Landing-page funnel events shared by every /offers/* promo page.
  *
  * These are extra GA4 signals for measuring the funnel — they are NOT the
- * conversion. The conversion fires on /schedule-aeration via LEAD_PATHS in
- * components/analytics-tracker.tsx.
+ * conversion. The conversion fires on the offer's confirmation page via
+ * LEAD_PATHS in components/analytics-tracker.tsx.
  *
  * Events fired here (GA4 only — no Meta events, so Meta sees exactly one
- * standard `Lead` for this flow and nothing else):
+ * standard `Lead` for each flow and nothing else):
  *   offer_view        — landing page visit
  *   offer_cta_click   — CTA engagement
  *   offer_form_start  — first field focused
  *
- * The LEAD CONVERSION is NOT fired here. The form redirects to
- * /schedule-aeration, which is registered in LEAD_PATHS in
- * components/analytics-tracker.tsx, which fires GA4 `form_submit` and Meta
- * `Lead` there. That page is the single conversion location for this flow.
+ * The LEAD CONVERSION is NOT fired here. Each offer form redirects to its
+ * `confirmedPath` (/schedule-aeration, /schedule-leaf-cleanup), which is
+ * registered in LEAD_PATHS in components/analytics-tracker.tsx, which fires
+ * GA4 `generate_lead` and Meta `Lead` there. That page is the single conversion
+ * location for the flow.
  *
- * Every event carries the UTM set captured on landing, so source / medium /
- * campaign / content segment cleanly even after the URL is cleaned up.
+ * Every event carries the offer's trackingParams (content_name, …) plus the
+ * UTM set captured on landing, so offers and source / medium / campaign /
+ * content segment cleanly even after the URL is cleaned up.
  */
 
 import type { UtmParams } from "@/lib/quote-intake"
-import { OFFER } from "@/lib/aeration-offer"
+import type { LandingOffer } from "@/lib/landing-offer"
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
-const CONTENT_NAME = `Fall Aeration + Overseeding ${OFFER.priceLabel}`
-
-function baseParams(utms: UtmParams): Record<string, unknown> {
+function baseParams(offer: LandingOffer, utms: UtmParams): Record<string, unknown> {
   return {
-    content_name: CONTENT_NAME,
-    offer_price: OFFER.price,
-    page_path: OFFER.path,
+    ...offer.trackingParams,
+    page_path: offer.path,
     utm_source: utms.utm_source ?? "",
     utm_medium: utms.utm_medium ?? "",
     utm_campaign: utms.utm_campaign ?? "",
@@ -76,17 +75,16 @@ function ga(event: string, params: Record<string, unknown>) {
 }
 
 /** Landing page visit — a segmentable signal on top of the base PageView. */
-export function trackOfferView(utms: UtmParams) {
-  ga("offer_view", baseParams(utms))
+export function trackOfferView(offer: LandingOffer, utms: UtmParams) {
+  ga("offer_view", baseParams(offer, utms))
 }
 
-/** Any "Claim the $269 Offer" button press. `location` names the section. */
-export function trackOfferCtaClick(utms: UtmParams, location: string) {
-  ga("offer_cta_click", { ...baseParams(utms), cta_location: location })
+/** Any CTA press on an offer page. `location` names the section. */
+export function trackOfferCtaClick(offer: LandingOffer, utms: UtmParams, location: string) {
+  ga("offer_cta_click", { ...baseParams(offer, utms), cta_location: location })
 }
 
 /** First interaction with the lead form — the form-start half of the funnel. */
-export function trackOfferFormStart(utms: UtmParams) {
-  ga("offer_form_start", baseParams(utms))
+export function trackOfferFormStart(offer: LandingOffer, utms: UtmParams) {
+  ga("offer_form_start", baseParams(offer, utms))
 }
-

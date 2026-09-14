@@ -1,11 +1,11 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import Link from "next/link"
-import { Star, Check, Phone } from "lucide-react"
+import { Check, Phone } from "lucide-react"
 import { SITE_URL, BUSINESS } from "@/lib/site"
 import { testimonials } from "@/lib/testimonials"
 import {
   OFFER,
+  AERATION_LANDING,
   TRUST_POINTS,
   INCLUDED,
   ADD_ON,
@@ -20,6 +20,7 @@ import { OfferCta } from "@/components/offers/offer-cta"
 import { OfferLeadForm } from "@/components/offers/offer-lead-form"
 import { OfferStickyCta } from "@/components/offers/offer-sticky-cta"
 import { OfferFAQ } from "@/components/offers/offer-faq"
+import { OfferFooter, OfferHeader, Stars, Stripes } from "@/components/offers/offer-chrome"
 
 const HERO_ID = "offer-hero"
 
@@ -81,56 +82,13 @@ const offerReviews = OFFER_REVIEW_NAMES.map((name) =>
   testimonials.find((t) => t.name === name),
 ).filter((t): t is NonNullable<typeof t> => Boolean(t))
 
-function Stars({ className = "" }: { className?: string }) {
-  return (
-    <div className={`flex gap-0.5 ${className}`} aria-label="5 out of 5 stars">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <Star key={i} className="h-4 w-4 fill-vm-gold text-vm-gold" aria-hidden="true" />
-      ))}
-    </div>
-  )
-}
-
-/** Two-tone Varsity stripe that tops every section on the site. */
-function Stripes() {
-  return (
-    <div className="absolute top-0 right-0 left-0 flex flex-col">
-      <div className="h-2.5 w-full bg-vm-gold" />
-      <div className="h-2.5 w-full bg-vm-navy" />
-    </div>
-  )
-}
-
 export default function FallAerationOfferPage() {
   return (
-    <OfferTrackingProvider>
+    <OfferTrackingProvider offer={AERATION_LANDING}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(offerJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
-      {/* Landing-page header: logo + phone only. No nav — nothing competes
-          with the single conversion path. */}
-      <header className="absolute inset-x-0 top-0 z-30 px-4 py-4 md:px-10">
-        <div className="mx-auto flex max-w-7xl items-center justify-between">
-          <Link href="/" aria-label="Varsity Mulching home">
-            <Image
-              src="/images/vm-logo.png"
-              alt="Varsity Mulching LLC"
-              width={120}
-              height={80}
-              priority
-              className="h-11 w-auto md:h-14"
-            />
-          </Link>
-          <a
-            href="tel:+12673899789"
-            className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
-          >
-            <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
-            <span className="hidden sm:inline">(267) 389-9789</span>
-            <span className="sm:hidden">Call</span>
-          </a>
-        </div>
-      </header>
+      <OfferHeader />
 
       <main>
         {/* ───────────────────────── 1. OFFER (above the fold) ───────────────────────── */}
@@ -455,7 +413,23 @@ export default function FallAerationOfferPage() {
             </div>
 
             <div className="mt-8">
-              <OfferLeadForm />
+              <OfferLeadForm
+                footnote="No deposit required. We confirm your lawn size before scheduling."
+                header={
+                  <>
+                    <p className="font-varsity text-xl tracking-wide text-white md:text-2xl">
+                      Fall Aeration + Overseeding
+                    </p>
+                    <p className="font-varsity mt-1 text-4xl leading-none tracking-wide text-vm-gold md:text-5xl">
+                      {OFFER.priceLabel}
+                    </p>
+                    <p className="mt-2 text-sm text-white/80">For lawns under {OFFER.sqFtLabel}</p>
+                    <p className="mt-1 text-sm font-semibold text-vm-gold">
+                      Sign up by {OFFER.deadlineLabel}
+                    </p>
+                  </>
+                }
+              />
             </div>
 
             <div className="mt-6 flex items-center justify-center gap-2">
@@ -475,7 +449,7 @@ export default function FallAerationOfferPage() {
               Questions
             </h2>
             <div className="mt-8">
-              <OfferFAQ />
+              <OfferFAQ items={OFFER_FAQS} />
             </div>
           </div>
         </section>
@@ -510,21 +484,7 @@ export default function FallAerationOfferPage() {
         </section>
       </main>
 
-      {/* Slim landing-page footer — legal essentials only, no nav sprawl. */}
-      <footer className="bg-vm-navy-light px-4 py-8 text-center md:px-8">
-        <p className="text-sm text-white/60">
-          {BUSINESS.legalName} · Doylestown, PA · Fully licensed &amp; insured
-        </p>
-        <p className="mt-2 text-sm text-white/45">
-          Serving Bucks, Montgomery &amp; Chester County, PA ·{" "}
-          <Link href="/privacy-policy" className="underline hover:text-white/70">
-            Privacy Policy
-          </Link>
-        </p>
-      </footer>
-
-      {/* Bottom gutter so the sticky mobile bar never covers the footer. */}
-      <div className="h-20 bg-vm-navy-light md:hidden" aria-hidden="true" />
+      <OfferFooter serviceArea="Serving Bucks, Montgomery & Chester County, PA" />
 
       <OfferStickyCta heroId={HERO_ID} />
     </OfferTrackingProvider>
