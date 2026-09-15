@@ -11,7 +11,7 @@
  * hauling). Lawn health is a secondary point only.
  */
 
-import { Leaf, MapPin, ShieldCheck, Sparkles, Star, Trophy, Truck, Users, Wind } from "lucide-react"
+import { Leaf, Sparkles, Truck, Wind } from "lucide-react"
 import type { LandingOffer } from "@/lib/landing-offer"
 
 export const OFFER = {
@@ -58,15 +58,6 @@ export const LEAF_LANDING: LandingOffer = {
     offer_discount: OFFER.discount,
   },
 }
-
-/** Scannable proof badges directly under the hero. */
-export const PROOF_POINTS = [
-  { icon: Star, title: "300+ Five-Star Reviews", body: "Rated 5.0 on Google" },
-  { icon: ShieldCheck, title: "Licensed & Insured", body: "Real coverage on every crew" },
-  { icon: Trophy, title: "Local College Student-Athletes", body: "Hard-working, on-time crews" },
-  { icon: Users, title: "Experienced Crew Leads", body: "Seasoned leads on every job" },
-  { icon: MapPin, title: "Serving Bucks & Montgomery County", body: "Locally owned in Doylestown" },
-] as const
 
 /** Convenience section — four benefits, one line each. */
 export const BENEFITS = [

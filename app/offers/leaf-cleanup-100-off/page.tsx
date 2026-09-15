@@ -1,11 +1,9 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import { Check, MapPin, Phone, Recycle } from "lucide-react"
-import { testimonials } from "@/lib/testimonials"
 import {
   OFFER,
   LEAF_LANDING,
-  PROOF_POINTS,
   BENEFITS,
   INCLUDED,
   HOW_IT_WORKS,
@@ -17,12 +15,12 @@ import { OfferCta } from "@/components/offers/offer-cta"
 import { OfferLeadForm } from "@/components/offers/offer-lead-form"
 import { OfferStickyCta } from "@/components/offers/offer-sticky-cta"
 import { OfferFAQ } from "@/components/offers/offer-faq"
+import { OfferProofSection } from "@/components/offers/offer-proof"
 import {
   OfferFooter,
   OfferHeader,
   OFFER_PHONE_HREF,
   OFFER_PHONE_LABEL,
-  Stars,
   Stripes,
 } from "@/components/offers/offer-chrome"
 
@@ -57,10 +55,6 @@ const faqJsonLd = {
     acceptedAnswer: { "@type": "Answer", text: f.answer },
   })),
 }
-
-const offerReviews = OFFER_REVIEW_NAMES.map((name) =>
-  testimonials.find((t) => t.name === name),
-).filter((t): t is NonNullable<typeof t> => Boolean(t))
 
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
@@ -157,58 +151,7 @@ export default function LeafCleanupOfferPage() {
         </section>
 
         {/* ───────────────────────── 2. SOCIAL PROOF ───────────────────────── */}
-        <section className="relative bg-vm-navy-light px-4 py-10 md:px-8 md:py-14">
-          <div className="absolute top-0 right-0 left-0 h-1.5 bg-vm-gold" />
-          <div className="mx-auto max-w-6xl">
-            <ul className="grid grid-cols-2 gap-3 md:grid-cols-5 md:gap-4">
-              {PROOF_POINTS.map(({ icon: Icon, title, body }) => (
-                <li
-                  key={title}
-                  className="flex flex-col items-center rounded-2xl border border-white/10 bg-white/[0.05] px-3 py-5 text-center last:col-span-2 md:last:col-span-1"
-                >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-vm-gold">
-                    <Icon className="h-5 w-5 text-vm-navy" strokeWidth={2.5} aria-hidden="true" />
-                  </span>
-                  <p className="mt-3 text-sm leading-snug font-bold text-white md:text-base">
-                    {title}
-                  </p>
-                  <p className="mt-1 text-xs leading-snug text-white/60 md:text-sm">{body}</p>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-8 grid gap-4 md:mt-10 md:grid-cols-3">
-              {offerReviews.map((review) => (
-                <figure
-                  key={review.name}
-                  className="flex flex-col rounded-2xl border border-white/10 bg-vm-navy/60 p-5"
-                >
-                  <Stars />
-                  <blockquote className="mt-3 grow text-base leading-relaxed text-white/85">
-                    &ldquo;{review.quote}&rdquo;
-                  </blockquote>
-                  <figcaption className="mt-4 flex items-center gap-3 border-t border-white/10 pt-4">
-                    {review.image && (
-                      <Image
-                        src={review.image}
-                        alt=""
-                        width={36}
-                        height={36}
-                        sizes="36px"
-                        loading="lazy"
-                        className="h-9 w-9 rounded-full object-cover"
-                      />
-                    )}
-                    <div>
-                      <p className="text-sm font-bold text-white">{review.name}</p>
-                      <p className="text-xs text-white/55">Verified Google review</p>
-                    </div>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-        </section>
+        <OfferProofSection reviewNames={OFFER_REVIEW_NAMES} />
 
         {/* ───────────────────────── 3. CONVENIENCE ───────────────────────── */}
         <section className="bg-halftone relative bg-background px-4 py-14 md:px-8 md:py-20">
