@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { CheckCircle2 } from "lucide-react"
 import {
   formatAddress,
@@ -60,6 +60,11 @@ function notesServiceEntry(notes: string): string {
   return entry.length > SERVICE_ENTRY_MAX ? `${entry.slice(0, SERVICE_ENTRY_MAX - 1)}…` : entry
 }
 
+/** "Mulch Touch-Up" → "mulch-touch-up", for matching the ?service= param. */
+function slugify(s: string): string {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")
+}
+
 /**
  * The one conversion point on an offer landing page. Name, phone, email and
  * address — plus an optional notes box when `showNotes` is set.
@@ -77,13 +82,26 @@ export function OfferLeadForm({
   showNotes = false,
   notesLabel = "Anything we should know? (optional)",
   notesPlaceholder = "",
+  serviceOptions,
+  serviceAliases,
+  servicesLegend = "Which services are you considering?",
+  servicesHint,
 }: {
-  /** Offer restated on the form itself, above the fields. */
-  header: React.ReactNode
+  /** Offer restated on the form itself, above the fields. Omit when the form sits in the hero. */
+  header?: React.ReactNode
   footnote: string
   showNotes?: boolean
   notesLabel?: string
   notesPlaceholder?: string
+  /**
+   * Optional multi-select service picker. Selection is never required; each
+   * picked label is sent as its own `services` entry so it shows in Jobber.
+   */
+  serviceOptions?: readonly string[]
+  /** Extra ?service= slugs mapped to an option label, e.g. { pruning: "Pruning, Trimming & Cutbacks" }. */
+  serviceAliases?: Record<string, string>
+  servicesLegend?: string
+  servicesHint?: string
 }) {
   const { offer, utms, landingReferrer } = useOfferTracking()
 
@@ -97,6 +115,29 @@ export function OfferLeadForm({
   const [email, setEmail] = useState("")
   const [addr, setAddr] = useState<AddressValue>(EMPTY_ADDRESS)
   const [notes, setNotes] = useState("")
+  const [selected, setSelected] = useState<string[]>([])
+
+  // Email/SMS links can pre-tick services: ?service=pruning or
+  // ?service=leaf-cleanup,mulch-touch-up (slugified option labels).
+  const optionsKey = serviceOptions?.join("|") ?? ""
+  useEffect(() => {
+    if (!serviceOptions?.length) return
+    const raw = new URLSearchParams(window.location.search).get("service")
+    if (!raw) return
+    const wanted = raw.split(",").map(slugify)
+    const aliased = wanted.map((w) => serviceAliases?.[w]).filter(Boolean)
+    const matches = serviceOptions.filter(
+      (o) => wanted.includes(slugify(o)) || aliased.includes(o),
+    )
+    if (matches.length) setSelected(matches)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [optionsKey])
+
+  function toggleService(label: string) {
+    setSelected((prev) =>
+      prev.includes(label) ? prev.filter((s) => s !== label) : [...prev, label],
+    )
+  }
 
   const startFired = useRef(false)
 
@@ -141,6 +182,8 @@ export function OfferLeadForm({
       services: [
         offer.service,
         offer.jobberTag,
+        // Keep picks in the order the options are listed, not click order.
+        ...(serviceOptions ?? []).filter((s) => selected.includes(s)),
         ...(trimmedNotes ? [notesServiceEntry(trimmedNotes)] : []),
       ],
       message: trimmedNotes,
@@ -204,9 +247,11 @@ export function OfferLeadForm({
     >
       {/* Offer restated on the form itself — the visitor never has to scroll
           back up to remember what they're claiming. */}
-      <div className="border-b border-white/10 bg-vm-navy-light/60 px-5 py-5 text-center md:px-8">
-        {header}
-      </div>
+      {header && (
+        <div className="border-b border-white/10 bg-vm-navy-light/60 px-5 py-5 text-center md:px-8">
+          {header}
+        </div>
+      )}
 
       <div className="px-5 py-6 md:px-8 md:py-7">
         {status === "success" ? (
@@ -230,6 +275,53 @@ export function OfferLeadForm({
           </div>
         ) : (
           <form onSubmit={onSubmit} onFocusCapture={onFirstInteraction} className="space-y-4">
+            {/* Service picker leads the form: it's the quickest, most engaging
+                first step, and it shows the visitor they can pick just one. */}
+            {serviceOptions && serviceOptions.length > 0 && (
+              <fieldset>
+                <legend className="text-sm font-semibold text-white">{servicesLegend}</legend>
+                {servicesHint && <p className="mt-1 text-sm text-white/60">{servicesHint}</p>}
+                <div className="mt-2.5 grid grid-cols-2 gap-2">
+                  {serviceOptions.map((label) => {
+                    const checked = selected.includes(label)
+                    return (
+                      <label
+                        key={label}
+                        className={`flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border px-3 py-2.5 text-sm font-semibold transition-colors odd:last:col-span-2 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-vm-gold/60 ${
+                          checked
+                            ? "border-vm-gold bg-vm-gold/15 text-white"
+                            : "border-white/20 bg-white/[0.05] text-white/85 hover:border-white/40"
+                        }`}
+                      >
+                        <input
+                          type="checkbox"
+                          name="services"
+                          value={label}
+                          checked={checked}
+                          onChange={() => toggleService(label)}
+                          disabled={submitting}
+                          className="sr-only"
+                        />
+                        <span
+                          aria-hidden="true"
+                          className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border ${
+                            checked ? "border-vm-gold bg-vm-gold" : "border-white/40"
+                          }`}
+                        >
+                          {checked && (
+                            <svg viewBox="0 0 12 10" className="h-3 w-3 text-vm-navy" fill="none">
+                              <path d="M1 5l3.5 3.5L11 1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          )}
+                        </span>
+                        <span className="leading-tight">{label}</span>
+                      </label>
+                    )
+                  })}
+                </div>
+              </fieldset>
+            )}
+
             <div className="grid gap-4 sm:grid-cols-2">
               <Field label="First name" htmlFor="offer-first">
                 <input
