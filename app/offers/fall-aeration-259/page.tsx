@@ -34,13 +34,13 @@ export const metadata: Metadata = {
   title: `Fall Aeration + Overseeding for ${OFFER.priceLabel}`,
   // OFFER.sqFtLabel already ends in a period ("10,000 sq. ft."), so don't add
   // another one after it.
-  description: `Core aeration and overseeding for ${OFFER.priceLabel} on lawns under ${OFFER.sqFtLabel} Sign up by ${OFFER.deadlineLabel}. 300+ reviews, 5.0/5.0 on Google, serving Bucks & Montgomery County, PA.`,
+  description: `Core aeration and overseeding for ${OFFER.priceLabel} on lawns under ${OFFER.sqFtLabel} ${OFFER.urgencyHeadline} — limited availability. 300+ reviews, 5.0/5.0 on Google, serving Bucks & Montgomery County, PA.`,
   robots: { index: false, follow: false },
   alternates: { canonical: OFFER.path },
   openGraph: {
     url: OFFER.path,
     title: `Fall Aeration + Overseeding for ${OFFER.priceLabel}`,
-    description: `For lawns under ${OFFER.sqFtLabel} Sign up by ${OFFER.deadlineLabel} to lock in the offer.`,
+    description: `For lawns under ${OFFER.sqFtLabel} ${OFFER.urgencyHeadline} — limited availability.`,
   },
 }
 
@@ -137,20 +137,22 @@ export default function FallAerationOfferPage() {
               For lawns under {OFFER.sqFtLabel}
             </p>
 
-            {/* Deliberately short and `whitespace-nowrap`: the longer phrasing
-                ("…to lock in the offer") measured 322px against the 246px
-                available inside this box at a 320px viewport, so it wrapped to
-                two lines on every iPhone up to 390px wide. With a "September 15"
-                deadline this measures ~193px at 16px, fitting from 320px up with
-                ~53px to spare. Re-measure if the deadline label gets longer —
-                the nowrap guard turns an overrun into overflow, not a wrap. */}
-            <p
-              className="vm-reveal mx-auto mt-5 inline-block rounded-xl border border-white/20 bg-vm-navy/70 px-5 py-3 text-base font-semibold whitespace-nowrap text-white backdrop-blur-sm md:text-lg"
+            {/* Two-line badge that is ALLOWED to wrap. The previous version
+                pinned this to one line with `whitespace-nowrap`, which turned
+                every copy change into a horizontal-overflow risk and had to be
+                re-measured each time the deadline text grew. `text-balance`
+                keeps the wrap even at any width, so the copy can change freely. */}
+            <div
+              className="vm-reveal mx-auto mt-5 max-w-xs rounded-xl border border-vm-gold/40 bg-vm-navy/70 px-5 py-3 backdrop-blur-sm sm:max-w-sm"
               style={{ animationDelay: "260ms" }}
             >
-              Sign up by
-              <span className="ml-1.5 text-vm-gold">{OFFER.deadlineLabel}</span>
-            </p>
+              <p className="text-[11px] font-bold tracking-[0.18em] text-vm-gold uppercase md:text-xs">
+                {OFFER.urgencyEyebrow}
+              </p>
+              <p className="mt-1 text-base font-semibold text-balance text-white md:text-lg">
+                {OFFER.urgencyHeadline}
+              </p>
+            </div>
 
             <div
               className="vm-reveal mt-7 flex justify-center"
@@ -425,7 +427,7 @@ export default function FallAerationOfferPage() {
                     </p>
                     <p className="mt-2 text-sm text-white/80">For lawns under {OFFER.sqFtLabel}</p>
                     <p className="mt-1 text-sm font-semibold text-vm-gold">
-                      Sign up by {OFFER.deadlineLabel}
+                      {OFFER.urgencyShort} · limited availability
                     </p>
                   </>
                 }
@@ -467,8 +469,8 @@ export default function FallAerationOfferPage() {
             <p className="mt-3 text-lg font-semibold text-white/90 md:text-xl">
               For lawns under {OFFER.sqFtLabel}
             </p>
-            <p className="mt-2 text-base font-semibold text-vm-gold md:text-lg">
-              Sign up by {OFFER.deadlineLabel}.
+            <p className="mt-2 text-base font-semibold text-balance text-vm-gold md:text-lg">
+              {OFFER.urgencyHeadline} — limited availability.
             </p>
             <div className="mt-8 flex justify-center">
               <OfferCta location="final" />

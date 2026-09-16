@@ -2,8 +2,8 @@
  * Fall 2026 Aeration + Overseeding promo — single source of truth.
  *
  * The landing page at /offers/fall-aeration-259 receives paid Meta traffic and
- * has to hold exact message match with the ads: $269, aeration + overseeding,
- * under 10,000 sq. ft., sign up by the deadline below. Every mention of those facts
+ * has to hold exact message match with the ads: $279, aeration + overseeding,
+ * under 10,000 sq. ft., and the closing season window below. Every mention of those facts
  * on the page reads from here, so changing the price or the deadline is a
  * one-line edit and the ads and page can't drift apart.
  */
@@ -11,13 +11,21 @@
 import type { LandingOffer } from "@/lib/landing-offer"
 
 export const OFFER = {
-  price: 269,
-  priceLabel: "$269",
+  price: 279,
+  priceLabel: "$279",
   sqFtCap: 10000,
   sqFtLabel: "10,000 sq. ft.",
-  deadlineLabel: "September 15",
-  /** Used for the schema.org priceValidUntil / offer expiry. */
-  deadlineIso: "2026-09-15",
+  /**
+   * Urgency is season-based now, not a fixed sign-up date: the aeration
+   * window itself is closing, which is both true and harder to argue with
+   * than an arbitrary cutoff. Keep these short — they render in tight spots
+   * (hero badge, form header, final CTA).
+   */
+  urgencyEyebrow: "Limited Availability",
+  urgencyHeadline: "Only 3 weeks left in the season",
+  urgencyShort: "3 weeks left this season",
+  /** schema.org priceValidUntil — end of the 3-week window from 2026-09-15. */
+  deadlineIso: "2026-10-06",
   service: "Core Aeration & Overseeding",
   /**
    * Sent as a second entry in the `services` array so the admin can spot a
@@ -30,10 +38,10 @@ export const OFFER = {
    * off it. Kept second so Supabase's `service_primary` (= services[0]) stays
    * "Core Aeration & Overseeding" and existing reporting doesn't shift.
    */
-  jobberTag: "*** $269 FALL OFFER — CONFIRM LAWN IS UNDER 10,000 SQ FT ***",
-  primaryCta: "Claim the $269 Offer",
-  formCta: "Claim My $269 Offer",
-  stickyCta: "Claim the $269 Offer",
+  jobberTag: "*** $279 FALL OFFER — CONFIRM LAWN IS UNDER 10,000 SQ FT ***",
+  primaryCta: "Claim the $279 Offer",
+  formCta: "Claim My $279 Offer",
+  stickyCta: "Claim the $279 Offer",
   path: "/offers/fall-aeration-259",
   /**
    * Post-submit confirmation URL. Named to match the site's other /schedule-*
@@ -76,7 +84,7 @@ export const TRUST_POINTS = [
   { label: "Proudly Employing Local College Athletes" },
 ] as const
 
-/** What the flat $269 covers. Deliberately three lines — no package tiers. */
+/** What the flat $279 covers. Deliberately three lines — no package tiers. */
 export const INCLUDED = [
   {
     title: "True Core Aeration",
