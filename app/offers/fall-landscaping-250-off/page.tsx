@@ -15,6 +15,7 @@ import {
   TRUST_POINTS,
   type Photo,
 } from "@/lib/fall-landscaping-offer"
+import { BeforeAfterSlider } from "@/components/before-after-slider"
 import { OfferTrackingProvider } from "@/components/offers/offer-tracking-provider"
 import { OfferCta } from "@/components/offers/offer-cta"
 import { OfferLeadForm } from "@/components/offers/offer-lead-form"
@@ -303,10 +304,19 @@ export default function FallLandscapingOfferPage() {
               </p>
             </div>
 
-            <div className="mt-8 grid gap-3 md:grid-cols-2 md:gap-4">
-              {REDESIGN_PHOTOS.map((p) => (
-                <Shot key={p.src} photo={p} sizes="(min-width: 768px) 50vw, 100vw" className="aspect-[764/721]" />
-              ))}
+            <p className="mt-6 text-center text-sm font-semibold text-vm-navy/70">
+              Drag the slider to see the difference.
+            </p>
+            <div className="mx-auto mt-3 max-w-2xl">
+              <BeforeAfterSlider
+                beforeSrc={REDESIGN_PHOTOS[0].src}
+                afterSrc={REDESIGN_PHOTOS[1].src}
+                beforeAlt={REDESIGN_PHOTOS[0].alt}
+                afterAlt={REDESIGN_PHOTOS[1].alt}
+                initialPosition={35}
+                aspectClassName="aspect-[764/690]"
+                objectPositionClassName="object-top"
+              />
             </div>
 
             <div className="mx-auto mt-10 max-w-3xl">
