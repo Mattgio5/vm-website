@@ -8,6 +8,10 @@ type Props = {
   beforeAlt?: string
   afterAlt?: string
   initialPosition?: number
+  /** Tailwind aspect-ratio class for the frame. Match the photos to avoid cropping. */
+  aspectClassName?: string
+  /** Tailwind object-position class for both photos, e.g. "object-top" to crop from the bottom. */
+  objectPositionClassName?: string
 }
 
 export function BeforeAfterSlider({
@@ -16,6 +20,8 @@ export function BeforeAfterSlider({
   beforeAlt = "Before",
   afterAlt = "After",
   initialPosition = 50,
+  aspectClassName = "aspect-[4/3]",
+  objectPositionClassName = "object-center",
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [position, setPosition] = useState(initialPosition)
@@ -57,7 +63,7 @@ export function BeforeAfterSlider({
   return (
     <div
       ref={containerRef}
-      className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-muted select-none"
+      className={`relative ${aspectClassName} w-full touch-pan-y overflow-hidden rounded-2xl bg-muted select-none`}
       onMouseDown={(e) => {
         setDragging(true)
         updateFromClientX(e.clientX)
@@ -72,7 +78,7 @@ export function BeforeAfterSlider({
       <img
         src={afterSrc}
         alt={afterAlt}
-        className="absolute inset-0 h-full w-full object-cover"
+        className={`absolute inset-0 h-full w-full object-cover ${objectPositionClassName}`}
         draggable={false}
       />
       {/* "After" label — sits on the right, hidden when slider covers it */}
@@ -90,7 +96,7 @@ export function BeforeAfterSlider({
         <img
           src={beforeSrc}
           alt={beforeAlt}
-          className="absolute inset-0 h-full w-full object-cover"
+          className={`absolute inset-0 h-full w-full object-cover ${objectPositionClassName}`}
           style={{ width: `${(100 / Math.max(position, 0.0001)) * 100}%`, maxWidth: "none" }}
           draggable={false}
         />

@@ -35,6 +35,8 @@ const LEAD_PATHS = [
   "/schedule-fall-gameplan",
   // $250-off fall landscaping offer confirmation (/offers/fall-landscaping-250-off).
   "/schedule-fall-landscaping",
+  // $100-off fall landscape cleanup offer confirmation (/offers/fall-landscape-cleanup-100-off).
+  "/schedule-fall-landscape-cleanup",
 ]
 
 /**
