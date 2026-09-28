@@ -8,7 +8,7 @@ import { AerationFAQ } from "@/components/services/aeration-faq"
 import { aerationFaqs } from "@/lib/aeration-faqs"
 import { AerationQuoteForm } from "@/components/services/aeration-quote-form"
 import { AerationCtaLink } from "@/components/services/aeration-cta-link"
-import { AERATION_SPOTS_REMAINING } from "@/lib/aeration-config"
+import { OFFER as AERATION_OFFER } from "@/lib/aeration-offer"
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -95,7 +95,7 @@ export default function AerationOverseedingPage() {
       />
       <Navbar />
 
-      {/* Hero Section — two-column: copy + availability left, quote form right */}
+      {/* Hero Section — two-column: copy + fall offer left, quote form right */}
       <section className="relative w-full overflow-visible">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <Image
@@ -109,7 +109,7 @@ export default function AerationOverseedingPage() {
         </div>
 
         <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-8 px-4 pt-28 pb-14 md:grid-cols-2 md:items-center md:gap-10 md:px-12 md:pt-32 md:pb-20 lg:gap-14 lg:px-20">
-          {/* Left: existing hero copy + availability */}
+          {/* Left: existing hero copy + fall offer */}
           <div>
             <Breadcrumb className="mb-6">
               <BreadcrumbList>
@@ -140,17 +140,24 @@ export default function AerationOverseedingPage() {
               Loosen compacted soil and help thin lawns grow back thicker.
             </p>
 
-            {/* Seasonal availability */}
+            {/* Fall offer — funnels to the paid-traffic landing page */}
             <div className="mt-6 max-w-lg rounded-2xl border border-vm-gold/40 bg-vm-navy/60 p-5 backdrop-blur-sm">
-              <p className="text-lg font-semibold text-white">
+              <p className="text-xs font-bold tracking-[0.15em] text-vm-gold uppercase">Fall Offer</p>
+              <p className="mt-1.5 text-lg font-semibold text-white">
                 <span className="font-varsity text-3xl leading-none tracking-wide text-vm-gold">
-                  {AERATION_SPOTS_REMAINING}
+                  {AERATION_OFFER.priceLabel}
                 </span>{" "}
-                fall aeration appointments remain
+                aeration + overseeding for lawns under {AERATION_OFFER.sqFtLabel}
               </p>
               <p className="mt-1.5 text-sm leading-relaxed text-white/75">
-                Once our seasonal capacity is filled, scheduling will close.
+                {AERATION_OFFER.urgencyHeadline}.
               </p>
+              <Link
+                href={AERATION_OFFER.path}
+                className="mt-4 inline-flex rounded-full bg-vm-gold px-6 py-3 text-sm font-semibold text-vm-navy transition-all hover:bg-vm-gold/90 hover:shadow-lg"
+              >
+                {AERATION_OFFER.primaryCta}
+              </Link>
             </div>
           </div>
 
@@ -346,16 +353,17 @@ export default function AerationOverseedingPage() {
             Aeration and overseeding scheduling fills quickly — request your quote today to lock in a spot
             in the late-summer and early-fall window.
           </p>
-          <p className="mx-auto mt-4 max-w-xl text-sm font-semibold text-vm-navy">
-            {AERATION_SPOTS_REMAINING} appointments remain for the fall season. Request your quote before
-            our remaining routes are filled.
-          </p>
-          <p className="mx-auto mt-1 max-w-xl text-xs text-vm-navy/60">
-            Updated daily based on approved quotes.
-          </p>
-          <AerationCtaLink className="mt-6 inline-flex rounded-full bg-vm-navy px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg">
-            Get a Quote
-          </AerationCtaLink>
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link
+              href={AERATION_OFFER.path}
+              className="inline-flex rounded-full bg-vm-gold px-7 py-3.5 text-base font-semibold text-vm-navy transition-all hover:bg-vm-gold/90 hover:shadow-lg"
+            >
+              {AERATION_OFFER.primaryCta}
+            </Link>
+            <AerationCtaLink className="inline-flex rounded-full bg-vm-navy px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg">
+              Get a Quote
+            </AerationCtaLink>
+          </div>
         </div>
       </section>
 

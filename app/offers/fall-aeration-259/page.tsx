@@ -34,13 +34,13 @@ export const metadata: Metadata = {
   title: `Fall Aeration + Overseeding for ${OFFER.priceLabel}`,
   // OFFER.sqFtLabel already ends in a period ("10,000 sq. ft."), so don't add
   // another one after it.
-  description: `Core aeration and overseeding for ${OFFER.priceLabel} on lawns under ${OFFER.sqFtLabel} ${OFFER.urgencyHeadline} — limited availability. 300+ reviews, 5.0/5.0 on Google, serving Bucks & Montgomery County, PA.`,
+  description: `Core aeration and overseeding for ${OFFER.priceLabel} on lawns under ${OFFER.sqFtLabel} ${OFFER.urgencyHeadline} — ${OFFER.spotsLabel}. 300+ reviews, 5.0/5.0 on Google, serving Bucks & Montgomery County, PA.`,
   robots: { index: false, follow: false },
   alternates: { canonical: OFFER.path },
   openGraph: {
     url: OFFER.path,
     title: `Fall Aeration + Overseeding for ${OFFER.priceLabel}`,
-    description: `For lawns under ${OFFER.sqFtLabel} ${OFFER.urgencyHeadline} — limited availability.`,
+    description: `For lawns under ${OFFER.sqFtLabel} ${OFFER.urgencyHeadline} — ${OFFER.spotsLabel}.`,
   },
 }
 
@@ -427,7 +427,7 @@ export default function FallAerationOfferPage() {
                     </p>
                     <p className="mt-2 text-sm text-white/80">For lawns under {OFFER.sqFtLabel}</p>
                     <p className="mt-1 text-sm font-semibold text-vm-gold">
-                      {OFFER.urgencyShort} · limited availability
+                      {OFFER.urgencyShort} · {OFFER.spotsLabel}
                     </p>
                   </>
                 }
@@ -470,7 +470,7 @@ export default function FallAerationOfferPage() {
               For lawns under {OFFER.sqFtLabel}
             </p>
             <p className="mt-2 text-base font-semibold text-balance text-vm-gold md:text-lg">
-              {OFFER.urgencyHeadline} — limited availability.
+              {OFFER.urgencyHeadline} — {OFFER.spotsLabel}.
             </p>
             <div className="mt-8 flex justify-center">
               <OfferCta location="final" />

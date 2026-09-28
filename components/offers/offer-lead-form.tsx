@@ -26,8 +26,11 @@ const SERVICE_ENTRY_MAX = 120
  * that page is still attributed to the ad that produced it. `sid` is included
  * for support/debugging — it ties the page view back to the Jobber request.
  */
-function buildConfirmedUrl(path: string, utms: UtmParams, sid?: string | null): string {
-  const params = new URLSearchParams()
+function buildConfirmedUrl(confirmedPath: string, utms: UtmParams, sid?: string | null): string {
+  // confirmedPath may carry its own query (e.g. ?offer=aeration-159 when two
+  // offers share one confirmation page) — keep it and append to it.
+  const [path, existing = ""] = confirmedPath.split("?")
+  const params = new URLSearchParams(existing)
   for (const [k, v] of Object.entries(utms)) {
     if (v) params.set(k, v)
   }
