@@ -21,7 +21,7 @@ export type LandingOffer = {
   primaryCta: string
   formCta: string
   stickyCta: string
-  /** Optional trailing text on the sticky bar, e.g. "$279". */
+  /** Optional trailing text on the sticky bar, e.g. "$269". */
   stickySuffix?: string
   submittingLabel: string
   successTitle: string

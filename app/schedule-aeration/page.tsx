@@ -1,9 +1,12 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { OFFER } from "@/lib/aeration-offer"
+import { OFFER as AERATION_ONLY_OFFER } from "@/lib/aeration-only-offer"
 
 /**
- * Post-submit confirmation page for the $279 aeration offer.
+ * Post-submit confirmation page for the $269 aeration + overseeding offer and
+ * the $159 aeration-only offer. The $159 form redirects here with
+ * ?offer=aeration-159, which switches the price and service shown.
  *
  * Deliberately named to match the existing /schedule-* thank-you pages: it is
  * registered in LEAD_PATHS in components/analytics-tracker.tsx, so it fires the
@@ -14,13 +17,28 @@ import { OFFER } from "@/lib/aeration-offer"
  * quote" wording — the spot is already reserved here, and the only open step is
  * confirming lawn size.
  */
-export const metadata: Metadata = {
-  title: `Your ${OFFER.priceLabel} Spot Is Reserved`,
-  description: "We'll reach out to confirm your spot on the schedule.",
-  robots: { index: false, follow: false },
+type Props = { searchParams: Promise<{ offer?: string | string[] }> }
+
+/** Which offer the visitor claimed — defaults to the $269 offer. */
+async function claimedOffer(searchParams: Props["searchParams"]) {
+  const { offer } = await searchParams
+  return offer === AERATION_ONLY_OFFER.confirmedOfferKey
+    ? { priceLabel: AERATION_ONLY_OFFER.priceLabel, sqFtLabel: AERATION_ONLY_OFFER.sqFtLabel, name: "Fall Core Aeration" }
+    : { priceLabel: OFFER.priceLabel, sqFtLabel: OFFER.sqFtLabel, name: "Fall Aeration + Overseeding" }
 }
 
-export default function ScheduleAerationPage() {
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const claimed = await claimedOffer(searchParams)
+  return {
+    title: `Your ${claimed.priceLabel} Spot Is Reserved`,
+    description: "We'll reach out to confirm your spot on the schedule.",
+    robots: { index: false, follow: false },
+  }
+}
+
+export default async function ScheduleAerationPage({ searchParams }: Props) {
+  const claimed = await claimedOffer(searchParams)
+
   return (
     <main>
       <section className="relative flex min-h-[80vh] items-center bg-vm-navy px-4 py-20 md:px-12 lg:px-20">
@@ -34,7 +52,7 @@ export default function ScheduleAerationPage() {
           </p>
 
           <h1 className="font-varsity mt-4 text-4xl tracking-wide text-white uppercase md:text-5xl lg:text-6xl">
-            Your <span className="text-vm-gold">{OFFER.priceLabel}</span> Spot Is Reserved
+            Your <span className="text-vm-gold">{claimed.priceLabel}</span> Spot Is Reserved
           </h1>
 
           <div className="mx-auto mt-6 h-[2px] w-16 bg-vm-gold" />
@@ -46,16 +64,16 @@ export default function ScheduleAerationPage() {
 
           <div className="mx-auto mt-8 max-w-sm rounded-2xl border border-vm-gold/30 bg-white/[0.06] px-6 py-5">
             <p className="font-varsity text-lg tracking-wide text-white">
-              Fall Aeration + Overseeding
+              {claimed.name}
             </p>
             <p className="font-varsity mt-1 text-4xl leading-none tracking-wide text-vm-gold">
-              {OFFER.priceLabel}
+              {claimed.priceLabel}
             </p>
-            <p className="mt-2 text-sm text-white/75">For lawns under {OFFER.sqFtLabel}</p>
+            <p className="mt-2 text-sm text-white/75">For lawns under {claimed.sqFtLabel}</p>
           </div>
 
           <p className="mt-8 text-sm text-white/55">
-            We&apos;ll confirm your lawn is under {OFFER.sqFtLabel} before scheduling. Questions in
+            We&apos;ll confirm your lawn is under {claimed.sqFtLabel} before scheduling. Questions in
             the meantime? Give us a call.
           </p>
 
