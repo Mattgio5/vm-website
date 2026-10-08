@@ -32,13 +32,13 @@ const HERO_ID = "offer-hero"
 export const metadata: Metadata = {
   title: { absolute: "Fall Gameplan | Save 10% on Fall Services | Varsity Mulching" },
   description:
-    "Need one fall service or several? Save 10% on qualifying fall services scheduled by October 1 in Bucks & Montgomery County.",
+    "Need one fall service or several? Save 10% on qualifying fall services in Bucks & Montgomery County.",
   robots: { index: false, follow: false },
   alternates: { canonical: OFFER.path },
   openGraph: {
     url: OFFER.path,
     title: "Build Your Fall Gameplan & Save 10%",
-    description: "One service or several: save 10% on qualifying fall work scheduled by October 1.",
+    description: "One service or several: save 10% on qualifying fall work.",
     images: [{ url: OFFER.heroImage, width: 1600, height: 900, alt: "Varsity Mulching fall service" }],
   },
 }
@@ -80,7 +80,7 @@ export default function FallGameplanOfferPage() {
           <div className="mx-auto grid max-w-6xl gap-8 px-4 pt-[5.5rem] pb-12 md:px-8 md:pt-32 md:pb-16 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-12 lg:pb-20">
             <div className="text-center lg:text-left">
               <p className="inline-flex items-center rounded-full border border-vm-gold/40 bg-vm-gold/15 px-4 py-1.5 text-xs font-bold tracking-[0.15em] text-vm-gold uppercase md:text-sm">
-                Schedule by {OFFER.deadlineLabel}
+                Fall Offer
               </p>
 
               <h1 className="font-varsity mt-4 text-[2rem] leading-[1.05] tracking-wide text-balance text-white sm:text-5xl lg:text-6xl">
@@ -104,7 +104,7 @@ export default function FallGameplanOfferPage() {
 
               <ul className="mx-auto mt-5 hidden max-w-md space-y-2 text-left text-base text-white/80 sm:block lg:mx-0">
                 {[
-                  `Qualifying work scheduled by ${OFFER.deadlineLabel}`,
+                  "One service or several, each qualifying service saves 10%",
                   "Services don't have to happen the same day",
                   "Free quote. You decide what to book after you see pricing",
                 ].map((point) => (

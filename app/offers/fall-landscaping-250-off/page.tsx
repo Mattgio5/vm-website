@@ -39,13 +39,13 @@ const HERO_ID = "offer-hero"
 export const metadata: Metadata = {
   title: { absolute: "Fall Landscaping Projects | $250 Off | Varsity Mulching" },
   description:
-    "Landscape redesigns, rock beds, wet mulch bed fixes, and privacy screenings in Bucks & Montgomery County. Save $250 on projects over $2,000 scheduled by October 1.",
+    "Landscape redesigns, rock beds, wet mulch bed fixes, and privacy screenings in Bucks & Montgomery County. Save $250 on projects over $2,000 scheduled by October 20.",
   robots: { index: false, follow: false },
   alternates: { canonical: OFFER.path },
   openGraph: {
     url: OFFER.path,
     title: "Save $250 On Your Fall Landscaping Project",
-    description: "Schedule by October 1. $250 off qualifying landscaping projects over $2,000.",
+    description: "Schedule by October 20. $250 off qualifying landscaping projects over $2,000.",
     images: [{ url: OFFER.heroImage, width: 764, height: 721, alt: "Redesigned front landscape bed" }],
   },
 }

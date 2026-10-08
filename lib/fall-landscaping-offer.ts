@@ -2,7 +2,7 @@
  * Fall 2026 Landscaping Projects promo: single source of truth.
  *
  * The landing page at /offers/fall-landscaping-250-off receives paid Meta
- * traffic: $250 off landscaping projects over $2,000 scheduled by October 1.
+ * traffic: $250 off landscaping projects over $2,000 scheduled by October 20.
  * The $2,000 minimum must travel with the offer everywhere it's shown
  * prominently, so it lives here next to the discount.
  *
@@ -17,15 +17,15 @@ export const OFFER = {
   discount: 250,
   discountLabel: "$250 Off",
   minimumLabel: "$2,000",
-  deadlineLabel: "October 1",
-  deadlineIso: "2026-10-01",
+  deadlineLabel: "October 20",
+  deadlineIso: "2026-10-20",
   /** Shown under every prominent mention of the offer. */
   qualifier: "$250 off qualifying landscaping projects over $2,000.",
   disclaimer:
-    "$250 discount applies to landscaping projects over $2,000 scheduled by October 1, 2026. The discount is applied to your quote.",
+    "$250 discount applies to landscaping projects over $2,000 scheduled by October 20, 2026. The discount is applied to your quote.",
   service: "Fall Landscaping Project",
   /** services[1] on the lead, so the promo is obvious in Jobber. */
-  jobberTag: "*** $250 OFF FALL LANDSCAPING (PROJECTS OVER $2,000) - SCHEDULED BY OCT 1 ***",
+  jobberTag: "*** $250 OFF FALL LANDSCAPING (PROJECTS OVER $2,000) - SCHEDULED BY OCT 20 ***",
   cta: "Schedule My Free Quote",
   stickyCta: "Get My Free Quote",
   trustLine: [

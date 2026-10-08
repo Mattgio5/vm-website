@@ -8,7 +8,7 @@
  *
  * It is an early-planning offer, NOT a bundle, loyalty reward or package: one
  * qualifying fall service gets 10% off, and anything else added to the plan
- * gets 10% off too, as long as it's scheduled by the deadline below.
+ * gets 10% off too. There is no scheduling deadline.
  */
 
 import type { LandingOffer } from "@/lib/landing-offer"
@@ -16,15 +16,13 @@ import type { LandingOffer } from "@/lib/landing-offer"
 export const OFFER = {
   discountPct: 10,
   discountLabel: "10%",
-  deadlineLabel: "October 1",
-  deadlineIso: "2026-10-01",
   disclaimer:
-    "10% discount applies to qualifying fall services scheduled by October 1. Service minimums or exclusions may apply.",
+    "10% discount applies to qualifying fall services. Service minimums or exclusions may apply.",
   serviceArea: "Serving Bucks & Montgomery County",
   /** services[0] on the lead — Supabase `service_primary`. */
   service: "Fall Gameplan",
   /** services[1] on the lead — see LandingOffer.jobberTag. */
-  jobberTag: "*** FALL GAMEPLAN 10% OFF — QUALIFYING WORK SCHEDULED BY OCT 1 ***",
+  jobberTag: "*** FALL GAMEPLAN 10% OFF — QUALIFYING WORK ***",
   cta: "Build My Fall Gameplan",
   path: "/offers/fall-gameplan-10-off",
   /** Registered in LEAD_PATHS (components/analytics-tracker.tsx). */
@@ -109,11 +107,7 @@ export const OFFER_FAQS = [
   },
   {
     question: "Can I add another service after I request my quote?",
-    answer: `Yes. If there is another fall project you are considering, let us know. We can review it and determine whether it can be added to your Fall Gameplan. Added work qualifies for the ${OFFER.discountLabel} discount only if it is scheduled by ${OFFER.deadlineLabel}.`,
-  },
-  {
-    question: "When do I need to schedule by?",
-    answer: `Qualifying fall work must be scheduled by ${OFFER.deadlineLabel} to receive the ${OFFER.discountLabel} Fall Gameplan discount.`,
+    answer: `Yes. If there is another fall project you are considering, let us know. We can review it and determine whether it can be added to your Fall Gameplan. Added qualifying work receives the ${OFFER.discountLabel} discount too.`,
   },
   {
     question: "Do you haul away leaves?",

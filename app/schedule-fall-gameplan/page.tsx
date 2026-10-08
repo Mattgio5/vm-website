@@ -45,7 +45,7 @@ export default function ScheduleFallGameplanPage() {
               Save {OFFER.discountLabel}
             </p>
             <p className="mt-2 text-sm text-white/75">
-              On qualifying fall services scheduled by {OFFER.deadlineLabel}
+              On qualifying fall services
             </p>
           </div>
 
