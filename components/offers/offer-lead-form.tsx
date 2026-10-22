@@ -89,6 +89,7 @@ export function OfferLeadForm({
   serviceAliases,
   servicesLegend = "Which services are you considering?",
   servicesHint,
+  serviceSelect = "multi",
 }: {
   /** Offer restated on the form itself, above the fields. Omit when the form sits in the hero. */
   header?: React.ReactNode
@@ -105,6 +106,8 @@ export function OfferLeadForm({
   serviceAliases?: Record<string, string>
   servicesLegend?: string
   servicesHint?: string
+  /** "single" renders the picker as radios — for mutually exclusive options. */
+  serviceSelect?: "multi" | "single"
 }) {
   const { offer, utms, landingReferrer } = useOfferTracking()
 
@@ -132,11 +135,15 @@ export function OfferLeadForm({
     const matches = serviceOptions.filter(
       (o) => wanted.includes(slugify(o)) || aliased.includes(o),
     )
-    if (matches.length) setSelected(matches)
+    if (matches.length) setSelected(serviceSelect === "single" ? matches.slice(0, 1) : matches)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [optionsKey])
 
   function toggleService(label: string) {
+    if (serviceSelect === "single") {
+      setSelected([label])
+      return
+    }
     setSelected((prev) =>
       prev.includes(label) ? prev.filter((s) => s !== label) : [...prev, label],
     )
@@ -297,7 +304,7 @@ export function OfferLeadForm({
                         }`}
                       >
                         <input
-                          type="checkbox"
+                          type={serviceSelect === "single" ? "radio" : "checkbox"}
                           name="services"
                           value={label}
                           checked={checked}
@@ -307,7 +314,9 @@ export function OfferLeadForm({
                         />
                         <span
                           aria-hidden="true"
-                          className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border ${
+                          className={`flex h-5 w-5 shrink-0 items-center justify-center border ${
+                            serviceSelect === "single" ? "rounded-full" : "rounded-md"
+                          } ${
                             checked ? "border-vm-gold bg-vm-gold" : "border-white/40"
                           }`}
                         >

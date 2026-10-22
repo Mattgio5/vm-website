@@ -2,34 +2,36 @@
  * Fall 2026 Leaf Cleanup & Removal promo — single source of truth.
  *
  * The landing page at /offers/leaf-cleanup-100-off receives paid Meta and
- * Google traffic and has to hold exact message match with the ads: $100 off
- * qualifying leaf cleanups scheduled by October 15. Every mention of the offer
- * on the page reads from here, so the wording never drifts between sections,
- * and changing the deadline is a one-line edit.
+ * Google traffic and has to hold exact message match with the three ad
+ * creatives: "Take Back Your Fall Weekends", "Leaf Cleanup — $100 Off" and
+ * "We Clear. We Collect. We Haul Away." Every mention of the offer on the page
+ * reads from here, so the wording never drifts between sections.
+ *
+ * The offer runs for the rest of the fall leaf season with no fixed end date —
+ * don't add a deadline back unless one is actually set.
  *
  * Positioning: the customer is buying convenience (no raking, bagging or
- * hauling). Lawn health is a secondary point only.
+ * hauling). Many prospects hold off because leaves are still on the trees, so
+ * the page also has to explain that quoting now ≠ cleaning now.
  */
 
-import { Leaf, Sparkles, Truck, Wind } from "lucide-react"
+import { Recycle, Scissors, Shovel, Truck, Wind } from "lucide-react"
 import type { LandingOffer } from "@/lib/landing-offer"
 
 export const OFFER = {
   discount: 100,
   discountLabel: "$100 Off",
-  deadlineLabel: "October 15",
-  deadlineIso: "2026-10-15",
-  headline: "Professional Leaf Cleanup & Removal",
-  /** The exact offer line from the ads. Use it verbatim. */
-  offerLine: "$100 Off Leaf Cleanups Scheduled by October 15",
-  qualifyingOfferLine: "$100 Off Qualifying Leaf Cleanups Scheduled by October 15",
+  eyebrow: "Bucks & Montgomery County Homeowners",
+  headline: "Take Back Your Fall Weekends.",
+  offerHeadline: "Get $100 Off Leaf Cleanup & Removal",
+  urgencyLine: "Limited spots available on our fall cleanup schedule.",
   disclaimer:
-    "$100 discount applies to qualifying leaf cleanup services scheduled by October 15. Minimum service requirements or other restrictions may apply.",
+    "$100 discount applies to qualifying leaf cleanup services. Minimum service requirements or other restrictions may apply.",
   serviceArea: "Serving Bucks & Montgomery County",
   service: "Leaf Cleanup & Removal",
   /** services[1] on the lead — see LandingOffer.jobberTag. */
-  jobberTag: "*** $100 OFF LEAF CLEANUP OFFER — SCHEDULED BY OCT 15 ***",
-  cta: "Get My Free Quote",
+  jobberTag: "*** $100 OFF LEAF CLEANUP OFFER ***",
+  cta: "Get My Free Quote →",
   path: "/offers/leaf-cleanup-100-off",
   /** Registered in LEAD_PATHS (components/analytics-tracker.tsx). */
   confirmedPath: "/schedule-leaf-cleanup",
@@ -48,65 +50,111 @@ export const LEAF_LANDING: LandingOffer = {
   jobberTag: OFFER.jobberTag,
   primaryCta: OFFER.cta,
   formCta: OFFER.cta,
-  stickyCta: OFFER.cta,
+  // The arrow would collide with the "— $100 Off" suffix on the sticky bar.
+  stickyCta: "Get My Free Quote",
   stickySuffix: OFFER.discountLabel,
   submittingLabel: "Sending your request…",
   successTitle: "Request Received",
-  successBody: "We'll reach out shortly to set up your free leaf cleanup quote.",
+  successBody:
+    "We'll reach out shortly to confirm pricing and coordinate your cleanup timing.",
   trackingParams: {
     content_name: `Leaf Cleanup ${OFFER.discountLabel}`,
     offer_discount: OFFER.discount,
   },
 }
 
-/** Convenience section — four benefits, one line each. */
-export const BENEFITS = [
-  {
-    icon: Leaf,
-    title: "Lawn & landscape bed leaf cleanup",
-    body: "We clear the lawn and the beds, not just the open grass.",
-  },
-  {
-    icon: Wind,
-    title: "Professional backpack blowing",
-    body: "Pro-grade blowers move heavy leaf cover fast.",
-  },
-  {
-    icon: Truck,
-    title: "Leaf collection & removal",
-    body: "Leaves are hauled off your property. No bags left at the curb.",
-  },
-  {
-    icon: Sparkles,
-    title: "Final property cleanup",
-    body: "We tidy up the serviced areas before we leave.",
-  },
+/** Hero trust row — short enough to sit under the CTA on a phone. */
+export const HERO_TRUST = [
+  "300+ Five-Star Reviews",
+  "Rated 5.0 on Google",
+  "Locally Owned & Operated",
+  "Experienced Crew Leads",
 ] as const
 
-export const INCLUDED = [
-  "Blow and clear leaves from lawns",
-  "Clear leaves from landscape beds",
-  "Collect and consolidate leaves",
-  "Haul the collected leaves away",
-  "Perform a final cleanup of serviced areas",
-] as const
-
-export const HOW_IT_WORKS = [
+/** "We Clear. We Collect. We Haul Away." — mirrors the third ad creative. */
+export const PROCESS = [
   {
     step: "01",
-    title: "Request Your Free Quote",
-    body: "Tell us a little about your property and the cleanup you're looking for.",
+    icon: Wind,
+    title: "We Clear",
+    body: "Our crew clears fallen leaves from your lawn using professional equipment.",
   },
   {
     step: "02",
-    title: "Get Your Estimate",
-    body: "Our team will assess the property and provide pricing for the cleanup.",
+    icon: Shovel,
+    title: "We Collect",
+    body: "We gather the leaves and prepare them for removal.",
   },
   {
     step: "03",
-    title: "We Handle the Leaves",
-    body: "Our crew completes the cleanup, removes the leaves, and leaves the serviced areas cleaned up.",
+    icon: Truck,
+    title: "We Haul Away",
+    body: "We remove the collected leaves from your property. No bags left at the curb.",
   },
+] as const
+
+/**
+ * The two packages. Bed leaf removal is only in Complete Fall Cleanup — the
+ * standard package is lawns only, so never list beds under it.
+ */
+export const SERVICE_OPTIONS = [
+  {
+    icon: Recycle,
+    name: "Leaf Cleanup & Removal",
+    tag: "Our standard package",
+    intro: "Our standard package includes:",
+    items: [
+      "Clearing fallen leaves from lawns",
+      "Collecting leaves",
+      "Hauling collected leaves off the property",
+      "Tidying serviced areas",
+    ],
+  },
+  {
+    icon: Scissors,
+    name: "Complete Fall Cleanup",
+    tag: "Full winter prep",
+    intro: "For homeowners who want additional winter property preparation:",
+    items: [
+      "Everything in our standard leaf cleanup",
+      "Leaf removal from landscape beds",
+      "Appropriate seasonal pruning",
+      "Additional bed maintenance as specified in the quote",
+    ],
+  },
+] as const
+
+/** Optional picker on the form. Sent to Jobber as its own `services` entry. */
+export const FORM_SERVICE_OPTIONS = [
+  "Leaf Cleanup & Removal",
+  "Complete Fall Cleanup",
+  "Not Sure Yet",
+] as const
+
+/** "Leaves haven't fallen yet?" section — quote now, clean up after the drop. */
+export const SCHEDULING_STEPS = [
+  {
+    step: "1",
+    title: "Request Your Free Quote",
+    body: "Tell us about your property and the cleanup you're looking for.",
+  },
+  {
+    step: "2",
+    title: "Review Your Estimate",
+    body: "We'll assess your property and provide clear pricing before any work is scheduled.",
+  },
+  {
+    step: "3",
+    title: "Reserve Your Cleanup",
+    body: "Once you approve your quote, we'll coordinate your cleanup around the leaf drop and our available schedule.",
+  },
+] as const
+
+export const OFFER_BENEFITS = [
+  "Free, no-obligation quote",
+  "No need to rake or bag leaves beforehand",
+  "Leaves collected and hauled away",
+  "Cleanup coordinated around the fall season",
 ] as const
 
 /**
@@ -118,32 +166,37 @@ export const OFFER_REVIEW_NAMES = ["Rich Rudnet", "John Salvatore", "Stephen Cil
 
 export const OFFER_FAQS = [
   {
-    question: "Do you haul the leaves away?",
+    question: "Can I get a quote even if my leaves haven't fallen yet?",
     answer:
-      "Yes. As part of our leaf cleanup and removal service, collected leaves are hauled away from your property. They are taken to a composting site where the organic material can be repurposed into materials such as compost and mulch.",
+      "Yes! We can assess your property and provide a quote before the leaves fall. Once you approve your estimate, we'll coordinate the cleanup around the leaf drop and available scheduling.",
+  },
+  {
+    question: "Do you haul away the leaves?",
+    answer:
+      "Yes. Our team collects and removes the leaves from your property rather than leaving bags at the curb.",
   },
   {
     question: "Do you clean leaves out of landscape beds?",
     answer:
-      "Yes. Our crews can clear leaves from lawns and landscape beds as part of the cleanup. The exact scope of work will be outlined in your quote.",
+      "Yes. Landscape bed leaf removal is available as part of our Complete Fall Cleanup service. We'll make sure your estimate clearly specifies the areas included.",
   },
   {
-    question: "Do I need to bag the leaves beforehand?",
+    question: "Do I need to rake or bag leaves first?",
+    answer: "No. Our crew handles clearing, collecting, and hauling the leaves.",
+  },
+  {
+    question: "Can I schedule multiple cleanups?",
     answer:
-      "No. Our crews handle the blowing, collection, and removal. You do not need to rake or bag the leaves before we arrive.",
+      "Yes, depending on availability. Let us know if you're interested in multiple visits during the season and we'll discuss your options.",
   },
   {
-    question: "Can I schedule more than one cleanup during the fall?",
+    question: "When will my cleanup take place?",
     answer:
-      "Yes. Some properties benefit from multiple cleanups as leaves continue to fall. If you are interested in recurring or multiple visits, let us know when requesting your quote.",
+      "We'll coordinate scheduling based on the fall leaf drop, your property's needs, and our crew availability.",
   },
   {
-    question: `Does the $${OFFER.discount} discount apply to every cleanup?`,
-    answer: `The $${OFFER.discount} offer applies to qualifying leaf cleanup services scheduled by ${OFFER.deadlineLabel}. Any minimum service requirements or exclusions will be clearly communicated in your quote before you approve it.`,
-  },
-  {
-    question: "When should I schedule my cleanup?",
+    question: `How does the $${OFFER.discount} discount work?`,
     answer:
-      "Fall schedules can fill quickly during peak leaf drop. If you know you'll need service, request a quote early so we can work you into the schedule.",
+      "The discount applies to qualifying fall leaf cleanup services. Your estimate will explain the applicable pricing and offer terms.",
   },
 ] as const
