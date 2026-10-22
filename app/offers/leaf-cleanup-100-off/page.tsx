@@ -126,21 +126,12 @@ export default function LeafCleanupOfferPage() {
 
               {/* The offer, set as a scoreboard figure so it reads at a glance. */}
               <p className="vm-reveal mt-3 md:mt-5" style={{ animationDelay: "120ms" }}>
-                <span className="block text-lg font-bold text-white md:text-2xl">Get</span>
                 <span className="font-varsity block text-[3.5rem] leading-[0.95] tracking-wide text-vm-gold md:text-7xl">
                   {OFFER.discountLabel}
                 </span>
                 <span className="mt-1.5 block text-lg font-bold text-white md:text-2xl">
                   Leaf Cleanup &amp; Removal
                 </span>
-              </p>
-
-              <p
-                className="vm-reveal mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/85 md:mt-5 md:text-lg lg:mx-0"
-                style={{ animationDelay: "200ms" }}
-              >
-                Skip the raking, bagging, and hauling. Our team clears, collects, and hauls away
-                your leaves so you can enjoy your fall weekends.
               </p>
 
               <div
