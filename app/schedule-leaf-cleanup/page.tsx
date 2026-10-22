@@ -45,7 +45,7 @@ export default function ScheduleLeafCleanupPage() {
               {OFFER.discountLabel}
             </p>
             <p className="mt-2 text-sm text-white/75">
-              Qualifying cleanups scheduled by {OFFER.deadlineLabel}
+              On qualifying leaf cleanup services
             </p>
           </div>
 
