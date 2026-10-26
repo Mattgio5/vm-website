@@ -6,9 +6,6 @@ import Link from "next/link"
 import { SITE_URL } from "@/lib/site"
 import { AerationFAQ } from "@/components/services/aeration-faq"
 import { aerationFaqs } from "@/lib/aeration-faqs"
-import { AerationQuoteForm } from "@/components/services/aeration-quote-form"
-import { AerationCtaLink } from "@/components/services/aeration-cta-link"
-import { OFFER as AERATION_OFFER } from "@/lib/aeration-offer"
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -21,7 +18,7 @@ import {
 export const metadata: Metadata = {
   title: "Core Aeration & Overseeding in Bucks County, PA",
   description:
-    "Late-summer and early-fall core aeration and overseeding to relieve soil compaction and grow a thicker lawn. Serving Doylestown, Newtown and nearby.",
+    "Core aeration and overseeding in Bucks & Montgomery County. We're no longer taking on aeration customers for the 2026 season and may resume in spring 2027.",
   alternates: { canonical: "/services/aeration-overseeding" },
   openGraph: { url: "/services/aeration-overseeding" },
 }
@@ -95,7 +92,9 @@ export default function AerationOverseedingPage() {
       />
       <Navbar />
 
-      {/* Hero Section — two-column: copy + fall offer left, quote form right */}
+      {/* Hero Section — two-column: copy left, season-closed notice right.
+          The 2026 season is over (too cold for seed to establish); the quote
+          form and $269 offer come back if we reopen in spring 2027. */}
       <section className="relative w-full overflow-visible">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <Image
@@ -140,30 +139,41 @@ export default function AerationOverseedingPage() {
               Loosen compacted soil and help thin lawns grow back thicker.
             </p>
 
-            {/* Fall offer — funnels to the paid-traffic landing page */}
-            <div className="mt-6 max-w-lg rounded-2xl border border-vm-gold/40 bg-vm-navy/60 p-5 backdrop-blur-sm">
-              <p className="text-xs font-bold tracking-[0.15em] text-vm-gold uppercase">Fall Offer</p>
-              <p className="mt-1.5 text-lg font-semibold text-white">
-                <span className="font-varsity text-3xl leading-none tracking-wide text-vm-gold">
-                  {AERATION_OFFER.priceLabel}
-                </span>{" "}
-                aeration + overseeding for lawns under {AERATION_OFFER.sqFtLabel}
-              </p>
-              <p className="mt-1.5 text-sm leading-relaxed text-white/75">
-                {AERATION_OFFER.urgencyHeadline}.
-              </p>
-              <Link
-                href={AERATION_OFFER.path}
-                className="mt-4 inline-flex rounded-full bg-vm-gold px-6 py-3 text-sm font-semibold text-vm-navy transition-all hover:bg-vm-gold/90 hover:shadow-lg"
-              >
-                {AERATION_OFFER.primaryCta}
-              </Link>
-            </div>
           </div>
 
-          {/* Right: embedded quote form */}
+          {/* Right: season-closed notice */}
           <div className="md:pl-2 lg:pl-6">
-            <AerationQuoteForm />
+            <div className="rounded-3xl border border-vm-gold/40 bg-vm-navy/85 p-6 shadow-2xl backdrop-blur-sm md:p-8">
+              <p className="text-xs font-bold tracking-[0.15em] text-vm-gold uppercase">
+                2026 Season Closed
+              </p>
+              <h2 className="font-varsity mt-2 text-2xl leading-tight tracking-wide text-white md:text-3xl">
+                No Longer Taking On Customers for the 2026 Season
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-white/85">
+                It&apos;s now too cold for aeration and overseeding. New grass seed needs warm soil
+                to germinate and enough time to establish before winter, and that window has closed
+                for this year.
+              </p>
+              <p className="mt-3 text-base leading-relaxed text-white/85">
+                We may start back up in spring 2027. Thanks to everyone who trusted us with their
+                lawns this fall!
+              </p>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/services/fall-cleanup"
+                  className="inline-flex justify-center rounded-full bg-vm-gold px-6 py-3 text-sm font-semibold text-vm-navy transition-all hover:bg-vm-gold/90 hover:shadow-lg"
+                >
+                  See Fall Cleanup
+                </Link>
+                <a
+                  href="tel:+12673899789"
+                  className="inline-flex justify-center rounded-full border-2 border-white/40 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-white/10"
+                >
+                  (267) 389-9789
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -271,14 +281,10 @@ export default function AerationOverseedingPage() {
                 before facing the next summer.
               </p>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-                Because this growing window is limited, aeration and overseeding are offered seasonally and
-                scheduling fills quickly.
+                Because this growing window is limited, aeration and overseeding are offered seasonally.
+                Once the soil cools in late fall, seed can no longer establish, which is why our 2026
+                season is now closed.
               </p>
-              <div className="mt-6">
-                <AerationCtaLink className="inline-flex rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light">
-                  Request Your Fall Lawn Quote
-                </AerationCtaLink>
-              </div>
             </div>
 
             {/* FAQ */}
@@ -295,14 +301,17 @@ export default function AerationOverseedingPage() {
           {/* Right column - sticky sidebar */}
           <div className="lg:sticky lg:top-32 lg:self-start">
             <div className="rounded-2xl border border-vm-blue/30 bg-vm-blue/10 p-6">
-              <h3 className="font-varsity text-xl tracking-wide text-vm-navy uppercase">Get a Free Quote</h3>
+              <h3 className="font-varsity text-xl tracking-wide text-vm-navy uppercase">2026 Season Closed</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Scheduling fills quickly during our late-summer and early-fall aeration window.
+                It&apos;s too cold to aerate and overseed. We may start back up in spring 2027.
               </p>
               <div className="mt-5 flex flex-col gap-3">
-                <AerationCtaLink className="inline-flex justify-center rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light">
-                  Request Quote
-                </AerationCtaLink>
+                <Link
+                  href="/services/fall-cleanup"
+                  className="inline-flex justify-center rounded-full bg-vm-navy px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-vm-navy-light"
+                >
+                  See Fall Cleanup
+                </Link>
                 <a
                   href="tel:+12673899789"
                   className="inline-flex justify-center rounded-full border-2 border-vm-navy px-6 py-3 text-sm font-semibold text-vm-navy transition-all hover:bg-vm-navy hover:text-white"
@@ -347,22 +356,25 @@ export default function AerationOverseedingPage() {
         </div>
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="font-varsity text-2xl tracking-wide text-vm-navy md:text-3xl uppercase">
-            Ready for a Thicker Lawn This Fall?
+            Aeration Is Done for 2026
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-base text-vm-navy/70">
-            Aeration and overseeding scheduling fills quickly — request your quote today to lock in a spot
-            in the late-summer and early-fall window.
+            We&apos;re no longer taking on aeration and overseeding customers this season and may start
+            back up in spring 2027. Still need help getting the yard ready for winter?
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
-              href={AERATION_OFFER.path}
+              href="/services/fall-cleanup"
               className="inline-flex rounded-full bg-vm-gold px-7 py-3.5 text-base font-semibold text-vm-navy transition-all hover:bg-vm-gold/90 hover:shadow-lg"
             >
-              {AERATION_OFFER.primaryCta}
+              See Fall Cleanup
             </Link>
-            <AerationCtaLink className="inline-flex rounded-full bg-vm-navy px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg">
+            <Link
+              href="/schedule-a-quote"
+              className="inline-flex rounded-full bg-vm-navy px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-vm-navy-light hover:shadow-lg"
+            >
               Get a Quote
-            </AerationCtaLink>
+            </Link>
           </div>
         </div>
       </section>
