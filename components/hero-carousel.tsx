@@ -8,6 +8,7 @@ import {
   formatAddress,
   validateAddressParts,
   HEAR_ABOUT_OPTIONS,
+  SERVICE_OPTIONS,
   type UtmParams,
 } from "@/lib/quote-intake"
 import {
@@ -20,21 +21,37 @@ import { FallAvailability } from "@/components/fall-availability"
 const GOOGLE_REVIEWS_URL =
   "https://www.google.com/search?q=varsity+mulching&oq=varsity+mulching&gs_lcrp=EgZjaHJvbWUqDAgAECMYJxiABBiKBTIMCAAQIxgnGIAEGIoFMhAIARAuGK8BGMcBGIAEGI4FMgcIAhAAGIAEMggIAxAAGBYYHjIICAQQABgWGB4yBggFEEUYPDIGCAYQRRg8MgYIBxBFGDzSAQgyOTUxajBqNKgCAbACAfEFGOyPwE2C6og&sourceid=chrome&ie=UTF-8"
 
-const SERVICE_OPTIONS = [
-  "Mulching",
-  "Edging",
-  "Weeding",
-  "Cleanup",
-  "Bush Trimming",
-  "Bush Removal",
-  "Plant Design & Install",
-  "Rock Installation",
-  "Drainage Project",
-  "Chemical Weed Treatment",
-  "Follow-on Maintenance",
-]
+// Quote-form checklist lives in lib/quote-intake.ts so it changes with the season in one place.
 
-export function HeroCarousel() {
+/** Hero copy, swappable per season. Defaults are the spring/mulch version. */
+export type HeroContent = {
+  eyebrow: string
+  headlineTop: string
+  headlineAccent: string
+  subhead: string
+}
+
+const DEFAULT_CONTENT: HeroContent = {
+  eyebrow: "Welcome to Varsity Mulching",
+  headlineTop: "Promote Your Yard",
+  headlineAccent: "to Varsity.",
+  subhead: "Fresh mulch, expertly installed. Because JV-level landscaping isn't going to cut it.",
+}
+
+export function HeroCarousel({
+  content = DEFAULT_CONTENT,
+  overlay,
+  aside,
+  showAvailability = true,
+}: {
+  content?: HeroContent
+  /** Decoration drawn over the video but under the copy and form (e.g. falling leaves). */
+  overlay?: React.ReactNode
+  /** Extra block under the availability badge (e.g. a current offer). */
+  aside?: React.ReactNode
+  /** The "Fall Availability: Open" badge under the subhead. */
+  showAvailability?: boolean
+} = {}) {
   const [showVideo, setShowVideo] = useState(false)
 
   useEffect(() => {
@@ -47,7 +64,7 @@ export function HeroCarousel() {
 
   return (
     <section
-      className="relative w-full md:h-screen"
+      className="relative flex w-full flex-col md:min-h-screen"
       style={{ minHeight: "640px" }}
     >
       {/* Background layers live in their own clipped wrapper so the Mapbox
@@ -79,26 +96,30 @@ export function HeroCarousel() {
         )}
         <div className="absolute inset-0 bg-gradient-to-r from-vm-navy/85 via-vm-navy/65 to-vm-navy/45" />
         <div className="absolute inset-0 bg-vm-navy/30" />
+        {overlay}
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-8 px-4 pt-24 pb-10 md:h-full md:grid-cols-2 md:gap-10 md:px-12 md:pt-24 md:pb-8 lg:gap-14 lg:px-20">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-8 px-4 pt-24 pb-10 md:flex-1 md:grid-cols-2 md:gap-10 md:px-12 md:pt-24 md:pb-12 lg:gap-14 lg:px-20">
         {/* Left: text overlay */}
         <div className="flex flex-col justify-center text-white">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-vm-gold drop-shadow md:text-sm">
-            Welcome to Varsity Mulching
+            {content.eyebrow}
           </p>
           <h1 className="mt-3 font-varsity text-5xl uppercase leading-[0.95] tracking-wide drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl">
-            Promote Your Yard
+            {content.headlineTop}
             <br />
-            <span className="text-vm-gold">to Varsity.</span>
+            <span className="text-vm-gold">{content.headlineAccent}</span>
           </h1>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/90 drop-shadow md:text-base lg:text-lg">
-            Fresh mulch, expertly installed. Because JV-level landscaping isn&apos;t going to cut it.
+            {content.subhead}
           </p>
-          <div className="mt-6">
-            <FallAvailability tone="dark" />
-          </div>
+          {showAvailability && (
+            <div className="mt-6">
+              <FallAvailability tone="dark" />
+            </div>
+          )}
+          {aside}
         </div>
 
         {/* Right: quick quote + reviews */}
@@ -510,7 +531,7 @@ function GoogleReviewsCard() {
           <p className="flex items-baseline gap-2 text-sm font-semibold text-white">
             <span className="text-2xl font-extrabold leading-none text-vm-gold">5.0</span>
             <span className="text-white/40">·</span>
-            <span>280+ 5-Star Reviews</span>
+            <span>300+ 5-Star Reviews</span>
           </p>
         </div>
       </div>

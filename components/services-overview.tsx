@@ -3,6 +3,12 @@ import Link from "next/link"
 
 const services = [
   {
+    title: "Fall Cleanup",
+    description:
+      "Whole-property leaf and debris haul-away to put your yard to bed for winter.",
+    href: "/services/fall-cleanup",
+  },
+  {
     title: "Mulch Installation",
     description:
       "High-quality coverage to protect soil and pop your colors.",
@@ -27,26 +33,25 @@ const services = [
     href: "/services/bed-cleanup",
   },
   {
-    title: "Fall Cleanup",
-    description:
-      "Whole-property leaf and debris haul-away to put your yard to bed for winter.",
-    href: "/services/fall-cleanup",
-  },
-  {
     title: "Supplements",
     description:
       "Bush trimming, planting, and the extras that round out your yard.",
     href: "/services/supplements",
   },
-  {
-    title: "Core Aeration & Overseeding",
-    description:
-      "Relieve soil compaction and grow a thicker lawn — offered seasonally.",
-    href: "/services/aeration-overseeding",
-  },
 ]
 
-export function ServicesOverview() {
+export function ServicesOverview({
+  eyebrow = "What We Do",
+  heading = "Our Core Services",
+  intro = "From a full spring cleanup to a simple mulch and edge touch-up, we bring the Varsity standard to every job.",
+  exclude = [],
+}: {
+  eyebrow?: string
+  heading?: string
+  intro?: string
+  /** Service titles to leave out, e.g. ones already featured higher on the page. */
+  exclude?: readonly string[]
+} = {}) {
   return (
     <section id="services" className="relative bg-background px-4 py-20 md:px-12 md:py-28 lg:px-20">
       {/* Varsity stripes - two thick parallel lines */}
@@ -59,13 +64,13 @@ export function ServicesOverview() {
         <div className="mb-12 grid gap-8 md:mb-16 md:grid-cols-2 md:items-center md:gap-12">
           <div className="max-w-2xl">
             <p className="mb-3 text-sm font-semibold tracking-widest text-vm-gold-dark uppercase">
-              What We Do
+              {eyebrow}
             </p>
             <h2 className="font-varsity text-3xl tracking-wide text-vm-navy md:text-4xl lg:text-5xl text-balance uppercase">
-              Our Core Services
+              {heading}
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-              From a full spring cleanup to a simple mulch and edge touch-up, we bring the Varsity standard to every job.
+              {intro}
             </p>
           </div>
           <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-border shadow-lg">
@@ -81,7 +86,7 @@ export function ServicesOverview() {
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
+          {services.filter((service) => !exclude.includes(service.title)).map((service) => (
             <Link
               key={service.title}
               href={service.href}

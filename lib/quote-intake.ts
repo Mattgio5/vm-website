@@ -1,6 +1,9 @@
 import { z } from "zod"
 
-export const SERVICE_OPTIONS = [
+/** Every service we quote, across all seasons. */
+export const ALL_SERVICE_OPTIONS = [
+  "Leaf Cleanup",
+  "Fall Cleanup",
   "Mulching",
   "Edging",
   "Weeding",
@@ -14,11 +17,26 @@ export const SERVICE_OPTIONS = [
   "Follow-on Maintenance",
 ] as const
 
+/**
+ * What the quote-form checklists offer right now (homepage hero form and
+ * /schedule-a-quote). Late fall: only work we can actually do before winter.
+ * In spring, point this back at ALL_SERVICE_OPTIONS (or a spring subset).
+ */
+export const SERVICE_OPTIONS: readonly (typeof ALL_SERVICE_OPTIONS)[number][] = [
+  "Leaf Cleanup",
+  "Fall Cleanup",
+  "Bush Trimming",
+  "Bush Removal",
+  "Rock Installation",
+  "Drainage Project",
+]
+
+/** "Ideal Timing" on /schedule-a-quote. Seasonal — update with SERVICE_OPTIONS. */
 export const TIMING_OPTIONS = [
   "Within Two Weeks",
-  "August",
-  "September",
-  "After September",
+  "This Month",
+  "Before Winter",
+  "Spring 2027",
   "No Preference",
 ] as const
 

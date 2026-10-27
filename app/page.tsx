@@ -1,14 +1,5 @@
 import type { Metadata } from "next"
-import { Navbar } from "@/components/navbar"
-import { HeroCarousel } from "@/components/hero-carousel"
-import { ServicesOverview } from "@/components/services-overview"
-import { WinningRosterSection } from "@/components/winning-roster-section"
-import { MoreThanMulchSection } from "@/components/more-than-mulch-section"
-import { ServiceAreaSection } from "@/components/service-area-section"
-import { TestimonialsSection } from "@/components/testimonials-section"
-import { CtaSection } from "@/components/cta-section"
-import { Footer } from "@/components/footer"
-import { MobileCallButton } from "@/components/mobile-call-button"
+import { FallHomePage } from "@/components/home/home-page"
 import { SITE_URL, absoluteUrl } from "@/lib/site"
 
 export const metadata: Metadata = {
@@ -69,7 +60,7 @@ const jsonLd = {
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5",
-    "reviewCount": "271",
+    "reviewCount": "300",
     "bestRating": "5",
     "worstRating": "1"
   },
@@ -117,16 +108,9 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Navbar />
-      <HeroCarousel />
-      <MoreThanMulchSection />
-      <ServicesOverview />
-      <WinningRosterSection />
-      <TestimonialsSection />
-      <ServiceAreaSection />
-      <CtaSection />
-      <Footer />
-      <MobileCallButton />
+      {/* Fall version. The spring "classic" homepage is ClassicHomePage in
+          components/home/home-page.tsx (preview: /preview/home/classic). */}
+      <FallHomePage />
     </main>
   )
 }
